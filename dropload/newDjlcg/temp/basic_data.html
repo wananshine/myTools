@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title></title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!--#include file="temp/userCenterTop.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<div class="width_main">
+    <div class="orders_content bg_white">
+        <p class="order_con_title border_b coupon_title">
+            <span class="fl f_c_333">基本资料</span>
+        </p>
+        <div class="pos_rel basic_main">
+            <div class="basic_img">
+                <div id="image_wrap"></div>
+                <input type="file" id="image" class="Nhide" data="false">
+                <img src="../img/icon-avatar.png" />
+            </div>
+            <p class="fs_12px f_c_666 basic_cue">仅支持格式为gif、jpg、png，大小在4M以内的图片。<span class="blue fs_13px text-dec mar_l_10px curP" id="updateImg">上传头像</span><img src="../img/icon_help.png" /></p>
+            <ul class="basic_input">
+                <li>
+                    <span class="fs_14px basic_text1"><b class="red">*</b>用户名</span>
+                    <input type="text" class="input" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" />
+                    <i class="chose_color fl"></i>
+                    <p class="fs_12px basic_text2 f_c_999 Nhide">支持中文、字母、数字的组合,4-20个字符</p>
+                    <p class="fs_12px basic_text2 red Nhide" data="false">格式错误，仅支持中文、字母、数字的组合,4-20个字符</p>
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1">性别</span>
+                    <input type="radio" name="sex" value="男" class="mar_l_10px" checked />&nbsp;男
+                    <input type="radio" name="sex" value="女" class="mar_l_20px" />&nbsp;女
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1"><b class="red">*</b>真实姓名</span>
+                    <input type="text" class="input" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" />
+                    <i class="chose_color fl"></i>
+                    <p class="fs_12px basic_text2 f_c_999 Nhide">2-20位字符，可有英文或中文组成</p>
+                    <p class="fs_12px basic_text2 red Nhide" data="false">格式错误，请输入2-20位字符，可有英文或中文组成</p>
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1 fl"><b class="red">*</b>手机号码</span>
+                    <input class="input fl basic_input_ban" type="text" value="18680302437" disabled="disabled">
+                    <i class="icon_phone fl mar_l_20px basic_icon_phone"></i>
+                    <span class="mar_l_10px fl fs_13px">已验证</span>
+                    <span class="mar_l_15px blue fl fs_13px curP" id="update_phone_number">修改</span>
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1 fl"><b class="red">*</b>省市</span>
+                    <div class="province fl border" id="Province">
+                        <select id="s_province" name="s_province" data="true">
+                            <option v-for="option in options" v-bind:value="option.region_id">
+                                {{ option.region_name }}
+                            </option>
+                        </select>
+                        <i class="icon_down"></i>
+                    </div>
+                    <div class="province mar_l_15px fl border" id="City">
+                        <select id="s_city" name="s_city" data="true">
+                            <option v-for="option in options" v-bind:value="option.region_id">
+                                {{ option.region_name }}
+                            </option>
+                        </select>
+                        <i class="icon_down"></i>
+                    </div>
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1 fl">QQ</span>
+                    <input class="input fl" type="text">
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1 fl">电子邮件</span>
+                    <input class="input fl" type="text">
+                </li>
+                <li>
+                    <span class="fs_14px basic_text1 fl">推荐人</span>
+                    <input class="input fl" type="text">
+                </li>
+                <span class="basic_save bg_line_gray fs_14px">
+                    保存
+                </span>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出窗 -->
+<div id="basic_data_mask"></div>
+<!--#include file="temp/userCenterBottom.html" -->
+<script type="text/javascript" src="../lib/js/KinerCode.js"></script>
+<script type="text/javascript" src="/js/center/basic_data.js"></script>
+</body>
+</html>

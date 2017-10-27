@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sell_hot.css"/>
+    <title>热销_大家来采购网</title>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+<div class="border_t2"></div>
+
+<main class="sell_container" id="sell_container">
+    <div class="w_inner clearfix">
+        <div class="sell_top_bar">
+            <div class="top_bar width_main">
+                <ul class="top_bar_list">
+                    <li class="top_bar_cell"  v-for="(bar, no) in bars" @click="link_tab(bar.id)">
+                        <a class="top_bar_a">
+                            <span class="bar_img"><img :src="bar.img"></span>
+                            <p class="bar_txt fs_14px" v-text="bar.txt"></p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="more_bar">全部分类</div>
+            </div>
+        </div>
+        <article class="sell_content width_main">
+            <section class="sell_floor" v-for="floor in floors">
+                <div class="floor_title">
+                    <i class="title_img"><img :src="floor.tit_img"></i>
+                    <strong class="title_txt" v-text="floor.tit_txt"></strong>
+                </div>
+                <ul class="floor_product">
+                    <li class="pro_cell" v-for="(goods, index) in floor.products">
+                        <a class="pro_cell_a" @click="link_buy(goods, index)">
+                            <div class="pro_rank">{{ index+1 }}</div>
+                            <div class="pro_pic">
+                                <img :src="goods.goods_img">
+                            </div>
+                            <div class="pro_name" v-text="goods.goods_name"></div>
+                            <div class="pro_price">
+                                <i class="s_price" v-text="'￥'+goods.shop_price"></i>
+                                <button class="s_btn">立即购买</button>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="sell_floor" v-for="layer in layers">
+                <div class="floor_title">
+                    <i class="title_img"><img :src="layer.tit_img"></i>
+                    <strong class="title_txt" v-text="layer.tit_txt"></strong>
+                </div>
+                <ul class="floor_product">
+                    <li class="pro_cell" v-for="(cell, index) in layer.products">
+                        <a class="pro_cell_a" @click="link_buy(cell, index)">
+                            <div class="pro_rank">{{ index+1 }}</div>
+                            <div class="pro_pic">
+                                <img :src="cell.goods_img">
+                            </div>
+                            <div class="pro_name" v-text="cell.goods_name"></div>
+                            <div class="pro_price">
+                                <i class="s_price" v-text="'￥'+cell.shop_price"></i>
+                                <button class="s_btn">立即抢购</button>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="sell_floor" v-for="storey in storeys">
+                <div class="floor_title">
+                    <i class="title_img"><img :src="storey.tit_img"></i>
+                    <strong class="title_txt" v-text="storey.tit_txt"></strong>
+                </div>
+                <ul class="floor_product">
+                    <li class="pro_cell pro_cell_w" v-for="(item, index) in storey.products">
+                        <div class="pro_cell_a">
+                            <p class="pro_cell_top">
+                                <img :src="item.brand_logo_big">
+                                <span class="pro_title" v-text="item.brand_name"></span>
+                            </p>
+                            <a class="pro_cell_s" v-for="(pro, i) in item.goods" @click="sell_buy(pro, i)">
+                                <div class="pro_rank">{{ index+1 }}</div>
+                                <div class="pro_pic">
+                                    <img :src="pro.goods_img">
+                                </div>
+                                <div class="pro_name" v-text="pro.goods_name" style="display: none;"></div>
+                                <div class="pro_price">
+                                    <i class="s_price" v-text="'￥'+pro.shop_price"></i>
+                                    <button class="s_btn" style="display: none;">立即抢购</button>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </div>
+</main>
+
+<!-- 底部 -->
+<div id="bottomTemp_main" class="mar_t_20px"></div>
+<script type="text/javascript" src="lib/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js"></script>
+<script type="text/javascript" src="lib/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/sell_hot.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

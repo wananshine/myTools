@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>销售明细_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+		<link rel="stylesheet" type="text/css" href="/dt/css/dateRange.css"/>
+		<link rel="stylesheet" type="text/css" href="/dt/css/monthPicker.css"/>
+		<script type="text/javascript" src="/dt/js/dateRange.js"></script>
+		<script type="text/javascript" src="/dt/js/monthPicker.js"></script>
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<!--#include file="temp/left.html" -->
+			<div class="main purchase-main clearfix">
+				<div class="content-header purchase-content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">销售明细</h3>
+					</div>
+					<div class="control-bar-wrapper">
+						<div class="control-bar clearfix">
+							<span class="fL label">时间：</span>
+							<div class="fL date-select-bar">
+								<a href="#" class="cur" onclick="switchDate('today')">今天</a>
+								<a href="#" onclick="switchDate('yesterday')">昨天</a>
+								<a href="#" onclick="switchDate('latest7days')">最近7天</a>
+								<a href="#" onclick="switchDate('this_month')">本月</a>
+							</div>
+							<div id="datePicker_demo1">
+								<input type="text" name="date" id="date_demo1" value="" class="fL gri_date" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-center">
+					<ul class="clearfix" id="my_total">
+						<li class="fL text-ct">销售金额:<span v-cloak>{{info.member_sales}}</span></li>
+						<li class="fL text-ct">销售利润:<span v-cloak>{{info.member_profit}}</span></li>
+					</ul>
+				</div>
+				<div class="content-bottom">
+					<div class="table purchase-item">
+						<div class="search">
+							<input id="txtKeyword" type="text" placeholder="会员名称/姓名/手机号"/><input type="button" class="btn" value="搜索" onclick="getList()"/>
+						</div>
+						<table id="my_list">
+							<tbody>
+								<tr>
+									<th class="text-ct" width="12%">订单号</th>
+									<th class="text-ct" width="8%">会员名称</th>
+									<th class="text-ct" width="8%">姓名</th>
+									<th class="text-ct" width="9%">手机号码</th>
+									<th class="text-ct" width="9%">下单时间</th>
+									<th class="text-ct" width="19%">商品信息</th>
+									<th class="text-ct" width="9%">采购金额（元）</th>
+									<th class="text-ct" width="7%">渠道金额（元）</th>
+									<th class="text-ct" width="9%">订单状态</th>
+									<th class="text-ct" width="9%">操作</th>
+								</tr>
+								<tr v-for="item in items">
+									<td v-cloak>{{item.order_sn}}</td>
+									<td v-cloak>{{item.user_name}}</td>
+									<td v-cloak>{{item.real_name}}</td>
+									<td v-cloak>{{item.mobile_phone}}</td>
+									<td v-cloak>{{item.pay_time}}</td>
+									<td v-cloak><div v-for="goods in item.goods_list">{{goods.goods_name}}</div></td>
+									<td v-cloak>{{item.goods_amount}}</td>
+									<td v-cloak>{{item.dt_amount}}</td>
+									<td v-cloak>{{item.order_status}}</td>
+									<td v-cloak><a href="javascript:void(0)" v-on:click="orderDetail(item.order_sn)">查看详情</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/purchase.js"></script>
+		<script type="text/javascript">
+			dtAside("purchase");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>浏览记录_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!--#include virtual="/lib/temp/page_title2.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<div class="width_main" id="content_main">
+    <div class="orders_content bg_white">
+        <p class="order_con_title border_b coupon_title">
+            <span class="fl f_c_333">浏览记录</span>
+        </p>
+        <div style="height: 350px;" class="pos_rel">
+            <ul class="watch_item" id="tab2" v-cloak>
+                <li class="history_list pos_rel" v-for="items in list.data">
+                    <img v-if="(items.watermark_img != '')" class="icon_activity" :src="items.watermark_img" />
+                    <!--<p class="fr fs_14px history_list_del f_c_999 curP vis_hide" v-on:click="del_history(items.goods_id)">删除</p>-->
+                    <a target="_blank" :href="items.url"><img :src="items.goods_thumb"></a>
+                    <p class="text_hide fs_14px f_c_333"><a target="_blank" :href="items.url">{{items.goods_name}}</a></p>
+                    <p class="text_hide mar_t_20px orange fl"><span>{{items.shop_price}}</span></p>
+                    <span class="bg_line_red white history_list_info mar_t_13px fs_12px fr vis_hide" v-on:click="add_cart(items.goods_id)">加入进货单</span>
+                </li>
+            </ul>
+            <div id="notData" class="Nhide center">
+                <img class="mar_t_45px " src="../img/order_null.png" />
+                <p class="center mar_t_15px" style="height: 492px">您还没有浏览过商品~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出窗 -->
+<div id="alert_mask"></div>
+
+<!--#include file="temp/userCenterBottom.html" -->
+<script type="text/javascript" src="/js/center/my_concern.js"></script>
+<script type="text/javascript">
+    browsing_record();
+</script>
+</body>
+</html>

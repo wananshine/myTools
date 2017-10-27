@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>我的关注_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!--#include virtual="/lib/temp/page_title2.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<div class="width_main" id="content_main">
+    <div class="orders_content bg_white">
+        <p class="order_con_title border_b coupon_title">
+            <span class="fl f_c_333">我的关注</span>
+        </p>
+        <div style="height: 350px;" class="pos_rel">
+            <ul class="watch_item" id="tab1">
+                <li class="history_list pos_rel" v-for="items in list.data.items" v-cloak>
+                    <img v-if="(items.watermark_img != '')" class="icon_activity" :src="items.watermark_img" />
+                    <p class="fr fs_14px history_list_del f_c_999 bg_line_gray2 bor_rad_5px vis_hide" @click="del_collection(items.goods_id,$event)">取消关注</p>
+                    <a target="_blank" :href="items.url"><img :src="items.goods_thumb"></a>
+                    <p class="text_hide fs_14px f_c_333"><a target="_blank" :href="items.url" v-cloak>{{items.goods_name}}</a></p>
+                    <p class="text_hide mar_t_20px orange fl"><span v-cloak>{{items.shop_price}}</span></p>
+                    <span class="bg_line_red white history_list_info mar_t_13px fs_12px fr vis_hide" @click="add_cart(items.goods_id)">加入进货单</span>
+                </li>
+                <div v-show="(list.data.items == '')" style="display: none;" class="center" id="notMsg">
+                    <img class="mar_t_45px " src="../img/order_null.png" />
+                    <p class="fs_14px center mar_t_15px">您还没有关注任何商品~</p>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出窗 -->
+<div id="alert_mask"></div>
+<script type="text/javascript" src="/js/center/my_concern.js"></script>
+<script type="text/javascript">
+    my_concern();
+</script>
+<!--#include file="temp/userCenterBottom.html" -->
+<script type="text/javascript">
+    setTimeout(function(){
+        obtainDivHeight();
+    },200)
+</script>
+</body>
+</html>

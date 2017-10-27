@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>品牌专区_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/NewBrandZone.css"/>
+</head>
+<body>
+
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+
+<div style="background: #1068cb">
+    <div class="width_main">
+        <img class="banner" src="img/BrandZone_banner.png"/>
+    </div>
+</div>
+
+
+<div style="background: #1068cb">
+    <div class="width_main">
+        <ul class="BrandZone_More" id="BrandZoneMore">
+            <li v-for="brand in list">
+                <img :src="brand.logo" />
+                <div class="d_link">
+                    <p class="center f_c_333 fs_24px mar_t_25px"><b v-cloak>{{brand.name}}</b></p>
+                    <a @click="refresh(brand.id)" class="white fs_18px">进入专题</a>
+                </div>
+            </li>
+            <li>
+                <p class="red center fs_30px mar_t_15px"><b>敬请期待</b></p>
+                <p class="red center fs_24px">更多品牌活动...</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="bottomTemp_main" style="margin-top: -20px"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/swiper.min.js"></script>
+<script type="text/javascript" src="lib/js/vue.js" ></script>
+<script type="text/javascript" src="js/NewBrandZone.js" ></script>
+<script type="text/javascript">
+    BrandZone_main();
+</script>
+
+</body>
+</html>

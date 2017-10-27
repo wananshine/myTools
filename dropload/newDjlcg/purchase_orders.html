@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>进货单_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/purchase_orders.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/product_list.css">-->
+    <style type="text/css">
+        .mask_main .mask_input{
+            margin-left: -102px;
+        }
+    </style>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div class="login_main_title bg_white f_c_666 fs_18px border_b2_red">
+    <div class="width_main">
+        <a href="main.html"><img class="fl mar_t_25px" src="img/logo.png" /></a>
+        <p class="fl pfirst curP">进货单</p>
+        <ul class="title2_schedule fr f_c_999 mar_t_40px">
+            <li>
+                <hr class="border_b2_green"/>
+                <span class="bg_green white" style="background: #89ca55">1</span>
+                <p class="fs_12px f_c_666 green">我的进货单</p>
+            </li>
+            <li>
+                <hr/>
+                <span>2</span>
+                <p class="fs_12px f_c_666">填写核对订单</p>
+            </li>
+            <li>
+                <hr/>
+                <span>3</span>
+                <p class="fs_12px f_c_666">成功提交订单</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="content width_main bg_white">
+    <ul id="list_tit_txt" class="allSelect over_hide">
+        <li style="width: 125px;" class="allSelect_input"><input id="allSelect" type="checkbox"/><div class="copy_input fl"><img src="img/icon_ok.png" /></div><span class="mar_l_10px">全部</span></li>
+        <li style="width: 370px;">商品信息</li>
+        <li style="width: 220px;">数量</li>
+        <li style="width: 100px;">起订量</li>
+        <li style="width: 140px;">单价</li>
+        <li style="width: 135px;">小计<span class="money hide">0</span></li>
+        <li style="width: 100px;">操作</li>
+    </ul>
+    <ul id="list_template" class="over_hide">
+        <div id="notData" style="display: none">
+            <p class="center" style="height: 380px;position: relative;overflow: hidden">
+                <span class="nodata_img clearfix"><img src="img/icon_a.png"></span>
+                <i class="nodate_txt">
+                    您的进货单还是空的，赶快去逛逛吧...
+                    <br/>
+                    <a class="go_shoping" href="main.html" target="_blank">去购物～</a>
+                </i>
+            </p>
+        </div>
+        <li class="radioInput pos_rel" v-for="goods in list">
+            <!--<div class="coupon_li" style="display:none;" v-show="goods.coupon_val > 0 && goods.coupon_expire_time > 0">
+                <i class="coupon_icon"></i>&nbsp;&nbsp;&nbsp;<span class="red">每{{goods.unit}}减<span v-cloak>{{goods.coupon_val}}</span>元，可重复使用</span>
+                <span class="green fr">已减<span v-cloak v-bind:id="'sub_coupon_'+goods.rec_id">{{goods.sub_coupon_total}}</span>元</span>
+            </div>
+            <div class="coupon_li" style="display: none" v-show="goods.coupon_expire_time < 0 && goods.coupon_val > 0">
+                <i class="coupon_icon"></i>&nbsp;&nbsp;&nbsp;<span class="f_c_999">每{{goods.unit}}减<span v-cloak>{{goods.coupon_val}}</span>元，可重复使用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(已过期)</span>&nbsp;&nbsp;<u class="yellow curP fr" @click="toInfo(goods.goods_id)">重新领取 ></u>
+            </div>-->
+
+            <ol style="width: 125px;"><input class="classInput" type="checkbox" :value="goods.rec_id" v-model="goods.selected"/><div class="copy_input" style="top:67px;left:53px;"><img src="img/icon_ok.png" /></div></ol>
+            <ol style="width: 370px;">
+                <div class="text_center">
+                    <div class="tab_img fl curP mar_t_40px" @click="toInfo(goods.goods_id)">
+                        <img v-bind:src="goods.goods_thumb" />
+                    </div>
+                    <div class="fl mar_l_10px mar_t_40px" @click="toInfo(goods.goods_id)">
+                        <p class="fs_14px f_c_333 li_he_20px mar_t_5px" style="width: 233px">
+                            <img v-if="goods.watermark_img != ''" :src="goods.watermark_img" style="width: 20px;" />
+                            <span class="curP" v-cloak :title="goods.goods_name">{{goods.goods_name}}</span>
+                        </p>
+                        <p class="fs_12px blue li_he_20px" v-cloak>{{goods.goods_attr}}</p>
+                    </div>
+                </div>
+            </ol>
+            <ol style="width: 220px;">
+                <div class="content_amount mar_t_40px">
+                    <span class="max_cont hide">{{goods.max_number}}</span>
+                    <span class="min_cont hide">{{goods.min_number}}</span>
+                    <span class="amount_min fl">-</span>
+                    <span class="amount_num fl"><span v-cloak>{{goods.goods_number}}</span></span>
+                    <span class="amount_max fl">+</span>
+                </div>
+            </ol>
+            <ol style="width: 100px;"><span v-cloak>{{goods.min_number}}{{goods.unit}}</span></ol>
+            <ol style="width: 140px;">￥<span class="money2" v-cloak>{{goods.goods_price}}</span>元</ol>
+            <ol style="width: 135px;" class="orange">￥<span class="money"  v-bind:id="'subtotal_'+goods.rec_id" v-cloak>{{goods.subtotal}}</span>元</ol>
+            <ol style="width: 100px;">
+                <span class="curP del" v-on:click="remove(goods)">删除</span>
+                <i class="science_para" v-if="goods.input_param!=''">
+                    <em class="para_txt" @click="lookshoping(goods)">查看</em>
+                    <!--<b class="para_info bg_white">{{ goods.input_param }}</b>-->
+                </i>
+            </ol>
+        </li>
+    </ul>
+</div>
+<div class="content2_bottom width_main bg_white mar_t_10px" id="sum_template">
+    <p class="add_newsp">
+        <a class="add_custom_sp" id="add_custom_sp" @click="customsp()">
+            <em>+</em>
+            线下商品添加
+        </a>
+        <span class="add_prompt">
+                线下商品添加是指在线上本商城上没有的商品或由线下采购的商品，
+                为了方便统一采购及结算，可以通过手动添加至购物清单，由线下采购，
+                经商城审核后统一付款，商城统一安排出货。手动添加的商品必须严格按要求真实填写清楚
+                <a href="javascript:void(0)" class="more_newsp">更多></a>
+            </span>
+    </p>
+    <a href="/main.html" style="display: none;"><span class="fl fs_14px">继续购物</span></a>
+    <span id="bupInput1" class="fl fs_18px fr mar_l_30px white bg_gray go_buy" style="display: none">去结算</span>
+    <span id="bupInput2" class="fl fs_18px fr mar_l_30px white bg_red go_buy curP" v-on:click="gotoCheckout">去结算</span>
+    <span class="fl fs_14px fr mar_l_30px red pos_rel" style="margin-top: -4px">总价：<b class="fs_24px">￥</b><b class="fs_24px" id="Amount">0.00</b><em class="coupon_money">已优惠:-￥<span id="Coupon">0.00</span>元</em></span>
+    <span class="fl fs_14px fr">已选择&nbsp;&nbsp;&nbsp;<span id="number">0</span>&nbsp;&nbsp;&nbsp;件商品</span>
+</div>
+
+
+<!-- 今日推荐 -->
+<div id="productListTemp2" class="mar_t_10px">
+    <div class="width_main mar_t_10px">
+        <ul class="main_content">
+            <ol class="fs_18px f_c_333">今日推荐</ol>
+        </ul>
+    </div>
+    <div class="width_main">
+        <ul class="fs_13px main_content_img content_div over_hide" id="sellWellPro">
+            <li class="pos_rel rem_shadow_5px over_hide" v-for="a in list" @click="toListInfo2(a.id)">
+                <img v-if="(a.watermark_img != '')" class="icon_activity" :src="a.watermark_img" />
+                <span class="bg_line_red white bor_rad_5px pos_abs main_con_img_gz" style="display: none;">关注</span>
+                <img class="rec_list_img curP"  :src="a.thumb" @click="toListInfo2(a.id)" :title="a.name"/>
+                <p class="f_c_333 rec_text1 mar_t_25px curP" @click="toListInfo2(a.id)" :title="a.name" v-cloak>{{a.name}}</p>
+                <p class="fs_16px rec_text3 orange mar_t_10px" v-cloak>{{a.shop_price}}  </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- 底部 -->
+<div id="bottomTemp_main"></div>
+
+<!--  弹出窗 -->
+<div id="sp_mask"></div>
+
+<!--  弹出窗 -->
+<div id="del_orders_mask"></div>
+<!--  弹出窗 -->
+<div id="del_orders_masks"></div>
+
+<!-- 添加商品 -->
+<div id="sp_mask_con" class="hide">
+    <ul class="fs_12px sp_content">
+        <li class="sp_li">
+            <p class="sp_tit"><b class="red">*</b>商品名称/品牌：</p>
+            <input class="sp_inp" name="inputproname"  id="inputproname" maxlength="20" placeholder="请填写商品名称/品牌/型号"/>
+            <span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">
+                    请填写商品名称/品牌
+                </span>
+        </li>
+        <li class="sp_li">
+            <p class="sp_tit"><b class="red">*</b>技术参数：</p>
+            <input class="sp_inp" name="inputparam" id="inputparam" maxlength="20" placeholder="请填写技术参数"/>
+            <span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">
+                    请填写技术参数
+                </span>
+        </li>
+        <li class="sp_li">
+            <p class="sp_tit"><b class="red">*</b>数量：</p>
+            <input name="inputnum" class="sp_inp" id="inputnum" maxlength="20" placeholder="请填写数量" />
+            <span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">
+                    请填写商品数量
+                </span>
+        </li>
+        <li class="sp_li">
+            <p class="sp_tit"><b class="red">*</b>单价：</p>
+            <input class="sp_inp" name="inputprice" id="inputprice" maxlength="20" placeholder="请填写单价"/>
+            <span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">
+                    请填写商品单价
+                </span>
+        </li>
+        <li class="sp_li">
+            <p class="sp_tit"><b class="red">*</b>单位：</p>
+            <input class="sp_inp" name="inputunit"  id="inputunit" maxlength="20" placeholder="请填写单位"/>
+            <span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">
+                    请填写商品单位
+                </span>
+        </li>
+        <li class="sp_li">
+            <p class="sp_tit">备注：</p>
+            <textarea class="sp_inp" name="inputnote" id="inputnote" maxlength="20"></textarea>
+        </li>
+    </ul>
+    <p class="sp-f-danger" id="sp-f-danger"></p>
+    <!--<img src="img/icon_warning.png">您的信息填写不完整，请填写完整后提交-->
+</div>
+
+<!-- 查看添加的商品 -->
+<div id="sp_masklook"></div>
+<div id="sp_mask_look" class="hide">
+    <ul class="fs_12px sp_content">
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit"><b class="red">*</b>商品名称/品牌：</p>-->
+        <!--<input class="sp_inp" name="look_inputproname"  id="look_inputproname" maxlength="20" :value="goods.inputproname"/>-->
+        <!--</li>-->
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit"><b class="red">*</b>技术参数：</p>-->
+        <!--<input class="sp_inp" name="look_inputparam" id="look_inputparam" maxlength="20" :value="goods.inputparam"/>-->
+        <!--</li>-->
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit"><b class="red">*</b>数量：</p>-->
+        <!--<input type="number" name="inputnum" class="sp_inp" id="look_inputnum" maxlength="20" :value="goods.inputnum" />-->
+        <!--</li>-->
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit"><b class="red">*</b>单价：</p>-->
+        <!--<input class="sp_inp" name="look_inputprice" type="number" id="look_inputprice" maxlength="20" :value="goods.inputprice"/>-->
+        <!--</li>-->
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit"><b class="red">*</b>单位：</p>-->
+        <!--<input class="sp_inp" name="look_inputunit"  id="_inputunit" maxlength="20" :value="goods.inputunit"/>-->
+        <!--</li>-->
+        <!--<li class="sp_li">-->
+        <!--<p class="sp_tit">备注：</p>-->
+        <!--<textarea class="sp_inp" name="look_inputnote" id="look_inputnote" maxlength="20" :value="goods.inputnote"></textarea>-->
+        <!--</li>-->
+    </ul>
+</div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js" ></script>
+<script type="text/javascript" src="js/purchase_orders.js"></script>
+<script type="text/javascript">
+    orders_one_init();
+</script>
+</body>
+</html>

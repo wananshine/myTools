@@ -1,0 +1,215 @@
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.flexitem {
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+.cou_container {
+  position: relative;
+}
+.cou_container .cou_inner .cou_banner {
+  position: relative;
+}
+.cou_container .cou_inner .cou_banner img {
+  width: 100%;
+}
+.cou_container .cou_inner .cou_content {
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit {
+  padding: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit:after {
+  content: "";
+  display: block;
+  width: 83%;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  top: 60%;
+  right: 0;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit .cou_tit_bigtxt {
+  font-size: 26px;
+  color: #e11a1a;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit .cou_tit_smalltxt {
+  margin-left: 5px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell {
+  width: 282px;
+  height: 378px;
+  position: relative;
+  overflow: hidden;
+  color: #333;
+  margin-bottom: 16px;
+  margin-right: 20.66px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  display: block;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell:nth-of-type(4n) {
+  margin-right: 0px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_img {
+  width: 282px;
+  height: 242px;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_img img {
+  display: block;
+  margin: auto;
+  margin-top: 21px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info {
+  flex: 1;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou-txt {
+  display: block;
+  padding: 0 16px;
+  word-break: break-all;
+  word-wrap: break-word;
+  font-size: 14px;
+  font-weight: 100;
+  color: #333333;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou-num {
+  max-width: 85%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  padding: 5px;
+  border-top: 1px solid #bababa;
+  border-bottom: 1px solid #bababa;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou-num .cou_tag {
+  text-align: center;
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou-num .cou_tag .tag_no {
+  color: #e31e1e;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm {
+  position: relative;
+  overflow: hidden;
+  background-color: #e8e9e9;
+  text-indent: 16px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm .cou_btm_l {
+  width: 143px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  float: left;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm .cou_btm_l .count {
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  vertical-align: middle;
+  text-align: left;
+  display: block;
+  width: 100%;
+  line-height: 21px;
+  color: #333333;
+  font-size: 14px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm .cou_btm_l .count .count_price {
+  color: #e72929;
+  font-size: 18px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm .cou_btm_r {
+  width: 138px;
+  height: 43px;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  background-color: red;
+  text-indent: 58px;
+  color: #fff;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou-info .cou_btm .cou_btm_r:after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 22px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 22px solid #e8e9e9;
+  border-left: 40px solid #e8e9e9;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_icon {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  font-size: 14px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_icon dt {
+  line-height: 23px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_icon .icon_dd {
+  line-height: 23px;
+  color: #333;
+  padding-left: 15px;
+}
+.btn_active {
+  background-color: #0b7fd7!important;
+}
+.btn_active:after {
+  border-top-color: #0b7fd7!important;
+  border-right-color: #0b7fd7!important;
+}
+.btn_end {
+  background-color: transparent !important;
+}
+.isclick {
+  display: block;
+}
+.isclick2 {
+  display: none;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include virtual="/lib/temp/pageMeta.html" -->
+    <title>项目设计_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="/lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/service.css"/>
+</head>
+<body>
+    <!-- 头部 -->
+    <div id="titleTemp_main"></div>
+    <!--#include file="temp/service_title.html" -->
+
+    <div class="width_main pos_rel">
+        <img class="banner" src="/img/service_02.jpg"/>
+        <!--#include file="temp/service_submit.html" -->
+    </div>
+
+    <div class="bg_white content">
+        <div class="width_main">
+            <p class="content_title">服务流程</p>
+            <ul class="content_main2 over_hide">
+                <li>
+                    <div class="main2_con">
+                        <i class="icon_service2 fl" style="background-position: -205px -55px;"></i>
+                        <p class="fs_16px f_c_666">提交资料</p>
+                    </div>
+                    <i class="icon_service2 next" style="background-position: -142px -55px;"></i>
+                </li>
+                <li>
+                    <div class="main2_con">
+                        <i class="icon_service2 fl" style="background-position: -335px -55px;"></i>
+                        <p class="fs_16px f_c_666">客服对接</p>
+                    </div>
+                    <i class="icon_service2 next" style="background-position: -142px -55px;"></i>
+                </li>
+                <li>
+                    <div class="main2_con">
+                        <i class="icon_service2 fl" style="background-position: -265px -55px;"></i>
+                        <p class="fs_16px f_c_666">匹配施工</p>
+                    </div>
+                    <i class="icon_service2 next" style="background-position: -142px -55px;"></i>
+                </li>
+                <li>
+                    <div class="main2_con">
+                        <i class="icon_service2 fl" style="background-position: -390px -55px;"></i>
+                        <p class="fs_16px f_c_666">用户确认</p>
+                    </div>
+                </li>
+            </ul>
+
+            <p class="content_title">技术团队</p>
+            <ul class="item_main mar_t_25px Nhide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="resume border_e7 fs_12px f_c_999 mar_t_25px">
+                <div class="resume_bg"><span class="triangle2"></span></div>
+                <li class="li_he_30px" id="tab">
+
+                </li>
+                <span class="triangle1"></span>
+            </ul>
+            <ul class="photo" id="engineers_info">
+                <li v-for="items in list" @click="toDetail(items.id);">
+                    <div class="photo_avatar border_e7">
+                        <img :src="items.img" />
+                    </div>
+                    <p class="f_c_333 center mar_t_20px fs_14px"><span class="name">{{items.title}}</span><span>{{items.shorttitle}}</span></p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <!--#include file="temp/service_bottom.html" -->
+    <script type="text/javascript" src="/lib/js/vue.js"></script>
+    <script type="text/javascript">
+        $("#title_text1").text("项目设计");
+        $("#title_text2").text("专业的智能化设计团队，提供全程咨询及设计服务");
+        $(".title").text("项目设计");
+        submitService(7);
+        engineer_info();
+    </script>
+</body>
+</html>

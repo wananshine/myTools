@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>渠道业绩_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+		<link rel="stylesheet" type="text/css" href="/dt/css/dateRange.css"/>
+		<link rel="stylesheet" type="text/css" href="/dt/css/monthPicker.css"/>
+		<script type="text/javascript" src="/dt/js/dateRange.js"></script>
+		<script type="text/javascript" src="/dt/js/monthPicker.js"></script>
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<!--#include file="temp/left.html" -->
+			<div class="main distribution-main clearfix">
+				<div class="content-header distribution-content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">渠道业绩</h3>
+					</div>
+					<div class="control-bar-wrapper">
+						<div class="control-bar clearfix">
+							<span class="fL label">时间：</span>
+							<div class="fL date-select-bar">
+								<a href="#" class="cur" onclick="switchDate('today')">今天</a>
+								<a href="#" onclick="switchDate('yesterday')">昨天</a>
+								<a href="#" onclick="switchDate('latest7days')">最近7天</a>
+								<a href="#" onclick="switchDate('this_month')">本月</a>
+							</div>
+							<div id="datePicker_demo1">
+								<input type="text" name="date" id="date_demo1" value="" class="fL gri_date" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-center">
+					<ul class="clearfix" id="my_total">
+						<li class="fL text-ct">渠道业绩:<span v-cloak>{{info.channel_sales}}</span></li>
+						<li class="fL text-ct">应返金额:<span v-cloak>{{info.channel_profit}}</span></li>
+					</ul>
+				</div>
+				<div class="content-bottom">
+					<div class="table distribution-item">
+						<div class="search">
+							渠道类型:
+							<select id="selRelationship">
+								<option value="" selected="selected">全部</option>
+								<option value="direct">合作商</option>
+								<option value="indirect">第三方合作商</option>
+							</select>
+							排序:
+							<select id="sortBy">
+								<option value="sales" selected="selected">按销售额排序</option>
+								<option value="switch_date">按注册时间</option>
+							</select>
+							<input id="txtKeyword" type="text" placeholder="输入会员名称/公司名称查找"/>
+							<input type="button" class="btn" value="搜索" onclick="getList()"/>
+						</div>
+						<table id="my_list">
+							<tbody>
+							<tr>
+								<th class="text-ct" width="4%">编号</th>
+								<th class="text-ct" width="8%">会员名称</th>
+								<th class="text-ct" width="18%">公司名称</th>
+								<th class="text-ct" width="16%">公司座机</th>
+								<th class="text-ct" width="8%">法人代表</th>
+								<th class="text-ct" width="12%">渠道类型</th>
+								<th class="text-ct" width="10%">渠道等级</th>
+								<th class="text-ct" width="12%">销售额(元)</th>
+								<th class="text-ct" width="12%">注册日期</th>
+							</tr>
+							<tr v-for="(item, index) in items">
+								<td v-cloak>{{index+1}}</td>
+								<td v-cloak>{{item.user_name}}</td>
+								<td v-cloak>{{item.company_name}}</td>
+								<td v-cloak>{{item.office_phone}}</td>
+								<td v-cloak>{{item.boss_name}}</td>
+								<td v-cloak>{{item.relationship}}</td>
+								<td v-cloak>{{item.dt_grade}}</td>
+								<td v-cloak>{{item.sales_amount}}</td>
+								<td v-cloak>{{item.dt_switch_date}}</td>
+							</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/distribution.js"></script>
+		<script type="text/javascript">
+			dtAside("distribution");
+		</script>
+	</body>
+</html>

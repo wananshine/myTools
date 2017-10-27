@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include virtual="/lib/temp/pageMeta.html" -->
+    <title>免费报价_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="/lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/service.css"/>
+</head>
+<body>
+    <!-- 头部 -->
+    <div id="titleTemp_main"></div>
+    <!--#include file="temp/service_title.html" -->
+
+    <div class="width_main pos_rel">
+        <img class="banner" src="/img/service_01.jpg"/>
+        <div class="submit_main_title fs_12px">
+            <span>为了更好的服务您，登录后才能提交询价需求</span><a class="text-dec fr" href="/login.html">立即登录</a>
+        </div>
+        <div class="submit_main">
+            <p class="title fs_18px f_c_333 border_b">免费报价</p>
+            <p class="fs_12px f_c_999 title2">仅需10秒，免费获取专业的报价方案</p>
+            <div class="province fl border">
+                <select id="val1">
+                    <option>
+                        选择询价类型
+                    </option>
+                    <option value="2">
+                        单品询价
+                    </option>
+                    <option value="3">
+                        项目的清单询价
+                    </option>
+                    <option value="4">
+                        配置设备清单及报价
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+            <p class="fs_12px red Nhide error" data="false">请选择询价类型</p>
+            <div class="updateFile fs_12px mar_t_15px">
+                <textarea id="val2" class="fl border" type="text" placeholder="请填写或上传您的询价需求"></textarea>
+                <div class="fl update curP pos_rel">
+                    <!--<input class="upload_file" id="file1" type="file"/>-->
+                    <div id="uploader" class="wu-example">
+                        <!--用来存放文件信息-->
+                        <div id="thelist" class="uploader-list"></div>
+                        <div class="btns">
+                            <div id="picker">上传<br/>相关文件</div>
+                            <button id="ctlBtn" class="btn btn-default">开始上传</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="fl update curP pos_rel">
+                <input class="upload_file" id="file1" type="file"/>
+                <p class="center">上传相关文件</p>
+                <div class="upload_bg Nhide" id="image_wrap1"></div>
+                <div class="del_img white fs_12px">
+                    删除
+                </div>
+            </div>-->
+            <p class="fs_12px red Nhide error" data="false">请选择询价需求</p>
+            <input id="val3" maxlength="11" type="tel" class="phone border mar_t_15px" placeholder="填写您的手机号">
+            <p class="fs_12px red Nhide error" data="false">请填写手机号</p>
+            <!--<input id="val5"  type="email" class="phone border mar_t_15px" placeholder="请填写您的邮箱">-->
+            <!--<p class="fs_12px red Nhide error2" data="false">请填邮箱</p>-->
+            <div class="fs_12px mar_t_15px fl" style="width: 100%">
+                <input id="agreement" type="checkbox" checked />
+                <span class="mar_l_10px">我已阅读并接受 <a class="green curP" id="alert_agreement">《大家来服务协议》</a></span>
+            </div>
+            <p class="fs_12px red Nhide error fl" data="true">请选择服务协议</p>
+            <div class="login bg_line_red white mar_t_15px fs_16px pos_rel over_hide fl text_ban">
+                <p class="changeText center" id="s_changeText">提交</p>
+                <div class="change_div" id="s_change_div">
+                    <img class="change_login" src="/img/load.svg">
+                </div>
+            </div>
+            <p class="fs_12px mar_t_self fl f_c_999 center li_he_20px" style="margin-left: 65px;">上传文件仅支持格式为jpg,bmp,png,zip,rar ，<br/>大小在10M以内的文件。</p>
+            <!--<div class="client_number">
+                <p class="center mar_t_20px">已为 <em id="time"></em> 位客户</p>
+                <p class="center mar_t_10px">提供施工服务</p>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="bg_white content">
+        <div class="width_main">
+            <p class="content_title">询价服务类型</p>
+            <ul class="content_main over_hide">
+                <li>
+                    <div class="img_bg fl">
+                        <i class="icon_service" style="background-position: -15px 3px;"></i>
+                    </div>
+                    <div class="fl text2 mar_l_20px li_he_20px">
+                        <p class="fs_18px f_c_333 mar_t_15px">单品询价</p>
+                        <p class="fs_14px f_c_999 mar_t_15px">在商城找不到想要的商品？欢迎用户朋友进行更多产品的询价</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img_bg fl">
+                        <i class="icon_service" style="background-position: -78px 3px;"></i>
+                    </div>
+                    <div class="fl text2 mar_l_20px li_he_20px">
+                        <p class="fs_18px f_c_333 mar_t_15px">项目的清单询价</p>
+                        <p class="fs_14px f_c_999 mar_t_15px">把一份项目设备清单发给大家来，联合500家优质产品供应商为您整体报价</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img_bg fl">
+                        <i class="icon_service" style="background-position: -144px 3px;"></i>
+                    </div>
+                    <div class="fl text2 mar_l_20px li_he_20px">
+                        <p class="fs_18px f_c_333 mar_t_15px">配置设备清单及报价</p>
+                        <p class="fs_14px f_c_999 mar_t_15px">根据招标文件及实际项目情况，为您专业配置设备清单给出合理报价</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 弹出窗 -->
+    <div id="alert_mask"></div>
+
+    <!-- 底部 -->
+    <!--#include file="temp/service_bottom.html" -->
+
+    <script type="text/javascript">
+        $("#title_text1").text("免费报价");
+        $("#title_text2").text("及时的报价服务，让你询的顺心，买的放心");
+        submitService(2);
+    </script>
+
+</body>
+</html>

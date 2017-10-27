@@ -1,0 +1,133 @@
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+*html .clearfix {
+    zoom: 1;
+}
+
+.preview {
+    width: 400px;
+    height: 467px;
+}
+/* midImg */
+
+.midImg {
+    position: relative;
+    margin-top: 10px;
+    height: 77px;
+    width: 380px;
+    overflow: hidden;
+    float: left;
+    box-sizing: border-box;
+}
+
+.scrollbutton {
+    width: 20px;
+    height: 20px;
+    margin-top: 28px;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrollbutton.midImgUp,
+.scrollbutton.midImgUp.disabled {
+    background: url(../img/icon-down2.svg) no-repeat;
+    background-size: 20px;
+    transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+.scrollbutton.midImgDown,
+.scrollbutton.midImgDown.disabled {
+    background: url(../img/icon-down2.svg) no-repeat;
+    background-size: 20px;
+    transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    position: absolute;
+    right: 0;
+}
+
+#imageMenu {
+    width: 360px;
+    overflow: hidden;
+    margin-left: 0;
+    float: left;
+}
+
+#imageMenu li {
+    overflow: hidden;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+#imageMenu li:last-child {
+    margin-right: 0px;
+}
+
+#imageMenu li img {
+    width: auto;
+    height: auto;
+    max-width: 75px;
+    max-height: 75px;
+    cursor: pointer;
+}
+
+#imageMenu li#onlickImg img,
+#imageMenu li:hover img {
+    border: 1px solid #c43737;
+}
+/* bigImg */
+
+.bigImg {
+    position: relative;
+    float: left;
+    width: 380px;
+    height: 380px;
+    overflow: hidden;
+}
+
+.bigImg #midimg {
+    width: auto;
+    height: auto;
+    max-width: 380px;
+    max-height: 380px;
+}
+
+.bigImg #winSelector {
+    width: 235px;
+    height: 210px;
+}
+#winSelector {
+    position: absolute;
+    cursor: crosshair;
+    filter: alpha(opacity=15);
+    -moz-opacity: 0.15;
+    opacity: 0.15;
+    background-color: #000;
+    border: 1px solid #fff;
+}
+/* bigView */
+#bigView {
+    position: absolute;
+    border: 1px solid #959595;
+    overflow: hidden;
+    z-index: 999;
+    height: 440px !important;
+}
+#bigView img {
+    position: absolute;
+}

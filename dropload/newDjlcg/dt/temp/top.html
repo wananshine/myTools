@@ -1,0 +1,36 @@
+<div class="header-wrapper">
+    <div class="header clearfix">
+        <div class="logo fL">
+            <a href="/main.html" target="_blank">
+            </a>
+            <span class="logo-title">渠道自助管理系统</span>
+        </div>
+        <div class="view-tab fL">
+            <a href="/dt/index.html">主页</a>
+            <a href="/dt/account.html">账号管理</a>
+            <a href="/dt/member.html">业务管理</a>
+            <a href="/dt/moving.html">渠道动态</a>
+            <a href="/dt/policy.html">渠道政策</a>
+        </div>
+        <div class="top-nav fR">
+            <span class="top-nav-item">大家来采购网</span>
+            <span class="top-nav-item">欢迎 <span id="username"></span></span>
+            <span class="top-nav-item">|</span>
+            <a href="/main.html" target="_blank"><span class="top-nav-item">商城首页</span></a>
+            <span class="top-nav-item">|</span>
+            <span class="top-nav-item"><a href="/center/password_settings.html" target="_blank">修改密码</a></span>
+            <span class="top-nav-item">|</span>
+            <span class="top-nav-item" id="exitUser">退出</span>
+        </div>
+    </div>
+</div>
+<script>
+    var cookieUserName =  $.cookie("ECS[username]");
+    $('#username').text(cookieUserName);
+    $('#username').css('color','#c43737');
+    $("#exitUser").click(function () {
+        com.executeAjax(dtServiceUrl.user_login_logout, {}, "POST", function (result) {
+            location.href = "/dt/login.html";
+        });
+    });
+</script>

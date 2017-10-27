@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>会员资料_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<!--#include file="temp/left.html" -->
+			<div class="main member-main clearfix">
+				<div class="content-header member-content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">会员资料</h3><span class="fL"></span>
+					</div>
+				</div>
+				<div class="content-bottom">
+					<div class="table member-item">
+						<div class="search">
+							<input id="txtKeyword" type="text" placeholder="会员名称/姓名/手机号"/><input type="button" class="btn" value="搜索" onclick="getList()"/>
+						</div>
+						<table id="my_list">
+							<tbody>
+								<tr>
+									<th width="4%">编号</th>
+									<th width="18%">会员名称</th>
+									<th width="8%">姓名</th>
+									<th width="16%">手机号</th>
+									<th width="12%">采购金额(元)</th>
+									<th width="14%">最近下单时间</th>
+									<th width="14%">会员来源</th>
+									<th width="14%">生效日期</th>
+								</tr>
+								<tr v-for="(item, index) in items">
+									<td v-cloak>{{index+1}}</td>
+									<td v-cloak>{{item.user_name}}</td>
+									<td v-cloak>{{item.real_name}}</td>
+									<td v-cloak>{{item.mobile_phone}}</td>
+									<td v-cloak>{{item.dt_switch_sales}}</td>
+									<td v-cloak>{{item.last_order_time}}</td>
+									<td v-cloak>{{item.dt_source_channel}}</td>
+									<td v-cloak>{{item.dt_switch_date}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/member.js"></script>
+		<script type="text/javascript">
+			tabHeader("member");
+			dtAside("member")
+		</script>
+	</body>
+</html>

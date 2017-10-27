@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>意见反馈_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!--#include file="temp/userCenterTitle.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<link rel="stylesheet" type="text/css" href="../css/usercenter.css"/>
+<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../lib/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../css/feedback.css"/>
+
+<div class="main">
+    <div class="m_top">
+        <span class="fs_16px">意见反馈</span>
+    </div>
+    <form class="m_main" >
+      <div class="main_top fs_12px int"  >
+          <label for="titles">标题：</label>
+          <input type="text" id="titles" class="pub" />
+          <em style="color: #e01121">*</em>
+
+      </div>
+        <div class="main_middle fs_12px " >
+            <label for="name">公司名称：</label>
+            <input type="text" id="name" class="pub required"/>
+            <em style="color: #e01121">*</em>
+
+        </div>
+        <div class="main_middle fs_12px " >
+            <label for="tel">联系电话：</label>
+            <input type="text" id="tel" class="pub required" name="tel" />
+            <em style="color: #e01121">*</em>
+
+        </div>
+        <div class="main_middle fs_12px " style="margin-left: 5px">
+            <label for="email">邮箱：</label>
+            <input type="text" id="email" class="pub required" name="email"/>
+            <em style="color: #e01121">*</em>
+        </div>
+        <div class="main_middle fs_12px " >
+            <label for="sounds">意见反馈：</label>
+            <textarea id="sounds" class="required" cols="75" rows="15" style="vertical-align: top;border-color: #d1d1d1;padding-left: 10px"></textarea>
+            <em style="color: #e01121">*</em>
+        </div>
+        <button type="button" id="send">提交</button>
+    </form>
+
+
+</div>
+<div class="clear" style="height: 10px"></div>
+<!--#include file="temp/userCenterBottom.html" -->
+<script src="../js/center/feedback.js"></script>
+<script type="text/javascript">
+    setTimeout(function(){
+        obtainDivHeight();
+    },200);
+</script>
+
+</body>
+</html>

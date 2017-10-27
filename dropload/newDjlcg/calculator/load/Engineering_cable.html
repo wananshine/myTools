@@ -1,0 +1,106 @@
+<!--工程线缆-->
+<div class="calc_details" id="calc_cable">
+    <div class="calc_param">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算参数</span>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">Lmax：</label>
+                    <input class="code_list" v-model="Lmax_val" value="" min="0" max="90">
+                    <i class="code_unit">M</i>
+                    <em class="instruction">Lmax为最远的设备离弱电电井的距离</em>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">Lmin：</label>
+                    <input value="" class="code_list" v-model="Lmin_val" min="0" max="90">
+                    <i class="code_unit">M</i>
+                    <em class="instruction">Lmin为最近的设备离弱电电井的距离</em>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">标准箱长度：</label>
+                    <select class="code_list" v-model="box_len_val">
+                        <option class="code_con" v-for="option in options" :value="option.value" :disabled="option.disabled">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">信息点数：</label>
+                    <input value="" class="code_list" v-model="points_val">
+                </div>
+                <!--<div class="info_group">-->
+                    <!--<label class="code_txt">端接容量差：</label>-->
+                    <!--<input value="" class="code_list" v-model="capacity_val">-->
+                <!--</div>-->
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_m()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算结果</span>
+            <small class="calc_small_tit">提醒：此计算结果仅供参考</small>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_state" v-if="box_len_val == 305">
+                计算得出工程使用每箱: 305米的线缆数量约<span class="state_red total_number"> {{ total_number }} </span>箱
+            </div>
+            <div class="panel_state" v-if="box_len_val == 200">
+                计算得出工程使用每卷: 200米的线缆数量约<span class="state_red total_number"> {{ total_number }} </span>箱
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor calc_floor_none">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">常见参照</span>
+            <small class="calc_small_tit">提醒：拼接大屏对比参照</small>
+        </h3>
+        <div class="calc_panel">
+            <!--<table class="calc_table" border="1">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>名称</th>-->
+            <!--<th>分辨率( 像素 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--</table>-->
+            <img class="calc_table_img" src="../../img/CALC_20170810/calc_table_01.png">
+        </div>
+    </div>
+    <div class="calc_floor floor_recommend">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">精品推荐</span>
+            <small class="calc_small_tit">为你推精品结果</small>
+        </h3>
+        <div class="calc_panel padd">
+            <div class="calc_swiper">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <a class="swiper-slide" v-for="slide in slides" @click="btn_goods(slide)">
+                            <div class="slide_pro">
+                                <p class="pro_img"><img :src="slide.goods_img"></p>
+                                <div class="pro_name" v-text="slide.name"></div>
+                                <div class="pro_price" v-text="slide.shop_price"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!--<div class="swiper-pagination"></div>-->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop_error"></div>
+</div>
+
+

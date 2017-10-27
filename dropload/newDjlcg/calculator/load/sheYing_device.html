@@ -1,0 +1,153 @@
+<div class="calc_details" id="calc_sheYing">
+    <div class="calc_param">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算参数</span>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_title">
+                <span class="title_note">计算范围：</span>
+                <div class="title_group" v-for="(tab_radio, index) in tab_radios" >
+                    <input :id="tab_radio.id"  v-model="tabRadio" :value="tab_radio.val" class="tab_radio" name="titleRadios"  type="radio">
+                    <label :for="tab_radio.id">{{ tab_radio.tab_txt  }}</label>
+                </div>
+            </div>
+            <div v-if="tabRadio == 0" class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">CCD/CMOS规格：</label>
+                    <select class="code_list" v-model="rule_val">
+                        <option class="code_con" v-for="option in options" :value="option.value">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+                <!--<div class="info_group">-->
+                    <!--<label class="code_txt">成像宽高度：</label>-->
+                    <!--<select class="code_list" v-model="imagingsWH_val">-->
+                        <!--<option class="code_con" v-for="imaging in imagingsWH" :value="imaging.value">-->
+                            <!--{{ imaging.text }} mm-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <!--<div class="info_group">-->
+                    <!--<label class="code_txt">被摄物体宽/高度：</label>-->
+                    <!--<select class="code_list" v-model="foresH_val">-->
+                        <!--<option class="code_con" v-for="fore in fores" :value="fore.value">-->
+                            <!--{{ fore.text }}-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <div class="info_group">
+                    <label class="code_txt">被摄物体宽度：</label>
+                    <input class="code_list" v-model="foresW_val" value="" v-bind:key="foresW_val_01">
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">被摄物体高度：</label>
+                    <input class="code_list" v-model="foresH_val" value="" v-bind:key="foresH_val_01">
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">参照物距镜头距离：</label>
+                    <input class="code_list" v-model="focal_val" value="">
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_focal()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </div>
+            <div v-if="tabRadio == 1" class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">CCD/CMOS规格：</label>
+                    <select class="code_list" v-model="rule_val">
+                        <option class="code_con" v-for="option in options" :value="option.value">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+                <!--<div class="info_group">-->
+                    <!--<label class="code_txt">成像宽高度：</label>-->
+                    <!--<select class="code_list" v-model="imagingsWH_val">-->
+                        <!--<option class="code_con" v-for="imaging in imagingsWH" :value="imaging.value">-->
+                            <!--{{ imaging.text }} mm-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <!--<div class="info_group">-->
+                    <!--<label class="code_txt">被摄物体宽/高度：</label>-->
+                    <!--<select class="code_list" v-model="foresH_val">-->
+                        <!--<option class="code_con" v-for="fore in fores" :value="fore.value">-->
+                            <!--{{ fore.text }} m-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <div class="info_group">
+                    <label class="code_txt">被摄物体宽度：</label>
+                    <input class="code_list" v-model="foresW_val" value="" key="foresW_val_02">
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">被摄物体高度：</label>
+                    <input class="code_list" v-model="foresH_val" value="" key="foresH_val_02">
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">焦距：</label>
+                    <!--<input class="code_list" v-model="ref_val" value="">-->
+                    <select class="code_list" v-model="ref_val">
+                        <option class="code_con" v-for="refval in ref_val_list" :value="refval.value">
+                            {{ refval.text }}
+                        </option>
+                    </select>
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_ref()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算结果</span>
+            <small class="calc_small_tit">提醒：此计算结果仅供参考</small>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_state">
+                焦距：<span class="state_red total_number">{{ total_number }} mm</span>
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">常见参照</span>
+            <small class="calc_small_tit">提醒：以实物图为准</small>
+        </h3>
+        <div class="calc_panel">
+            <p class="calc_reference"><img class="calc_table_img" src="../../img/CALC_20170810/calc_contrast_01.png"></p>
+        </div>
+    </div>
+    <div class="calc_floor floor_recommend">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">精品推荐</span>
+            <small class="calc_small_tit">为你推精品结果</small>
+        </h3>
+        <div class="calc_panel padd">
+            <div class="calc_swiper">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <a class="swiper-slide" v-for="slide in slides" @click="btn_goods(slide)">
+                            <div class="slide_pro">
+                                <p class="pro_img"><img :src="slide.goods_img"></p>
+                                <div class="pro_name" v-text="slide.name"></div>
+                                <div class="pro_price" v-text="slide.shop_price"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!--<div class="swiper-pagination"></div>-->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop_error"></div>
+</div>
+

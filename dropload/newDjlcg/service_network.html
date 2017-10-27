@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>服务网点查询_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/service_network.css"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+<div class="border_t2">
+    <div class="width_main">
+        <div class="title">
+            <h3 class="center f_c_333 fs_18px f_b li_he_40px">服务网点查询</h3>
+        </div>
+        <div id="content" class="content fs_14px f_c_999">
+            <div class="content_nav f_c_666" id="area_container" v-cloak>
+                城市筛选：<span class="active" v-on:click="onAreaSelected(0,$event)">全部</span><span v-for="item in data" v-on:click="onAreaSelected(item.province,$event)">{{item.province_name}}</span>
+            </div>
+            <ul class="over_hide" id="agency_container">
+                <li class="fl" v-for="item in agency_list" >
+                    <p class="fs_16px f_c_666" v-cloak>{{item.company_name}}</p>
+                    <p v-cloak v-if="item.is_dt==1">公司服务等级：<span class="blue">{{item.dt_grade_name}}</span></p>
+                    <p v-cloak v-if="item.is_dt==1">联系人：<span>{{item.name}}</span></p>
+                    <p v-cloak v-if="item.is_dt==1">手机：<span class="blue">{{item.mobile}}</span></p>
+                    <p v-cloak>联系方式：<span>{{item.office_phone}}</span></p>
+                    <p v-cloak>公司地址：<span>{{item.province_name}} {{item.city_name}} {{item.district_name}} {{item.address}}</span></p>
+                </li>
+            </ul>
+            <!--<ul class="over_hide" id="service_container">
+                <li class="fl" v-for="item in dt_list" >
+                    <p class="fs_16px f_c_666" v-cloak>{{item.company_name}}</p>
+                    <p v-cloak v-if="item.is_dt==1">公司服务等级：<span class="blue">{{item.dt_grade_name}}</span></p>
+                    <p v-cloak v-if="item.is_dt==1">联系人：<span>{{item.name}}</span></p>
+                    <p v-cloak v-if="item.is_dt==1">手机：<span class="blue">{{item.mobile}}</span></p>
+                    <p v-cloak>公司座机：<span>{{item.office_phone}}</span></p>
+                    <p v-cloak>公司地址：<span>{{item.province_name}} {{item.city_name}} {{item.district_name}} {{item.address}}</span></p>
+                </li>
+            </ul>-->
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<div id="bottomTemp_main" style="margin-top: -20px"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js"></script>
+<script type="text/javascript" src="js/service_network.js?v=20170224"></script>
+<script type="text/javascript">
+    com.isTitleMenuShow(false)
+</script>
+
+</body>
+</html>

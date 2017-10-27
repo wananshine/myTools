@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>渠道自助管理系统_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<div class="main clearfix">
+				<div class="content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">渠道概况</h3><span class="fL" id="today"></span>
+					</div>
+				</div>
+				<div class="content-left fL">
+					<div class="content-info">
+						<div class="title">
+							<h4>账号信息</h4>
+						</div>
+						<div class="info-main clearfix" id="user_info">
+							<img v-cloak v-if="!image" src="img/image01.png" class="fL">
+							<img v-cloak v-if="image" :src="image" class="fL"/>
+							<p>登录账号：<span v-cloak>{{user_name}}</span></p>
+							<p>渠道等级：<span v-cloak>{{dt_grade}}</span></p>
+							<div class="p clearfix">
+								<span class="fL" v-cloak >所属网点：{{parent_name}}</span>
+							</div>
+							<p>管理员：<span v-cloak>{{real_name}}</span><span v-cloak>{{email}}</span><span v-cloak>{{mobile_phone}}</span></p>
+							<p><a href="/center/basic_data.html?infoid=5" target="_blank">修改个人信息</a><em>|</em><a href="/center/authentication_data.html?infoid=6" target="_blank">修改公司信息</a></p>
+						</div>
+					</div>
+					<!--<div class="content-ranking">
+						<div class="title clearfix">
+							<h4 class="fL">全国渠道销量排行</h4>
+							<a href="moving.html" class="fR">查看更多</a>
+						</div>
+						<div class="ranking-main">
+							<table id="sales_rank">
+								<tbody>
+									<tr>
+										<th width="8%">排名</th>
+										<th width="26%">公司名称</th>
+										<th width="16.5%">区域</th>
+										<th width="16.5%">销售业绩（元）</th>
+										<th width="16.5%">渠道等级</th>
+										<th width="16.5%">注册时间</th>
+									</tr>
+									<tr v-for="(item, index) in data">
+										<td v-cloak>{{index+1}}</td>
+										<td v-cloak>{{item.company_name}}</td>
+										<td v-cloak>{{item.province_name}} {{item.city_name}}</td>
+										<td v-cloak>{{item.dt_total_sales}}</td>
+										<td v-cloak>{{item.dt_grade}}</td>
+										<td v-cloak>{{item.dt_review_date}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>-->
+					<div class="content-policy">
+						<div class="title clearfix">
+							<h4 class="fL">渠道政策</h4>
+							<a href="policy.html" class="fR">查看更多</a>
+						</div>
+						<div class="policy-main" id="policy">
+							<ul>
+								<li class="text-rt" v-for="item in data">
+									<a href="#" v-on:click="articleDetail(item.article_id,item.link)" class="fL" v-cloak>{{item.title}}</a><span v-cloak>{{item.add_time}}</span>
+								</li>
+								<li v-if="!data" class="text-ct">
+									暂无政策
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="content-right fL">
+					<div class="content-count">
+						<div class="title clearfix">
+							<h4 class="fL">数据统计</h4>
+							<ul class="clearfix fL">
+								<li class="fL" onclick="getAchievement('today')"><em class="active">今天</em></li>
+								<li class="fL" onclick="getAchievement('yesterday')"><em>昨天</em></li>
+								<li class="fL" onclick="getAchievement('latest7days')"><em>最近七日</em></li>
+								<li class="fL" onclick="getAchievement('this_month')"><em>本月</em></li>
+							</ul>
+						</div>
+						<div class="count-main" id="achievement">
+							<dl class="clearfix text-ct">
+								<dt class="fL">会员</dt>
+								<dd class="fL">销售金额:<span v-cloak>{{info.member_sales}}</span></dd>
+								<dd class="fL">销售利润:<span v-cloak>{{info.member_profit}}</span></dd>
+							</dl>
+							<dl class="clearfix text-ct">
+								<dt class="fL">渠道商</dt>
+								<dd class="fL">渠道业绩:<span v-cloak>{{info.channel_sales}}</span></dd>
+								<dd class="fL">应返金额:<span v-cloak>{{info.channel_profit}}</span></dd>
+							</dl>
+						</div>
+					</div>
+
+					<div class="content-spread">
+						<div class="title clearfix">
+							<h4 class="fL">推广链接</h4><span class="fL">向你的用户发送下面的注册链接，用户注册成功后会自动归属到你的会员用户中</span>
+						</div>
+						<div class="spread-main">
+							<span id="spread_link">http://192.168.1.54/register.html</span><input type="button" value="复制" id="copy_input" class="btn" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="zhezhao"></div>
+		<div  id="pop-ups" class="pop-ups">
+			<div class="pop-head clearfix">
+				<h3 class="fL">【云订货】发票税点升级公告</h3><span class="fR iconfont">&#xe79a;</span>
+			</div>
+			<div class="pop-main">
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="/dt/js/jquery.zclip.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			tabHeader("index");
+		</script>
+	</body>
+</html>

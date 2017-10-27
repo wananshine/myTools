@@ -1,0 +1,109 @@
+<!--综合布线-->
+<div class="calc_details" id="calc_wiring">
+    <div class="calc_param">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算参数</span>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">桥架宽度：</label>
+                    <input value="" class="code_list" v-model="bridge_W">
+                    <i class="code_unit">mm</i>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">桥架高度：</label>
+                    <input value="" class="code_list" v-model="bridge_H">
+                    <i class="code_unit">mm</i>
+                </div>
+                <div class="info_group">
+                    <div class="panel_title">
+                        <span class="title_note">计算范围：</span>
+                        <div class="note_r">
+                            <div class="title_group" v-for="(tab_radio, index) in tab_radios" @click = 'tabRadio(tab_radio, index)' >
+                                <input :id="tab_radio.id" class="tab_radio" v-model="selected_radio" name="titleRadios" type="radio" :value="tab_radio.val">
+                                <label :for="tab_radio.id">{{ tab_radio.tab_txt  }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_group">
+                        <label class="code_txt">规格：</label>
+                        <select id="r-0" class="code_list" v-model="rule_val">
+                            <option class="code_con" v-for="option in options" :value="option.type_val">
+                                {{ option.type_name }}
+                            </option>
+                        </select>
+                        <!--<select v-if="selected_radio == 0" id="r-0" class="code_list" v-model="rule_val_0">-->
+                            <!--<option class="code_con" v-for="option in options_0" :value="option.type_val">-->
+                                <!--{{ option.type_name }}-->
+                            <!--</option>-->
+                        <!--</select>-->
+                    </div>
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_m()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算结果</span>
+            <small class="calc_small_tit">提醒：此计算结果仅供参考</small>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_state">
+                计算得出工程该使用的线缆数量约<span class="state_red total_number"> {{ total_number }} </span>条
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">常见参照</span>
+            <small class="calc_small_tit" style="display: none;">提醒：拼接大屏对比参照</small>
+        </h3>
+        <div class="calc_panel">
+            <!--<table class="calc_table" border="1">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>名称</th>-->
+            <!--<th>分辨率( 像素 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--</table>-->
+            <p class="calc_reference"><img class="calc_table_img" src="../../img/CALC_20170810/calc_table_03.jpg"></p>
+        </div>
+    </div>
+    <div class="calc_floor floor_recommend">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">精品推荐</span>
+            <small class="calc_small_tit">为你推精品结果</small>
+        </h3>
+        <div class="calc_panel padd">
+            <div class="calc_swiper">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <a class="swiper-slide" v-for="slide in slides" @click="btn_goods(slide)">
+                            <div class="slide_pro">
+                                <p class="pro_img"><img :src="slide.goods_img"></p>
+                                <div class="pro_name" v-text="slide.name"></div>
+                                <div class="pro_price" v-text="slide.shop_price"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!--<div class="swiper-pagination"></div>-->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop_error"></div>
+</div>
+
+

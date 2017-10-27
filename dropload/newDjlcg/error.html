@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>升级提示_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <style type="text/css">
+        .error_mask{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: #3c3c3c;
+        }
+        .error_main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 500px;
+            margin: -250px -300px;
+            background: #2a2a2a;
+            padding: 15px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+        .error_main_f{
+            width: 100%;
+            height: 100%;
+            background: #FFF;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            padding: 30px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .error_ul{
+            margin-top: 110px;
+        }
+        .error_ul li{
+            float: left;
+            width: 100px;
+            margin-right: 20px;
+        }
+        .error_ul li img{
+            width: 100%;
+        }
+        .error_ul li p{
+            margin-top: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error_mask"></div>
+    <div class="error_main">
+        <div class="error_main_f f_c_333">
+            <p class="fs_18px">你知道你的<b class="red2">Internet Explorer</b>是过时了吗？</p>
+            <p class="mar_t_30px">为了得到我们网站最好的体验效果，我们建议您升级到最新版本的Internet Explorer或者选择另一个Web浏览器。</p>
+            <p class="mar_t_10px">最流行的Web浏览器在下面可以找到。</p>
+            <ul class="over_hide error_ul">
+                <a target="_blank" href="http://www.googlechromer.cn/">
+                    <li>
+                        <img src="/img/chrome.png" alt="谷歌浏览器"/>
+                        <p class="f_c_333 center">谷歌浏览器</p>
+                    </li>
+                </a>
+                <a target="_blank" href="http://se.360.cn/">
+                    <li>
+                        <img src="/img/360Logo.png" alt="360安全浏览器"/>
+                        <p class="f_c_333 center">360安全浏览器</p>
+                    </li>
+                </a>
+                <a target="_blank" href="http://www.firefox.com.cn/download/">
+                    <li>
+                        <img src="/img/firefox.png" alt="火狐浏览器"/>
+                        <p class="f_c_333 center">火狐浏览器</p>
+                    </li>
+                </a>
+                <a target="_blank" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+                    <li>
+                        <img src="/img/ie10.png" alt="ie10浏览器"/>
+                        <p class="f_c_333 center" style="margin-top: 1px">ie10浏览器</p>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

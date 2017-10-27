@@ -1,0 +1,70 @@
+.logistics_bg{
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.logistics_main{
+    min-height: 405px;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.icon_logistics{
+    background: url(../img/wuliu.png);
+    width: 100%;
+    height: 5px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.query_main{
+    margin: 0 auto;
+    margin-top: 90px;
+    width: 685px;
+}
+.logistics_input{
+    width: 685px;
+    height: 53px;
+}
+.logistics_input #Query{
+    width: 80%;
+    height: 100%;
+    border: 1px solid #62c6ff;
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    background: #f4f4f4;
+}
+.logistics_input .query_input{
+    display: block;
+    width: 20%;
+    background: #62c6ff;
+    height: 100%;
+    line-height: 53px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url(../img/icon-search.png);
+    background-repeat: no-repeat;
+    background-position: 17% 50%;
+    background-size: 20px;
+    padding-left: 27px;
+    box-sizing: border-box;
+}
+.query_table{
+    width: 100%;
+    border: 1px solid #e7e7e7;
+}
+.query_table tr{
+    height: 45px;
+}
+.query_table .td1{
+    width: 40%;
+    line-height: 45px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.query_table .td2{
+    width: 60%;
+    line-height: 20px;
+    padding: 7px 0px 5px 20px;
+    box-sizing: border-box;
+}

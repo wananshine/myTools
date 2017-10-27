@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>渠道动态_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<div class="main moving-main clearfix">
+				<div class="content-header moving-content-header">
+					<div class="title-bar">
+						<h3>渠道动态</h3>
+					</div>
+				</div>
+				<div class="content-center">
+					<div class="title">
+						<h4>公告</h4>
+					</div>
+					<ul class="clearfix proclamation policy-list" id="notice_list">
+						<li class="fL clearfix" v-for="item in data"><a href="#" v-on:click="articleDetail(item.article_id,item.link)" class="fL" v-cloak>{{item.title}}</a><span class="fR" v-cloak>{{item.add_time}}</span></li>
+					</ul>
+				</div>
+				<div class="content-bottom Nhide">
+					<div class="title">
+						<h4>全国渠道销量排行</h4>
+					</div>
+					<div class="table moving-item">
+						<table id="sales_rank">
+							<tbody>
+								<tr>
+									<th width="8%">排名</th>
+									<th width="26%">公司名称</th>
+									<th width="16.5%">区域</th>
+									<th width="16.5%">销售业绩（元）</th>
+									<th width="16.5%">渠道等级</th>
+									<th width="16.5%">注册时间</th>
+								</tr>
+								<tr v-for="(item, index) in items">
+									<td v-cloak>{{index+1}}</td>
+									<td v-cloak>{{item.company_name}}</td>
+									<td v-cloak>{{item.province_name}}{{item.city_name}}</td>
+									<td v-cloak>{{item.dt_total_sales}}</td>
+									<td v-cloak>{{item.dt_grade}}</td>
+									<td v-cloak>{{item.dt_review_date}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="zhezhao"></div>
+		<div id="pop-ups" class="pop-ups">
+			<div class="pop-head clearfix">
+				<h3 class="fL">【云订货】发票税点升级公告</h3><span class="fR iconfont">&#xe79a;</span>
+			</div>
+			<div class="pop-main">
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+				<p>大家来大家来大家来大家来大家来大家来大家来大家来大家来</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/moving.js"></script>
+		<script type="text/javascript">
+			tabHeader("moving");
+		</script>
+	</body>
+</html>

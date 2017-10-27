@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>个人用户注册_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+    <div class="login_main_title bg_white f_c_666 fs_18px">
+        <div class="width_main">
+            <a href="/main.html"><img class="fl mar_t_25px" src="img/logo.png" /></a>
+            <p class="fl pfirst">欢迎注册</p>
+            <p class="fr mar_l_10px curP"><a href="login.html">请登录</a></p>
+            <p class="fr f_c_999">已有账号</p>
+        </div>
+    </div>
+    <div class="width_main bg_white login_main_content">       
+	   <ul class="fl mar_t_25px border_r">
+            <li><p class="text fs_14px f_c_666">用户名：</p><input id="username" type="text" placeholder="请输入用户名或公司简称" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" />
+                <i class="chose_color fl"></i>
+                <span class="fs_12px f_c_999">支持中文、字母、数字的组合,4-20个字符</span>
+                <span class="fs_12px red" data="false">格式错误，仅支持中文、字母、数字的组合,4-20个字符</span>
+                <span class="fs_12px red" data="true">用户名已存在</span>
+            </li>
+            <li><p class="text fs_14px f_c_666">设置密码：</p><input type="password" id="pwd1" placeholder="请输入密码"/>
+                <i class="chose_color fl"></i>
+                <span class="fs_12px f_c_999">建议使用字母、数字和符号两种及以上的组合,6-20个字符</span>
+                <span class="fs_12px red" data="false">长度只能在6-20个字符之间</span>
+            </li>
+            <li><p class="text fs_14px f_c_666">确认密码：</p><input type="password" id="pwd2" placeholder="请再次输入密码"/>
+                <i class="chose_color fl"></i>
+                <span class="fs_12px f_c_999">请再次输入密码</span>
+                <span class="fs_12px red" data="false">密码输入不一致</span>
+            </li>
+            <li><p class="text fs_14px f_c_666">手机号：</p><input maxlength="11" id="phoneNumber" placeholder="请输入手机号"/>
+                <i class="chose_color fl"></i>
+                <span class="fs_12px f_c_999 Nhide">完成验证后可使用该手机号登陆和找回密码</span>
+                <span class="fs_12px red numberError" data="false" available="false">格式不正确</span>
+                <span class="fs_12px red" data="false">手机号已注册</span>
+			</li>
+            <!--<li class="Nhide">
+                <p class="text fs_14px f_c_666">验证码：</p><input maxlength="4" id="inputCode" placeholder="输入验证码"/><i id="code" class="mycode"></i>
+                <span class="fs_12px f_c_999">看不清楚？点击图片更换验证码</span>
+                <span class="fs_12px red yzmError" data="false">验证码不正确</span>
+            </li>-->
+            <li><p class="text fs_14px f_c_666">验证码：</p><input maxlength="4" id="inputCode" placeholder="输入验证码"/>
+                <img src="/newapi/captcha.php?4" class="mycode curP" id="mycode" onClick="this.src='/newapi/captcha.php?'+Math.random()" />
+                <span class="fs_12px f_c_999">看不清楚？点击图片更换验证码</span>
+            </li>
+            <li><p class="text fs_14px f_c_666">手机验证码：</p><input maxlength="6" id="mobilecode" placeholder="请输入验手机证码"/>
+                <i class="chose_color fl"></i>
+                <input style="border: none !important;" class="time f_c_666" id="hqyzm" value="获取验证码" />
+                <span class="fs_12px f_c_999 hide">已发送短信验证码，100秒后可重新获取</span>
+
+            </li>
+            <li><p class="text f_clear fs_14px f_c_666">所在城市：</p>
+                <span class="fs_12px red" data="true"></span>
+                <span class="fs_12px red" data="true"></span>
+                <div class="province fl border" id="Province">
+                    <select id="s_province" name="s_province" data="true">
+                        <option v-for="option in options" v-bind:value="option.region_id">
+                            <span v-cloak>{{ option.region_name }}</span>
+                        </option>
+                    </select>
+                    <i class="icon_down"></i>
+                </div>
+                <div class="province mar_l_35px fl border" id="City">
+                    <select id="s_city" name="s_city" data="true">
+                        <option v-for="option in options" v-bind:value="option.region_id">
+                            <span v-cloak>{{ option.region_name }}</span>
+                        </option>
+                    </select>
+                    <i class="icon_down"></i>
+                </div>
+            </li>
+           <li><p class="text fs_14px f_c_666">推荐人：</p>
+               <input type="text" id="tuijian" name="tuijian" value="" placeholder="请输入推荐人"/>
+           </li>
+
+            <li>
+                <span class="fs_12px red" data="true"></span>
+                <span class="fs_12px red" data="true"></span>
+                <p class="text fs_14px f_c_666"></p>
+                <p class="now_login fs_16px white bg_light_dd3e3e fl curP">立即注册</p>
+            </li>
+           <p class="fs_14px f_c_666 fl" style="margin-left: 175px">
+               <input id="agreementInput" data="false" type="checkbox">
+               <span class="mar_l_10px">我已阅读并同意</span><a class="blue curP" id="agreement">《大家来用户注册协议》</a>
+               <br/><span class="fs_12px red">请勾选大家来用户注册协议</span>
+           </p>
+            <!--<p class="fs_14px f_c_666 fl" style="margin-left: 175px"><input class="" name="agreement" type="checkbox"><span class="mar_l_10px">我已阅读并同意</span><a class="blue">《大家来用户注册协议》</a></p>-->
+        </ul>
+		
+        <div class="fl f_c_666 mar_t_25px login_main_right">
+            <p class="fs_14px fr">服务热线：400-600-8028</p>
+            <p class="fs_12px mar_t_175px">大家来采购网致力于为集成商、工程商企业单位提供： 方案设计、深化设计、图纸设计、成本核算、集中采购和统一售后服务。</p>
+            <p class="fs_12px mar_t_25px">注册成为企业用户，即可享受会员价,  个人用户可以在用户中心继续完善用户资料升级成为企业用户。</p>
+            <a href="frim_register.html">
+                <div class="qyyhzc border">
+                    <span>企业用户注册</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 弹出窗 -->
+    <div id="alert_mask"></div>
+
+    <script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/js/vue.js"></script>
+    <script type="text/javascript" src="lib/js/KinerCode.js"></script>
+    <script type="text/javascript" src="lib/js/common.js"></script>
+	<script type="text/javascript" src="lib/js/global.js"></script>
+    <script type="text/javascript" src="lib/js/City.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript" src="lib/js/jquery.md5.js"></script>
+</body>
+</html>

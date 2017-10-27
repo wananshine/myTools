@@ -1,0 +1,163 @@
+<div class="calc_details" id="calc_video">
+    <div class="calc_param">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算参数</span>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_title">
+                <span class="title_note">设备参数：</span>
+                <div class="title_group" v-for="(tab_radio, index) in tab_radios" >
+                    <input :id="tab_radio.id" class="tab_radio" v-model="selected_val" name="titleRadios" type="radio" :value="tab_radio.val">
+                    <label :for="tab_radio.id">{{ tab_radio.tab_txt  }}</label>
+                </div>
+            </div>
+            <section v-if="selected_val == 0" class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">像素：</label>
+                    <select class="code_list" v-model="code_rate_val">
+                        <option class="code_con" v-for="option in options" :value="option.value">
+                            {{ option.text }} W
+                        </option>
+                    </select>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">单个硬盘容量：</label>
+                    <select class="code_list" v-model="g_val_m">
+                        <option class="code_con" v-for="item_m in g_valMs" :value="item_m.value">
+                            {{ item_m.text }} T
+                        </option>
+                    </select>
+                </div>
+                <!--<div class="info_group"><label class="code_txt">编码格式：</label>H.264编码/H.265编码</div>-->
+                <div class="info_group">
+                    <label class="code_txt">编码格式：</label>
+                    <select class="code_list" v-model="format_val_m">
+                        <option class="code_con" v-for="format_m in format_ms" :value="format_m.value">
+                            {{ format_m.text }} 编码
+                        </option>
+                    </select>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">摄像头个数：</label>
+                    <input class="code_list" v-model="s_val_m" value="">
+                    <i class="code_unit">个</i>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">存储时间：</label>
+                    <input class="code_list" v-model="t_val_m" value="">
+                    <i class="code_unit">天</i>
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_m()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </section>
+            <section v-if="selected_val == 1" class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">分辨率：</label>
+                    <select class="code_list" v-model="resolution_val">
+                        <option class="code_con" v-for="resolution in resolutions" :value="resolution.value">
+                            {{ resolution.text }} P
+                        </option>
+                    </select>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">单个硬盘容量：</label>
+                    <select class="code_list" v-model="g_val_f">
+                        <option class="code_con" v-for="item_f in g_valFs" :value="item_f.value">
+                            {{ item_f.text }} T
+                        </option>
+                    </select>
+                </div>
+                <!--<div class="info_group"><label class="code_txt">编码格式：</label>H.264编码/H.265编码</div>-->
+                <div class="info_group">
+                    <label class="code_txt">编码格式：</label>
+                    <select class="code_list" v-model="format_val_f">
+                        <option class="code_con" v-for="format_f in format_fs" :value="format_f.value">
+                            {{ format_f.text }} 编码
+                        </option>
+                    </select>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">摄像头个数：</label>
+                    <input class="code_list" v-model="s_val_f" value="">
+                    <i class="code_unit">个</i>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">存储时间：</label>
+                    <input class="code_list" v-model="t_val_f" value="">
+                    <i class="code_unit">天</i>
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_f()'>开始计算</button>
+                    <button class="btn_default btn_red"   @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算结果</span>
+            <small class="calc_small_tit">提醒：此计算结果仅供参考</small>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_state">
+                所需录像容量约为：<span class="state_red total_number"> {{ total_number.memory }}T </span>
+                <br>
+                单块容量为<span class="state_red total_number"> {{ total_number.hard_disk }}T</span>
+                的硬盘需要<span class="state_red total_number"> {{ total_number.number }} </span>块
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">常见参照</span>
+            <small class="calc_small_tit" style="display: none;">提醒：拼接大屏对比参照</small>
+        </h3>
+        <div class="calc_panel">
+            <!--<table class="calc_table">-->
+                <!--<thead class="table_hd">-->
+                <!--<tr>-->
+                    <!--<th>名称</th>-->
+                    <!--<th>分辨率( 像素 )</th>-->
+                    <!--<th>码率( H.264 )</th>-->
+                    <!--<th>码率( H.264 )</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody class="table_bd">-->
+                <!--<tr v-for="table_tr in table_trs">-->
+                    <!--<td v-for="table_td in table_tr.table_tds">{{ table_td.td_txt }}</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+            <p class="calc_reference"><img class="calc_table_img" src="../../img/CALC_20170810/calc_table_02.png"></p>
+        </div>
+    </div>
+    <div class="calc_floor floor_recommend">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">精品推荐</span>
+            <small class="calc_small_tit">为你推精品结果</small>
+        </h3>
+        <div class="calc_panel padd">
+            <div class="calc_swiper">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <a class="swiper-slide" v-for="slide in slides" @click="btn_goods(slide)">
+                            <div class="slide_pro">
+                                <p class="pro_img"><img :src="slide.goods_img"></p>
+                                <div class="pro_name" v-text="slide.name"></div>
+                                <div class="pro_price" v-text="slide.shop_price"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop_error"></div>
+</div>
+

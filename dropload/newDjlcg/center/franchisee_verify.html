@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>申请加盟商_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+    <link rel="stylesheet" type="text/css" href="../css/usercenter.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../lib/css/global.css"/>
+</head>
+<body>
+    <!-- 页面顶部 -->
+    <!--#include virtual="/lib/temp/page_title.html" -->
+    <!--#include virtual="/lib/temp/page_title2.html" -->
+    <!--#include file="temp/userCenterLeft.html" -->
+    <div class="width_main " id="content_main">
+        <div class="orders_content bg_white " id="vm_container">
+            <p class="order_con_title border_b">
+                <span class="fr f_c_999 fs_14px pad_r_30px li_he_25px"> 注：<em>*</em> 为必填项目,如遇到申请问题请拨打：400-600-8028</span>
+                <span class="fl f_c_333">申请加盟商</span>
+            </p>
+            <p class="mar_t_10px f_c_999 fs_14px li_he_30px">加盟商申请，需要经过以下步骤。</p>
+            <div class="center">
+                <ul class="title_schedule">
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">1</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">提交申请资料</p>
+                    </li>
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">2</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">签订协议</p>
+                    </li>
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">3</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">确认付款</p>
+                    </li>
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">4</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">审核</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="verify_main mar_t_30px">
+                <ul>
+                    <li v-cloak class="mar_t_45px" v-if="status==1">
+                        <div class="verify_img fl"></div>
+                        <div class="mar_l_25px" style="display: inline-block">
+                            <p class="fs_24px li_he_30px">资料已提交，请等待审核！</p>
+                            <p class="fs_14px li_he_25px">我们将在2个工作日内审核，审核通过后会有短信提醒。</p>
+                            <p class="fs_14px li_he_25px">请您耐心等待，如有任何疑问请拨打客服热线：400-600-8028</p>
+                        </div>
+                    </li>
+                    <li v-cloak class="mar_t_45px" v-if="status==-1">
+                        <div class="verify_img fl"></div>
+                        <div class="mar_t_10px mar_l_25px" style="display: inline-block">
+                            <p class="fs_24px li_he_30px">审核不通过，请重新提交！</p>
+                            <p class="fs_14px li_he_25px">原因：{{remark}}</p>
+                        </div>
+                    </li>
+                    <li v-cloak class="mar_t_45px" v-if="status==-2">
+                        <div class="verify_img fl"></div>
+                        <div class="mar_t_10px mar_l_25px" style="display: inline-block">
+                            <p class="fs_24px li_he_30px">已被取消加盟商资格！</p>
+                            <p class="fs_14px li_he_25px">原因：{{remark}}</p>
+                        </div>
+                    </li>
+                    <li v-cloak class="mar_t_45px" v-if="status==2">
+                        <div class="verify_img fl"></div>
+                        <div class="mar_l_25px" style="display: inline-block">
+                            <p class="fs_24px li_he_30px">恭喜您，审核通过！</p>
+                            <p class="fs_14px li_he_25px">您提交的加盟商认证申请现在处于认证通过,协议签订成功状态，您可以直接通过商城的账号登录。</p>
+                            <p class="fs_14px li_he_25px">如有疑问请咨询当地渠道经理。再次感谢贵公司的支持！</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="center li_he_40px mar_t_45px">
+                <a v-cloak v-if="status==1" class="" href="/center/franchisee_apply.html?infoid=13"><span class="apply_btn curP fs_14px white next">重新提交</span></a>
+                <a v-cloak v-if="status==-1" class="" href="/center/franchisee_apply.html?infoid=13"><span class="apply_btn curP fs_14px white next">重新提交</span></a>
+                <a v-cloak v-if="status==2" class="" href="/dt/index.html"><span class="apply_btn curP fs_14px white next">进入渠道自助管理系统</span></a>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="/js/center/franchisee_verify.js"></script>
+    <!--#include file="temp/userCenterBottom.html" -->
+</body>
+</html>

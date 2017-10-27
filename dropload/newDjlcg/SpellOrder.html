@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="大家来采购网djlcg.com,弱电一站式采购,安防弱电行业商城,建筑智能化B2B电子商务平台,为工程集成商提供智能建筑控制系统、建筑智能化工程、公共安全、楼宇自动化控制系统、机房工程在线报价、智能家居控制系统、音视频会议系统等智能建筑品牌优质特价商品及服务的互联网采购平台" />
+    <meta name="Keywords" content="大家来采购网，djlcg.com,大家来电子商务，集成工程采购，中国智慧城市，智能建筑，建筑智能化，强电弱电，一站式采购，让交易变得简单，快乐" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <meta content=always name=referrer>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon_url.png" media="screen" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?02c5d8b75511fdeda85cc7e0b4f90842";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <title id="productListTemp1"></title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/spellorder.css"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+
+<div id="cou_container" class="cou_container">
+    <div class="cou_inner width_main">
+        <div class="cou_banner"><img :src="bannerurl"></div>
+        <section class="cou_content">
+            <div class="cou_floors" v-for="(floor, index) in floors">
+                <h3 class="cou_tit">
+                    <span class="cou_tit_bigtxt">{{ floor.bigtitle }}</span>
+                    <small class="cou_tit_smalltxt">{{ floor.smalltitle }}</small>
+                </h3>
+                <div class="cou_list">
+                    <a class="cou_cell"  v-for="(item, index) in floor.products">
+                        <p class="cou_img"><img :src="item.goods_thumb"/></p>
+                        <div class="cou-info">
+                            <strong class="cou-txt">{{ item.goods_name }}</strong>
+                            <i class="cou-num">
+                                <em class="cou_tag">目标:<b class="tag_no">{{ item.restrict_amount }}</b>件</em>
+                                <em class="cou_tag">已拼:<b class="tag_no">{{ item.is_finished }}</b>件</em></i>
+                            <div class="cou_btm">
+                                <div class="cou_btm_l">
+                                    <span class="count count_time">距开始: 123</span>
+                                    <span class="count">拼单价:<i class="count_price">{{item.shop_price}}</i></span>
+                                </div>
+                                <button class="cou_btm_r" @click="couget(item,index)">参加拼单</button>
+                            </div>
+                        </div>
+                        <!--<div class="cou_info cou_left">-->
+                        <!--<p class="cou_price"><i>{{ item.cou_price }}元</i>优惠券</p>-->
+                        <!--<div class="cou_product">{{ item.cou_product }}</div>-->
+                        <!--</div>-->
+                        <!--<div class="cou_info cou_center">有效时间<span :id="item.goods_id">{{ item.cou_time }}</span>分钟</div>-->
+                        <!--<div class="cou_info cou_right">-->
+                        <!--<div>-->
+                        <!--<p class="cou_pronum">{{ item.cou_state }}</p>-->
+                        <!--&lt;!&ndash;<figcaption class="cou_btn btn_get" :class="{ isend: 'isend' }" :disabled="disabled"  @click="couget(item,index)">{{ item.btn_text }}</figcaption>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<figcaption class="cou_btn btn_use isclick2"  @click="">立即使用</figcaption>&ndash;&gt;-->
+                        <!--<button class="cou_btn" v-if="item.isclick"   @click="couget(item,index)">{{ item.btn_text }}</button>-->
+                        <!--<button class="cou_btn" v-if="item.isclick2"  @click="">立即使用</button>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </a>
+                    <a class="cou_icon"  v-for="(item, index) in floor.pro_rule">
+                        <dl>
+                            <dt>{{ item.rule_title }}</dt>
+                            <dd class="icon_dd" v-for="(ruletxt, index) in item.rule_info">
+                                {{ruletxt.rule_txt}}
+                            </dd>
+                        </dl>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="bottomTemp_main"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js"></script>
+<script type="text/javascript" src="lib/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/spellorder.js"></script>
+<script type="text/javascript">
+    com.isTitleMenuShow(false)
+</script>
+</body>
+</html>

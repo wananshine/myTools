@@ -1,0 +1,13 @@
+{
+    "provinces":[
+        { "proname": "长沙" , "default" : false },
+        { "proname": "武汉" , "default" : false },
+        { "proname": "北京" , "default" : false },
+        { "proname": "天津" , "default" : false },
+        { "proname": "上海" , "default" : false },
+        { "proname": "深圳" , "default" : false },
+        { "proname": "杭州" , "default" : false },
+        { "proname": "合肥" , "default" : false },
+        { "proname": "广州" , "default" : false }
+    ]
+}

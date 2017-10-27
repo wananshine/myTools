@@ -1,0 +1,39 @@
+<div class="login_main box_s" style="position: fixed">
+    <div class="logTempImg">
+        <img class="closeMask" src="/img/icon-close1.svg">
+    </div>
+    <p class="fs_16px f_c_333 border_b login_title">账号登录</p>
+
+    <p class="center login_error_text1 Nhide fs_12px">账号与密码不必配，请重新输入</p>
+    <p class="center login_error_text2 Nhide fs_12px">账户名不存在，请重新输入</p>
+    <p class="center login_error_text2 userNull Nhide fs_12px">请输入账号或密码</p>
+    <p class="login_error fs_12px">公共场所不建议自动登录，以防账号丢失</p>
+    <div class="login_input">
+        <i class="login_icon"></i><input class="userName bk1" onfocus="$(this).addClass('bk2')"  onblur="$(this).removeClass('bk2')" maxlength="20" placeholder="请输入用户名/手机号" />
+    </div>
+    <div class="login_input mar_t_15px">
+        <i class="login_icon2"></i><input class="userPwd bk1" onfocus="$(this).addClass('bk2')"  onblur="$(this).removeClass('bk2')" id="pwd" type="password" placeholder="请输入密码" >
+    </div>
+    <div class="fs_12px f_c_333 mar_t_20px">
+        <input type="checkbox" name="remember" id="remember" class="fl"><span class="mar_l_10px">下次自动登陆</span><a href="/forget_password.html"><span class="fr">忘记密码？</span></a>
+    </div>
+    <div class="login bg_line_red white mar_t_30px fs_16px pos_rel over_hide">
+        <p class="changeText center" id="f_changeText">登录</p>
+        <div class="change_div" id="f_change_div">
+            <img class="change_login" src="/img/load.svg" />
+        </div>
+    </div>
+    <p class="fs_16px mar_t_30px center"><span class="f_c_999">还没有账号？</span><span class="curP"><a class="blue" href="../../register.html">30秒立即注册</a></span></p>
+</div>
+
+
+<script type="text/javascript" src="/lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/lib/js/common.js"></script>
+<script type="text/javascript" src="/lib/js/comMain.js"></script>
+<script type="text/javascript" src="/lib/js/global.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    login();
+</script>
+

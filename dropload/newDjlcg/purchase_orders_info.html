@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>结算页_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/purchase_orders.css?time=20170424"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+
+<div class="login_main_title bg_white f_c_666 fs_18px border_b2_red">
+    <div class="width_main">
+        <a href="main.html"><img class="fl mar_t_25px" src="img/logo.png" /></a>
+        <p class="fl pfirst curP">结算页</p>
+        <ul class="title2_schedule fr f_c_999 mar_t_40px">
+            <li>
+                <hr class="border_b2_green"/>
+                <span class="bg_green white" style="background: #89ca55">1</span>
+                <p class="fs_12px f_c_666 green">我的进货单</p>
+            </li>
+            <li>
+                <hr class="border_b2_green"/>
+                <span class="white" style="background: #89ca55">2</span>
+                <p class="fs_12px f_c_666 green">填写核对订单</p>
+            </li>
+            <li>
+                <hr/>
+                <span>3</span>
+                <p class="fs_12px f_c_666">成功提交订单</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="content orders_main width_main bg_white">
+    <!--<p class="li_he_30px mar_t_10px">收货地址</p>-->
+    <div class="li_he_30px" style="height:30px;">
+        <p class="fl fs_16px f_c_333">收货地址</p></div>
+    <!--<div class="orders_card_main" id="addrs_template">
+        <div class="orders_card toggle_card border fs_14px f_c_999 li_he_20px mar_t_10px pos_rel fl" data="true" v-for="addr in address_list" v-on:click="toggleCard(addr)">
+            <p class="fs_18px f_c_333" v-cloak>{{addr.consignee}}</p>
+            <p class="mar_t_20px" v-cloak>{{addr.tel}} {{addr.mobile}}</p>
+            <p  class="address" v-cloak>{{addr.province_name}} {{addr.city_name}} {{addr.district_name}} {{addr.address}}</p>
+            <p class="center fs_12px f_c_666 mar_t_40px"><span class="change" v-on:click="update(addr)">修改</span><span class="del_card" v-on:click="remove(addr.address_id)">删除</span></p>
+            <img src="img/chose_color3.png" />
+        </div>
+            <div id="reminder" class="toggle_card border fs_14px f_c_999 li_he_20px mar_t_10px pos_rel fr">
+                <p style="margin-top:30px;color:#CE1D1B;">友情提示:<br/>您添加地址数量已达上限，请删除或修改已有地址！</p>
+            </div>
+            <div class="orders_card border_e7 fs_14px f_c_999 li_he_20px mar_t_10px pos_rel fl" id="add_orders">
+            <div class="upload_bg"><p>新增收货地址</p></div>
+            </div>
+    </div>-->
+    <div class="orders_card_main" id="addrs_template" style="width:100%;padding-bottom:5px;padding-top:5px;">
+        <div class="orders_card2 " v-bind:id="'list_'+addr.address_id" v-for="addr in address_list" >
+            <div class="fl toggle_card border pos_rel head" data="true" v-on:click="toggleCard(addr)"><p  v-cloak>{{addr.consignee}}</p><img src="img/trueicon.png" /></div>
+            <div class="fl addmessege">
+                <p class="head2 mar_l_10px fl" v-cloak>{{addr.consignee}}</p>
+                <p  class="address" :title="addr.province_name+addr.city_name+addr.district_name+addr.address"  v-cloak>{{addr.province_name}} {{addr.city_name}} {{addr.district_name}} {{addr.address}}</p>
+                <p  v-cloak>{{addr.mobile}}</p>
+                <div class="center fr revamp">
+                    <span class="change" v-on:click="update(addr)">
+                        修改
+                    </span>
+                    <span class="del_card" v-on:click="remove(addr.address_id)">
+                        删除
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="li_he_45px fs_12px" style="width:100%; height:45px;"><span class="curP blue" id="but" style="margin-left:20px;">更多地址</span></div>
+    <div class="li_he_30px fs_12px" style="width:100%; height:32px;"><span class="addbox upload_bg">+</span><span class="upload_bg curP blue fl mar_l_20px">新增收货地址></span></div>
+
+    <!-- 以上是修改 -->
+    <div class="mar_t_20px border_b"></div>
+    <div class="mar_t_20px">
+        <span class="fs_16px f_c_333 mar_r_10px">配送方式</span>:<span class="mar_l_10px red fs_14px">运费到付</span>
+    </div>
+    <div class="fs_16px f_c_999 li_he_40px he_55px">
+        <span class="fs_16px f_c_333 mar_r_10px">开票说明</span>:<span class="mar_l_10px fs_14px f_c_666">下单后可在订单详情中申请增值发票，发票将在订单完成后15-30个工作日寄出。<a target="_blank" href="/help/issues.html?id=42&infoid=17" class="blue curP">发票相关问题></a></span>
+    </div>
+</div>
+
+<div class="content orders_main width_main bg_white" id="order_goods_template">
+    <p class="li_he_30px mar_t_10px li_he_40px">&nbsp;
+        <span class="fs_16px f_c_333 fl">送货清单</span>
+        <a class="fs_14px f_c_666 fr" href="javascript:history.go(-1)">返回进货单修改</a>
+    </p>
+    <ul class="orders_list" v-for="goods in goods_list" v-cloak>
+        <!--<div class="coupon fs_14px" v-if="goods.coupon_val > 0 && goods.coupon_expire_time > 0">
+            <p><i class="coupon_icon"></i>&nbsp;&nbsp;&nbsp;<span class="red">每{{goods.unit}}减{{goods.coupon_val}}元，可重复使用</span><span class="fr green">已减{{goods.sub_coupon_total}}元</span></p>
+        </div>
+        <div class="coupon fs_14px" v-if="goods.coupon_expire_time < 0 && goods.coupon_val > 0">
+            <p><i class="coupon_icon"></i>&nbsp;&nbsp;&nbsp;<span class="f_c_999">每{{goods.unit}}减{{goods.coupon_val}}元，可重复使用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(已过期)</span>&nbsp;&nbsp;<u @click="toInfo(goods.goods_id)" class="yellow curP">重新领取 ></u></p>
+        </div>-->
+        <li style="margin-left: 50px;line-height: 20px" @click="toInfo(goods.goods_id)">
+            <div class="orders_img curP">
+                <img class="fl" v-bind:src="goods.goods_thumb" />
+            </div>
+            <div class="mar_t_10px fs_12px f_c_333">
+                <p>
+                    <img v-if="goods.watermark_img != ''" :src="goods.watermark_img" style="width: 20px;" />
+                    <span class="curP" v-cloak>{{goods.goods_name}}</span>
+                </p>
+                <p class="fs_12px blue" v-cloak>{{goods.goods_attr}}</p>
+            </div>
+        </li>
+        <li class="f_c_333">
+            <span v-cloak>￥{{goods.goods_price}}</span><span class="mar_l_20px">X <span>{{goods.goods_number}}</span><span>{{goods.unit}}</span></span>
+        </li>
+        <li>
+            <span class="red">￥</span><span class="red"v-cloak>{{goods.subtotal}}</span>
+        </li>
+    </ul>
+    <input id="postscript" maxlength="100" class="border_e7 order_remark fs_14px f_c_999" placeholder="你可以填写订单备注信息，限制100字"/>
+</div>
+
+<div class="content orders_main width_main bg_white" id="order_sum_template">
+    <div class="fs_14px f_c_666 money_info border_b li_he_25px">
+        <P>商品件数：<span v-cloak>{{total_count}}</span>件</P>
+        <P>商品总金额：￥<span v-cloak>{{goods_amount}}</span></P>
+        <!--<P>优惠券抵扣：<span class="red">-￥{{coupon_val}}</span></P>-->
+        <P class="fs_16px mar_t_25px">应付总额：<span class="fs_24px red" v-cloak>￥{{total_amount}}</span></P>
+    </div>
+    <div class="orders_and_address">
+        <div class="fs_12px f_c_333 fl li_he_20px" id="confirmAddress">
+            <p><span id="name" v-cloak>{{selected_addr.consignee}}</span><span id="mobileNumber" v-cloak> {{selected_addr.mobile}} </span></p>
+            <p>
+                <span id="selected_address" v-cloak>
+                    {{selected_addr.province_name}}
+                    {{selected_addr.city_name}}
+                    {{selected_addr.district_name}}
+                    {{selected_addr.address}}
+                </span>
+                <span class="red mar_l_10px curP update" v-on:click="update(selected_addr)">
+                    修改
+                </span>
+            </p>
+        </div>
+        <div class="submit_order fr fs_18px white curP text_ban" v-on:click="submitOrder">
+            提交订单
+        </div>
+    </div>
+</div>
+
+
+<!-- 底部 -->
+<div id="bottomTemp_main"></div>
+
+<!--  弹出窗 -->
+<div id="orders_mask"></div>
+<!--  弹出窗 -->
+<div id="orders_mask1"></div>
+
+<!-- 添加地址 -->
+<div class="Nhide" id="orders_mask_con">
+    <ul class="change_address fs_12px">
+        <li style="margin-top:15px;">
+            <p class="fl"><b class="red">*</b>收货人：</p><input class="height_30px"  style="border:1px solid #dfdfdf;" id="input1" maxlength="20"/><span class="red mar_l_10px ErrorText" data="false" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">请填写收货人</span>
+        </li>
+        <li>
+            <p class="fl"><b class="red">&nbsp;</b>公司名称：</p><input class="height_30px" maxlength="20"style="width:260px; border:1px solid #dfdfdf;"/>
+        </li>
+        <li>
+            <p class="fl"><b class="red">*</b>手机：</p><input style="border:1px solid #dfdfdf;"   class="height_30px  fl" id="phoneNumber" maxlength="11"/><p class="fl mar_l_20px">固定电话：</p><input class="height_30px" id="tel" type="text" style="border:1px solid #dfdfdf;"/><span class="red mar_l_5px ErrorText"  data="false">请填写正确手机号码</span>
+        </li>
+        <li>
+            <p class="fl"><b class="red">*</b>省市：</p>
+            <div class="province fl border" id="Province">
+                <select id="s_province" name="s_province" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+            <div class="province mar_l_35px fl border" id="City">
+                <select id="s_city" name="s_city" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+            <div class="province mar_l_35px fl border" id="Area">
+                <select id="s_county" name="s_county" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+        </li>
+        <li>
+            <p class="fl"><b class="red">*</b>详细地址：</p><input class="height_30px"  style="border:1px solid #dfdfdf;" maxlength="30" style="width: 260px" /><span class="red mar_l_10px ErrorText" data="false">请填写详细地址</span>
+        </li>
+        <!--<li>-->
+        <!--<p class="fl">邮箱：</p><input class="height_30px" type="text"/> <span class="mar_l_10px">用来接收订单提醒邮件，便于您及时了解订单状态</span>-->
+        <!--</li>-->
+        <li>
+            <p class="fl">&nbsp;</p>
+            <input type="checkbox"   :value='list.is_default' v-model="list.is_default"  class="checks"/><span class="mar_l_10px">设为默认收货地址</span>
+        </li>
+    </ul>
+</div>
+
+<!-- 更新地址 -->
+<div class="Nhide" id="update_Address">
+    <ul class="change_address fs_12px">
+        <div id="dataUpdate">
+            <li style="margin-top:15px;">
+                <p class="fl"><b class="red">*</b>收货人：</p><input class="height_30px"   style="border:1px solid #dfdfdf;"   :value="list.consignee" id="input1" maxlength="20"/><span class="red mar_l_10px ErrorText" data="true" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')">请填写收货人</span>
+            </li>
+            <li>
+                <p class="fl">公司名称：</p><input class="height_30px"  :value="list.address_name" maxlength="20" style="width:260px;border:1px solid #dfdfdf;"/>
+            </li>
+            <li>
+                <p class="fl"><b class="red">*</b>手机：</p><input class="height_30px fl"  style="border:1px solid #dfdfdf;"  :value="list.mobile" id="phoneNumber" maxlength="11"/><p class="fl mar_l_20px">固定电话：</p><input class="height_30px"  style="border:1px solid #dfdfdf;"  :value="list.tel" id="tel" type="text"/><span class="red mar_l_10px ErrorText" data="true">请填写正确的手机号码</span>
+            </li>
+        </div>
+        <li>
+            <p class="fl"><b class="red">*</b>省市：</p>
+            <div class="province fl border" id="Province">
+                <select id="s_province" name="s_province" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+            <div class="province mar_l_35px fl border" id="City">
+                <select id="s_city" name="s_city" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+            <div class="province mar_l_35px fl border" id="Area">
+                <select id="s_county" name="s_county" data="true">
+                    <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                        {{ option.region_name }}
+                    </option>
+                </select>
+                <i class="icon_down"></i>
+            </div>
+        </li>
+        <div id="dataUpdate2">
+            <li>
+                <p class="fl"><b class="red">*</b>详细地址：</p><input class="height_30px"   style="border:1px solid #dfdfdf;"  :value="list.address" maxlength="30" style="width: 260px" /><span class="red mar_l_10px ErrorText" data="true">请填写详细地址</span>
+            </li>
+            <!--<li>-->
+            <!--<p class="fl">邮箱：</p><input class="height_30px" :value="list.email" type="text"/> <span class="mar_l_10px">用来接收订单提醒邮件，便于您及时了解订单状态</span>-->
+            <!--</li>-->
+            <li>
+                <p class="fl">&nbsp;</p>
+                <input type="checkbox" :value='list.is_default' v-model="list.is_default" class="checks"/><span class="mar_l_10px">设为默认收货地址</span>
+            </li>
+        </div>
+    </ul>
+</div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js" ></script>
+<script type="text/javascript" src="js/purchase_orders.js"></script>
+<script type="text/javascript">
+    orders_two_init();
+</script>
+</body>
+</html>

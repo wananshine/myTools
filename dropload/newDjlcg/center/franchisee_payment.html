@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>申请加盟商_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+    <!-- 页面顶部 -->
+    <!--#include virtual="/lib/temp/page_title.html" -->
+    <!--#include virtual="/lib/temp/page_title2.html" -->
+    <!--#include file="temp/userCenterLeft.html" -->
+    <div class="width_main" id="content_main">
+        <div class="orders_content bg_white">
+            <p class="order_con_title border_b">
+                <span class="fr f_c_999 fs_14px pad_r_30px li_he_25px"> 注：<em>*</em> 为必填项目,如遇到申请问题请拨打：400-600-8028</span>
+                <span class="fl f_c_333">申请加盟商</span>
+            </p>
+            <p class="mar_t_10px f_c_999 fs_14px li_he_30px">加盟商申请，需要经过以下步骤。</p>
+            <div class="center">
+                <ul class="title_schedule">
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">1</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">提交申请资料</p>
+                    </li>
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">2</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">签订协议</p>
+                    </li>
+                    <li>
+                        <hr style="border-bottom: 2px solid #59befe">
+                        <span class="bg_green white" style="background: #59befe">3</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px" style="color: #59befe">确认付款</p>
+                    </li>
+                    <li>
+                        <hr>
+                        <span>4</span>
+                        <p class="fs_14px li_he_25px  f_c_999 center mar_t_10px">审核</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="payment_main">
+                <div class="mar_t_30px" style="height: 74px">
+                    <div class="payment_img fl mar_t_20px"></div>
+                    <em class="fl mar_t_13px mar_l_50px" style="width: 1px;height: 58px;background-color: #ddd"></em>
+                    <div class="fr pad_r_30px">
+                        <p class="fs_14px li_he_25px f_c_999">户主：<span class="f_c_666">王圣君</span></p>
+                        <p class="fs_14px li_he_25px f_c_999">账号：<span class="red">6214-8575-5215-3878</span></p>
+                        <p class="fs_14px li_he_25px f_c_999">开户行：<span class="f_c_666">招商银行深圳建安支行</span></p>
+                    </div>
+                </div>
+                <ul class="f_c_666 fs_14px" id="dt_payment">
+                    <li class="center">
+                        <span class="li_he_40px f_c_999">线下转账成功之后，请在线上填写您的支付信息，以免影响审核进度！</span>
+                    </li>
+                    <li class="center pos_rel">
+                        <p class="right"><em class="red2">*</em>付款方式：</p><input class="noNull" type="text" v-model="info.pay_method"/><b><span class="red2 Nhide">必填</span></b>
+                        <i class="pos_abs f_c_999 li_he_40px">请填写你付款的方式或银行，例如支付宝、招商银行</i>
+                    </li>
+                    <li class="center">
+                        <p class="right"><em class="red2">*</em>付款金额：</p><input class="noNull" type="text" v-model="info.pay_amount"/><strong>元</strong><b><span class="red2 Nhide">必填</span></b>
+                    </li>
+                    <li class="center">
+                        <p class="right"><em class="red2">*</em>付款人：</p><input class="noNull" type="text" v-model="info.payer_name"/><b><span class="red2 Nhide">必填</span></b>
+                    </li>
+                    <li class="center">
+                        <p class="right"><em class="red2">*</em>付款人手机号：</p><input class="noNull" type="text" v-model="info.payer_mobile"/><b><span class="red2 Nhide">必填</span></b>
+                    </li>
+                </ul>
+            </div>
+            <div class="center li_he_40px mar_t_45px"><span class="apply_btn curP fs_14px white next" onclick="verificationNext()">提交</span><a href="/center/franchisee_protocol.html"><span class="apply_btn curP fs_14px f_c_666">上一步</span></a></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/center/franchisee_payment.js"></script>
+    <!--#include file="temp/userCenterBottom.html" -->
+</body>
+</html>

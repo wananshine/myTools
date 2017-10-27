@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>商品资料_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<!--#include file="temp/left.html" -->
+			<div class="main distributor-main clearfix">
+				<div class="content-header distributor-content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">产品库</h3>
+					</div>
+				</div>
+				<div class="content-bottom">
+					<div class="table distributor-item">
+						<div class="search">
+							<select id="selClass">
+								<option value="" selected="selected">--请选择--</option>
+								<option value="1">重点推荐</option>
+								<option value="0">其他产品</option>
+							</select>
+							品牌:
+							<select id="selBrand">
+								<option value="" selected="selected">--请选择品牌--</option>
+								<option v-for="item in brandObj" v-bind:value="item.id">
+									{{ item.val }}
+								</option>
+							</select>
+							<input id="txtKeyword" type="text" placeholder="输入商品关键字"/>
+							<input type="button" class="btn" value="搜索" onclick="getList()"/>
+						</div>
+						<table id="my_list">
+							<tbody>
+							<tr>
+								<th width="4%">编号</th>
+								<th width="20%">商品名称</th>
+								<th width="8%">属性</th>
+								<th width="10%">售价</th>
+								<th width="8%">渠道价</th>
+								<th width="8%">操作</th>
+							</tr>
+							<tr v-for="(item, index) in items">
+								<td v-cloak>{{item.goods_id}}</td>
+								<td v-cloak>{{item.goods_name}}</td>
+								<td v-cloak>{{item.goods_attr}}</td>
+								<td v-cloak>{{item.shop_price}}</td>
+								<td v-cloak>{{item.dt_price}}</td>
+								<td v-cloak><a href="javascript:void(0)" v-on:click="goodsDetail(item.goods_id)">查看详情</a></td>
+							</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/goods.js"></script>
+		<script type="text/javascript">
+			dtAside("goods");
+		</script>
+	</body>
+</html>

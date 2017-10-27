@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include virtual="lib/temp/pageMeta.html" -->
+    <title>关于我们_大家来采购网</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta content=always name=referrer>
+
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/about_us.css"/>
+
+    <script type="text/javascript" src="lib/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="lib/js/vue.js" ></script>
+    <script type="text/javascript" src="lib/js/global.js"></script>
+    <script type="text/javascript" src="lib/js/common.js"></script>
+    <script type="text/javascript" src="lib/js/comMain.js"></script>
+    <script type="text/javascript" src="js/about_us.js"></script>
+
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!-- 页面头部 -->
+<div id="helpHeader2" class="bg_white box_inset">
+    <div class="title2_main width_main">
+        <div class="logo fl">
+            <a href="/main.html"><img src="/img/logo.png" /></a>
+            <span class="mar_l_20px">关于我们</span>
+        </div>
+    </div>
+</div>
+<div class="about_main center">
+        <span class="mar_t_25px fs_16px" id="about_list">
+            <a class="f_c_999 curP" v-for="items in get_aboutme" v-cloak>{{items.title}}</a>
+        </span>
+        <a class="f_c_999" href="/help/index.html" @click="helpcenter"  target="_blank">帮助中心</a>
+</div>
+
+
+
+<div class="contact_floor mar_t_25px bg_white" id="contact_floor" style="display: none;">
+    <div class="contact_inner width_main">
+        <p class="contact_banner"><img src="img/contact-banner01.jpg"></p>
+        <div class="contact_info">
+            <h3 class="info_title">工程商&集成商入驻请联系</h3>
+            <ul class="info_list">
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">深圳总部</h4>
+                    <p class="info_cell_link">
+                        <label class="info_cell_key">公司座机&nbsp;:</label>
+                        <span class="blue">0755-29888606</span>
+                    </p>
+                    <i class="info_cell_qq">
+                        <label class="info_cell_key">服务热线&nbsp;:</label>
+                        <span class="blue">2851315059</span>
+                    </i>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/pH-Ve" target="_blank">
+                        <label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label>
+                        <span>深圳市 南山区 关口二路智恒产业园28栋一层</span>
+                        <img src="img/contact-01.png">
+                    </a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">北京分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>李 安</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315059</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">13713727212</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/cRG4I" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>北京市丰台区百强大道天龙华鹤A座1610</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">长沙分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>王伟忠</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315066</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">0731-89910126</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/zpQVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>湖南省长沙市雨花区高桥现代商贸城二栋二单元2206室</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">西安分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>温金梅</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>22881452558</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话:</label><span class="blue">029-89535801</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/HBSVe" target="_blank"><label class="info_cell_key" >地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>陕西西安市新城区建工路雅苑东方3号楼1单元403室</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">成都分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>唐雪姣</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315067</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">13538242365</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/AOSVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>四川省成都市金牛区营门口熙城国际1单元1505</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">昆明分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>刘飞</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315065</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">0871-65226823</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/9-SVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>云南省昆明盘龙区小康大道银河星辰花园物业公司二楼</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">上海分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label>候方军</p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2853928985</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">13560732314</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/lVSVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>上海徐汇区宜山路环线广场515号1号楼24层D</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">南昌分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label>章琪</p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2881452559</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">13510153499</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/KcUVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>南昌市青山湖区洪都中大道鸿雁电子市场I栋03</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">武汉分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label>蒋豹</p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315068</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">18138421948</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/phUVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>湖北省武汉市洪山区珞瑜路20号阜华大厦B座25层2502</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">福州分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label>粟磊</p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315050</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">15112354013</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/WlUVe" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>福建省福州市台江区学军路2号双丰大厦11L室</span><img src="img/contact-01.png"></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">郑州分公司</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label>徐磊</p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315064</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">联系电话&nbsp;:</label><span class="blue">0371-56600671</span></b>
+                    <a class="info_cell_addre" href="http://j.map.baidu.com/OaNcI" target="_blank"><label class="info_cell_key">地&nbsp;&nbsp;&nbsp;址&nbsp;:</label><span>河南郑州金水区经三路与广电路99-1号鑫苑金融广场银座27楼</span><img src="img/contact-01.png"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="contact_info">
+            <h3 class="info_title">品牌供应商入驻请联系</h3>
+            <ul class="info_list">
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">招商一部</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>刘文件</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315060</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">手&nbsp;&nbsp;&nbsp;机&nbsp;:</label><span class="blue">15919851533</span></b>
+                    <a class="info_cell_addre"><label class="info_cell_key">电&nbsp;&nbsp;&nbsp;话&nbsp;:</label><span>0755-27737569</span></a>
+                </li>
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">招商二部</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>李文燕</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315055</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">手&nbsp;&nbsp;&nbsp;机&nbsp;:</label><span class="blue">13554718044</span></b>
+                    <a class="info_cell_addre"><label class="info_cell_key">电&nbsp;&nbsp;&nbsp;话&nbsp;:</label><span>0755-29888606-803</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="contact_info contact_info_two">
+            <h3 class="info_title">投资众筹请联系总裁办(投诉专线)</h3>
+            <ul class="info_list">
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">董事局秘书</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>王丹丹</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315057</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">手&nbsp;&nbsp;&nbsp;机&nbsp;:</label><span class="blue">13691880545</span></b>
+                    <a class="info_cell_addre"><label class="info_cell_key">电&nbsp;&nbsp;&nbsp;话&nbsp;:</label><span>0755-29888606-886</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="contact_info contact_info_two">
+            <h3 class="info_title">总裁办(投诉专线)</h3>
+            <ul class="info_list">
+                <li class="info_cell">
+                    <h4 class="info_cell_tit">外部事务助理</h4>
+                    <p class="info_cell_link"><label class="info_cell_key">联系人&nbsp;:</label><span>李安</span></p>
+                    <i class="info_cell_qq"><label class="info_cell_key">Q&nbsp;&nbsp;&nbsp;Q&nbsp;:</label><span>2851315059</span></i>
+                    <b class="info_cell_tel"><label class="info_cell_key">手&nbsp;&nbsp;&nbsp;机&nbsp;:</label><span class="blue">13713727212</span></b>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ul class="width_main mar_t_25px bg_white" style="padding: 0 20px" id="list_content"></ul>
+<!--#include virtual="lib/temp/page_bottom.html" -->
+
+<script type="text/javascript" src="lib/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="lib/js/vue.js" ></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/comMain.js"></script>
+<script type="text/javascript" src="js/about_us.js"></script>
+</body>
+</html>

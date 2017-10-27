@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>全国服务网点查询_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/service_network.css"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+<div class="border_t2 networkInquire_bg">
+    <div class="width_main">
+        <div class="box_s networkInquire_main border_e7">
+            <div class="networkSearch_top">
+                <h3 class="">全国服务网点查询</h3>
+                <a href="service_network.html">查看各省服务网点</a>
+            </div>
+            <div class="networkSearch_main">
+                <div class="networkSearch_input fs_16px">
+                    <input type="text" id="Query" class="fs_16px fl" placeholder="请输入您要查询的网点名称">
+                    <span class="query_input white fl">立即查询</span>
+                </div>
+                <p class="fs_14px red mar_t_20px error1 Nhide">该服务网点不存在</p>
+                <ul id="query_ul" class="fs_14px mar_t_20px Nhide">
+                    <li class="f_c_333">
+                        <p class="f_b">{{items.company_name}}</p>
+                        <p>公司服务等级：<span class="red">{{items.dt_grade_name}}</span></p>
+                        <!--<p>联系人：<span class="f_c_666">{{items.name}}</span></p>-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<div id="bottomTemp_main" style="margin-top: -20px"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js"></script>
+<script type="text/javascript" src="js/service_networkInquire.js"></script>
+<script type="text/javascript">
+    com.isTitleMenuShow(false)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--#include virtual="/lib/temp/pageMeta.html" -->
+		<title>渠道资料_大家来采购网</title>
+		<!--#include file="temp/head.html" -->
+	</head>
+	<body>
+		<!--#include file="temp/top.html" -->
+		<div class="body">
+			<!--#include file="temp/left.html" -->
+			<div class="main distributor-main clearfix">
+				<div class="content-header distributor-content-header">
+					<div class="title-bar clearfix">
+						<h3 class="fL">渠道资料</h3>
+					</div>
+				</div>
+				<div class="content-bottom">
+					<div class="table distributor-item">
+						<div class="search">
+							渠道类型:
+							<select id="selRelationship">
+								<option value="" selected="selected">全部</option>
+								<option value="direct">合作商</option>
+								<option value="indirect">第三方合作商</option>
+							</select>
+							<input id="txtKeyword" type="text" placeholder="输入会员名称/公司名称查找"/>
+							<input type="button" class="btn" value="搜索" onclick="getList()"/>
+						</div>
+						<table id="my_list">
+							<tbody>
+							<tr>
+								<th width="4%">编号</th>
+								<th width="8%">会员名称</th>
+								<th width="16%">公司名称</th>
+								<th width="14%">公司座机</th>
+								<th width="8%">法人代表</th>
+								<th width="10%">渠道类型</th>
+								<th width="10%">渠道等级</th>
+								<th width="11%">销售额(元)</th>
+								<th width="11%">注册日期</th>
+								<th width="8%">操作</th>
+							</tr>
+							<tr v-for="(item, index) in items">
+								<td v-cloak>{{index+1}}</td>
+								<td v-cloak>{{item.user_name}}</td>
+								<td v-cloak>{{item.company_name}}</td>
+								<td v-cloak>{{item.office_phone}}</td>
+								<td v-cloak>{{item.boss_name}}</td>
+								<td v-cloak>{{item.relative_level}}</td>
+								<td v-cloak>{{item.dt_grade}}</td>
+								<td v-cloak>{{item.dt_switch_sales}}</td>
+								<td v-cloak>{{item.dt_switch_date}}</td>
+								<td><a :href="'distributor_detail.html?id='+item.user_id">查看详情</a></td>
+							</tr>
+							</tbody>
+						</table>
+						<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/dt/js/com.js"></script>
+		<script type="text/javascript" src="js/distributor.js"></script>
+		<script type="text/javascript">
+			dtAside("distributor");
+		</script>
+	</body>
+</html>

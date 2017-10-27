@@ -1,0 +1,90 @@
+<div class="calc_details" id="calc_ups">
+    <div class="calc_param">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算参数</span>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_info">
+                <div class="info_group">
+                    <label class="code_txt">UPS负载功率：</label>
+                    <input type="text" id="usp" class="code_list" v-model="power_val" value="">
+                    <i class="code_unit">W</i>
+                </div>
+                <div class="info_group">
+                    <label class="code_txt">所需后备时间：</label>
+                    <select class="code_list" v-model="time_val">
+                        <option class="code_con" v-for="option in options" :value="option.value">
+                            {{ option.text }} 小时
+                        </option>
+                    </select>
+                </div>
+                <div class="btn_group">
+                    <button class="btn_default btn_green" @click = 'btn_submit_m()'>开始计算</button>
+                    <button class="btn_default btn_red" @click = 'btn_reset()'>重置参数</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">计算结果</span>
+            <small class="calc_small_tit">提醒：此计算结果仅供参考</small>
+        </h3>
+        <div class="calc_panel">
+            <div class="panel_state">
+                推荐配置1台  <span class="state_red total_number">{{ total_number.kva/1000 }}K</span> VA  UPS主机
+            </div>
+            <div class="panel_state">
+                所需蓄电池为  <span class="state_red total_number">{{ total_number.ah  }}</span> AH  时数，需<span class="state_red total_number">{{ total_number.group }}</span>组，总共<span class="state_red total_number">{{ total_number.total }}</span>节电池
+            </div>
+        </div>
+    </div>
+    <div class="calc_floor calc_floor_none">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">常见参照</span>
+            <small class="calc_small_tit">提醒：拼接大屏对比参照</small>
+        </h3>
+        <div class="calc_panel">
+            <!--<table class="calc_table" border="1">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>名称</th>-->
+            <!--<th>分辨率( 像素 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--<th>码率( H.264 )</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--</table>-->
+            <img class="calc_table_img" src="../../img/CALC_20170810/calc_table_01.png">
+        </div>
+    </div>
+    <div class="calc_floor floor_recommend">
+        <h3 class="calc_title">
+            <span class="calc_title_txt">精品推荐</span>
+            <small class="calc_small_tit">为你推精品结果</small>
+        </h3>
+        <div class="calc_panel padd">
+            <div class="calc_swiper">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <a class="swiper-slide" v-for="slide in slides" @click="btn_goods(slide)">
+                            <div class="slide_pro">
+                                <p class="pro_img"><img :src="slide.goods_img"></p>
+                                <div class="pro_name" v-text="slide.name"></div>
+                                <div class="pro_price" v-text="slide.shop_price"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!--<div class="swiper-pagination"></div>-->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop_error"></div>
+</div>
+
+

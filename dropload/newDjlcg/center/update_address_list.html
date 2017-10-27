@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>修改收货地址_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!--#include virtual="/lib/temp/page_title2.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<div class="width_main" id="content_main">
+    <div class="orders_content bg_white pos_rel">
+        <div class="add_address_bg"></div>
+        <p class="order_con_title border_b">
+            <span class="fl f_c_333">修改收货地址</span>
+        </p>
+        <div class="add_ads_main">
+            <ul class="basic_input">
+                <li id="upDateProvince" class="over_hide">
+                    <span class="fs_14px basic_text1 fl">*所在地区：</span>
+                    <div class="province fl border_e7" id="Province">
+                        <select id="s_province" name="s_province" data="true">
+                            <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                                {{ option.region_name }}
+                            </option>
+                        </select>
+                        <i class="icon_down"></i>
+                    </div>
+                    <div class="province mar_l_35px fl border_e7" id="City">
+                        <select id="s_city" name="s_city" data="true">
+                            <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                                {{ option.region_name }}
+                            </option>
+                        </select>
+                        <i class="icon_down"></i>
+                    </div>
+                    <div class="province mar_l_35px fl border_e7" id="Area">
+                        <select id="s_county" name="s_county" data="true">
+                            <option v-for="option in options" v-bind:value="option.region_id" v-cloak>
+                                {{ option.region_name }}
+                            </option>
+                        </select>
+                        <i class="icon_down"></i>
+                    </div>
+                </li>
+                <div id="update">
+                    <li style="margin-top: 0px">
+                        <span class="fs_14px basic_text1 fl">*详细地址</span>
+                        <input maxlength="20" type="text" class="input fl" :value="address" style="width: 380px" />
+                        <span class="error Nhide fs_13px red mar_l_15px" data="true">请输入详细信息</span>
+                    </li>
+                    <li>
+                        <span class="fs_14px basic_text1 fl">公司名称</span>
+                        <input maxlength="20" type="text" class="input fl" :value="address_name" style="width: 380px" />
+                        <span class="error Nhide fs_13px red mar_l_15px" data="true">请输入公司名称</span>
+                    </li>
+                    <li>
+                        <span class="fs_14px basic_text1 fl">*收货人姓名</span>
+                        <input maxlength="20" type="text" class="input fl" :value="consignee" />
+                        <span class="error Nhide fs_13px red mar_l_15px" data="true">请输入收货人姓名</span>
+                    </li>
+                    <li>
+                        <span class="fs_14px basic_text1 fl">*手机号码</span>
+                        <input maxlength="11" type="text" class="input fl" :value="mobile" />
+                        <span class="error Nhide fs_13px red mar_l_15px" data="true">请输入正确的手机号</span>
+                    </li>
+                    <li>
+                        <p class="fl" style="width: 90px;">&nbsp;</p>
+                        <input type="checkbox" :value="is_default" v-model="is_default"  class="checks"/><span class="mar_l_10px">设为默认收货地址</span>
+                    </li>
+                </div>
+            </ul>
+            <span class="basic_save bg_line_gray fs_14px" id="saveAddress2">
+                    保存
+                </span>
+        </div>
+    </div>
+</div>
+<!--#include file="temp/userCenterBottom.html" -->
+<script type="text/javascript" src="/js/center/address_list.js"></script>
+<script type="text/javascript">
+    update_address();
+</script>
+
+</body>
+</html>

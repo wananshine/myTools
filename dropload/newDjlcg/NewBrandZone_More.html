@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>品牌区_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/NewBrandZone.css"/>
+
+</head>
+<body>
+
+    <!-- 头部 -->
+    <div id="titleTemp_main"></div>
+
+    <div class="brand_title">
+        <div class="brand_title_main">
+            <a href="main.html"><img class="logo_title1" src="img/brand_logo.png"></a>
+            <div class="title_input_main">
+                <input class="title_input" type="text" id="search" placeholder="请输入您要搜索的商品信息">
+                <span class="title_search curP" id="searchInput"></span>
+                <ul class="search_result fs_12px f_c_666" id="search_result">
+                    <li v-for="a in list"><p class="fl"><span class="suggest">{{a.suggest}}</span><span class="Nhide">{{a.py}}</span></p><span class="fr mar_r_10px">约{{a.count}}个</span></li>
+                </ul>
+            </div>
+            <ul class="title_rigth fs_13px">
+                <li><img src="img/icon_right_03.png">假一赔十</li>
+                <li><img src="img/icon_right_03.png">正规发票</li>
+                <li><img src="img/icon_right_03.png">退换无忧</li>
+                <li><img src="img/icon_right_03.png">定时发货</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="brand_text">
+        <div class="brand_text_con" id="BrandMore1">
+            <div class="brand_text_img"><img :src="list.brands.brand_logo" /></div>
+            <span class="brand" v-cloak>{{list.brands.brand_name}}</span><span class="brand_guan">品牌馆</span>
+            <div class="brand_content" v-cloak>
+                {{list.brands.company_desc}}
+            </div>
+        </div>
+    </div>
+
+    <div class="brand_Detail_content2" id="BrandMore2">
+        <ul class="Detail_title2">
+            <li><a href="NewBrandZone_Detail.html">项目案例</a></li>
+            <li>></li>
+            <li>项目详情</li>
+            <li><a href="NewBrandZone.html">返回品牌区</a> </li>
+        </ul>
+        <div class="move_title">
+            <div class="content_border">
+                <div class="move_title_img center">
+                    <img :src="list.brands.brand_logo" />
+                    <p class="center">{{list.brands.brand_name}}</p>
+                </div>
+                <!--<p class="next">下一篇：<a href=""> 指挥中心解决方案 </a></p>-->
+            </div>
+        </div>
+        <div class="Detail_content1 li_he_20px">
+            <div id="content">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div id="bottomTemp_main"></div>
+
+    <script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/js/common.js"></script>
+    <script type="text/javascript" src="lib/js/global.js"></script>
+    <script type="text/javascript" src="lib/js/vue.js" ></script>
+    <script type="text/javascript" src="js/NewBrandZone.js" ></script>
+    <script type="text/javascript">
+        CtrBrandZone3();
+    </script>
+
+</body>
+</html>

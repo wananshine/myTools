@@ -1,0 +1,57 @@
+<div id="user_left" class="fl">
+	<img src="../../img/user_center/usercenter_08.png" alt="" style="margin-right: 14px;" />  <b class="fs_16px">客户中心</b>
+	<ul class="fs_14px">
+		<li><a href="">服务网点</a></li>
+		<li><a href="">合伙人申请</a></li>
+		<li><a href="/center/authentication_data.html">认证信息</a></li>
+	</ul>
+	<img src="../../img/user_center/usercenter_27.png" alt=""  style="margin-right: 14px;"/> <b class="fs_16px">订单中心</b>
+	<ul class="fs_14px">
+		<li><a href="">我的进货单</a></li>
+		<li><a href="/center/orders.html">商城订单</a></li>
+		<li><a href="">优惠券</a></li>
+	</ul>
+	<img src="../../img/user_center/usercenter_34.png" alt="" style="margin-right: 14px;"/> <b class="fs_16px">商场服务</b>
+	<ul class="fs_14px">
+		<li><a href="/center/my_design.html">我的设计</a></li>
+		<li><a href="/center/my_enquiry.html">我的询价</a></li>
+		<li><a href="">更多服务</a></li>
+	</ul>
+	<img src="../../img/user_center/usercenter_39.png" alt="" style="margin-right: 14px;"/> <b class="fs_16px">售前售后</b>
+	<ul class="fs_14px">
+		<li><a href="/center/returns.html">退换货记录</a></li>
+		<li><a href="">我的咨询</a></li>
+		<li><a href="/center/feedback.html">意见反馈</a></li>
+	</ul>
+	<img src="../../img/user_center/usercenter_47.png" alt="" style="margin-right: 14px;"/> <b class="fs_16px">个人中心</b>
+	<ul class="fs_14px">
+		<li><a href="">基本资料</a></li>
+		<li><a href="">密码设置</a></li>
+		<li><a href="">我的发票</a></li>
+		<li><a href="">我的关注</a></li>
+		<li><a href="/center/my_message.html">我的消息</a></li>
+		<li ><a href="" style="margin-right: 18px;">我的推荐</a><img src="../../img/user_center/usercenter_51.png" alt="" /></li>
+		<li><a href="/center/address_list.html">收货地址</a></li>
+		<li><a href="">我的足迹</a></li>
+	</ul>
+</div>
+
+<script type="application/javascript">
+    com.executeAjax(userInfoUrl+orderServiceUrl.is_company_user, {}, "get", function (result) {
+        var url = '/center/franchisee_apply.html?infoid=13';
+        if(result.data.dt_status!=0){
+            url = '/center/franchisee_verify.html?infoid=13';
+        }
+        $('#menu_dt_apply').attr('href',url);
+    });
+
+    //tab切换
+    function selectMenu() {
+        var TabId = getQueryString("infoid");
+        $("#user_left ul li").find("a").removeClass("red");
+        $("#user_left ul li").find("a").find("span").removeClass("active1");
+        $("#center_menu_"+TabId).find("a").addClass("red");
+        $("#center_menu_"+TabId).find("a").find("span").addClass("active1");
+    }
+    selectMenu();
+</script>

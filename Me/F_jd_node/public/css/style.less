@@ -1,0 +1,130 @@
+
+@full: 100%;
+@width: 1190px;
+
+.hid{
+	overflow: hidden;
+}
+.por{
+	position: relative;
+}
+.poa{
+	position: absolute;
+}
+.pof{
+	position: fixed;
+}
+
+
+@url:"../asset/images/";
+
+
+body{
+	-webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,sans-serif;
+    color: #666;
+}
+
+
+.header_advert{
+	.por;
+	z-index: 30;
+	background-color: #e3164d;
+	.ad_h{
+		.por;
+		margin: 0 auto;
+		width: @width;
+		.img_h{
+			display: block;
+			width: 100%;
+			height: 80px;
+			background-image: url("@{url}topbar_advert.jpg")
+		}
+		.img_close{
+			.poa;
+			right: 5px;
+			top: 5px;
+			font-weight: bold;
+			font-size: 14px;
+			color: #fff;
+			background: rgb(45,45,45);
+			opacity: .3;
+			filter:alpha(opacity=30);
+			text-align: center;
+			cursor: pointer;
+			width: 20px;
+			line-height: 20px;
+		}
+	}
+}
+
+#shortcut{
+	border-bottom: 1px solid #ddd;
+	background-color: #e3e4e5;
+	.w{
+		width: @width;
+		margin: auto;
+		height: 30px;
+		line-height: 30px;
+		color: #999;
+		.fl{
+			.por;
+			float: left;
+			z-index: 21;
+			&:hover{
+					.show_addr{
+						padding-bottom: 2px;
+					    border-color: #ccc;
+					    border-bottom: none;
+					    background-color: #fff;
+					}
+					.other_addr{
+						display: block;
+					}
+				}
+			.show_addr{
+				.por;
+				float: left;
+				margin-left: 200px;
+				overflow: hidden;
+			    z-index: 1;
+			    float: left;
+				i{
+					font-size: 14px;
+					color: #f10215;
+				}
+			}
+			.other_addr{
+				.poa;
+				left: 0;
+				top: 30px;
+				border:1px solid #ccc;
+				background-color: #fff;
+				box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+				padding: 10px;
+				margin-left: 200px;
+				width: 300px;
+				line-height: 24px;
+				display: none;
+				.o_dropdown{
+					.por;
+					.item{
+						width: 60px;
+						padding: 2px 0;
+						float: left;
+						.selected{
+							background-color: #f10215;
+							color: #fff;
+						}
+						a{
+							float: left;
+							padding: 0 8px;
+						}
+					}
+				}
+			}
+		}
+		.fr{}
+	}
+}

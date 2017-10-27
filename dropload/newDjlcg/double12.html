@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>电商日主会场_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/special_district.css"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+
+<ul class="double12_floor fs_12px" id="floor" style="left: 0">
+    <a href="double12.html"><img style="width: 100%" src="img/double12/20170825/db_item_01.jpg" /></a>
+    <a href="double12.html"><ol><span>主会场</span><!--<img src="img/HOT.png" />--></ol></a>
+    <li class="white text_hide" v-for="brand in list">
+        <span v-cloak>{{brand.name}}</span>
+        <!--<i class="cate_menu_line">/</i>-->
+        <span>{{brand.name1}}</span>
+    </li>
+    <ol class="putAway"><span>收起导航</span><img src="/img/icon-putAway.png"/></ol>
+</ul>
+<ul class="open_menu" style="left: -40px">
+    <div class="putAway_content">
+        <p class="white li_he_20px">狂欢再续</p>
+        <i class="icon_brand_more"></i>
+    </div>
+</ul>
+
+<div class="double_bg width_main">
+    <!--<a class="double_activity bg_red" target="_blank" href="/activity_introduction.html">
+        活动介绍
+    </a>-->
+    <img class="banner2" src="img/double12/20170825/db_banner_01.jpg
+" />
+    <!--<p class="fs_24px white center double_title width_main">活动时间：4月4日-4月6日(仅限三天)</p>-->
+    <!--<div class="scrollText width_main">
+        <span class="text_firm fs_14px fl">赞助单位</span>
+        <div class="scrollText_main">
+            <marquee direction="left" scrollamount="3" onmouseover=this.stop(); onmouseout=this.start();>
+                <a>霍尼韦尔(中国)有限公司</a>
+                <a>广东思柏科技股份有限公司</a>
+                <a>佛山市星光楼宇设备有限公司</a>
+                <a>厦门誉诚科技有限公司</a>
+                <a>深圳海云海量信息技术有限公司</a>
+                <a>陕西新明天电子有限公司</a>
+                <a>罗杰韦尔控制系统有限公司</a>
+                <a>深圳市松本先天下科技发展有限公司</a>
+                <a>深圳市澳斯凯智能科技有限公司</a>
+                <a>深圳市三一精工科技有限公司</a>
+                <a>陕西新明天电子有限公司</a>
+                <a>深圳市奥威尔通信科技有限公司</a>
+                <a>广州市盈一科五金制品有限公司</a>
+                <a>汉王技术股份有限公司</a>
+                <a>深圳市天博通信设备有限公司</a>
+            </marquee>
+        </div>
+        <br/>
+        <p class="fs_18px white center mar_t_15px">活动时间：<span class="xtz">12月12日-12月15日</span></p>
+    </div>-->
+</div>
+<!--<div class="background3 width_main">
+    <p class="fs_24px white center double_title width_main"></p>
+    <div class="width_main">
+        <ul class="over_hide double_list" id="double_list1">
+            <li class="double_list_li pos_rel" v-for="goods in list">
+                <div class="img" @click="toInfo(goods.goods_id)">
+                    <img :src="goods.goods_thumb" />
+                </div>
+                <p class="li_he_20px f_c_333 textHide fs_14px mar_t_15px" @click="toInfo(goods.goods_id)" v-cloak>{{goods.act_name}}</p>
+                <p class="red2 mar_t_10px activity_price"><span class="fs_14px">双12抢购价：</span><b class="fs_18px" v-cloak>{{goods.activity_price}}</b></p>
+                <p class="panic_buy white fs_16px" @click="toInfo(goods.goods_id)"><span>立即抢购</span></p>
+            </li>
+        </ul>
+    </div>
+</div>-->
+<div class="background3 width_main">
+    <!--<div class="background3_fz"></div>-->
+    <div class="width_main">
+        <div class="present">
+            <!--两边加线的类active_line-->
+            <h3 class="center fs_24px f_b"><p><img src="img/double12/20170825/db_title_01.png"></p></h3>
+        </div>
+        <ul class="over_hide double_list" id="double_list2">
+            <div class="double_floor over_hide" v-for="floor in list">
+                <!--<div class="double_list_title">-->
+                    <!--&lt;!&ndash;<h3><img src="img/double12/20170825/db_title_01.png"></h3>&ndash;&gt;-->
+                <!--</div>-->
+                <li class="double_list_li pos_rel" v-for="floor_list in floor.goods">
+                    <div class="img" @click="toInfo(floor_list.id)">
+                        <img :src="floor_list.thumb" />
+                    </div>
+                    <p class="li_he_20px f_c_333 textHide fs_14px mar_t_5px curP" :title="floor_list.name" @click="toInfo(floor_list.id)" v-cloak>{{floor_list.name}}</p>
+                    <p class="goods_price">
+                        <span class="fs_24px f_b" v-cloak>{{floor_list.shop_price}}</span>
+                        <s class="fs_18px" v-cloak>{{floor_list.market_price}}</s>
+                    </p>
+                    <!--<p class="activity_price"><s class="fs_18px" v-cloak>{{floor_list.market_price}}</s></p>-->
+                    <div class="panic_buy white fs_18px" @click="toInfo(floor_list.id)">
+                        <p>
+                            <span class="f_b">立即抢购</span>
+                        </p>
+                        <div class="move_buy"></div>
+                    </div>
+                </li>
+            </div>
+        </ul>
+        <div class="present" style="display: none;">
+            <h3 class="center fs_24px f_b active_line"><p>活动介绍</p></h3>
+            <ul class="fs_14px">
+                <li class="fl">一、	活动目的：回馈新老客户，电商日成本价让利。</li>
+                <li class="fl">三、	优惠及福利：活动时间内下单将有超低价格和惊喜。</li>
+                <li class="fl">二、	活动时间：8月8日0:00至8月8日24：00 。</li>
+                <li class="fl">四、	特别声明：百分百保证活动价格是厂家原价出售，平台零利润，只为走量</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="bottomTemp_main" style="margin-top: -20px"></div>
+
+<!-- 侧边栏 -->
+<div id="sidebarTemp_main" style="display: none;"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js" ></script>
+<script type="text/javascript" src="lib/js/comMain.js"></script>
+<script type="text/javascript" src="js/double12.js" ></script>
+<script type="text/javascript">
+    double12();
+</script>
+</body>
+</html>

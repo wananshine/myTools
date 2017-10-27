@@ -1,0 +1,324 @@
+	/* 企业注册 界面 */
+
+.login_main_title {
+	width: 100%;
+	height: 116px;
+}
+
+.login_main_title div p {
+	margin-top: 65px;
+}
+
+.login_main_title div .pfirst {
+	margin-top: 42px !important;
+	margin-left: 35px;
+	padding-left: 30px;
+	border-left: 1px solid #e1e1e1;
+	height: 40px;
+	line-height: 65px;
+}
+
+.login_main_content {
+	margin-top: 45px;
+}
+
+.login_main_content ul {
+	clear: both;
+	position: relative;
+}
+
+.login_main_content ul li:first-child {
+	margin-top: 0px;
+}
+
+.login_main_content ul li {
+	width: 615px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+.login_main_content ul li span {
+	display: block;
+	display: none;
+	position: absolute;
+	left: 730px;
+	margin-top: 15px;
+	width: 350px;
+}
+
+.login_main_content ul li .text {
+	width: 175px;
+	height: 50px;
+	line-height: 50px;
+	text-align: right;
+	float: left;
+}
+
+.login_main_content ul li input {
+	width: 230px;
+	height: 48px;
+	float: left;
+	padding-left: 10px;
+	padding-right: 35px;
+	border: 1px solid #f2f2f2;
+}
+
+.login_main_content ul li .now_login {
+	width: 280px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.login_main_content ul li .now_login:hover {
+	background: #D84848 !important;
+}
+
+.city {
+	margin-left: 34px;
+}
+
+.city,
+.province {
+	position: relative;
+	width: 120px;
+	height: 50px;
+	overflow: hidden;
+	z-index: 0;
+}
+
+.city i,
+.province i {
+	position: absolute;
+	top: -1px;
+	right: 0px;
+	width: 30px;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-color: #f2f2f2;
+	background-position: 8px;
+	background-size: 15px;
+	z-index: 0;
+}
+
+.city select,
+.province select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+
+/* 验证码 */
+
+.mycode {
+	display: inline-block;
+	width: 80px;
+	height: 40px;
+	vertical-align: middle;
+	margin-left: -100px;
+	margin-top: 5px;
+}
+
+.mycode div {
+	background: none !important;
+}
+
+#hqyzm {
+	width: 107px;
+	height: 48px;
+	margin-top: 1px;
+	margin-left: -108px;
+	background: #f2f2f2;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.login_main_right {
+	width: 504px;
+	height: 100%;
+	padding-left: 50px;
+	padding-right: 20px;
+}
+
+.login_main_right .mar_t_175px {
+	margin-top: 175px;
+}
+
+.login_main_right .qyyhzc {
+	width: 190px;
+	height: 50px;
+	background: url(../img/icon_floor.png) no-repeat 25px 12px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.login_main_right .qyyhzc span {
+	margin-left: 35px;
+}
+
+.login_main2_title {
+	height: 55px;
+	line-height: 55px;
+}
+
+.login_main2_title .main2_title_text {
+	height: 20px;
+	line-height: 20px;
+	margin-top: 17px;
+	margin-right: 20px;
+	padding-right: 20px;
+}
+
+#Registered {
+	width: 1130px;
+	padding: 0 30px;
+}
+
+.registered_title {
+	margin-left: -30px;
+}
+
+.title_text2 {
+	height: 40px;
+	line-height: 40px;
+}
+
+.register_info_title {
+	position: absolute;
+	top: 40%;
+	left: 13%;
+}
+
+hr {
+	border: none;
+}
+
+.certificates {
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+
+.certificates img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: none;
+}
+
+.certificates_imgs {
+	margin-left: 360px;
+	width: 420px;
+	height: 470px;
+}
+
+.certificates_imgs dd {
+	float: left;
+	height: 210px;
+}
+
+.certificates_imgs .upload_file {
+	width: 195px;
+	height: 170px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.certificates_imgs .upload_bg {
+	background: url(../img/icon-add.svg) no-repeat 75px 50px;
+	width: 195px;
+	height: 170px;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-size: 40px;
+}
+
+.certificates_imgs .upload_bg p {
+	text-align: center;
+	line-height: 240px;
+	height: 170px;
+}
+.certificates_imgs .upload_bg .images {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	height: 90%;
+	text-align: center;
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+}
+
+.certificates_imgs .upload {
+	position: relative;
+	width: 195px;
+	height: 170px;
+}
+
+.certificates_imgs .cer_imgs_text1 {
+	position: absolute;
+	top: 185px;
+	right: 120px;
+}
+
+.certificates_imgs .cer_imgs_text2 {
+	position: absolute;
+	top: 415px;
+	right: 120px;
+}
+
+.show_sample {
+	position: absolute;
+	z-index: 1;
+	width: 456px;
+	margin-left: -23px;
+	
+	margin-left: 340px;
+	box-shadow: 0px 1px 9px #dbdbdb;
+	-o-box-shadow: 0px 1px 9px #dbdbdb;
+	-moz-box-shadow: 0px 1px 9px #dbdbdb;
+	-webkit-box-shadow: 0px 1px 9px #dbdbdb;
+}
+img:hover {
+	opacity: 1 !important;
+}
+.clear_img {
+	position: absolute;
+	right: 0;
+	background: #d2d2d2;
+	display: none;
+	z-index: 2;
+	cursor: pointer;
+}
+.data_text_main {
+	padding: 140px 60px 60px 250px;
+	overflow: hidden;
+	height: 406px;
+	box-sizing: border-box;
+}
+.text_main_img {
+	padding: 30px;
+}
+.text_main {
+	line-height: 40px;
+}

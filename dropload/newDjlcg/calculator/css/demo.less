@@ -1,0 +1,1206 @@
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.flexitem{
+  //flex: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+
+.clearfix:before,
+.clearfix:after{
+  content: "";
+  display: table;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+.ellipsis{
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//设置两行出现省略号
+.clamp2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+@100: 100%;
+@1190: 1190px;
+
+.por{
+  position: relative;
+}
+.hid{
+  overflow: hidden;
+}
+.all{
+  width: @100;
+  .por;
+  .hid;
+}
+
+
+
+.translate(@x:-50%, @y:-50%){
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+//body{
+//  font-size: 62.5% !important;
+//}
+
+.padd(@padd:0px){
+  padding: @padd !important;
+}
+
+
+.swiper-container {
+  width: 100%;
+  height: 255px;
+  //margin: 20px auto;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+input[type="radio"]{
+  margin-left: 12px;
+}
+/******************************************************分割线************************************************************************/
+
+
+.glyph_icon{
+  display: block;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: calc( 25% );
+  top: 50%;
+  margin-top: -14px;
+  background-image: url("../../img/CALC_20170810/calc_icon_01.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+
+}
+.icon_1{
+  background-image: url("../../img/CALC_20170810/calc_icon_01.png") !important;
+}
+.icon_2{
+  background-image: url("../../img/CALC_20170810/calc_icon_02.png") !important;
+}
+.icon_3{
+  background-image: url("../../img/CALC_20170810/calc_icon_03.png") !important;
+}
+.icon_4{
+  background-image: url("../../img/CALC_20170810/calc_icon_04.png") !important;
+}
+.icon_5{
+  background-image: url("../../img/CALC_20170810/calc_icon_05.png") !important;
+}
+.icon_6{
+  background-image: url("../../img/CALC_20170810/calc_icon_06.png") !important;
+}
+
+// 左侧导航
+.nav_menu_right{
+  width: 178px;
+  background-color: #eee;
+  float: left;
+  .nav_title{
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    background-color: #1b6c50;
+    font-size: 16px;
+    color: #fff;
+  }
+  .nav_list{
+    border-left: 4px solid #26936e;
+    .nav_list_current{
+      background-color: #d1d0d0;
+    }
+    .nav_list_con{
+      display: block;
+      height: 37px;
+      line-height: 37px;
+      .all;
+      text-align: center;
+      font-size: 14px;
+      font-family: Simsun, "宋体";
+      color: #333333;
+      cursor: pointer;
+      &:hover{
+        background-color: #d1d0d0;
+      }
+      .glyphicon{
+        .glyph_icon;
+      }
+      .glyph_txt{
+        display: block;
+        text-indent: 20px;
+      }
+    }
+  }
+}
+
+/******************************************************分割线************************************************************************/
+
+//楼层标题
+.calc_title{
+  height: 37px;
+  line-height: 37px;
+  background-color: #26936e;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  .hid;
+  .por;
+  .calc_title_txt{
+    display: block;
+    .all;
+    width: 170px;
+    padding-left: 36px;
+    box-sizing: border-box;
+    float: left;
+    &:after{
+      content: '';
+      display: block;
+      width: 9px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      .translate(@x:0);
+    }
+  }
+  .calc_small_tit{
+    font-size: 14px;
+    font-weight: 100;
+    display: block;
+    float: left;
+    line-height: 37px;
+    //color: #fff900;
+  }
+}
+
+//计算楼层
+.calc_param{
+  .all;
+}
+
+//计算结果楼层
+.calc_floor{
+  margin-top: 28px;
+}
+
+//楼层中内容的标题
+.panel_title{
+  padding: 10px 0px 12px;
+  padding-left: 240px;
+  //text-align: center;
+  //text-indent: ;
+  &:hover{
+    background-color: #eeeeee;
+  }
+  .title_note{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    min-width: 88px;
+  }
+  .title_group{
+    cursor: pointer;
+    display: inline-block;
+    //margin-left: 12px;
+    position: relative;
+    //overflow: hidden;
+    .tab_radio,
+    label{
+      cursor: pointer;
+    }
+  }
+}
+
+//楼层中的内容
+.calc_panel{
+  .all;
+  //width: calc( @100 - 28px );
+  border: 1px solid #d2dbdc;
+  padding: 32px 14px 27px;
+  box-sizing: border-box;
+  margin-top: 7px;
+  .panel_state{
+    .panel_state;
+    .state_red{
+      .state_red;
+    }
+  }
+  .calc_table{
+    margin: auto;
+    border: 1px solid #fff;
+    background-color: #f3f3f3;
+    .table_hd{
+      tr{
+        background-color: #e5e5e5;
+        height: 40px;
+        th{
+          text-align: center;
+          border: 1px solid #fff;
+          &:nth-of-type(1){  width: 226px;  };
+          &:nth-of-type(2){  width: 292px;  };
+          &:nth-of-type(3){  width: 175px;  };
+          &:nth-of-type(4){  width: 233px;  };
+        }
+      }
+    }
+    .table_bd{
+      .table_hd;
+      tr{
+        background-color: #f3f3f3;
+        td{
+          text-align: center;
+          border: 1px solid #fff;
+        }
+      }
+    }
+  }
+  .calc_reference{
+    .all;
+    margin: auto;
+    .calc_table_img{
+      display: block;
+      .all;
+      margin: auto;
+    }
+  }
+
+  .calc_swiper{
+    height: 255px;
+    padding-bottom: 90px;
+  }
+}
+
+//小宽度输入框（两个输入框用X相乘）
+.tab_area{
+  text-indent: 10px;
+  outline: none;
+  border: 1px solid #999;;
+  width: 68px;
+  height: 28px;
+  border-radius: 3px;
+}
+
+//计算结果
+.panel_state{
+  width: 100%;
+  line-height: 36px;
+  position: relative;
+  overflow: hidden;
+  padding-left: 240px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #000;
+}
+
+//表单小图标、单位
+.code_unit{
+  display: block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  position: absolute;
+  left: 470px;
+  top: 50%;
+  .translate(@x:0);
+}
+
+//突出字体
+.state_red{
+  color: #d40707;
+}
+
+//错误提示
+.error_message{
+  display: none;
+  margin: 10px 95px 0;
+  font-size: 12px;
+  color: #ff1414;
+}
+
+.error_pop_message{
+  .pop_error_txt{
+    padding-bottom: 86px;
+    text-indent: -56px;
+    text-align: center;
+  }
+}
+
+#pop_error{
+  .error_pop_message;
+}
+
+//注释说明
+.instruction{
+  font-size: 14px;
+  color: #999;
+  margin-left: 25px;
+}
+
+.floor_recommend{
+  //display: block !important;
+  .calc_panel{
+    border: none !important;
+  }
+}
+
+.inf_group{
+  .all;
+  margin-top: 22px;
+  padding: 5px 0px 5px 240px;
+  box-sizing: border-box;
+  .code_txt{
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+  }
+  .code_list{
+    width: 162px;
+    height: 28px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    text-indent: 10px;
+    .code_con{}
+  }
+  .code_unit{
+    .code_unit;
+  }
+  &:hover{
+    background-color: #eeeeee;
+  }
+}
+
+/******************************************************分割线************************************************************************/
+
+//右侧内容
+.calc_container{
+  .all;
+  .calc_inner{
+    .all;
+    zoom:1;
+    .calc_banner{
+      .all;
+      min-width: @1190;
+      .calc_cell{
+        display: block;
+        .all;
+        .cell_img{
+          display: block;
+          .all;
+        }
+      }
+    }
+    .calc_box{
+      margin-top: 20px;
+      background-color: #fff;
+      .nav_menu_r{
+        .nav_menu_right;
+      }
+      .calc_content_l{
+        width: calc( 100% - 17em );
+        //width: calc( 100% - 178px );
+        //background-color: #bababa;
+        float: right;
+        margin-right: 10px;
+        .calc_details{
+          .all;
+          .calc_param{
+            .calc_param;
+            .calc_title{
+              .calc_title;
+            }
+            .calc_panel{
+              .calc_panel;
+              .panel_title{
+                .panel_title;
+              }
+              .panel_info{
+                .all;
+                //padding-left: 240px;
+                box-sizing: border-box;
+                display: none;
+                .info_group{
+                  .inf_group;
+                }
+                .btn_group{
+                  margin-top: 28px;
+                  padding-left: 240px;
+                  .btn_default{
+                    display: inline-block;
+                    width: 116px;
+                    height: 33px;
+                    border: 1px solid #d2dbdc;
+                    outline: 0;
+                    color: #fff;
+                    font-size: 14px;
+                  }
+                  .btn_green{
+                    background-color: #26936e;
+                  }
+                  .btn_red{
+                    background-color: #d40707;
+                  }
+                }
+              }
+            }
+          }
+          .calc_floor{
+            display: none;
+            .calc_floor;
+            .calc_title{
+              .calc_title;
+            }
+            .calc_panel{
+              .calc_panel;
+            }
+            .padd{
+              .padd;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*****************load页面样式*************************分割线************************************************************************/
+
+
+//视频监控
+#calc_video{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .code_txt{
+            width: 100px!important;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+              }
+            }
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//显示设备
+#calc_display{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+        .info_group{
+          .inf_group;
+          padding: 0;
+          margin-top: 0px;
+          .comput_group{
+            .inf_group;
+            padding: 0;
+            .code_unit{
+              left: 48px !important;
+            }
+          }
+          .panel_title{
+            padding-left: 0;
+            .info_group{
+            }
+            .note_r{
+              display: inline-block;
+              margin-top: -22px;
+            }
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .all;
+          margin-top: 22px;
+          .code_txt{
+            display: inline-block;
+            width: 88px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+            left: 480px;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+                left: 40px;
+              }
+            }
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//usp
+#calc_ups{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .all;
+          margin-top: 22px;
+          .code_txt{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+                left: 40px;
+              }
+            }
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//摄影设备
+#calc_sheYing{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .all;
+          margin-top: 22px;
+          .code_txt{
+            display: inline-block;
+            width: 128px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+            left: 265px;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+                left: 40px;
+              }
+            }
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//综合布线
+#calc_wiring{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .all;
+          margin-top: 22px;
+          .code_txt{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+            left: 475px;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+                left: 40px;
+              }
+            }
+          }
+          .panel_title{
+            padding-left: 0px;
+            box-sizing: border-box;
+            .title_note{
+              min-width: 100px;
+            }
+            .note_r{
+              padding-left: 95px;
+              padding-right: 20px;
+              display: inline-block;
+              margin-top: -22px;
+              .title_group{
+                margin-bottom: 8px;
+              }
+            }
+          }
+          .info_group{
+            padding-left: 0;
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//工程线缆
+#calc_cable{
+  .calc_param{
+    .calc_panel{
+      .calc_panel;
+      .panel_title{
+        .title_note{
+        }
+        .title_group{
+          .tab_area{
+            .tab_area;
+          }
+          .code_unit{
+            .code_unit;
+            left: 45px;
+          }
+          .tab_radio,
+          label{
+            cursor: pointer;
+          }
+        }
+      }
+      .panel_info{
+        display: block;
+        .info_group{
+          .all;
+          margin-top: 22px;
+          .code_txt{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+          }
+          .code_list{
+            width: 162px;
+            height: 28px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            text-indent: 10px;
+            .code_con{}
+          }
+          .code_unit{
+            .code_unit;
+            left: 480px;
+          }
+          .group_list{
+            position: relative;
+            .group_list_m{
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              .code_unit{
+                .code_unit;
+                left: 40px;
+              }
+            }
+          }
+        }
+        .btn_group{
+          margin-top: 28px;
+          .btn_default{
+            display: inline-block;
+            width: 116px;
+            height: 33px;
+            border: 1px solid #d2dbdc;
+            outline: 0;
+            color: #fff;
+            font-size: 14px;
+          }
+          .btn_green{
+            background-color: #26936e;
+          }
+          .btn_red{
+            background-color: #d40707;
+          }
+        }
+      }
+    }
+  }
+}
+
+//底部精品推荐swiper
+//.swiper-wrapper{
+//  display: flex;
+//}
+.swiper-button-prev,
+.swiper-button-next{
+  background-color: #bababa;
+  background-size: 10px 30px !important;
+}
+//.swiper-button-next:hover,
+//.swiper-button-prev:hover {
+//  background: rgba(0, 0, 0, .7);
+//  background-repeat: no-repeat;
+//  background-position: center;
+//}
+.swiper-slide{
+  //width: 220px!important;
+  //flex-basis: 220px;
+  //flex-grow: 1;
+  //flex-shrink: 0;
+  //margin-right: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid #dad8d8;
+  //background-color: #bababa!important;
+  .pro_img{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 12px;
+    img{
+      display: block;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin: auto;
+    }
+  }
+  .pro_name{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 34px;
+    height: 15px;
+    overflow: hidden;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+  .pro_price{
+    font-size: 18px;
+    font-weight: 800;
+    color: #cd0e0e;
+    text-align: left;
+  }
+  .slide_pro{
+    .all;
+    box-sizing: border-box;
+    padding: 0 20px;
+    height: 255px;
+  }
+}
+
+.swiper-slide:nth-of-type(4n){
+  //background-color: #a7f8a5 !important;
+}
+
+/***************************************顶部导航*******************************************************/
+.cal_tp{
+  .all;
+  background-color: #fff;
+}
+
+.cal_tp_inner{
+  .hid;
+  .por;
+  height: 115px;
+  border-top: 1px solid #ebebeb;
+}
+
+.cal_tp_list{
+  .all;
+  .flexbox;
+  height: 46px;
+  line-height: 46px;
+  box-sizing: border-box;
+  margin-top: 68px;
+  padding-left: 255px;
+  padding-right: 148px;
+  z-index: 22;
+}
+
+.cal_tp_list_cell{
+  .flexitem;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.cal_logo_img{
+  .all;
+}
+
+.cal_tp_logo{
+  width: 360px;
+  height: 109px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  .logo_img{
+    .cal_logo_img;
+  }
+}
+
+.calc_more{
+  display: block;
+  width: 127px;
+  height: 38px;
+  line-height: 38px;
+  position: absolute;
+  top: 68px;
+  right: 10px;
+  border:  1px solid #999;
+  text-align: center;
+  .calc__more_img{
+    display: block;
+    .por;
+    .hid;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    img{
+      width: 100%;
+    }
+  }
+  .calc_btn__more{
+    font-weight: 100;
+  }
+}
+
+.calc_header{
+  .cal_tp;
+  .clac_head_inner{
+    .cal_tp_inner;
+    .head_logo{
+      .cal_tp_logo;
+      .logo_img{
+      }
+    }
+    .head_list{
+      .cal_tp_list;
+      .head_list_cell{
+        .cal_tp_list_cell;
+      }
+    }
+  }
+}
+
+
+

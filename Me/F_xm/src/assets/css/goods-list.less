@@ -1,0 +1,119 @@
+@import "cost";
+
+/**************************************分割线*********************************************/
+
+
+.goods-container{
+	//background-color: @fff;
+	.goods-inner{
+		.por;
+		.hid;
+		.goods-filter{
+			height: 20px;
+		    margin: 20px 0;
+		    overflow: hidden;
+		    position: relative;
+		    zoom: 1;
+		    .filter-bar{
+		    	.hid;
+		    	.por;
+		    	display: inline-block;
+		    	line-height: 20px;
+		    	padding: 0 10px;
+		    	border-left: 1px solid @e0;
+		    	font-size: 14px;
+		    	color: @42;
+		    	&:nth-of-type(1){
+		    		padding-left: 0px;
+		    		border-left: 0px solid @e0;
+		    	}
+		    }
+		    .filter-active{
+		    	color: @ff67;
+		    }
+		}
+		.goods-box{
+			width: @full;
+			.goods-list{
+				width: calc( @width + 19px );
+				.flexbox;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				.por;
+				.hid;
+				.goods-cell{
+					.flexitem;
+					flex-basis: 230px;
+					width: 230px;
+					.por;
+					.hid;
+					margin: 0 19px 19px 0;
+					background-color: @fff;
+					
+					.goods-mat{
+						//padding: 4px 4px 0;
+						padding: 8px;
+						border: 1px solid @f5;
+						.goods-img{
+							width: @full;
+							.height(210px);
+							display: table;
+						    table-layout: fixed;
+						    padding: 0;
+						    margin: 0 0 5px;
+							img{
+								width: @full;
+								display: block;
+								margin: auto;
+							}
+						}
+						.goods-price{
+							.height(30px);
+							line-height: 30px;
+							color: @ff00;
+							letter-spacing: normal;
+						    overflow: inherit!important;
+						    white-space: nowrap;
+							em{
+								float: left;
+							    font-family: arial;
+							    font-weight: 400;
+							    font-size: 20px;
+							    color: @ff00;
+							    font-style: normal;
+								.goods-price-icon{
+									margin-right: 2px;
+								    font-weight: 700;
+								    font-size: 14px;
+								}
+							}
+						}
+						.goods-name{
+							.height(40px);
+						    line-height: 20px;
+						    clear: both;
+						    margin-bottom: 8px;
+						    overflow: hidden;
+						    font-size: 12px;
+						    cursor: pointer;
+						    .clamp2;
+						    &:hover{
+						    	color: @ff00;
+						    }
+						}
+						.goods-status{
+							font-size: 12px;
+							cursor: pointer;
+							margin-bottom: 10px;
+							.goods-disc{
+								color: @ff00;
+							}
+							.goods-attent{}
+							.goods-addcart{}
+						}
+					}
+				}
+			}
+		}
+	}
+}

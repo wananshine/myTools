@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include virtual="/lib/temp/pageMeta.html"-->
+    <link rel="stylesheet" type="text/css" href="/lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/product_list_info.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/moveImg.css"/>
+    <title>大家来采购网积分商城商品详情_大家来采购网</title>
+</head>
+
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div class="login_main_title bg_white f_c_666 fs_18px">
+    <div class="width_main">
+        <a href="/main.html"><img class="fl mar_t_25px" src="../img/logo.png" /></a>
+        <p class="fl pfirst">积分商城</p>
+    </div>
+</div>
+<div class="border_t2">
+    <div class="width_main">
+        <ul class="fs_12px f_c_666 navigation_bar2">
+            <li><a href="main.html">首页</a></li>
+            <div id="pageTitle">
+                <li><span> > </span><a href="#">视频监控、显示设备</a></li>
+                <li><span> > </span><a href="#">广告机/触摸一体机</a></li>
+                <li><span> > </span><a href="#">传媒广告机</a></li>
+            </div>
+        </ul>
+    </div>
+    <div class="bg_white pad_t_25px">
+        <div class="width_main pos_rel">
+            <div class="over_hide">
+                <div class="product_info fl">
+                    <div class="preview">
+                        <div id="vertical" class="bigImg border">
+                            <img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256621.jpg" id="midimg" />
+                            <div style="display:block;" id="winSelector"></div>
+                        </div>
+                        <!--bigImg end-->
+                        <div class="midImg">
+                            <div class="scrollbutton midImgUp disabled"></div>
+                            <div id="imageMenu">
+                                <ul>
+                                    <li><img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256621.jpg" /></li>
+                                    <li><img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256703.jpg" /></li>
+                                    <li><img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256621.jpg" /></li>
+                                    <li><img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256703.jpg" /></li>
+                                    <li><img src="http://www.djlcg.com/images/201609/goods_img/751_P_1475142256621.jpg" /></li>
+                                </ul>
+                            </div>
+                            <div class="scrollbutton midImgDown"></div>
+                        </div>
+                        <!--midImg end-->
+                        <div id="bigView" style="display:none;"><img width="800" height="800" src="" /></div>
+                    </div>
+                </div>
+                <ul class="product_info_text">
+                    <li><b class="f_c_333 li_he_20px">创达视讯 显示设备 65寸苹果款广告机（网络版、落地式） CDSX-G65SDH-S</b></li>
+                    <li class="red fs_14px"><span>网络版、落地式</span></li>
+                    <li id="ordinary_price"><s class="fs_12px">价格：￥6712.00</s></li>
+                    <li><span class="fs_12px">积分：</span><span class="fs_18px red"></span><span class="fs_24px red shopPrice">1500</span></li>
+                </ul>
+                <ul id="listPro" class="product_info_text2 fs_12px">
+                    <li>
+                        <p class="text1">包装规格：</p>
+                        <div class="attr_list">
+                            <p id="184" data="true" class="text2 Attr border_red">100米<img src="../img/chose_color3.png" class="show"></p>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="text1">截面（m㎡）：</p>
+                        <div class="attr_list">
+                            <p id="221" data="true" class="text2 Attr border border_red">2×0.5<img src="../img/chose_color3.png" class="show"></p><p id="222" data="false" class="text2 Attr border">2×0.75<img src="../img/chose_color3.png"></p><p id="223" data="false" class="text2 Attr border">2×1.0<img src="../img/chose_color3.png"></p><p id="224" data="false" class="text2 Attr border">2×1.5<img src="../img/chose_color3.png"></p><p id="225" data="false" class="text2 Attr border">2×2.5<img src="../img/chose_color3.png"></p>
+                        </div>
+                    </li>
+                    <li style="height: 37px;line-height: 37px;">
+                        <p class="text1">数量：</p>
+                        <div class="content_amount">
+                            <span class="amount_min fl">-</span>
+                            <input class="amount_num fl" id="amount_num" type="text" value="1" />
+                            <!--<span class="amount_num fl">1</span>-->
+                            <span class="amount_max fl">+</span>
+                        </div>
+                        <div class="cycle"  v-if="list.goods.goods_cycle != 0" v-cloak><span></span>发货周期&nbsp;{{list.goods.goods_cycle}}&nbsp;天</div>
+                        <div class="cycle"  v-if="list.goods.goods_cycle == 0" v-cloak><span></span>此商品发货周期请<a class="red mar_l_10px" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2885624332&amp;site=qq&amp;menu=yes">联系客服</a></div>
+                    </li>
+                    <p class="mar_t_10px mar_l_30px Nhide red overNumber">您所填写的商品数量超过库存！</p>
+                    <p class="mar_t_10px mar_l_30px Nhide red startNumber">您所填写的商品数量少于最小起订量！</p>
+                    <p class="mar_t_10px mar_l_30px Nhide red stopNumber">您所选择的商品已停销！</p>
+                    <div id="Order">
+                        <div class="ljdg bg_red white fl fs_16px" id="ljdg">立即兑换</div>
+                        <div class="ljdg jrjhd bg_light_red red border_red fl fs_16px"><img src="../img/icon-order.png" />加入兑换单</div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="width_main over_hide">
+        <div class="recommend_products">
+            <p class="fs_16px recommend_title">推荐礼品</p>
+            <ul class="recommend_list">
+                <li>
+                    <img class="curP" src="http://192.168.1.54/images/201611/thumb_img/11852_thumb_G_1477981696472.jpg">
+                    <p class="fs_12px items_name li_he_20px f_c_333 center mar_t_20px text_hover_red curP">新汉旺 一卡通 人脸识别锁 S60</p>
+                    <p class="fs_16px red center mar_t_15px">￥1590.00</p>
+                </li>
+                <li>
+                    <img class="curP" src="http://192.168.1.54/images/201611/thumb_img/11853_thumb_G_1477990663733.jpg">
+                    <p class="fs_12px items_name li_he_20px f_c_333 center mar_t_20px text_hover_red curP">新汉旺 一卡通 指纹考勤终端 HW211T-ID</p>
+                    <p class="fs_16px red center mar_t_15px">￥278.00</p>
+                </li>
+            </ul>
+        </div>
+        <div id="menuTab">
+            <ul class="product_info_title over_hide">
+                <li data-url="#tab1" class="red">礼品详情</li>
+            </ul>
+        </div>
+        <div class="tabMenu tabMenu_main Nhide fr" style="display: block;" id="tab1">
+            <div class="product_info2">
+                <div class="bg_white product_info2_con" id="product_info1">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="product_info3">
+            <p class="fs_16px recommend_title2">礼品兑换说明</p>
+            <div class="bg_white product_info2_con3">
+                <div class="over_hide">
+                    <div class="order_question mar_t_20px">
+                        <ol class="fs_12px li_he_20px">
+                            <li class="red">问：什么是消费积分？</li>
+                            <li>答：大家来采购商城招商只面向品牌官方或具有官方授权的正规代理商，全部都有正规授权，100%正品保证，假一赔十，先行赔付；并享有该品牌的全国联保服务。</li>
+                        </ol>
+                        <ol class="fs_12px li_he_20px mar_t_20px">
+                            <li class="red">问：积分的作用？</li>
+                            <li>答：发货分3种情况：1是针对常规商品，消费者可根据需要，要求大家来的商家当天发货。2是按照商品发货周期内发货，一般为2-5个工作日内发货。3是定制品发货，因定制商品具有一定的生产时间，商家会在定制生产完成后为消费者发出，具体发货时间，请查看商品描述页面或咨询大家来客服中心。</li>
+                        </ol>
+                    </div>
+                    <div class="order_question">
+                        <ol class="fs_12px li_he_20px mar_t_20px">
+                            <li class="red">问：积分的有效期有多久？</li>
+                            <li>答：大家来采购商城采用E2E模式，去掉中间层层加价环节，以工厂底价直供消费者，让消费者受惠。我们还为用户提供了整体项目清单的价格核算，保障商品的最低价采购。为用户节约核算时间和采购成本。</li>
+                        </ol>
+                        <ol class="fs_12px li_he_20px mar_t_20px">
+                            <li class="red">问：礼品包邮吗？</li>
+                            <li>答：支持7天退换无忧的商品，买家需在确认签收商品之日起7天内（按照物流签收后的第二天零时起计算时间，满168小时为7天）提出退换申请。温馨提醒：定制品不支持退换货</li>
+                            <li><a href="/help/issues.html?id=10&infoid=14" class="red curP">了解退换货</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<div id="bottomTemp_main"></div>
+<script type="text/javascript" src="/lib/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="/lib/js/common.js"></script>
+<script type="text/javascript" src="/lib/js/global.js"></script>
+<script type="text/javascript" src="/lib/js/vue.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/integral_product_list_info.js"></script>
+<script type="text/javascript" src="../lib/js/moveImg.js"></script>
+</body>
+</html>

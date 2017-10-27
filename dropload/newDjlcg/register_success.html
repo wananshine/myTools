@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--#include file="lib/temp/pageMeta.html" -->
+    <title>注册成功_大家来采购网</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+    <div class="login_main_title bg_white f_c_666 fs_18px">
+        <div class="width_main">
+            <a href="/main.html"><img class="fl mar_t_25px" src="img/icon-logo.png" /></a>
+            <p class="fl pfirst">欢迎注册</p>
+            <p class="fr f_c_999 fs_16px">服务热线：400-600-8028 </p>
+        </div>
+    </div>
+
+    <div class="width_main bg_white login_main_content pos_rel">
+        <div class="fs_14px f_c_666 reg_success">
+            <img src="img/logo_black01.png" >
+            <p class="text1">恭喜您，<em id="username"></em>账号注册成功！</p>
+            <a href="/center/authentication_data.html"><span>认证为企业用户享有更多价格优惠</span></a>
+            <p class="text2"><a href="main.html" class="blue">不，我想先逛逛</a></p>
+        </div>
+    </div>
+    <div class="bg_black white center">
+        <div class="bottom_about2">
+            <ul>
+                <li><a href="/about_us.html?infoid=1" target="_blank">关于大家来</a></li>
+                <li><a href="/about_us.html?infoid=2" target="_blank">联系我们</a></li>
+                <li><a href="/about_us.html?infoid=3" target="_blank">人才招聘</a></li>
+                <li><a href="/about_us.html?infoid=4" target="_blank">友情链接</a></li>
+                <li><a href="/help/index.html" target="_blank">帮助中心</a></li>
+                <li><a href="/cityPartner.html" target="_blank">加入城市合伙人</a></li>
+                <li><a href="javascript:" target="_blank">客服热线：400-600-8028</a></li>
+            </ul><br/>
+            <p class="white fs_14px">Copyright©2016-2017 大家来采购网 版权所有 djlcg.com <a class="white" target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备13064491号-1</a></p>
+            <ul>
+                <li class="mar_b_10px">
+                    <a href="http://szcert.ebs.org.cn/4cd42fa0-c458-4a64-9e20-02f2a2f393dc" target="_blank">
+                        <img src="http://szcert.ebs.org.cn/Images/govIcon.gif" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" width="36" height="50" border="0" style="border-width:0px;border:hidden; border:none;">
+                    </a>
+                    <a id="_pinganTrust" target="_blank" href="http://c.trustutn.org/show?type=1&sn=201705051002130285"><img src="http://c.trustutn.org/images/cert/cert_0_2.png" style="margin-left:20px;padding-top:10px;"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script type="text/javascript" src="/lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $("#username").text($.cookie("ECS[username]"));
+</script>
+</body>
+</html>

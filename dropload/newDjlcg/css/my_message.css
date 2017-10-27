@@ -1,0 +1,127 @@
+/*�ҵ���Ϣ 2017-8-16*/
+.main {
+  width: 1200px ;
+  min-height: 1000px;
+  margin: 20px 0 0 510px;
+  box-sizing: border-box;
+}
+.main .m_top {
+  width: 1055px;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 10px;
+  background-color: #ffffff;
+  position: relative;
+  box-sizing: border-box;
+}
+.main .m_top span {
+  color: #e01121;
+  font-weight: 900;
+}
+.main .m_top span b {
+  color: #222222;
+}
+.main .m_top img {
+  vertical-align: middle;
+}
+.main .m_top_menu {
+  position: absolute;
+  left: 600px;
+  top: 225px;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border: 1px solid #d1d1d1;
+  display: none;
+}
+.main .m_main {
+  width: 1055px;
+  background-color: #ffffff;
+  padding: 10px 160px 90px 10px;
+  box-sizing: border-box;
+}
+.main .m_main ul {
+  height: 35px;
+  position: relative;
+}
+.main .m_main ul li {
+  float: left;
+  width: 85px;
+}
+.main .m_main span.s1 {
+  position: absolute;
+  top: -6px;
+  left: 235px;
+  color: #ffffff;
+  font-size: 8px;
+}
+.main .m_main span.s2 {
+  position: absolute;
+  top: -6px;
+  left: 320px;
+  color: #ffffff;
+  font-size: 8px;
+}
+.main .m_main .active {
+  color: #e01121;
+  font-weight: bold;
+  border-bottom: 2px solid #e01121;
+}
+.main .m_main .new_msg {
+  margin-left: 5px;
+  margin-top: -5px;
+  background: url("");
+}
+.main .m_main .vip {
+  width: 980px;
+  height: 100px;
+  border: 1px solid #d1d1d1;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.main .m_main .vip b {
+  display: inline-block;
+  margin-top: 10px;
+  width: 673px;
+  line-height: 20px;
+  text-align: left;
+}
+.main .m_main .vip i {
+  display: inline-block;
+  margin: 0 10px 0 750px;
+}
+.main .m_main .vip span {
+  display: inline-block;
+  background-color: #888888;
+  color: #ffffff;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  padding-left: 4px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.main .m_main .vip h1 {
+  color: #e01121;
+  font-weight: bold;
+  display: inline-block;
+}
+.main .m_main .m_page button {
+  width: 80px;
+  height: 28px;
+  border: 1px solid #d1d1d1;
+  background-color: #f5f5f5;
+  text-align: center;
+  border-radius: 5px;
+  color: #666666;
+}
+.main .m_main .m_page span {
+  margin: 0 10px;
+  color: #e01121;
+}

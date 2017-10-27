@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <title>我的发票_大家来采购网</title>
+    <!--#include file="temp/userCenterHead.html" -->
+</head>
+<body>
+<!-- 页面顶部 -->
+<!--#include virtual="/lib/temp/page_title.html" -->
+<!--#include virtual="/lib/temp/page_title2.html" -->
+<!--#include file="temp/userCenterLeft.html" -->
+<div class="width_main content_main">
+    <div class="orders_content bg_white pos_rel">
+        <p class="order_con_title border_b coupon_title">
+            <span class="fr fs_14px curP title curP" data-url="#page1"><a>开票设置</a></span>
+            <span class="fr fs_14px curP title curP" data-url="#page2"><a class="border_b2_red">补开发票</a></span>
+            <span class="fl f_c_333">我的发票</span>
+        </p>
+        <section id="page1" class="page Nhide">
+            <div style="height: 600px;" class="pos_rel">
+                <div>
+                    <div class="ordinary_invoice border_red fs_14px f_c_333">
+                        <p class="change_title curP" data-url="#invoice1">设置普通发票 <span></span></p>
+                        <p class="curP" data-url="#invoice2">设置专用发票 <span></span></p>
+                    </div>
+                    <div id="invoice1" class="ordinary_invoice_con">
+                        <ul>
+                            <li class="fs_14px">
+                                <span class="text1">发票抬头</span>
+                                <input type="text" id="title" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写发票抬头信息</span>
+                            </li>
+                        </ul>
+
+                        <div class="weiZhi">
+                            <span class="bg_line_gray fs_12px" id="save_invoice1">保存</span>
+                            <em class="fs_12px f_c_999 reminder">
+                                <p class="f_c_333"><img src="/img/reminder.png" />温馨提示：</p>
+                                <p class="mar_t_5px">1，未认证会员请先进行企业认证</p>
+                                <p>2，注意有效增值税发票开票资质仅为一个</p>
+                                <p>3，如某一订单金额未达到500元，需累计其他订单达到500元方可开具增值发票。</p>
+                                <p>4，如您的订单满足增值税专用发票开具条件，我们将在订单完成15-30个工作日内寄出</p>
+                                <p>5，遇到任何问题请联系客服 400-600-8028</p>
+                            </em>
+                        </div>
+                    </div>
+                    <div id="invoice2" class="ordinary_invoice_con Nhide">
+                        <ul>
+                            <li class="fs_14px">
+                                <span class="text1">单位名称</span>
+                                <input type="text" id="firmName" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写单位名称</span>
+                            </li>
+                            <li class="fs_14px">
+                                <span class="text1">纳税人识别码</span>
+                                <input type="text" id="taxpayer_code" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写纳税人识别码</span>
+                            </li>
+                            <li class="fs_14px">
+                                <span class="text1">注册地址</span>
+                                <input type="text" id="company_address" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写注册地址</span>
+                            </li>
+                            <li class="fs_14px">
+                                <span class="text1">注册电话</span>
+                                <input type="text" id="firmNumber" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写注册电话</span>
+                            </li>
+                            <li class="fs_14px">
+                                <span class="text1">开户银行</span>
+                                <input type="text" id="bank_name" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写开户银行</span>
+                            </li>
+                            <li class="fs_14px">
+                                <span class="text1">银行账户</span>
+                                <input type="text" id="bank_account" value=""/>
+                                <span class="mar_l_15px red fs_12px Error" data="false">请填写银行账户</span>
+                            </li>
+                        </ul>
+
+                        <div class="weiZhi">
+                            <span class="bg_line_gray fs_12px" id="save_invoice">保存</span>
+                            <em class="fs_12px f_c_999 reminder">
+                                <p class="f_c_333">温馨提示：</p>
+                                <p class="mar_t_5px">1，未认证会员请先进行企业认证</p>
+                                <p>2，注意有效增值税发票开票资质仅为一个</p>
+                                <p>3，如某一订单金额未达到500元，需累计其他订单达到500元方可开具增值发票。</p>
+                                <p>4，如您的订单满足增值税专用发票开具条件，我们将在订单完成15-30个工作日内寄出</p>
+                                <p>5，遇到任何问题请联系客服 400-600-8028</p>
+                            </em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page2" class="page">
+            <em class="fs_12px f_c_999 reminder2 mar_t_10px">
+                <p><img src="/img/reminder.png" />温馨提示：</p>
+                <p class="mar_t_5px">1，未认证会员请先进行企业认证</p>
+                <p>2，注意有效增值税发票开票资质仅为一个</p>
+                <p>3，如某一订单金额未达到500元，需累计其他订单达到500元方可开具增值发票。</p>
+                <p>4，如您的订单满足增值税专用发票开具条件，我们将在订单完成15-30个工作日内寄出</p>
+                <p>5，遇到任何问题请联系客服 400-600-8028</p>
+            </em>
+            <ul class="bg_light_red fs_12px mar_t_10px invoice_title">
+                <li>订单详情</li><li>发票类型</li><li>状态</li><li>操作</li>
+            </ul>
+            <div class="order_con_list over_hide border" v-for="order in items" v-cloak>
+                <ul class="bg_light_red fs_14px">
+                    <li v-cloak>{{order.add_time}}</li><li>{{order.consignee}}</li><li>订单号：<span class="orderNum">{{order.order_sn}}</span></li><li>{{order.pay_name}}</li>
+                </ul>
+                <li class="order_info_list pos_rel">
+                    <div class="order_info_img invoice_list border_t" v-for="goods in order.goods_list">
+                        <img class="fl" v-bind:src="goods.goods_thumb" />
+                        <div class="fl li_he_30px mar_t_25px mar_l_10px" style="width: 400px">
+                            <p class="fs_14px" v-cloak>{{goods.goods_name}}</p>
+                            <p class="fs_12px blue" v-cloak>{{goods.goods_attr}}</p>
+                            <p class="fs_16px"><span v-cloak>￥{{goods.goods_price}}</span><span class="mar_l_30px" v-cloak>x{{goods.goods_number}}</span></p>
+                        </div>
+                    </div>
+                    <ol class="invoice_list_text fs_12px">
+                        <div v-if="order.inv_status==0 && order.payable > 500">
+                            <li>&nbsp;</li><li class="red" v-cloak>{{order.inv_status_name}}</li><li><span class="bg_reset border_e7 curP apply_invoice" v-on:click="apply(order.order_sn)">申请发票</span></li>
+                        </div>
+                        <div v-if="order.inv_status==2">
+                            <li v-cloak>{{order.inv_type_name}}</li><li class="green" v-cloak>{{order.inv_status_name}}</li><li>&nbsp;</li>
+                        </div>
+                        <div v-if="order.inv_status==1">
+                            <li v-cloak>{{order.inv_type_name}}</li><li class="red" v-cloak>{{order.inv_status_name}}</li><li><span class="bg_reset border_e7 curP" v-on:click="cancel(order.order_sn)">取消申请</span></li>
+                        </div>
+                        <div v-if="order.inv_status==-1 || order.inv_status==-2">
+                            <li v-cloak>{{order.inv_type_name}}</li><li class="red" v-cloak>{{order.inv_status_name}}</li><li><span class="bg_reset border_e7 curP" v-on:click="apply(order.order_sn)">重新申请</span></li>
+                        </div>
+                    </ol>
+                </li>
+            </div>
+
+            <div id="invoicePagination" class="pagination"><!-- 这里显示分页 --></div>
+        </section>
+    </div>
+</div>
+
+<!-- 弹出框内容 -->
+<div id="MaskContent" class="Nhide">
+    <div class="ordinary_invoice_con2" id="order_inv_apply">
+        <ul class="fs_12px">
+            <li>
+                <span class="text1">选择开票类型：</span>
+                <p class="textInput border_red default curP" data-url="#tab4">普通发票</p>
+                <p class="textInput mar_l_30px curP" data-url="#tab5">专用发票</p>
+            </li>
+            <div class="tabContent" id="tab4">
+                <li>
+                    <span class="text1"><b class="red">*</b>发票抬头：</span>
+                    <input type="text" id="c_title">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写发票抬头信息</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>收票人姓名：</span>
+                    <input type="text" id="c_consignee">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写收票人姓名</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>收票人手机号：</span>
+                    <input maxlength="11" type="tel" id="c_mobile">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写收票人手机号</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>详细地址：</span>
+                    <input type="text" id="c_address">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写详细地址</span>
+                </li>
+                <div class="mask_input1">
+                    <input class="mask_confirm1 bg_line_gray" type="button" value="提交">
+                </div>
+            </div>
+            <div class="tabContent Nhide" id="tab5">
+                <li>
+                    <span class="text1"><b class="red">*</b>单位名称：</span>
+                    <input type="text" id="s_company">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写单位名称</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>纳税人识别码：</span>
+                    <input type="text" id="s_taxpayer_code">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写纳税人识别码</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>注册地址：</span>
+                    <input type="text" id="s_company_address">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写注册地址</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>注册电话：</span>
+                    <input type="text" id="s_company_phone">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写注册电话</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>开户银行：</span>
+                    <input type="text" id="s_bank_name">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写开户银行</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>银行账户：</span>
+                    <input type="text" id="s_bank_account">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">银行账户</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>收票人姓名：</span>
+                    <input type="text" id="s_consignee">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写收票人姓名</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>收票人手机号：</span>
+                    <input maxlength="11" type="tel" id="s_mobile">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写收票人正确手机号</span>
+                </li>
+                <li>
+                    <span class="text1"><b class="red">*</b>详细地址：</span>
+                    <input type="text" id="s_address">
+                    <span class="mar_l_15px red fs_12px Error Nhide" data="false">请填写详细地址</span>
+                </li>
+                <div class="mask_input2">
+                    <input class="mask_confirm2 bg_line_gray" type="button" value="提交">
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<!-- 弹出窗 -->
+<div id="data_mask"></div>
+<div id="alertMask"></div>
+<script type="text/javascript" src="/js/center/invoice.js"></script>
+<!--#include file="temp/userCenterBottom.html" -->
+<script type="text/javascript">
+    setTimeout(function(){
+        obtainDivHeight();
+    },1000)
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+.main {
+  width: 1015px;
+  height: 1000px;
+  margin: 20px 0 120px 515px;
+  box-sizing: border-box;
+}
+.main .m_top {
+  width: 1015px;
+  height: 215px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.main .m_top i {
+  display: inline-block;
+  margin-left: 500px;
+  font-size: 12px;
+  color: #333333;
+}
+.main .m_top p {
+  font-weight: bold;
+  padding: 20px 0 8px 20px;
+  border-bottom: 5px solid #71B247;
+}
+.main .m_top .status {
+  width: 1010px;
+  margin: 20px 20px 10px 15px;
+  box-sizing: border-box;
+}
+.main .m_top .status div.s_left {
+  width: 290px;
+  height: 190px;
+  box-sizing: border-box;
+}
+.main .m_top .status div.s_left #sl��#s2��#s3 {
+  width: 300px;
+  height: 100px;
+  padding-left: 100px;
+  box-sizing: border-box;
+}
+.main .m_top .status div.s_left #sl > li,
+.main .m_top .status div.s_left #s2 > li,
+.main .m_top .status div.s_left #s3 > li {
+  height: 30px;
+  line-height: 30px;
+}
+.main .m_top .status div.s_left .bts button {
+  width: 105px;
+  height: 33px;
+  color: #ffffff;
+  margin-right: 30px;
+  border: 1px solid #71B247;
+  background-color: #ffffff;
+}
+.main .m_top .status .s_right {
+  width: 700px;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.main .m_top .status .s_right > ul {
+  width: 690px;
+  box-sizing: border-box;
+}
+.main .m_top .status .s_right > ul > li {
+  float: left;
+  width: 75px;
+  text-align: center;
+  margin-right: 60px;
+}
+.main .m_middle {
+  width: 1015px;
+  height: 190px;
+  margin: 0;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.main .m_middle > ul {
+  width: 248px;
+  height: 190px;
+  padding: 20px 3px 0 10px;
+  border-right: 1px solid #d1d1d1;
+  box-sizing: border-box;
+  font-weight: bold;
+  color: #333333;
+}
+.main .m_middle > ul > li {
+  height: 25px;
+  line-height: 25px;
+}
+.main .m_bottom {
+  width: 1015px;
+  height: 500px;
+  background-color: #ffffff;
+  margin-top: 30px;
+  padding: 20px 20px 40px 20px;
+  box-sizing: border-box;
+}
+.main .m_bottom ul {
+  width: 970px;
+  border-bottom: 1px solid #d1d1d1;
+  height: 90px;
+  margin: 10px 0;
+  color: #333333;
+  box-sizing: border-box;
+}
+.main .m_bottom ul li {
+  float: left;
+  height: 80px;
+  margin-right: 160px;
+  text-align: left;
+}
+.main .m_bottom ul li i {
+  color: #e01121;
+}
+.main .m_bottom ul li button {
+  width: 80px;
+  height: 25px;
+  background-color: #8EDA9C;
+  border: 1px solid #8EDA9C;
+  color: #ffffff;
+}
+.main .m_bottom ul li:first-child > a {
+  display: inline-block;
+  width: 240px;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px 0 0 5px;
+}
+.main .m_bottom ul li:first-child > a:hover {
+  color: #e01121;
+  font-weight: bold;
+}
+.main .m_bottom ul li:last-child > a {
+  display: inline-block;
+  margin: 10px 0 0 15px;
+}
+.main .m_bottom .aount {
+  margin: 20px  80px 20px 0 ;
+}
+.main .m_bottom .aount li {
+  height: 30px;
+}

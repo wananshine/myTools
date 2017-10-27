@@ -1,0 +1,73 @@
+* { margin: 0; padding: 0; }
+body { background-color: #333; font-family: "Microsoft Yahei"; }
+
+.slider-box {
+  position: relative;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.slider-item {
+  float: left;
+  cursor: default;
+}
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.slider-box .btn {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  background: url(../images/hislider-arrow.png) no-repeat;
+  opacity: 0;
+}
+.slider-box .btn-prev {
+  left: -30px;
+}
+.slider-box .btn-next {
+  right: -30px;
+  background-position: -30px 0;
+}
+
+.slider-box .slider-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, .6);
+}
+.slider-box .slider-title p {
+  display: inline-block;
+  padding-left: 10px;
+  color: #ccc;
+}
+
+.slider-box .btn-box {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  font-size: 0;
+}
+.slider-box .btn-item {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.slider-box .btn-item__cur {
+  background-color: #09c;
+}

@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="大家来采购网djlcg.com,弱电一站式采购,安防弱电行业商城,建筑智能化B2B电子商务平台,为工程集成商提供智能建筑控制系统、建筑智能化工程、公共安全、楼宇自动化控制系统、机房工程在线报价、智能家居控制系统、音视频会议系统等智能建筑品牌优质特价商品及服务的互联网采购平台" />
+    <meta name="Keywords" content="大家来采购网，djlcg.com,大家来电子商务，集成工程采购，中国智慧城市，智能建筑，建筑智能化，强电弱电，一站式采购，让交易变得简单，快乐" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <meta content=always name=referrer>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon_url.png" media="screen" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?02c5d8b75511fdeda85cc7e0b4f90842";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+    <title id="productListTemp1"></title>
+    <link rel="stylesheet" type="text/css" href="lib/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="css/product_list.css"/>
+</head>
+<body>
+<!-- 头部 -->
+<div id="titleTemp_main"></div>
+<div id="titleTemp2_main"></div>
+
+<div id="productListTemp2">
+    <div class="pro_list_title border_t2">
+        <div class="width_main">
+            <ul class="fs_12px f_c_666 navigation_bar">
+                <li><a href="main.html">首页</a></li>
+                <div id="pageTitle">
+                    <li v-for="title1 in list.ur_here.cat" v-cloak><span> > </span><a :href="title1.url">{{title1.cat_name}}</a></li>
+                    <li class="Nhide" id="search_title"></li>
+                </div>
+                <div class="Nhide" id="addPageTitle">
+                    <div class="list" v-for="brand in list">
+                        <span class="fl addSpan"> > </span>
+                        <li class="addLi border_red red" v-cloak>
+                            {{brand.attr_value}}
+                            <i class="mar_l_15px curP" v-on:click="removeBrand(brand.url)">x</i>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+
+            <!-- 空数据 -->
+            <div class="width_main">
+                <div class="notData border bg_white Nhide" id="notData">
+                    <p class="fs_18px f_c_333">抱歉，没有搜到与&nbsp;&nbsp;"<span id="text"></span>"&nbsp;&nbsp;相关的商品</p>
+                    <p class="mar_t_20px fs_14px">请检查您的输入是否有误</p>
+                    <p class="mar_t_5px fs_14px">如有任何意见或建议，期待您反馈给我们</p>
+                    <p class="mar_t_5px fs_14px">您也可以通过 <a target="_blank" href="/service/service_quote.html" class="red">询价</a>了解产品信息</p>
+                </div>
+            </div>
+
+            <div class="brand_title_con over_hide bg_white">
+                <div id="category">
+                    <div class="fs_12px blue brand_ul brand_maxHeight" v-for = "categorys in list.category">
+                        <p class="fl f_c_666 brand_ul_left mar_l_10px"><span class="brand_ul_brand" v-cloak>{{categorys[0].cat_name}}</span>：</p>
+                        <ul class="over_hide"><li v-for="cat in categorys.cat_id" v-on:click="toList2(cat.cat_id)" v-cloak>{{cat.cat_name}}</li></ul>
+                        <span class="brand_more f_c_666 curP text_ban" style="display: none"><span>更多</span><i class="icon_down2"></i></span>
+                    </div>
+                </div>
+                <div id="category1">
+                    <div class="fs_12px blue brand_ul brand_maxHeight" v-for = "categorys in list1.category">
+                        <p class="fl f_c_666 brand_ul_left mar_l_10px curP" v-on:click="toList1(categorys.url)"><span class="brand_ul_brand" v-cloak>{{categorys.name}}</span>：</p>
+                        <ul class="over_hide"><li v-for="cat in categorys.cat_id" v-on:click="toList2(cat.url)" v-cloak>{{cat.name}}</li></ul>
+                        <span class="brand_more f_c_666 curP text_ban" style="display: none"><span>更多</span><i class="icon_down2"></i></span>
+                    </div>
+                </div>
+                <div id="category2">
+                    <div class="fs_12px blue brand_ul brand_maxHeight">
+                        <p class="fl f_c_666 brand_ul_left mar_l_10px"><span class="brand_ul_brand" v-cloak>{{list2.type.cat_name}}</span>：</p>
+                        <ul class="over_hide"><li v-for="cat in list2.cat" v-on:click="toList2(cat.url)" v-cloak>{{cat.name}}</li></ul>
+                        <span class="brand_more f_c_666 curP text_ban" style="display: none"><span>更多</span><i class="icon_down2"></i></span>
+                    </div>
+                </div>
+                <div id="titleBrandList">
+                    <div class="fs_12px blue brand_ul brand_maxHeight" v-if="list.brands && list.brands.name">
+                        <p class="fl f_c_666 brand_ul_left mar_l_10px" style="color: #e53935"><span class="brand_ul_brand" v-cloak>{{list.brands.name}}</span>：</p>
+                        <ul class="over_hide"><li style="color: #e53935" v-for="b_attr in list.brands.value" v-on:click="toList1(b_attr.url)" v-cloak>{{b_attr.brand_name}}</li></ul>
+                        <span class="brand_more f_c_666 curP text_ban" style="display: none"><span>更多</span><i class="icon_down2"></i></span>
+                    </div>
+                </div>
+                <div id="brandList">
+                    <div class="fs_12px blue brand_ul brand_maxHeight" v-for="attr_list in list.all_attr_list">
+                        <p class="fl f_c_666 brand_ul_left mar_l_10px"><span class="brand_ul_brand" v-cloak>{{attr_list.filter_attr_name}}</span>：</p>
+                        <ul class="over_hide">
+                            <li v-for="attr_list2 in attr_list.attr_list" v-on:click="toList2(attr_list2.url)" v-cloak>
+                                {{attr_list2.attr_value}}
+                            </li>
+                        </ul>
+                        <span class="brand_more f_c_666 curP text_ban" style="display: none"><span>更多</span><i class="icon_down2"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="more_options border fs_12px f_c_666 text_ban curP bg_white"><p class="center">更多选项</p><i class="icon_down2"></i></div>
+        </div>
+    </div>
+    <div class="width_main" id="goods_sort_temp" style="margin-bottom: 16px;">
+        <ul class="content_title fs_14px f_c_666">
+            <li v-for="(sort,index) in list.goods_sort" v-on:click="toSort(sort.url,index)" v-cloak>{{sort.name}}<i class="listAndInfo2 fr"></i></li>
+        </ul>
+    </div>
+    <div class="width_main">
+        <!-- 列表元素 -->
+        <div class="result" id="pro_list">
+            <ul class="fs_13px main_content_img">
+                <li class="pos_rel rem_shadow_5px over_hide" v-for="con in list.content">
+                    <img v-if="(con.watermark_img != '')" class="icon_activity" :src="con.watermark_img" />
+                    <span class="bg_line_red white bor_rad_5px pos_abs main_con_img_gz" style="display: none;">关注</span>
+                    <img class="rec_list_img2 curP" :src="con.goods_img" v-on:click="toListInfo1(con.url)" v-bind:title="con.goods_name"/>
+                    <p class="f_c_333 rec_text1 mar_t_10px curP " v-on:click="toListInfo1(con.url)" v-bind:title="con.goods_name" v-cloak>{{con.goods_name}}</p>
+                    <p class="fs_16px rec_text3 orange mar_t_5px" v-cloak>
+                        {{con.shop_price}}
+                        <del style="font-size: 12px;color: #999;">{{con.market_price}}</del>
+                    </p>
+                    <!--<div class="content_img_text fs_12px white">
+                        <p class="li_he_20px" v-cloak>{{con.goods_brief}}</p>
+                        <p class="img_text">
+                            <span class="hover_dec" v-on:click="concern(con.goods_id, $event)">关注</span>
+                            <span class="hover_dec" v-on:click="toListInfo1(con.url)">查看详情</span>
+                        </p>
+                    </div>-->
+                    <div class="attention">
+                        <!--<span class="hover_dec fr atten_cell" v-on:click="toListInfo1(con.url)">查看详情</span>-->
+                        <span class=" fr atten_con" v-on:click="addshoping(con.moq, con.goods_id, $event)">
+                            <!--<img class="img" src="img/gwc_gray.png" />-->
+                            <!--<img class="currimg" src="img/gwc_red.png" />-->
+                            加入订货单
+                        </span>
+                        <span class=" fl atten_cell" v-on:click="concern(con.goods_id, $event)">
+                            <img class="img" src="img/bai.png" />
+                            <img class="currimg" src="img/red.png" />
+                            <span class="focus_on">关注</span>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="over_hide" style="width: 100%">
+        <div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+        <!--<div id="Pagination" class="pagination text_ban">
+            &lt;!&ndash;<span v-for="page in pager.page_number">{{page}}</span> &lt;!&ndash;  class="current" &ndash;&gt;&ndash;&gt;
+            <a v-on:click="toListPrev(list.page_prev)"><span class="prev ban_prev">上一页</span></a>
+            <a v-for="a in list.page_number" v-on:click="toList(a.url)"><span v-cloak>{{a.id}}</span></a>
+            <a v-on:click="toListNext(list.page_next)"><span class="next">下一页</span></a>
+            &lt;!&ndash;<p>{{list}}</p>&ndash;&gt;
+        </div>-->
+    </div>
+
+    <div class="width_main">
+        <ul class="main_content">
+            <ol class="fs_18px f_c_333">热销产品</ol>
+        </ul>
+    </div>
+    <div class="width_main2">
+        <ul class="fs_13px main_content_img content_div over_hide" id="sellWellPro" style="margin-left: -16px">
+            <li class="pos_rel rem_shadow_5px over_hide" v-for="a in list" @click="toListInfo2(a.id)">
+                <img v-if="(a.watermark_img != '')" class="icon_activity" :src="a.watermark_img" />
+                <span class="bg_line_red white bor_rad_5px pos_abs main_con_img_gz" style="display: none;">关注</span>
+                <img class="rec_list_img curP" style="margin-top: 20px"  :src="a.thumb" @click="toListInfo2(a.id)" :title="a.name"/>
+                <p class="f_c_333 rec_text1 mar_t_45px curP" @click="toListInfo2(a.id)" :title="a.name" v-cloak>{{a.name}}</p>
+                <p class="fs_16px rec_text3 orange mar_t_25px" v-cloak>{{a.shop_price}}  </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="bottomTemp_main"></div>
+
+<!-- 侧边栏 -->
+<div id="sidebarTemp_main"></div>
+
+<!-- 弹出窗 -->
+<div id="login_mask"></div>
+
+
+<!-- 加入订货单弹出窗 -->
+<div id="orders_mask"></div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="lib/js/common.js"></script>
+<script type="text/javascript" src="lib/js/global.js"></script>
+<script type="text/javascript" src="lib/js/vue.js"></script>
+<script type="text/javascript" src="lib/js/comMain.js"></script>
+<script type="text/javascript" src="lib/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/product_list.js"></script>
+<script type="text/javascript">
+    //    $("img").lazyload({
+    //        effect : "fadeIn"
+    //    });
+    com.isTitleMenuShow(false);
+    setTimeout(com.isTitleMenuShow(false),300);
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+@full: 100%;
+@width: 1226px;
+@auto: auto;
+
+.w-inner{
+  width: @width;
+  margin:  0 auto;
+}
+.height(@auto){
+  height: @auto;
+}
+.por{
+  position: relative;
+}
+.poa{
+  position: absolute;
+}
+.pof{
+  position: fixed;
+}
+.hid{
+  overflow: hidden;
+}
+
+
+.sep{
+  margin: 0 0.5em;
+  color: #424242;
+}
+//设置不换行出现省略号
+.ellipsis{
+  .hid;
+  .por;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//设置两行出现省略号
+.clamp2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+//设置容器
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexitem{
+  //flex: 1;
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+}
+
+.clearfix{
+  zoom: 1;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after{
+    content: " ";
+    clear: both;
+    height: 0;
+    visibility: hidden;
+    display: block;
+  }
+}
+
+.translate(@x:-50%,@y:-50%){
+  -webkit-transform: translate(@x,@y);
+  -moz-transform: translate(@x,@y);
+  -ms-transform: translate(@x,@y);
+  -o-transform: translate(@x,@y);
+  transform: translate(@x,@y);
+}
+
+@21: #212121;
+@42: #424242;
+@61: #616161;
+@75: #757575;
+
+@f5: #f5f5f5;
+@b0: #b0b0b0;
+@e0: #e0e0e0;
+@fa: #fafafa;
+@dc: #dcdcdc;
+
+@000: #000;
+@333: #333;
+@666: #666;
+@999: #999;
+@fff: #fff;
+
+@ff67: #ff6700;
+@00c3: #00c3f5;
+@ff00: #ff0036;
+
+@url:"../images/";
+

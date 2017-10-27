@@ -1,0 +1,90 @@
+<!-- 页面头部 -->
+<script type="text/javascript" src="/lib/js/jquery.search.js"></script>
+<div id="titleTemp2" class="bg_white">
+    <div class="title2_main width_main">
+        <div class="title2_search">
+            <a href="/main.html"><i class="icon_logo fl curP"></i></a>            
+            <!--<div class="over_hide pos_rel curP" style="width: 420px;float: left;height: 60px;">
+                <div id="toMain"></div>
+                <param name="movie" value="/img/logoGif.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="transparent" />
+                <embed src="/img/logoGif.swf" quality="high" type="application/x-shockwave-flash" style="margin-top: -25px" width="420" height="100" wmode="transparent"></embed>
+                &lt;!&ndash;<object class="mar_t_f25px" type="application/x-shockwave-flash" data="/img/logoGif.swf" width="345" height="100px">
+                    <param name="movie" value="/img/logoGif.swf" />
+                    <param name="quality" value="high" />
+                    <param name="wmode" value="transparent" />
+                    <img src="/img/logoGif.swf" width="345" />
+                </object>&ndash;&gt;
+            </div>-->
+            <!--style="position:relative;right:100px;"-->
+            <div class="title2_input input_focus_red pos_rel fr"   >
+                <input type="text" id="search" placeholder="请输入您要搜索的商品信息">
+                <a target="_blank" href="/purchase_orders.html"><div class="my_orders fr fs_14px"><p class="fl mar_l_20px">我的进货单</p><span id="my_orders2" class="unread_message2 product_number fr"><em v-cloak>{{list.total_count}}</em></span></div></a>
+                <div class="orders_hr"></div>
+                <div class="goods_order bg_white box_s fs_12px f_c_333">
+                    <div id="my_orders">
+                        <p class="orders_null">进货单中还没有商品，赶紧选购吧！</p>
+                        <ul>
+                            <li class="orders_list" v-for="items in list.list">
+                                <div class="over_hide orders_img fl curP" v-on:click="toInfo(items.goods_id)">
+                                    <img :src="items.goods_thumb" />
+                                </div>
+                                <div class="fl orders_text">
+                                    <p class="text_hide orders_name curP" v-on:click="toInfo(items.goods_id)" v-cloak>{{items.goods_name}}</p>
+                                    <p><span v-cloak>{{items.goods_price}}</span><span class="mar_l_10px" v-cloak>x{{items.goods_number}}</span>
+                                        <span class="orders_del fr f_c_999 curP" v-on:click="remove(items.rec_id)">删除</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pay_orders">
+                            <div class="fl">
+                                <p class="fs_12px f_c_999" v-cloak>共 {{list.total_count}} 件商品</p>
+                                <p><span class="fs_18px orange" v-cloak>{{list.total_amount}}</span><span class="fs_12px f_c_999">元</span></p>
+                            </div>
+                            <a class="pay fs_14px white fr" v-on:click="nowBuy()">去购物车结算</a>
+                        </div>
+                    </div>
+                </div>
+                <span class="title_input fr bg_red border_red curP" id="searchInput"></span>
+                <ul class="auto_hidden" id="search_result">
+                    <!--<li v-for="a in list"><p class="fl"><span class="suggest">{{a.suggest}}</span><span class="Nhide">{{a.py}}</span></p><span class="fr mar_r_10px">约{{a.count}}个</span></li>-->
+                </ul>
+                <div class="hotSearch">
+                    <ul>
+                        <!--<li class="fs_12px f_c_999 fl"><a href="/product_list.html?keywords=大华">大华</a></li>-->
+                        <li class="fs_12px f_c_999 fl"><a href="/product_list.html?keywords=网线" class="active">网线</a></li>
+                        <li class="fs_12px f_c_999 fl"><a href="/product_list.html?keywords=机柜">机柜</a></li>
+                        <li class="fs_12px f_c_999 fl"><a href="/product_list.html?keywords=电源">电源</a></li>
+                        <li class="fs_12px f_c_999 fl"><a href="/product_list.html?keywords=交换机">交换机</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="appqr" class="wechatimg hide">
+                <img src="../../img/self4.png" alt=""  id="D_wechat"  title=""/>
+                <span style="display:block;font-size:12px;text-indent:15px;">手机APP</span>
+            </div>
+        </div>
+        
+        <div class="pos_abs Nhide" style="z-index: 2;" id="menu_bg">
+            <div class="title2_menu_fuZhi"></div>
+            <div class="title2_menu_con fs_14px f_c_333">
+                <dl>
+                    <div id="menuList"><dt v-for="a in result"><span v-bind:class="'active' + a.id1"></span><a class="text_hover_red" target="_blank" :href="a.url" data="false" v-bind:id="a.id" v-cloak>{{a.name}}</a><i class="cate_menu_line">/</i><a class="text_hover_red" target="_blank" :href="a.url2" data="false" v-bind:id="a.id1" v-cloak>{{a.name1}}</a></dt></div>
+                    <li class="border menu_con_li" id="menuList2">
+
+                    </li>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="del_orders_mask"></div>
+
+<script type="text/javascript" src="/lib/js/comMain.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    page_title2();
+</script>

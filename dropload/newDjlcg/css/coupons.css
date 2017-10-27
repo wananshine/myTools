@@ -1,0 +1,162 @@
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.flexitem {
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+.cou_container {
+  position: relative;
+}
+.cou_container .cou_inner .cou_banner {
+  position: relative;
+}
+.cou_container .cou_inner .cou_banner img {
+  width: 100%;
+}
+.cou_container .cou_inner .cou_content {
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit {
+  padding: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit:after {
+  content: "";
+  display: block;
+  width: 83%;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  top: 60%;
+  right: 0;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit .cou_tit_bigtxt {
+  font-size: 26px;
+  color: #e11a1a;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_tit .cou_tit_smalltxt {
+  margin-left: 5px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell {
+  width: 573px;
+  height: 123px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background-image: url("../img/coup_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 573px 123px;
+  color: #eee224;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_info {
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  width: 22%;
+  height: 100%;
+  text-align: left;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_left {
+  flex-basis: 32%;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_left .cou_price {
+  margin-top: 30px;
+  font-size: 16px;
+  padding: 0 18%;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_left .cou_price i {
+  font-size: 23px;
+  margin-right: 5px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_left .cou_product {
+  padding: 0 18%;
+  font-size: 14px;
+  color: #ffa800;
+  line-height: 19px;
+  height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_center {
+  flex-basis: 8%;
+  padding: 30px 18px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_right {
+  margin-top: 16px;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_right .cou_pronum {
+  width: 76px;
+  height: 76px;
+  line-height: 76px;
+  text-align: center;
+  background-image: url("../img/coup_icon.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 76px 76px;
+  background-origin: border-box;
+  font-size: 14px;
+  margin: 0 auto;
+  color: #fff;
+}
+.cou_container .cou_inner .cou_content .cou_floors .cou_list .cou_cell .cou_right .cou_btn {
+  width: 82px;
+  height: 22px;
+  line-height: 20px;
+  display: block;
+  margin: 3px auto 0;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  background-color: #ffb933;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.btn_end {
+  background-color: transparent !important;
+}
+.isclick {
+  display: block;
+}
+.isclick2 {
+  display: none;
+}

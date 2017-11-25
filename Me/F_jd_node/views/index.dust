@@ -1,5 +1,5 @@
 
-<%- include("./header.ejs") %>
+
 
 
 
@@ -19,9 +19,9 @@
                             北京
                         </div>
                         <div class="other_addr">
-                            <div class="o_dropdown" id="o_dropdown">
-                                <!-- <p class="item"><a class="selected" href="javascript:void(0)">北京</a></p>
-                                <p class="item"><a href="javascript:void(0)">上海</a></p> -->
+                            <div class="o_dropdown">
+                                <p class="item"><a class="selected" href="javascript:void(0)">北京</a></p>
+                                <p class="item"><a href="javascript:void(0)">上海</a></p>
                             </div>
                         </div>
                     </div>
@@ -31,6 +31,6 @@
                 </div>
             </div>
         </div>
-        
 
-<%- include("./footer.ejs") %>
+
+

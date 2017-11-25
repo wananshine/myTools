@@ -1,10 +1,10 @@
-// æ•°æ®åº“è¿æ¥é…ç½®
+// Êı¾İ¿âÁ¬½ÓÅäÖÃ
 module.exports = {
 	mysql: {
 		host: 'localhost',
 		user: 'root',
 		password: 'root',
-		database: 'new_userdata',
+		database: 'test',
 		port: '3000'
 	}
 }

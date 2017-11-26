@@ -107,126 +107,126 @@
 
 
 
-//->LESS代码
+// //->LESS代码
 
-@selector: box;
-@bgImg: "../img";
-@property: color;
-@name: "珠峰培训";
-@var: "name";
+// @selector: box;
+// @bgImg: "../img";
+// @property: color;
+// @name: "珠峰培训";
+// @var: "name";
 
-.@{selector} {
-    width: 100px;
-    height: 100px;
-    @{property}: #000;
-    background: url("@{bgImg}/test.png");
+// .@{selector} {
+//     width: 100px;
+//     height: 100px;
+//     @{property}: #000;
+//     background: url("@{bgImg}/test.png");
 
-    &:after {
-        display: block;
-        content: @@var;
-    }
-}
-
-
-
-
-//->LESS代码   extend用法
-.public {
-    width: 100px;
-    height: 100px;
-}
-
-.nav ul {
-    &:extend(.public);
-    list-style: none;
-}
+//     &:after {
+//         display: block;
+//         content: @@var;
+//     }
+// }
 
 
 
 
-//->LESS代码   计算
-.average(@x, @y) {
-  @result: ((@x + @y) / 2);
-}
+// //->LESS代码   extend用法
+// .lesspublic {
+//     width: 100px;
+//     height: 100px;
+// }
 
-div {
-  .average(16px, 50px); //"call" the mixin
-  padding: @result; //use its "return" value
-}
-
-
-
-
-//->LESS代码  loop循环
-.generate-columns(5);
-.generate-columns(@n, @i: 1, @j: 0) when (@i <= @n) {
-  .column-@{i} {
-    // width: (@i * 100% / @n);
-    left: (@j * 100% / @n);
-  }
-  .generate-columns(@n, (@i + 1), (@j + 1));
-}
+// .nav ul {
+//     &:extend(.lesspublic);
+//     list-style: none;
+// }
 
 
 
 
+// //->LESS代码   计算
+// .lessaverage(@x, @y) {
+//   @result: ((@x + @y) / 2);
+// }
+
+// div {
+//   .lessaverage(16px, 50px); //"call" the mixin
+//   padding: @result; //use its "return" value
+// }
 
 
-//->LESS代码  合并
-.mixin() {
-  box-shadow+: inset 0 0 10px #555;
-}
 
-.myclass {
-  .mixin;
-  box-shadow+: 0 0 20px black;
-}
 
-.mixin2() {
-  transform+_: scale(2);
-}
-
-.myclass2 {
-  .mixin2;
-  transform+_: rotate(45deg);
-}
+// //->LESS代码  loop循环
+// .lessgenerate-columns(5);
+// .lessgenerate-columns(@n, @i: 1, @j: 0) when (@i <= @n) {
+//   .lesscolumn-@{i} {
+//     // width: (@i * 100% / @n);
+//     left: (@j * 100% / @n);
+//   }
+//   .lessgenerate-columns(@n, (@i + 1), (@j + 1));
+// }
 
 
 
 
 
-//->LESS代码   &用法
-.box {
-  color: blue;
-  &:hover {
-    color: green;
-  }
 
-  &-top {
-    height: 30px;
-  }
+// //->LESS代码  合并
+// .lessmixin() {
+//   box-shadow+: inset 0 0 10px #555;
+// }
 
-  &-center {
-    height: 500px;
-  }
+// .lessmyclass {
+//   .lessmixin;
+//   box-shadow+: 0 0 20px black;
+// }
 
-  //->多个&&
-  & + &-top {
-    color: red;
-  }
+// .lessmixin2() {
+//   transform+_: scale(2);
+// }
 
-  & &-top {
-    color: grey;
-  }
+// .lessmyclass2 {
+//   .lessmixin2;
+//   transform+_: rotate(45deg);
+// }
 
-  &&-top {
-    color: black;
-  }
 
-  &, &-top {
-    color: orange;
-  }
-}
+
+
+
+// //->LESS代码   &用法
+// .lessbox {
+//   color: blue;
+//   &:hover {
+//     color: green;
+//   }
+
+//   &-top {
+//     height: 30px;
+//   }
+
+//   &-center {
+//     height: 500px;
+//   }
+
+//   //->多个&&
+//   & + &-top {
+//     color: red;
+//   }
+
+//   & &-top {
+//     color: grey;
+//   }
+
+//   &&-top {
+//     color: black;
+//   }
+
+//   &, &-top {
+//     color: orange;
+//   }
+// }
 
 
 

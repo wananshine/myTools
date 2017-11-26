@@ -1,7 +1,3 @@
-.nav ul {
-  width: 100px;
-  height: 100px;
-}
 /***********************************************分割线***********************************************/
 .item-title .title-txt {
   font-size: 22px;
@@ -169,6 +165,8 @@
 .homepage .page-container {
   position: relative;
   overflow: hidden;
+  width: 1226px;
+  margin: 0 auto;
 }
 .homepage .page-container .page-topbar {
   position: relative;

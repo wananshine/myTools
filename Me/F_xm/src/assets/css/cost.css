@@ -57,3 +57,65 @@
   visibility: hidden;
   display: block;
 }
+.lesspublic,
+.lessnav ul {
+  width: 100px;
+  height: 100px;
+}
+.lessnav ul {
+  list-style: none;
+}
+.lessdiv {
+  padding: 33px;
+}
+.lesscolumn-1 {
+  left: 0%;
+}
+.lesscolumn-2 {
+  left: 20%;
+}
+.lesscolumn-3 {
+  left: 40%;
+}
+.lesscolumn-4 {
+  left: 60%;
+}
+.lesscolumn-5 {
+  left: 80%;
+}
+.lessmyclass {
+  box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+.lessmyclass2 {
+  transform: scale(2) rotate(45deg);
+}
+.lessbox {
+  color: blue;
+}
+.lessbox:hover {
+  color: green;
+}
+.lessbox-top {
+  height: 30px;
+}
+.lessbox-center {
+  height: 500px;
+}
+.lessbox + .lessbox-top {
+  color: red;
+}
+.lessbox .lessbox-top {
+  color: grey;
+}
+.lessbox.lessbox-top {
+  color: black;
+}
+.lessbox,
+.lessbox-top {
+  color: orange;
+}
+.lesslist {
+  color: #ff0000;
+  border-color: #0000ff;
+  background-volor: #008000;
+}

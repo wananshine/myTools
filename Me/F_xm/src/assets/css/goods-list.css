@@ -1,3 +1,7 @@
+.lessnav ul {
+  width: 100px;
+  height: 100px;
+}
 /**************************************分割线*********************************************/
 .goods-container .goods-inner {
   position: relative;

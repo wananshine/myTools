@@ -36,7 +36,8 @@
 </template>
 
 <style  scoped lang="less">
-	@import "../../../assets/css/goods-list";
+	// @import "../../../assets/css/goods-list";
+	@import url('../../../assets/css/goods-list');
 </style>
 
 <script type="text/javascript">

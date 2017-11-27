@@ -108,7 +108,6 @@
 
 
 // //->LESS代码
-
 // @selector: box;
 // @bgImg: "../img";
 // @property: color;
@@ -130,42 +129,42 @@
 
 
 
-// //->LESS代码   extend用法
-// .lesspublic {
-//     width: 100px;
-//     height: 100px;
-// }
+//->LESS代码   extend用法
+.lesspublic {
+    width: 100px;
+    height: 100px;
+}
 
-// .nav ul {
-//     &:extend(.lesspublic);
-//     list-style: none;
-// }
-
-
-
-
-// //->LESS代码   计算
-// .lessaverage(@x, @y) {
-//   @result: ((@x + @y) / 2);
-// }
-
-// div {
-//   .lessaverage(16px, 50px); //"call" the mixin
-//   padding: @result; //use its "return" value
-// }
+.lessnav ul {
+    &:extend(.lesspublic);
+    list-style: none;
+}
 
 
 
 
-// //->LESS代码  loop循环
-// .lessgenerate-columns(5);
-// .lessgenerate-columns(@n, @i: 1, @j: 0) when (@i <= @n) {
-//   .lesscolumn-@{i} {
-//     // width: (@i * 100% / @n);
-//     left: (@j * 100% / @n);
-//   }
-//   .lessgenerate-columns(@n, (@i + 1), (@j + 1));
-// }
+//->LESS代码   计算
+.lessaverage(@x, @y) {
+  @result: ((@x + @y) / 2);
+}
+
+.lessdiv {
+  .lessaverage(16px, 50px); //"call" the mixin
+  padding: @result; //use its "return" value
+}
+
+
+
+
+//->LESS代码  loop循环
+.lessgenerate-columns(5);
+.lessgenerate-columns(@n, @i: 1, @j: 0) when (@i <= @n) {
+  .lesscolumn-@{i} {
+    // width: (@i * 100% / @n);
+    left: (@j * 100% / @n);
+  }
+  .lessgenerate-columns(@n, (@i + 1), (@j + 1));
+}
 
 
 
@@ -173,63 +172,72 @@
 
 
 // //->LESS代码  合并
-// .lessmixin() {
-//   box-shadow+: inset 0 0 10px #555;
-// }
+.lessmixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
 
-// .lessmyclass {
-//   .lessmixin;
-//   box-shadow+: 0 0 20px black;
-// }
+.lessmyclass {
+  .lessmixin;
+  box-shadow+: 0 0 20px black;
+}
 
-// .lessmixin2() {
-//   transform+_: scale(2);
-// }
+.lessmixin2() {
+  transform+_: scale(2);
+}
 
-// .lessmyclass2 {
-//   .lessmixin2;
-//   transform+_: rotate(45deg);
-// }
+.lessmyclass2 {
+  .lessmixin2;
+  transform+_: rotate(45deg);
+}
 
 
 
 
 
 // //->LESS代码   &用法
-// .lessbox {
-//   color: blue;
-//   &:hover {
-//     color: green;
-//   }
+.lessbox {
+  color: blue;
+  &:hover {
+    color: green;
+  }
 
-//   &-top {
-//     height: 30px;
-//   }
+  &-top {
+    height: 30px;
+  }
 
-//   &-center {
-//     height: 500px;
-//   }
+  &-center {
+    height: 500px;
+  }
 
-//   //->多个&&
-//   & + &-top {
-//     color: red;
-//   }
+  //->多个&&
+  & + &-top {
+    color: red;
+  }
 
-//   & &-top {
-//     color: grey;
-//   }
+  & &-top {
+    color: grey;
+  }
 
-//   &&-top {
-//     color: black;
-//   }
+  &&-top {
+    color: black;
+  }
 
-//   &, &-top {
-//     color: orange;
-//   }
-// }
+  &, &-top {
+    color: orange;
+  }
+}
 
 
 
 
 //->LESS代码  引用less但不编译到本less文件或者css文件中
-//@import (reference) "public.less";
+// @import (reference) "public.less";
+
+
+//->LESS代码  数组用法
+@lesslist: red, blue, green, yellow;
+.lesslist{
+  color:extract(@lesslist, 1);
+  border-color:extract(@lesslist, 2);
+  background-volor:extract(@lesslist, 3);
+}

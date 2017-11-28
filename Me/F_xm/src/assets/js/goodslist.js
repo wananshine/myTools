@@ -24,7 +24,6 @@ define(function(require, exports, module) {
     	},
 		created() {
 		  
-
 	      this.$http.get('/api/notes').then(response=>{
 			// success callback
 			console.log(response.body.data.goodsList);
@@ -32,6 +31,7 @@ define(function(require, exports, module) {
 	      },  response => {
 		    // error callback
 		  });
+		  
 	    },
 		mounted: function(){
 			this.$nextTick(function(){

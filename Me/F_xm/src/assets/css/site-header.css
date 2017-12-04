@@ -439,9 +439,9 @@
 .site-footer .footer-info .f-info-btm {
   clear: both;
   margin: 30px auto 0;
-  width: 267px;
   height: 19px;
   color: #b0b0b0;
+  text-align: center;
 }
 .hide {
   display: none;

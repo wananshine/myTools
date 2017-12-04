@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import "assets/css/base.less";
 #app {
   /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/

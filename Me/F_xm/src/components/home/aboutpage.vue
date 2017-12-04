@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
   .list{
     .cell{
       background-color: #b0b0b0;

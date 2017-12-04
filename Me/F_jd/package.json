@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-make-css-url-version": "^0.0.13",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sourcemaps": "^2.6.1"
+  },
+  "name": "ping-jd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "this is a test"
+}

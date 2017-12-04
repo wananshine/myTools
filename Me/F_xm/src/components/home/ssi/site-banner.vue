@@ -13,7 +13,7 @@
 	    <span class="direc banner-next">></span>
 	</div>
 </template>
-<style lang="less" scoped></style>
+<style lang="less" scoped="scoped"></style>
 <script type="text/javascript">
 	export default{
 		components:{

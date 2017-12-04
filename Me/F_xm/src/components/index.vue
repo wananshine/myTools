@@ -8,7 +8,7 @@
     <!--123123-->
   </div>
 </template>
-<style lang="less">
+<style lang="less" scoped>
 </style>
 <script>
   import sitetopbar from './home/ssi/site-topbar'

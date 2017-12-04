@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2017/5/12.
+ * Created by Ping on 2017/5/12.
  */
 
 // define(function (require, exports, module) {

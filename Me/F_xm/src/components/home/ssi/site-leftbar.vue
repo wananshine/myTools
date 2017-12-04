@@ -7,7 +7,9 @@
 	    </ul>
   </aside>
 </template>
-<style lang="less" scoped></style>
+<style lang="less" scoped="scoped">
+	@import "../../../assets/css/homepage.less";
+</style>
 <script type="text/javascript">
 	export default{
 		components:{

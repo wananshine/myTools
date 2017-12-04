@@ -18,8 +18,8 @@
   </div>
 </template>
 
-<style lang="less">
-  @import "../../assets/css/homepage.less";
+<style lang="less" scoped>
+  @import  "../../assets/css/homepage.less";
   .sign_up{
     .hid;
     .pof;

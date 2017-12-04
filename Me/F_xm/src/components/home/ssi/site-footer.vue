@@ -110,11 +110,25 @@
           <a class="f-follow"><img src="../../../assets/images/truste.png"></a>
         </div>
       </div>
-      <div class="f-info-btm">探索黑科技，大家来为发安全而生</div>
+      <div class="f-info-btm">探索黑科技，大家来为发安全而生Copyright © 2013-{{ fullYear }}</div>
     </div>
   </div>
 </template>
 
-<style lang="less">
-  @import "../../../assets/css/site-header.less";
+<style lang="less" scoped="scoped">
+  //@import "../../../assets/css/site-header.less";
+  @import (reference) url('../../../assets/css/site-header.less');
 </style>
+<script type="text/javascript">
+  export default{
+    name: '',
+    data(){
+      return{
+        fullYear: '',
+      }
+    },
+    created(){
+      this.fullYear = (new Date()).getFullYear();
+    },
+  }
+</script>

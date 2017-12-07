@@ -26,6 +26,36 @@
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
+	.floor-view{
+		.floor-list{
+			.floor-cell{
+				.all;
+				.cell-img{
+					.poa;
+					top: 0;
+					left: 0;
+					right: 0;
+					z-index: -1;
+					img{
+						max-width: @full;
+					}
+				}
+				.cell-title{
+					text-align: center;
+					.px2rem(margin-top, 150);
+					.title-big{
+						.px2rem(font-size, 45);
+						color: @333;
+					}
+					.title-small{
+						.px2rem(line-height, 60);
+						.px2rem(font-size, 30);
+						color: @999;
+					}
+				}
+			}
+		}
+	}
 </style>
 <script type="text/javascript">
 	export default{

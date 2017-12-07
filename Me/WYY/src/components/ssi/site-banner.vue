@@ -15,9 +15,15 @@
 			.hid;
 			overflow-x: scroll;
 			.banner-cell{
-			    display: inline-block;
+				width: 100%;
+			    display: block;
 			    white-space: nowrap;
-			    flex: 1;
+			    .flexitem;
+			    flex-basis: 100%;
+			    flex-shrink: 0;
+			    img{
+			    	max-width: 100%;
+			    }
 			}
 		}
 	}

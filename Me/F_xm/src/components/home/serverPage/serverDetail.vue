@@ -30,9 +30,9 @@
 					<ul class="fb-list">
 						<li class="fb-cell" v-for="floor in floors">{{ floor.floorname }}</li>
 					</ul>
-				</div>
-				<div class="floor-tag">
-					<a class="fb-tag"></a>
+					<div class="floor-tag">
+						<a href="javascript:;" class="fb-tag" v-for="tag in tags">{{ tag.tagname }}</a>
+					</div>
 				</div>
 			</section>
 
@@ -125,15 +125,36 @@
 
 			.floor-wrap{
 				.floor-bd{
-					.floor-bd{
-						.fb-list{
-							.fb-cell{}
+					.por;
+					.fb-list{
+						.fb-cell{
+							.height(400px);
 						}
 					}
-				}
-				.floor-tag{
-					.fb-tag{}
-				}
+					.floor-tag{
+						.pof;
+						left: 10px;
+						top: 50%;
+						.translate(0, -50%);
+						.hid;
+						.height(@auto);
+						width: 50px;
+						.flexbox;
+						flex-direction: column;
+						align-items: flex-start;
+						.fb-tag{
+							.hid;
+							.flexitem;
+							.height(50px);
+							line-height: 50px;
+							flex-basis: auto;
+							display: block;
+							text-align: left;
+							text-transform: uppercase;
+							margin-bottom: 10px;
+						}
+					}
+				}	
 			}
 		}
 	}
@@ -174,6 +195,13 @@
 					{ floorname: "3楼" },
 					{ floorname: "4楼" },
 					{ floorname: "5楼" }
+				],
+				tags: [
+					{ tagname: "one" },
+					{ tagname: "two" },
+					{ tagname: "three" },
+					{ tagname: "four" },
+					{ tagname: "six" },
 				],
 			}
 		},

@@ -1,0 +1,279 @@
+body{
+  //小米官网
+  font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+  //魅族官网
+  //font:14px/1.5 "Helvetica",Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;
+  // 华为商城font
+  //font:12px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+@full: 100%;
+@width: 1226px;
+@auto: auto;
+
+
+//定义一个变量和一个mixin   基于tb
+@base2FontSize: 75;//基于视觉稿横屏尺寸/100得出的基准font-size
+.px2rem(@name, @px){
+    @{name}: @px / @base2FontSize * 1rem;
+}
+
+//定义一个变量和一个mixin   基于wy
+@base3FontSize: 100;//基于视觉稿横屏尺寸/100得出的基准font-size
+.px3rem(@name, @px){
+    @{name}: @px / @base3FontSize * 1rem;
+}
+
+.w-inner{
+  width: @width;
+  margin:  0 auto;
+}
+.height(@auto){
+  height: @auto;
+}
+.por{
+  position: relative;
+}
+.poa{
+  position: absolute;
+}
+.pof{
+  position: fixed;
+}
+.hid{
+  overflow: hidden;
+}
+
+
+.sep{
+  margin: 0 0.5em;
+  color: #424242;
+}
+//设置不换行出现省略号
+.ellipsis{
+  .hid;
+  .por;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//设置两行出现省略号
+.clamp2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+//设置容器
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexitem{
+  //flex: 1;
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+}
+
+
+//清除浮动
+.clearfix{
+  zoom: 1;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after{
+    content: " ";
+    clear: both;
+    height: 0;
+    visibility: hidden;
+    display: block;
+  }
+}
+
+.translate(@x:-50%,@y:-50%){
+  -webkit-transform: translate(@x,@y);
+  -moz-transform: translate(@x,@y);
+  -ms-transform: translate(@x,@y);
+  -o-transform: translate(@x,@y);
+  transform: translate(@x,@y);
+}
+
+@21: #212121;
+@42: #424242;
+@61: #616161;
+@75: #757575;
+
+@f5: #f5f5f5;
+@b0: #b0b0b0;
+@e0: #e0e0e0;
+@fa: #fafafa;
+@dc: #dcdcdc;
+
+@000: #000;
+@333: #333;
+@666: #666;
+@999: #999;
+@fff: #fff;
+
+@ff67: #ff6700;
+@00c3: #00c3f5;
+@ff00: #ff0036;
+
+@url:"../images/";
+
+
+.all{
+  width: @full;
+  .por;
+  .hid;
+}
+
+.block{
+  display: block;
+  .por;
+  .hid;
+}
+
+/* ***********************分割线************************************************** */
+
+// //->LESS代码
+// @selector: box;
+// @bgImg: "../img";
+// @property: color;
+// @name: "珠峰培训";
+// @var: "name";
+
+// .@{selector} {
+//     width: 100px;
+//     height: 100px;
+//     @{property}: #000;
+//     background: url("@{bgImg}/test.png");
+
+//     &:after {
+//         display: block;
+//         content: @@var;
+//     }
+// }
+
+
+
+
+//->LESS代码   extend用法
+.lesspublic {
+    width: 100px;
+    height: 100px;
+}
+
+.lessnav ul {
+    &:extend(.lesspublic);
+    list-style: none;
+}
+
+
+
+
+//->LESS代码   计算
+.lessaverage(@x, @y) {
+  @result: ((@x + @y) / 2);
+}
+
+.lessdiv {
+  .lessaverage(16px, 50px); //"call" the mixin
+  padding: @result; //use its "return" value
+}
+
+
+
+
+//->LESS代码  loop循环
+.lessgenerate-columns(5);
+.lessgenerate-columns(@n, @i: 1, @j: 0) when (@i <= @n) {
+  .lesscolumn-@{i} {
+    // width: (@i * 100% / @n);
+    left: (@j * 100% / @n);
+  }
+  .lessgenerate-columns(@n, (@i + 1), (@j + 1));
+}
+
+
+
+
+
+
+// //->LESS代码  合并
+.lessmixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+
+.lessmyclass {
+  .lessmixin;
+  box-shadow+: 0 0 20px black;
+}
+
+.lessmixin2() {
+  transform+_: scale(2);
+}
+
+.lessmyclass2 {
+  .lessmixin2;
+  transform+_: rotate(45deg);
+}
+
+
+
+
+
+// //->LESS代码   &用法
+.lessbox {
+  color: blue;
+  &:hover {
+    color: green;
+  }
+
+  &-top {
+    height: 30px;
+  }
+
+  &-center {
+    height: 500px;
+  }
+
+  //->多个&&
+  & + &-top {
+    color: red;
+  }
+
+  & &-top {
+    color: grey;
+  }
+
+  &&-top {
+    color: black;
+  }
+
+  &, &-top {
+    color: orange;
+  }
+}
+
+
+
+
+//->LESS代码  引用less但不编译到本less文件或者css文件中
+// @import (reference) "public.less";
+
+
+//->LESS代码  数组用法
+@lesslist: red, blue, green, yellow;
+.lesslist{
+  color:extract(@lesslist, 1);
+  border-color:extract(@lesslist, 2);
+  background-volor:extract(@lesslist, 3);
+}

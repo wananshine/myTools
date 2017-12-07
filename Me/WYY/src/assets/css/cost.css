@@ -1,0 +1,135 @@
+body {
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+.w-inner {
+  width: 1226px;
+  margin: 0 auto;
+}
+.por {
+  position: relative;
+}
+.poa {
+  position: absolute;
+}
+.pof {
+  position: fixed;
+}
+.hid {
+  overflow: hidden;
+}
+.sep {
+  margin: 0 0.5em;
+  color: #424242;
+}
+.ellipsis {
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clamp2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexitem {
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  content: " ";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.all {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.block {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+/* ***********************分割线************************************************** */
+.lesspublic,
+.lessnav ul {
+  width: 100px;
+  height: 100px;
+}
+.lessnav ul {
+  list-style: none;
+}
+.lessdiv {
+  padding: 33px;
+}
+.lesscolumn-1 {
+  left: 0%;
+}
+.lesscolumn-2 {
+  left: 20%;
+}
+.lesscolumn-3 {
+  left: 40%;
+}
+.lesscolumn-4 {
+  left: 60%;
+}
+.lesscolumn-5 {
+  left: 80%;
+}
+.lessmyclass {
+  box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+.lessmyclass2 {
+  transform: scale(2) rotate(45deg);
+}
+.lessbox {
+  color: blue;
+}
+.lessbox:hover {
+  color: green;
+}
+.lessbox-top {
+  height: 30px;
+}
+.lessbox-center {
+  height: 500px;
+}
+.lessbox + .lessbox-top {
+  color: red;
+}
+.lessbox .lessbox-top {
+  color: grey;
+}
+.lessbox.lessbox-top {
+  color: black;
+}
+.lessbox,
+.lessbox-top {
+  color: orange;
+}
+.lesslist {
+  color: #ff0000;
+  border-color: #0000ff;
+  background-volor: #008000;
+}

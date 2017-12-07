@@ -16,6 +16,11 @@ import demoList from '../components/home/listPage/demo-list'
 import GoodsList from '../components/home/listPage/GoodsList'
 
 
+import demoServer from '../components/home/serverPage/demo-server'
+import serverDetail from '../components/home/serverPage/serverDetail'
+
+
+
 Vue.component('signup',signup)
 
 Vue.use(Router)
@@ -56,6 +61,18 @@ Vue.use(Router)
             path: 'aboutpage',
             name: 'aboutpage',
             component: aboutpage,
+          },
+          {
+            path: 'demoServer',
+            name: 'demoServer',
+            component: demoServer,
+            children: [
+              {
+                path: '/',
+                name: 'serverDetail',
+                component: serverDetail,
+              },
+            ]
           },
         ]
       },

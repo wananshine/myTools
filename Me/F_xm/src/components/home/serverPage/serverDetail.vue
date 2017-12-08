@@ -36,6 +36,54 @@
 				</div>
 			</section>
 
+			<div class="form-horizontal">
+				<div class="form-group">
+				    <label for="input-name" class="control-label">姓名</label>
+				    <div class="col-sm">
+				      <input type="text" class="form-control" id="input-name" v-model="userData.username" @focus="focusCustomer(userData.username)" @input="inputCustomer(userData.username)" placeholder="请输入Email">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-pwd" class="control-label">密码</label>
+				    <div class="col-sm">
+				      <input type="email" class="form-control" id="input-pwd" v-model="userData.userpwd" placeholder="请输入密码">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-aginpwd" class="control-label">再次输入密码</label>
+				    <div class="col-sm">
+				      <input type="email" class="form-control" id="input-aginpwd" v-model="userData.useraginpwd" placeholder="请再次输入密码">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-tel" class="control-label">电话号码</label>
+				    <div class="col-sm">
+				      <input type="email" class="form-control" id="input-tel" v-model="userData.usertel" placeholder="请输入电话号码">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-email" class="control-label">Email</label>
+				    <div class="col-sm">
+				      <input type="email" class="form-control" id="input-email" v-model="userData.useremail" placeholder="请输入Email">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-addr" class="control-label">地址</label>
+				    <div class="col-sm">
+				      <input type="text" class="form-control" id="input-addr" v-model="userData.useraddr" placeholder="请输入地址">
+				 	</div>
+  				</div>
+  				<div class="form-group">
+				    <label for="input-file-0" class="control-label">附件</label>
+				    <div class="col-sm">
+				      <input type="file" class="form-control" id="input-file-0" placeholder="请输入地址">
+				 	</div>
+  				</div>
+  				<div class="form-btn">
+  					<button @click="save(userData)">提交</button>
+  				</div>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -88,6 +136,16 @@
 					{ tagname: "five" },
 				],
 				offsetTop: [], //floor的offset().top容器
+
+				//表单
+				userData: {
+					username: '',
+					userpwd: '',
+					useraginpwd: '',
+					usertel:'',
+					useremail: '',
+					userfile: '',
+				},
 			}
 		},
 		methods: {
@@ -185,6 +243,23 @@
 					// }
 				}
 			},
+
+			//表单
+			focusCustomer(name){
+				console.log(name)
+			},
+
+			inputCustomer(valname){
+				console.log(valname);
+				if (valname.length>10) {
+					alert(valname)
+				}
+			},
+
+			save(userData){
+				console.log(userData)
+			},
+
 		},
 		mounted(){
 			this.$nextTick(function(){

@@ -28,10 +28,10 @@
 			<section class="floor-wrap">
 				<div class="floor-bd">
 					<ul class="fb-list">
-						<li class="fb-cell" v-for="floor in floors">{{ floor.floorname }}</li>
+						<li class="fb-cell" :class="'fb-Cellbg-'+index" v-for="(floor, index) in floors">{{ floor.floorname }}</li>
 					</ul>
 					<div class="floor-tag">
-						<a href="javascript:;" class="fb-tag" v-for="tag in tags">{{ tag.tagname }}</a>
+						<a href="javascript:;" class="fb-tag" :class="{ isTag: tagIndex===index }" v-for="(tag, index) in tags" @click="toCustomer(tag, index, $event)">{{ tag.tagname }}</a>
 					</div>
 				</div>
 			</section>
@@ -40,124 +40,7 @@
 	</div>
 </template>
 <style lang="less" scoped="scoped">
-	@import (reference) "../../../assets/css/cost.less";
-	.serverContainer{
-		.serverInner{
-			.slider-wrap{
-				.por;
-				.hid;
-				.slide-list{
-					.flexbox;
-					transition: all .5s ease;
-					li{
-						.flexitem;
-					}
-				}
-				.slide-option{
-					.poa;
-					left: 0;
-					bottom: 10px;
-					width: @full;
-		            text-align: center;
-		            span{
-		            	display: inline-block;
-		            	width: 14px;
-		            	height: 14px;
-		            	border-radius: @full;
-		            	background: #ccc;
-            			margin: 0 10px;
-		            }
-		            .active{
-			            background: #09f;
-			        }
-				}
-				.slide-arrow{
-					div{
-						width: 50px;
-			            height: 100px;
-			            cursor: pointer;
-			            position: absolute;
-			            margin: auto;
-			            top: 0;
-			            bottom: 0;
-			            background: url("http://i1.bvimg.com/1949/4d860a3067fab23b.jpg") no-repeat;
-					}
-					.arrow-right{
-						transform: rotate(180deg);
-						right: 0;
-					}
-					.arrow-left{
-						left: 0;
-					}
-				}
-			}
-
-			.slider-nav{
-				.por;
-				.hid;
-				.nav-list{
-					.flexbox;
-					height: 40px;
-					background-color: rgba(0, 96, 123, 0.78);
-					color: @fff;
-					li{
-						.flexitem;
-						flex-grow: 1;
-						text-align: center;
-						line-height: 40px;
-						cursor: pointer;
-						z-index: 2;
-					}
-					.overActive{
-						color: #000;
-					}
-				}
-				.nav-active{
-					.poa;
-					top: 0;
-					left: 0;
-					z-index: 1;
-					transition: all .5s cubic-bezier(0.4, -0.3, 0.57, 1.38);
-					height: 40px;
-					background-color: #f90;
-				}
-			}
-
-			.floor-wrap{
-				.floor-bd{
-					.por;
-					.fb-list{
-						.fb-cell{
-							.height(400px);
-						}
-					}
-					.floor-tag{
-						.pof;
-						left: 10px;
-						top: 50%;
-						.translate(0, -50%);
-						.hid;
-						.height(@auto);
-						width: 50px;
-						.flexbox;
-						flex-direction: column;
-						align-items: flex-start;
-						.fb-tag{
-							.hid;
-							.flexitem;
-							.height(50px);
-							line-height: 50px;
-							flex-basis: auto;
-							display: block;
-							text-align: left;
-							text-transform: uppercase;
-							margin-bottom: 10px;
-						}
-					}
-				}	
-			}
-		}
-	}
+	@import "../../../assets/css/server-detail.less";
 </style>
 <script type="text/javascript">
 	export default{
@@ -189,6 +72,7 @@
 				],
 
 				//floor导航
+				tagIndex: 0,
 				floors: [
 					{ floorname: "1楼" },
 					{ floorname: "2楼" },
@@ -201,8 +85,9 @@
 					{ tagname: "two" },
 					{ tagname: "three" },
 					{ tagname: "four" },
-					{ tagname: "six" },
+					{ tagname: "five" },
 				],
+				offsetTop: [], //floor的offset().top容器
 			}
 		},
 		methods: {
@@ -233,19 +118,100 @@
 			//nav效果
 			enterCustomer(nav, index, e){
 				this.activeIndex=index;
-			}
+			},
+
+			//floor楼层导航之所有楼层的offset().top
+			floorOffsetTop(){
+				var _this = this;
+				var fbCell = $(".floor-wrap").find(".fb-cell");
+				_this.offsetTop=[];
+				fbCell.map(function(item, i){
+					//console.log(item, i, $(this).offset().top);
+					_this.offsetTop.push($(this).offset().top);
+				})
+				//console.log(_this.offsetTop);
+			},
+			//floor楼层导航之tag点击事件
+			toCustomer(tag, index, e){
+				var _this = this;
+				$(window).off("scroll");
+				_this.tagIndex = index;
+				_this.floorOffsetTop();
+
+				// var flag = true;
+				// for(var i=0; i<_this.offsetTop.length; i++){
+				// 	if(flag){
+				// 		if(index === i){
+				// 			$("html, body").animate({
+				// 				scrollTop: _this.offsetTop[index]
+				// 			},500,function(){
+				// 				$(window).on("scroll",_this.scrollFloor);
+				// 			});
+				// 		}
+				// 	}
+				// }
+				
+				$("html, body").animate({
+					scrollTop: _this.offsetTop[index]
+				},500, function(){
+					$(window).on("scroll", _this.scrollFloor);
+				});
+			},
+			//floor楼层导航之楼层滚动监听
+			scrollFloor(){
+				var _this = this;
+				var wst = $(window).scrollTop();
+				_this.floorOffsetTop();
+
+				var key=0;
+				var flag = true;
+				for (var i = 0; i < _this.offsetTop.length; i++) {
+					key++;
+					console.log("i",i)
+					console.log("key",key)
+					if(flag){
+						if(wst>=_this.offsetTop[(_this.offsetTop.length)-key]-300){
+							console.log('_this.offsetTop[(_this.offsetTop.length)-key',_this.offsetTop[(_this.offsetTop.length)-key])
+							console.log('_this.offsetTop.length',_this.offsetTop.length)
+							var index = _this.offsetTop.length-key;
+							_this.tagIndex = index;
+							flag = false;
+						}else{
+							flag=true;
+						}
+					}
+					// if(wst>=_this.offsetTop[i] - 100){
+					// 	_this.tagIndex =i
+					// }
+				}
+			},
 		},
 		mounted(){
 			this.$nextTick(function(){
 
-				//banner轮播
 				var _this = this;
+
+				//banner轮播
 				this.timer=setInterval(function(){
 					_this.switchDo();
 				}, 4000)
 
 				//nav效果
 				_this.activeWidth = 1226/(_this.navlist.length);
+
+
+				//floor楼层导航
+				_this.floorOffsetTop();
+				$(window).on("scroll", function(){
+					_this.scrollFloor();
+
+				})
+
+
+			});
+		},
+		beforeUpdate(){
+			this.$nextTick(function(){
 
 			})
 		},

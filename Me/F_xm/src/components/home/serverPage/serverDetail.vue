@@ -52,35 +52,35 @@
 						<label for="inputPassword" class="control-label">Password</label>
 					    <div class="col-sm">
 					      <input type="password" class="control-input" id="inputPassword" ref="inputPassword" v-model="formData.userPwd" @focus="focusCustomer($event)" @input="inputCustomer(formData.userPwd,3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Password">
-					      <p class="explain">error</p>
+					      <p class="explain">Please input your Password!</p>
 					    </div>
 					</div>
 					<div class="form-group">
 						<label for="confirmPassword" class="control-label">Confirm Password</label>
 					    <div class="col-sm">
 					      <input type="password" class="control-input" id="confirmPassword" ref="confirmPassword" v-model="formData.userConfirmPwd" @focus="focusCustomer($event)" @input="againPwdCustomer(formData.userConfirmPwd,3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Confirm Password">
-					      <p class="explain">error</p>
+					      <p class="explain">Please confirmPassword</p>
 					    </div>
 					</div>
 					<div class="form-group">
 						<label for="inputNickname" class="control-label">Nickname</label>
 					    <div class="col-sm">
 					      <input type="text" class="control-input" id="inputNickname" ref="inputNickname" v-model="formData.userNickname" @focus="focusCustomer($event)" @input="inputCustomer(formData.userNickname, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Nickname">
-					      <p class="explain">error</p>
+					      <p class="explain">Please input your Nickname</p>
 					    </div>
 					</div>
 					<div class="form-group">
 						<label for="inputPhone" class="control-label">Phone Number</label>
 					    <div class="col-sm">
 					      <input type="text" class="control-input" id="inputPhone" ref="inputPhone" v-model="formData.userPhone" @focus="focusCustomer($event)" @input="inputCustomer(formData.userPhone, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Phone Number">
-					      <p class="explain">error</p>
+					      <p class="explain">Please input your Phone</p>
 					    </div>
 					</div>
 					<div class="form-group">
 						<label for="inputWebsite" class="control-label">Website</label>
 					    <div class="col-sm">
 					      <input type="text" class="control-input" id="inputWebsite" ref="inputWebsite" v-model="formData.userWebsite" @focus="focusCustomer($event)" @input="inputCustomer(formData.userWebsite, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Website Number">
-					      <p class="explain">error</p>
+					      <p class="explain">Please input your Website</p>
 					    </div>
 					</div>
 					<div class="form-group">
@@ -100,7 +100,7 @@
 					<div class="form-group">
 						<label for="inputRemark" class="control-label">Remark</label>
 					    <div class="col-sm">
-					      <textarea class="control-input" id="inputRemark" ref="inputRemark" v-model="formData.userRemark" @focus="focusCustomer($event)" @input="inputCustomer(formData.userRemark, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Remark"></textarea>
+					      <textarea class="control-input" id="inputRemark" ref="inputRemark" v-model="formData.userRemark" @focus="focusCustomer($event)" @input="inputCustomer(formData.userRemark, 1, 200, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Remark"></textarea>
 					      <p class="explain">error</p>
 					    </div>
 					</div>

@@ -154,56 +154,109 @@
 .serverContainer .serverInner .floor-wrap .floor-bd .floor-tag .isTag {
   background-color: tomato;
 }
-.serverContainer .serverInner .form-horizontal {
-  padding: 30px 0;
+.serverContainer .serverInner .form-wrap .form-horizontal {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 45px 15px;
 }
-.serverContainer .serverInner .form-horizontal .form-group {
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group {
   zoom: 1;
-  margin-bottom: 10px;
+  margin-bottom: 26px;
 }
-.serverContainer .serverInner .form-horizontal .form-group:before {
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group:before {
   content: " ";
   display: table;
+  clear: both;
+  height: 0;
 }
-.serverContainer .serverInner .form-horizontal .form-group:after {
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group:after {
   content: " ";
   clear: both;
   height: 0;
   visibility: hidden;
   display: block;
 }
-.serverContainer .serverInner .form-horizontal .form-group .control-label {
-  display: block;
-  width: 15%;
-  line-height: 34px;
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .control-label {
+  width: 12%;
   float: left;
   text-align: right;
-  margin-right: 2%;
+  margin-right: 1%;
+  box-sizing: border-box;
+  padding-top: 10px;
 }
-.serverContainer .serverInner .form-horizontal .form-group .col-sm {
-  width: calc(83%);
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .col-sm {
+  position: relative;
+  zoom: 1;
+  width: calc(87%);
   float: left;
 }
-.serverContainer .serverInner .form-horizontal .form-group .col-sm .form-control {
-  display: block;
-  width: 100%;
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .col-sm .control-input {
   height: 34px;
   padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
+  outline: none;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.serverContainer .serverInner .form-horizontal .form-group .col-sm .form-control:focus {
-  -webkit-box-shadow: 0 1px 1px rgba(60, 137, 251, 0.075);
-  box-shadow: 0 1px 1px rgba(60, 137, 251, 0.075);
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .col-sm textarea.control-input {
+  height: 100px;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .col-sm .focus-input {
+  border-color: #40a9ff;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .col-sm .explain {
+  height: 21px;
+  line-height: 18px;
+  color: #f5222d;
+  margin-top: 2px;
+  font-size: 14px;
+  display: none;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .checkbox-wrapper {
+  margin-left: 12.5%;
+  font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .checkbox-wrapper .agree-checkbox {
+  position: relative;
+  vertical-align: middle;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .form-btn .form-btn-control .btn-primary {
+  height: 32px;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: #096dd9;
+  border-color: #096dd9;
+  box-sizing: border-box;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  margin-left: 13.33333333%;
+  transition: all 0.5s ease 0.5s;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .form-btn .form-btn-control .btn-primary:active,
+.serverContainer .serverInner .form-wrap .form-horizontal .form-group .form-btn .form-btn-control .btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .has-error {
+  margin-bottom: 5px;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .has-error .col-sm .control-input {
+  border-color: #f5222d;
+}
+.serverContainer .serverInner .form-wrap .form-horizontal .has-error .col-sm .explain {
+  display: block;
 }

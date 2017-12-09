@@ -49,6 +49,8 @@
 .clearfix:before {
   content: " ";
   display: table;
+  clear: both;
+  height: 0;
 }
 .clearfix:after {
   content: " ";

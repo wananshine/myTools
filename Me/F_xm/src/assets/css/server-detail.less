@@ -107,6 +107,7 @@
 					.flexbox;
 					flex-direction: column;
 					align-items: flex-start;
+					z-index: 3;
 					//display: none;
 					.fb-tag{
 						.hid;
@@ -127,6 +128,108 @@
 					}
 				}
 			}	
+		}
+
+		.form-wrap{
+			.form-horizontal{
+			    .por;
+			    .hid;
+				padding: 45px 45px 15px;
+				.form-group{
+					.clearfix;
+					margin-bottom: 26px;
+					.control-label{
+						width: 12%;
+						float: left;
+						text-align: right;
+						margin-right: 1%;
+						box-sizing: border-box;
+						padding-top: 10px;
+					}
+					.col-sm{
+						.por;
+						zoom: 1;
+						width: calc(@full - 13%);
+						float: left;
+						.control-input{
+							.height(34px);
+							padding: 6px 12px;
+							box-sizing: border-box;
+							border: 1px solid #ccc;
+    						border-radius: 4px;
+    						outline: none;
+						    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+						    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+						    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+						    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+						    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+						}
+						textarea.control-input{
+							.height(100px);
+						}
+						.focus-input{
+							border-color: #40a9ff;
+						}
+						.explain{
+							.height(21px);
+							line-height: 18px;
+							color: @f522;
+							margin-top: 2px;
+							font-size: 14px;
+							display: none;
+						}
+					}
+					.checkbox-wrapper{
+						margin-left: 12.5%;
+						font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    					font-size: 14px;
+    					padding-left: 8px;
+    					padding-right: 8px;
+    					.agree-checkbox{
+    						.por;
+    						vertical-align: middle;
+    					}
+					}
+					.form-btn{
+						.form-btn-control{
+							.btn-primary{
+								height: 32px;
+								color: @fff;
+								font-size: 14px;
+							    background-color: #096dd9;
+							    border-color: #096dd9;
+							    box-sizing: border-box;
+							    padding: 0 15px;
+							    border-radius: 4px;
+							    border: 1px solid transparent;
+							    white-space: nowrap;
+							    outline: none;
+							    cursor: pointer;
+							    user-select: none;
+							    touch-action: manipulation;
+							    margin-left: 13.33333333%;
+							    transition: all 0.5s ease 0.5s;
+							    &:active,
+							    &:hover{
+							    	background-color: #40a9ff;
+    								border-color: #40a9ff;
+							    }
+							}
+						}
+					}
+				}
+				.has-error{
+					margin-bottom: 5px;
+					.col-sm{
+						.control-input{
+							border-color: @f522;
+						}
+						.explain{
+							display: block;
+						}
+					}				
+				}
+			}
 		}
 	}
 }

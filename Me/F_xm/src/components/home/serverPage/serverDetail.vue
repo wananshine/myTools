@@ -35,6 +35,96 @@
 					</div>
 				</div>
 			</section>
+              	
+
+			<!-- form表单 -->
+			<section class="form-wrap">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="inputEmail" class="control-label">Email</label>
+					    <div class="col-sm">
+					      <input type="email" class="control-input" id="inputEmail" ref="inputEmail" v-model="formData.userEmail" @focus="focusCustomer($event)" @input="inputCustomer(formData.userEmail, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Email">
+					      <p v-if="" class="explain">Please input your E-mail!</p>
+					      <!-- <p class="explain">The input is not valid E-mail!</p> -->
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword" class="control-label">Password</label>
+					    <div class="col-sm">
+					      <input type="password" class="control-input" id="inputPassword" ref="inputPassword" v-model="formData.userPwd" @focus="focusCustomer($event)" @input="inputCustomer(formData.userPwd,3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Password">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="confirmPassword" class="control-label">Confirm Password</label>
+					    <div class="col-sm">
+					      <input type="password" class="control-input" id="confirmPassword" ref="confirmPassword" v-model="formData.userConfirmPwd" @focus="focusCustomer($event)" @input="againPwdCustomer(formData.userConfirmPwd,3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Confirm Password">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputNickname" class="control-label">Nickname</label>
+					    <div class="col-sm">
+					      <input type="text" class="control-input" id="inputNickname" ref="inputNickname" v-model="formData.userNickname" @focus="focusCustomer($event)" @input="inputCustomer(formData.userNickname, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Nickname">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputPhone" class="control-label">Phone Number</label>
+					    <div class="col-sm">
+					      <input type="text" class="control-input" id="inputPhone" ref="inputPhone" v-model="formData.userPhone" @focus="focusCustomer($event)" @input="inputCustomer(formData.userPhone, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Phone Number">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputWebsite" class="control-label">Website</label>
+					    <div class="col-sm">
+					      <input type="text" class="control-input" id="inputWebsite" ref="inputWebsite" v-model="formData.userWebsite" @focus="focusCustomer($event)" @input="inputCustomer(formData.userWebsite, 3, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Website Number">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputPrice" class="control-label">Price</label>
+					    <div class="col-sm">
+					      <input type="text" class="control-input" id="inputPrice" ref="inputPrice" v-model="formData.userPrice" @focus="focusCustomer($event)" @input="inputCustomer(formData.userPrice, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Price">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputFile" class="control-label">File</label>
+					    <div class="col-sm">
+					      <input type="text" class="control-input" id="inputFile" ref="inputFile" v-model="formData.userFile" @focus="focusCustomer($event)" @input="inputCustomer(formData.userFile, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="File">
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="inputRemark" class="control-label">Remark</label>
+					    <div class="col-sm">
+					      <textarea class="control-input" id="inputRemark" ref="inputRemark" v-model="formData.userRemark" @focus="focusCustomer($event)" @input="inputCustomer(formData.userRemark, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="Remark"></textarea>
+					      <p class="explain">error</p>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label class="checkbox-wrapper">
+							<span class="agree-checkbox">
+								<input type="checkbox" class="checkbox-input" v-model="formData.userCheckbox" value="on">
+								<span class="checkbox-inner"></span>
+							</span>
+							<span>I have read the <a href="">agreement</a></span>
+						</label>
+					</div>
+					<div class="form-group">
+						<div class="form-btn">
+							<div class="form-btn-control ">
+								<button type="submit" class="btn-primary" @click="saveCustomer(formData)">
+									<span>Register</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- // Website-->
+				</div>
+			</section>
 
 		</div>
 	</div>
@@ -88,6 +178,19 @@
 					{ tagname: "five" },
 				],
 				offsetTop: [], //floor的offset().top容器
+
+				//form表单
+				formData: {
+					userEmail: '',
+					userPwd: '',
+					userConfirmPwd: '',
+					userNickname: '',
+					userPhone: '',
+					userWebsite: '',
+					userPrice: '',
+					userRemark: '',
+					userCheckbox: true,
+				},
 			}
 		},
 		methods: {
@@ -167,12 +270,8 @@
 				var flag = true;
 				for (var i = 0; i < _this.offsetTop.length; i++) {
 					key++;
-					console.log("i",i)
-					console.log("key",key)
 					if(flag){
 						if(wst>=_this.offsetTop[(_this.offsetTop.length)-key]-300){
-							console.log('_this.offsetTop[(_this.offsetTop.length)-key',_this.offsetTop[(_this.offsetTop.length)-key])
-							console.log('_this.offsetTop.length',_this.offsetTop.length)
 							var index = _this.offsetTop.length-key;
 							_this.tagIndex = index;
 							flag = false;
@@ -184,6 +283,118 @@
 					// 	_this.tagIndex =i
 					// }
 				}
+			},
+
+			//form表单
+			//聚焦验证
+			focusCustomer(e){
+				//console.log(this.$refs[e.currentTarget.id]);
+				this.$refs[e.currentTarget.id].classList.add("focus-input");
+			},
+			//失焦验证
+			blurCustomer(e){
+				const dataValid=this.$refs[e.currentTarget.id].getAttribute("data-valid");
+				if(dataValid){
+					this.$refs[e.currentTarget.id].classList.remove("focus-input");
+				}
+			},
+			iCustomer(itdata, minNumber, maxNumber, e){
+				itdata = itdata.trim();
+				if(itdata.length < minNumber || itdata.length > maxNumber){
+                    e.currentTarget.parentNode.parentNode.classList.add("has-error");
+                    this.$refs[e.currentTarget.id].setAttribute("data-valid", false);
+                }else{
+                    e.currentTarget.parentNode.parentNode.classList.remove("has-error");
+                    this.$refs[e.currentTarget.id].setAttribute("data-valid",true);
+                }
+			},
+			//输入验证
+			inputCustomer(itdata, minNumber, maxNumber, e){
+				const _this = this;
+				// const inputEmail = this.$refs['inputEmail'];  
+				// const inputPassword = this.$refs['inputPassword'];
+				// const inputNickname = this.$refs['inputNickname'];
+				// const inputPhone = this.$refs['inputPhone'];
+				// const inputWebsite = this.$refs['inputWebsite'];
+				// const inputPrice = this.$refs['inputPrice'];
+				// const inputRemark = this.$refs['inputRemark'];
+				console.log(itdata, minNumber, maxNumber, e)
+				const inputType = e.currentTarget.id;
+				//console.log(this.$refs[e.currentTarget.id]);
+				const isTrue=function(){
+					e.currentTarget.parentNode.parentNode.classList.remove("has-error");
+                    _this.$refs[e.currentTarget.id].setAttribute("data-valid",true);
+				};
+				const isFalse=function(){
+					e.currentTarget.parentNode.parentNode.classList.add("has-error");
+                    _this.$refs[e.currentTarget.id].setAttribute("data-valid", false);	
+				};
+				switch (inputType){
+					case 'inputEmail': //验证邮箱
+					  	var reg = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+					  	if(reg.test(itdata)){
+							isTrue();
+							return
+						}else{
+							isFalse();
+						}
+					  break;
+					case 'inputPassword': //密码
+					  	_this.iCustomer(itdata, minNumber, maxNumber, e);
+					  	break;
+					case 'inputNickname': //名字
+					  	_this.iCustomer(itdata, minNumber, maxNumber, e);
+					  break;
+					case 'inputPhone': //手机号码
+					  	var reg = /^(13[0123456789][0-9]{8}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|1349[0-9]{7}|17[0123456789][0-9]{8})$/;
+					  	if(reg.test(itdata)){
+							isTrue();
+							return
+						}else{
+							isFalse();
+						}
+					  	break;
+					case 'inputWebsite': //网站
+					  	_this.iCustomer(itdata, minNumber, maxNumber, e);
+					  	break;
+					case 'inputPrice': //验证价格
+					  	var reg = /^(\d|([1-9]\d+))(\.\d+)?$/; 
+					  	if(reg.test(itdata)){
+							isTrue();
+							return
+						}else{
+							isFalse();
+						}
+					  	break;
+					case 'inputRemark': //备注
+					  	_this.iCustomer(itdata, minNumber, maxNumber, e);
+					  	break;     
+					default:
+					  	//默认
+					  	_this.iCustomer(itdata, minNumber, maxNumber, e);
+				};
+				//this.$refs[e.currentTarget.id];
+                //var  phone_reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;  验证手机号码
+                //var  phone_reg = /^(13[0123456789][0-9]{8}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|1349[0-9]{7}|17[0123456789][0-9]{8})$/;验证手机号码
+				//var  idCard_reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)$/; 验证身份证号码(最后一位可能是字母X)
+				//var  num_reg = /^-?(\d|([1-9]\d+))(\.\d+)?$/; 验证是否为有效数字(-?为可以出现负号)
+			},
+			//再次输入密码验证
+			againPwdCustomer(itdata, minNumber, maxNumber, e){
+				console.log(this.$refs)
+				const inputPwd = this.$refs['inputPassword'].value;
+				console.log(inputPwd)
+				if(itdata===inputPwd){
+					this.iCustomer(itdata, minNumber, maxNumber, e);
+				}else{
+					e.currentTarget.parentNode.parentNode.classList.add("has-error");
+                    this.$refs[e.currentTarget.id].setAttribute("data-valid", false);
+				}
+			},
+			//提交
+			saveCustomer(formData){
+				console.log(formData);
+				console.log(this.$refs);
 			},
 		},
 		mounted(){

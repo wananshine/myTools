@@ -9,25 +9,63 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-    <script type="text/javascript">
-    	//tb
-    	var docEl=document.documentElement;
-    	var scale = 1 / devicePixelRatio;
-    	dpr=window.devicePixelRatio||1;
-    	//设置data-dpi属性，留作的css hack之用
-		docEl.setAttribute('data-dpr',dpr);
-		//设置viewport,进行缩放，达到高清效果
-		document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-    	document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
-	    	
-	    	
+    <!-- fontSize 设置方法一： -->
+    <!-- <script>　　　　　　　　　　　　　
+        function setFontSize() {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 640) {
+                   　deviceWidth = 640;
+            }    　　　　　　　　  
+            document.documentElement.style.fontSize = deviceWidth / 6.4 + "px";
+        }
+        var _t = null;
+        window.addEventListener("resize", function () {
+            clearTimeout(_t);
+            _t = setTimeout(setFontSize, 100);
+        }, false);
+        setFontSize();
+    </script> -->
 
-		//wy
-		//var docEl=document.documentElement;
-    	//var scale = 1 / devicePixelRatio;
-    	//dpr=window.devicePixelRatio||1;
-    	//设置data-dpi属性，留作的css hack之用
-		//docEl.setAttribute('data-dpr',dpr);
+    <!-- fontSize 设置方法二： -->
+    <!-- <script>
+        /*动态设置像素比*/
+        var iScale = 1;
+        iScale = iScale / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=' + iScale + ',minimum-scale=' + iScale + ',maximum-scale=' + iScale + '">')
+        /*动态设置文字大小*/
+        function resize(){
+            var iWidth = document.documentElement.clientWidth;   　　　　  　　
+            document.getElementsByTagName('html')[0].style.fontSize = iWidth / 16 + 'px';
+        }
+        resize();
+    </script> -->
+
+    <!-- fontSize 设置方法三： -->
+    <script type="text/javascript">
+        //tb 淘宝方法
+        var docEl=document.documentElement;
+        function setFontSize(){
+            var scale = 1 / window.devicePixelRatio;
+            dpr=window.devicePixelRatio||1;
+            //设置data-dpi属性，留作的css hack之用
+            docEl.setAttribute('data-dpr',dpr);
+            //设置viewport,进行缩放，达到高清效果
+            document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+        }
+        var _t = null;
+        window.addEventListener("resize", function () {
+            clearTimeout(_t);
+            _t = setTimeout(setFontSize, 100);
+        }, false);
+        setFontSize();  
+            
+        //wy 网易方法
+        //var docEl=document.documentElement;
+        //var scale = 1 / devicePixelRatio;
+        //dpr=window.devicePixelRatio||1;
+        //设置data-dpi属性，留作的css hack之用
+        //docEl.setAttribute('data-dpr',dpr);
         //var deviceWidth = document.documentElement.clientWidth;
         //if(deviceWidth > 750) deviceWidth = 750;
         //document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';

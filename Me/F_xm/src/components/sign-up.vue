@@ -12,14 +12,13 @@
           <a href="javascript:;" @click="addUser">提交</a>
           <a @click="makeActive">取消</a>
         </form>
-
       </div>
     </div>
   </div>
 </template>
 
-<style lang="less" scoped>
-  @import  "../../assets/css/homepage.less";
+<style lang="less" scoped="scoped">
+  @import  "../assets/css/homepage.less";
   .sign_up{
     .hid;
     .pof;

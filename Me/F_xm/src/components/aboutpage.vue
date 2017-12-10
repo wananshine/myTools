@@ -3,7 +3,7 @@
     <div class="brand-container w-inner">
       <ul class="list">
         <li class="cell" v-for = "item in items">
-          <img :data-src="item.imgurl" src="../../assets/images/load.gif"/>
+          <img :data-src="item.imgurl" src="../assets/images/load.gif"/>
           {{ item.proname }}
         </li>
       </ul>

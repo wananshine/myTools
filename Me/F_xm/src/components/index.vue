@@ -11,16 +11,16 @@
 <style lang="less" scoped>
 </style>
 <script>
-  import sitetopbar from './home/ssi/site-topbar'
-  import sitefooter from './home/ssi/site-footer'
-  import loading_0 from './home/ssi/loading_0'
-  //  import signup from '../../components/home/sign-up'
+  import sitefooter from './ssi/site-footer'
+  import loading_0 from './ssi/loading_0'
+  import sitetopbar from './ssi/site-topbar'
+  //  import signup from '../../components/sign-up'
   export default{
     components: {
       sitetopbar,
       sitefooter,
       loading0:loading_0
-//      signup
+      //      signup
     },
     name: '',
     data(){

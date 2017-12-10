@@ -101,7 +101,7 @@
         <div class="sku-content">
           <ul class="sku-box">
             <li class="sku-cell" v-for="sku in list.skus">
-              <router-link class="sku-a" @click="getData(sku)" :to="'GoodsDetail' + sku.sku_id">
+              <router-link class="sku-a" @click="getData(sku)" :to="'index/GoodsDetail' + sku.sku_id">
                 <p class="sku-img"><img :src="sku.sku_img"/></p>
                 <div class="sku-info">
                   <strong class="sku-bigtxt">{{ sku.sku_bigtxt }}</strong>
@@ -121,7 +121,7 @@
 </template>
 
 <style lang="less" scoped>
-   @import "../../assets/css/homepage.less";
+   @import "../assets/css/homepage.less";
 </style>
 
 <script>

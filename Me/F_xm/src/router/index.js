@@ -1,30 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+
 // import Hello from '@/components/Hello'
-import index from '../components/index'
-import home from '../components/home/home'
-import homepage from '../components/home/homepage'
-import aboutpage from '../components/home/aboutpage'
-import signup from '../components/home/sign-up'
+import index from '@/components/index'
+import home from '@/components/home'
+import homepage from '@/components/homepage'
+import aboutpage from '@/components/aboutpage'
+import signup from '@/components/sign-up'
+
+//下面路由懒加载已经加载demoDetail && GoodsDetail
+//import demoDetail from '../components/home/detailsPage/demo-detail'  
+//import GoodsDetail from '../components/home/detailsPage/GoodsDetail'
 
 
-import demoDetail from '../components/home/detailsPage/demo-detail'
-import GoodsDetail from '../components/home/detailsPage/GoodsDetail'
+import demoList from '@/components/listPage/demo-list'
+import GoodsList from '@/components/listPage/GoodsList'
 
 
-import demoList from '../components/home/listPage/demo-list'
-import GoodsList from '../components/home/listPage/GoodsList'
-
-
-import demoServer from '../components/home/serverPage/demo-server'
-import serverDetail from '../components/home/serverPage/serverDetail'
+import demoServer from '@/components/serverPage/demo-server'
+import serverDetail from '@/components/serverPage/serverDetail'
 
 
 
 Vue.component('signup',signup)
 
 Vue.use(Router)
- const routes = [
+const routes = [
   {
     path: '/',
     name: 'index',
@@ -38,53 +40,28 @@ Vue.use(Router)
     children: [
       {
         path: '/',
-        name: 'home',
-        redirect: 'home',
-        component: home
+        name: 'homepage',
+        component: homepage
       },
       {
-        path: 'home',
-        name: 'home',
-        component: home,
+        path: 'homepage',
+        name: 'homepage',
+        component: homepage,
+      },
+      {
+        path: 'aboutpage',
+        name: 'aboutpage',
+        component: aboutpage,
+      },
+      {
+        path: 'demoServer',
+        name: 'demoServer',
+        component: demoServer,
         children: [
           {
             path: '/',
-            name: 'homepage',
-            component: homepage
-          },
-          {
-            path: 'homepage',
-            name: 'homepage',
-            component: homepage,
-          },
-          {
-            path: 'aboutpage',
-            name: 'aboutpage',
-            component: aboutpage,
-          },
-          {
-            path: 'demoServer',
-            name: 'demoServer',
-            component: demoServer,
-            children: [
-              {
-                path: '/',
-                name: 'serverDetail',
-                component: serverDetail,
-              },
-            ]
-          },
-        ]
-      },
-      {
-        path: 'GoodsDetail/:id',
-        name: 'demoDetail',
-        component: demoDetail,
-        children: [
-          {
-            path: '/',
-            name: 'GoodsDetail',
-            component: GoodsDetail,
+            name: 'serverDetail',
+            component: serverDetail,
           },
         ]
       },
@@ -99,11 +76,64 @@ Vue.use(Router)
             component: GoodsList,
           },
         ]
+      },
+      {
+        path: 'GoodsDetail/:id',
+        name: 'demoDetail',
+        // component: demoDetail,
+        //路由懒加载方式加载
+        component: resolve => require(['../components/detailsPage/demo-detail'], resolve),
+        children: [
+          {
+            path: '/',
+            name: 'GoodsDetail',
+            //component: GoodsDetail,
+            //路由懒加载方式加载
+            component: resolve => require(['../components/detailsPage/GoodsDetail'], resolve),
+          },
+        ]
       }
+    ]
+  },
+  {
+    path: '/phone',
+    name: 'phone',
+    // component: demoDetail,
+    //路由懒加载方式加载
+    component: resolve => require(['../components/listPage/phone'], resolve),
+    children: [
     ]
   }
 ]
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition
+  } else {
+    const position = {}
+    if (to.hash) {
+      position.selector = to.hash
+    }
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      position.x = 0
+      position.y = 0
+    }
+    return position
+  }
+}
 export default new Router({
   mode: 'history',
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      console.log(savedPosition);
+      setTimeout(() => {
+           window.scrollTo(savedPosition.x, savedPosition.y)
+      }, 0)
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
+  meta: {isKeepAlive: true} //结合keep-alive来达到后退时不刷新数据，前进时刷新数据的效果。
 })
+
+

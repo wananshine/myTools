@@ -130,7 +130,7 @@
 	</div>
 </template>
 <style lang="less" scoped="scoped">
-	@import "../../../assets/css/server-detail.less";
+	@import "../../assets/css/server-detail.less";
 </style>
 <script type="text/javascript">
 	export default{

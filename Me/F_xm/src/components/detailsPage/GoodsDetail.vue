@@ -97,7 +97,7 @@
 </template>
 
 <style lang="less" scoped>
-  @import "../../../assets/css/goods-detail";
+  @import "../../assets/css/goods-detail";
 </style>
 
 <script>

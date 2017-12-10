@@ -10,6 +10,9 @@
 // })
 
 define(function(require, exports, module) {
+	//引用jQuery模块
+
+
     module.exports={
 		name: 'gl',
 		data() {

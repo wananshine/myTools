@@ -96,13 +96,13 @@
 </template>
 
 <style lang="less">
-  @import "../../../assets/css/site-header.less";
+  @import "../../assets/css/site-header.less";
 </style>
 
 
 <script>
 
-  import { hideDialog } from '../../../vuex/actions'
+  import { hideDialog } from '../../vuex/actions'
   export default{
     name: "",
     vuex: {
@@ -113,14 +113,14 @@
     data(){
       return{
         navbars: [
-            { navtitle: "首页",       navto: "/index/home" },
-            { navtitle: "品牌",       navto: "/index/home/aboutpage" },
-            { navtitle: "特卖",       navto: "/index/home" },
-            { navtitle: "咨讯平台",   navto: "/index/home/aboutpage" },
-            { navtitle: "盒子·影音",  navto: "/index/home" },
-            { navtitle: "路由器",     navto: "/index/home/aboutpage" },
-            { navtitle: "智能硬件",   navto: "/index/home" },
-            { navtitle: "服务",       navto: "/index/home/demoServer" }
+            { navtitle: "首页",       navto: "/index" },
+            { navtitle: "品牌",       navto: "/index/aboutpage" },
+            { navtitle: "特卖",       navto: "/index" },
+            { navtitle: "咨讯平台",   navto: "/index/aboutpage" },
+            { navtitle: "盒子·影音",  navto: "/index" },
+            { navtitle: "路由器",     navto: "/index/aboutpage" },
+            { navtitle: "智能硬件",   navto: "/index" },
+            { navtitle: "服务",       navto: "/index/demoServer" }
           ]
       }
     },

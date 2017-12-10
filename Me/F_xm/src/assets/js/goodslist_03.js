@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2017/5/12.
+ * Created by Ping on 2017/5/12.
  */
 
 // define(function (require, exports, module) {
@@ -8,25 +8,16 @@
 //   })
 // })
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
     //引用jQuery模块
     
 
-
-    // var init= function() {
-        
-    // }
-    // module.exports = {
-    //     init:init
-    // }
-
-
-    
-// })
-
-
-export default{
-		name: 'gl',
+	// var init= function() {
+	        
+	// 	}
+	module.exports = {
+			
+    	name: 'gl',
 		data() {
 			return{
 				goods_list: []
@@ -162,4 +153,13 @@ export default{
 			      })
 			}
 		}
+	        
 	}
+    
+    // module.exports = {
+    //     init:init
+    // }
+    
+})
+
+

@@ -2,13 +2,13 @@
 	<aside class="page-category">
 	    <ul class="category-list">
 	      <li class="category-item" v-for="category in categorys">
-	        <router-link to = "demoList" class="category-cell" >{{ category.asidetxt }}</router-link>
+	        <router-link to = "/index/demoList" class="category-cell" >{{ category.asidetxt }}</router-link>
 	      </li>
 	    </ul>
   </aside>
 </template>
 <style lang="less" scoped="scoped">
-	@import "../../../assets/css/homepage.less";
+	@import "../../assets/css/homepage.less";
 </style>
 <script type="text/javascript">
 	export default{

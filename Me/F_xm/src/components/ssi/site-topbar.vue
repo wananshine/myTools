@@ -102,14 +102,14 @@
 
 <script>
 
-  import { hideDialog } from '../../vuex/actions'
+  //import { hideDialog } from '../../vuex/actions'
   export default{
     name: "",
-    vuex: {
-      actions: {
-        hideDialog
-      }
-    },
+    // vuex: {
+    //   actions: {
+    //     //hideDialog
+    //   }
+    // },
     data(){
       return{
         navbars: [

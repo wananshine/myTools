@@ -24,6 +24,11 @@
 				<div class="nav-active" :style="{ 'width': activeWidth+'px', 'transform': 'translate3d('+activeWidth*activeIndex+'px,0,0)' }"></div>
 			</nav>
 
+			<!-- 奇偶颜色 -->
+			<div class="oddEven">
+				<span class="oe" v-for="(oE, index) in oEs">{{ oE.oEname }}</span>
+			</div>
+
 			<!-- 楼层导航 -->
 			<section class="floor-wrap">
 				<div class="floor-bd">
@@ -126,6 +131,8 @@
 				</div>
 			</section>
 
+
+
 		</div>
 	</div>
 </template>
@@ -159,6 +166,16 @@
 					{ navname: "大家写" },
 					{ navname: "大家去" },
 					{ navname: "大家读" },
+				],
+
+				// 奇数偶数
+				oEs: [
+					{ oEname: "1" },
+					{ oEname: "2" },
+					{ oEname: "3" },
+					{ oEname: "4" },
+					{ oEname: "5" },
+					{ oEname: "6" }
 				],
 
 				//floor导航
@@ -222,6 +239,7 @@
 			enterCustomer(nav, index, e){
 				this.activeIndex=index;
 			},
+
 
 			//floor楼层导航之所有楼层的offset().top
 			floorOffsetTop(){
@@ -417,6 +435,19 @@
 					_this.scrollFloor();
 
 				})
+
+
+				// 奇数偶数颜色设置					
+				var oe = document.getElementsByClassName("oe") 
+				for(var i = 0; i < oe.length; i++) { 
+					console.log(i)
+				   if(i%2 == 0) {   
+				       oe[i].style.backgroundColor = "skyblue";  
+				    }else{
+				    	oe[i].style.backgroundColor = "lightyellow";  
+				    }
+				}
+
 
 
 			});

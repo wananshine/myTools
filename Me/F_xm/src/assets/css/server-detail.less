@@ -81,12 +81,21 @@
 			}
 		}
 
+		.oddEven{
+			.flexbox;
+			.oe{
+				.flexitem;
+				flex-grow: 1;
+				text-align: center;
+			}
+		}
+
 		.floor-wrap{
 			.floor-bd{
 				.por;
 				.fb-list{
 					.fb-cell{
-						.height(400px);
+						.height(40px);
 					}
 					.fb-bg(5);
 					.fb-bg(@n, @i: 0) when (@i <= @n) {

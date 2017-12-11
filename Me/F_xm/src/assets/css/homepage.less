@@ -89,8 +89,8 @@
 
 }
 
-
-.page-sku{
+// 大家来单品
+._page-sku{
   .sku-title{
     .item-title;
   }
@@ -117,6 +117,7 @@
     .por;
     .hid;
     .w-inner;
+    // 顶部nav && 左边商品导航栏 && banner && banner下面两个品牌推荐
     .page-topbar{
       .por;
       .page-topbar-up{
@@ -311,13 +312,12 @@
           }
         }
       }
-      .page-topbar-sku{
-        .page-sku;
-      }
     }
-    .page-topbar-sku{
-      .page-sku;
+    // 单品
+    .page-sku{
+      ._page-sku;
     }
+    // 商品楼层
     .page-content{
       .por;
       .hid;
@@ -388,9 +388,10 @@
         }
       }
     }
+    // 推荐商品
     .page-recommend{
       .height(320px);
-      background-color: gray;
+      //background-color: gray;
       .floor-box{
         margin-right: -14px;
       }

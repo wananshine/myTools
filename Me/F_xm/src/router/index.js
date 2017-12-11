@@ -10,8 +10,8 @@ import aboutpage from '@/components/aboutpage'
 import signup from '@/components/sign-up'
 
 //下面路由懒加载已经加载demoDetail && GoodsDetail
-//import demoDetail from '../components/home/detailsPage/demo-detail'  
-//import GoodsDetail from '../components/home/detailsPage/GoodsDetail'
+//import demoDetail from '../components/detailsPage/demo-detail'  
+//import GoodsDetail from '../components/detailsPage/GoodsDetail'
 
 
 import demoList from '@/components/listPage/demo-list'
@@ -78,7 +78,7 @@ const routes = [
         ]
       },
       {
-        path: 'GoodsDetail/:id',
+        path: 'demoDetail/:id',
         name: 'demoDetail',
         // component: demoDetail,
         //路由懒加载方式加载

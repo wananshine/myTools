@@ -26,9 +26,34 @@
         
       </article>
 
-      <article>
-        
+      <!-- 单品楼层 -->
+      <article class="page-sku">
+        <div class="sku-title">
+          <h3 class="title-txt">大家来单品</h3>
+          <p class="title-ctrlbtn">
+            <a><</a>
+            <a>></a>
+          </p>
+        </div>
+        <div class="sku-content">
+          <ul class="sku-box">
+            <li class="sku-cell" v-for="sku in list.skus">
+              <!-- :to="'index/GoodsDetail/' + sku.sku_id"  @click="sendParams(sku)"   :to="{  name:'demoDetail', params: { id: 1 } }"-->
+              <router-link class="sku-a"  :to="{  path:'index/demoDetail/'+sku.sku_id, params: { id: sku.sku_id } }" >
+                <p class="sku-img"><img :src="sku.sku_img"/></p>
+                <div class="sku-info">
+                  <strong class="sku-bigtxt">{{ sku.sku_bigtxt }}</strong>
+                  <small class="sku-smalltxt">{{ sku.sku_smalltxt }}</small>
+                  <span class="sku-price">{{ sku.sku_price | moneytype("元") }}</span>
+                </div>
+                <div class="sku-"></div>
+                <div class="sku-"></div>
+              </router-link>
+            </li>
+          </ul>
+        </div>
       </article>
+
 
       <!-- 商品楼层 -->
       <article class="page-content" v-for="floor in list.floors">
@@ -49,7 +74,7 @@
             <ul class="row-list">
               <li class="row-list-cell" v-for="row in floor.rows">
                 <!--   :to="'GoodsDetail?infoId='+row.row_id"   -->
-                <router-link class="row-list-a sku-a" :to="'GoodsDetail/'+ row.row_id">
+                <router-link class="row-list-a sku-a" :to="'index/GoodsDetail/'+ row.row_id">
                   <p class="row-img sku-img"><img :src="row.row_img"/></p>
                   <div class="row-info sku-info">
                     <strong class="sku-bigtxt">{{ row.row_bigtxt }}</strong>
@@ -73,8 +98,8 @@
           <div class="box-row">
             <ul class="row-list">
               <li class="row-list-cell" v-for="com in layer.recomrow">
-                <!--   :to="'GoodsDetail?infoId='+row.row_id"   -->
-                <router-link class="row-list-a sku-a" :to=" 'GoodsDetail/'+ com.recom_id">
+                <!--   :to="'GoodsDetail?infoId='+row.row_id"   :to=" 'GoodsDetail/'+ com.recom_id"-->
+                <router-link class="row-list-a sku-a" :to="{}">
                   <p class="row-img sku-img"><img :src="com.recom_img"/></p>
                   <div class="row-info sku-info">
                     <strong class="sku-bigtxt">{{ com.recom_bigtxt }}</strong>
@@ -87,33 +112,6 @@
             </ul>
           </div>
         </section>
-      </article>
-
-      <!-- 单品楼层 -->
-      <article class="page-topbar-sku">
-        <div class="sku-title">
-          <h3 class="title-txt">大家来单品</h3>
-          <p class="title-ctrlbtn">
-            <a><</a>
-            <a>></a>
-          </p>
-        </div>
-        <div class="sku-content">
-          <ul class="sku-box">
-            <li class="sku-cell" v-for="sku in list.skus">
-              <router-link class="sku-a" @click="getData(sku)" :to="'index/GoodsDetail' + sku.sku_id">
-                <p class="sku-img"><img :src="sku.sku_img"/></p>
-                <div class="sku-info">
-                  <strong class="sku-bigtxt">{{ sku.sku_bigtxt }}</strong>
-                  <small class="sku-smalltxt">{{ sku.sku_smalltxt }}</small>
-                  <span class="sku-price">{{ sku.sku_price | moneytype("元") }}</span>
-                </div>
-                <div class="sku-"></div>
-                <div class="sku-"></div>
-              </router-link>
-            </li>
-          </ul>
-        </div>
       </article>
 
     </div>
@@ -154,6 +152,27 @@
         this.list = res.data.data;
         console.log(this.list)
       })
-    }
+    },
+    methods:{
+
+      //路由带参数跳转
+       sendParams (sku) {
+        console.log(123)
+        console.log("sku",sku.sku_id);
+        console.log("params",this.$router.push);
+        //this.$router.replace({ path: '/home' })
+        this.$router.push({
+            //path: 'demoDetail', 
+            name: 'demoDetail', //要跳转的路径的 name,在 router 文件夹下的 index.js 文件内找
+            params: { 
+                id: sku.sku_id
+            }
+            /*query: {
+                name: 'name', 
+                dataObj: this.msg
+            }*/
+        })
+      }
+    },
   }
 </script>

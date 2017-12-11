@@ -14,7 +14,7 @@
         </div>
       </div>
       <section class="goods-row w-inner">
-        <div class="goods-preview">
+        <figure class="goods-preview">
           <div class="preview-booth">
             <a class="imgbooth-a">
               <img class="imgbooth" src="//www.djlcg.com/images/201704/goods_img/11828_P_1491013227613.jpg"/>
@@ -42,7 +42,7 @@
               </a>
             </li>
           </ul>
-        </div>
+        </figure>
         <div class="goods-property">
           <div class="goods-hd">
             <h1>创达视讯 显示设备</h1>
@@ -90,6 +90,10 @@
               </dd>
             </dl>
           </div>
+          <div class="btn-default">
+            <button class="now-buy" @click="getParam()">立即购买</button>
+            <button class="join-cart">加入购物车</button>
+          </div>
         </div>
       </section>
     </div>
@@ -122,6 +126,11 @@
           },(err)=>{
             console.log(err);
           })
+        },
+
+        //接收路由带过来的参数
+        getParam() {
+            console.log(this.$route.params.id);
         }
     }
   }

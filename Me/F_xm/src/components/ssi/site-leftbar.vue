@@ -24,7 +24,6 @@
 		created() {
 	      this.$http.get("/api/notes").then(res =>{
 	        this.categorys = res.data.data.categorys;
-	        console.log(this.list)
 	      })
 	    }
 	}

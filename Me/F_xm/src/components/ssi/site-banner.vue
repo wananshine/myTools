@@ -28,7 +28,6 @@
 		created() {
 	      this.$http.get("/api/notes").then(res =>{
 	        this.bcells = res.data.data.bcells;
-	        console.log(this.list)
 	      })
 	    }
 	}

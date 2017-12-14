@@ -37,3 +37,22 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+
+//路由拦截 && 判断是否登录
+router.beforeEach((to, from, next) => {
+    if(to.meta.auth) { //是否验证
+        if(window.localStorage.access_token) { //是否登录
+            next()
+        } else { //未登录则跳转到登录页面
+            next({
+                name: 'homepage',
+                query: {
+                    redirect: to.fullPath
+                }
+            })
+        }
+    } else {
+        next()
+    }
+})

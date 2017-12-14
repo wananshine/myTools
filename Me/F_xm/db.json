@@ -372,6 +372,48 @@
         ]
       }
     ],
+    "discount": [
+      {
+        "disc_title": "优惠券",
+        "vouchers": [
+          {
+            "vouch_id": "199",
+            "vouch_img": "../../../static/images/vouchers-01.jpg",
+            "vouch_bigtxt": "sgfagrayhatyh",
+            "vouch_smalltxt": "ewrwrtwert",
+            "vouch_price": "1952"
+          },
+          {
+            "vouch_id": "299",
+            "vouch_img": "../../../static/images/vouchers-01.jpg",
+            "vouch_bigtxt": "sgfagrayhatyh",
+            "vouch_smalltxt": "ewrwrtwert",
+            "vouch_price": "1952"
+          },
+          {
+            "vouch_id": "399",
+            "vouch_img": "../../../static/images/vouchers-01.jpg",
+            "vouch_bigtxt": "sgfagrayhatyh",
+            "vouch_smalltxt": "ewrwrtwert",
+            "vouch_price": "1952"
+          },
+          {
+            "vouch_id": "499",
+            "vouch_img": "../../../static/images/vouchers-01.jpg",
+            "vouch_bigtxt": "sgfagrayhatyh",
+            "vouch_smalltxt": "ewrwrtwert",
+            "vouch_price": "1952"
+          },
+          {
+            "vouch_id": "599",
+            "vouch_img": "../../../static/images/vouchers-01.jpg",
+            "vouch_bigtxt": "sgfagrayhatyh",
+            "vouch_smalltxt": "ewrwrtwert",
+            "vouch_price": "1952"
+          }
+        ]
+      }
+    ],
     "hots": [
       {
         "hot_title": "推荐",

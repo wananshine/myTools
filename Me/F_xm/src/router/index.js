@@ -10,16 +10,20 @@ import aboutpage from '@/components/aboutpage'
 import signup from '@/components/sign-up'
 
 //下面路由懒加载已经加载demoDetail && GoodsDetail
-//import demoDetail from '../components/detailsPage/demo-detail'  
-//import GoodsDetail from '../components/detailsPage/GoodsDetail'
+import demoDetail from '../components/detailsPage/demo-detail'  
+import GoodsDetail from '../components/detailsPage/GoodsDetail'
 
 
 import demoList from '@/components/listPage/demo-list'
 import GoodsList from '@/components/listPage/GoodsList'
+import phone from '@/components/listPage/phone'
 
-
-import demoServer from '@/components/serverPage/demo-server'
-import serverDetail from '@/components/serverPage/serverDetail'
+//路由懒加载方式加载
+const demoServer = resolve => require(['@/components/serverPage/demo-server'], resolve);
+const serverDetail = resolve => require(['@/components/serverPage/serverDetail'], resolve);
+//直接引用
+// import demoServer from '@/components/serverPage/demo-server'
+// import serverDetail from '@/components/serverPage/serverDetail'
 
 
 
@@ -52,6 +56,12 @@ const routes = [
         path: 'aboutpage',
         name: 'aboutpage',
         component: aboutpage,
+        beforeEnter: (to, from, next) => {
+          // ...
+          console.log(to)
+          console.log(from)
+          console.log(next)
+        }
       },
       {
         path: 'demoServer',
@@ -92,19 +102,30 @@ const routes = [
             component: resolve => require(['../components/detailsPage/GoodsDetail'], resolve),
           },
         ]
+      },
+      {
+        path: 'phone',
+        name: 'phone',
+        meta: { auth: true },
+        component: phone,
+        //路由懒加载方式加载
+        //component: resolve => require(['../components/listPage/phone'], resolve),
+        //路由守卫
+        // beforeEnter(to,from,next){
+        //     console.log('router beforeEnter');
+        //     next();
+        // },
+        children: [
+        ]
       }
-    ]
-  },
-  {
-    path: '/phone',
-    name: 'phone',
-    // component: demoDetail,
-    //路由懒加载方式加载
-    component: resolve => require(['../components/listPage/phone'], resolve),
-    children: [
     ]
   }
 ]
+
+// 后退到原来位置  && 新页面scrollTop为零
+// const scrollBehavior: function (to, from, savedPosition) {
+//   return savedPosition || { x: 0, y: 0 }
+// }
 const scrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) {
     return savedPosition
@@ -120,9 +141,12 @@ const scrollBehavior = (to, from, savedPosition) => {
     return position
   }
 }
+
+
 export default new Router({
   mode: 'history',
   routes,
+  // 后退到原来位置  && 新页面scrollTop为零
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       console.log(savedPosition);
@@ -133,6 +157,23 @@ export default new Router({
       return { x: 0, y: 0 }
     }
   },
+  // scrollBehavior() {
+  //   if (savedPosition) {
+  //     // savedPosition is only available for popstate navigations.
+  //     return savedPosition
+  //   } else {
+  //     // new navigation.
+  //     // scroll to anchor
+  //     if (to.hash) {
+  //         return { anchor: true }
+  //     }
+  //     // explicitly control scroll position
+  //     // check if any matched route config has meta that requires scrolling to top
+  //     if (to.matched.some(m => m.meta.scrollToTop)) {
+  //       return { x: 0, y: 0 }
+  //     }
+  //   }
+  // },
   meta: {isKeepAlive: true} //结合keep-alive来达到后退时不刷新数据，前进时刷新数据的效果。
 })
 

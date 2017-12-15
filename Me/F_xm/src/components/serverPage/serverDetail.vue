@@ -98,7 +98,8 @@
 					<div class="form-group">
 						<label for="inputFile" class="control-label">File</label>
 					    <div class="col-sm">
-					      <input type="text" class="control-input" id="inputFile" ref="inputFile" v-model="formData.userFile" @focus="focusCustomer($event)" @input="inputCustomer(formData.userFile, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="File">
+					    	<!-- v-model="formData.userFile" @focus="focusCustomer($event)" @input="inputCustomer(formData.userFile, 1, 20, $event)" @blur="blurCustomer($event)" data-valid='false' placeholder="File" -->
+					      <input type="file" class="control-input" id="inputFile" ref="inputFile" @change="previewImg()" >
 					      <p class="explain">error</p>
 					    </div>
 					</div>
@@ -408,6 +409,10 @@
 					e.currentTarget.parentNode.parentNode.classList.add("has-error");
                     this.$refs[e.currentTarget.id].setAttribute("data-valid", false);
 				}
+			},
+			//文件 && 图片上传
+			previewImg(){
+				
 			},
 			//提交
 			saveCustomer(formData){

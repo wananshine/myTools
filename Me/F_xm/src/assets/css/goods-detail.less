@@ -146,21 +146,40 @@
         }
       }
     }
+    .goods-attribute{}
     .goods-sibling{
       .por;
       .hid;
       .goods-sell-type{
         line-height: 1.5;
+        .flexbox;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 6px;
       }
       .goods-note{
-        float: left;
-        padding-left: 10px;
-        width: 65px;
+        display: block;
+        padding: 0px 12px 0px 10px;
+        width: 52px;
         font-size: 12px;
         line-height: 34px;
         color: @666;
+        text-align: justify;
+        text-align-last: justify;
+        justify-content:space-between;
+        .por;
+        .hid;
+        &:after{
+          content: ":";
+          display: inline-block;
+          .poa;
+          top: 0;
+          right: 5px;
+        }
       }
       .goods-type{
+        .flexitem;
+        flex-basis: auto;
         .prop{
           .ellipsis;
           float: left;
@@ -180,6 +199,29 @@
         .selected{
           border-color: @00c3;
         }
+      }
+    }
+    .btn-default{
+      .now-buy{
+        padding-left: 0;
+        padding-right: 0;
+        width: 128px;
+        margin-right: 20px!important;
+        padding: 10px 30px;
+        line-height: 1.33333;
+        border-radius: 3px;
+        color: #fff;
+        background-color: #f66567;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        user-select: none;
       }
     }
   }

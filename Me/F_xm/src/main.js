@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 import VueResource from 'vue-resource'
-//import store from 'store'
+import store from './store';
 import Vuex from 'vuex'
 
 
@@ -33,7 +33,7 @@ Vue.filter("time",function(value) {
 new Vue({
   el: '#app',
   router,
-  // store,
+  store,
   template: '<App/>',
   components: { App }
 })

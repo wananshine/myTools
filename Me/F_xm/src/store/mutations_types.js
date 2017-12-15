@@ -1,7 +1,15 @@
+//注册窗口显示
+export const SINGN_IN = 'SINGN_IN';
 
+//注册窗口隐藏
+export const SINGN_OUT = 'SINGN_OUT';
 
 //添加商品到购物车
 export const CREATE_DB = 'CREATE_DB';
+
+
+//添加商品到购物车
+export const CREATE_CART = 'CREATE_CART';
 
 //给购物车的商品++
 export const ADD_DB = 'ADD_DB';

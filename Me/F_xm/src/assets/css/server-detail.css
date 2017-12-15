@@ -90,11 +90,25 @@
   height: 40px;
   background-color: #f90;
 }
+.serverContainer .serverInner .oddEven {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.serverContainer .serverInner .oddEven .oe {
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  text-align: center;
+}
 .serverContainer .serverInner .floor-wrap .floor-bd {
   position: relative;
 }
 .serverContainer .serverInner .floor-wrap .floor-bd .fb-list .fb-cell {
-  height: 400px;
+  height: 40px;
 }
 .serverContainer .serverInner .floor-wrap .floor-bd .fb-list .fb-Cellbg-0 {
   background-color: #000000;
@@ -161,7 +175,7 @@
 }
 .serverContainer .serverInner .form-wrap .form-horizontal .form-group {
   zoom: 1;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
 .serverContainer .serverInner .form-wrap .form-horizontal .form-group:before {
   content: " ";

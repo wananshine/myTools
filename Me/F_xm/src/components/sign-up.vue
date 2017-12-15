@@ -1,16 +1,21 @@
 <template>
-  <div class="sign_up" :class="{ hide: 'isHideMask' }">
+  <div class="sign_up" v-if="signinDefault">
     <div class="sign_inner">
       <div class="form_container">
         <form class="form-normal">
-          <div class="row">
-            <input type="text" name="username" v-model="userName">
+          <h5 class="form-title"><i class="tit-close" @click="sign_close()">x</i></h5>
+          <div class="form-group">
+            <div class="row">
+              <input type="text" name="username" v-model="userName">
+            </div>
+            <div class="row">
+              <input type="text" name="age" v-model="age">
+            </div>
           </div>
-          <div class="row">
-            <input type="text" name="age" v-model="age">
+          <div class="form-btn">
+            <a href="javascript:;" @click="addUser">登录</a>
+            <a @click="makeActive">取消</a>
           </div>
-          <a href="javascript:;" @click="addUser">提交</a>
-          <a @click="makeActive">取消</a>
         </form>
       </div>
     </div>
@@ -49,6 +54,11 @@
           box-sizing: border-box;
           .por;
           .hid;
+          .form-title{
+            .tit-close{
+              cursor: pointer;
+            }
+          }
           .row{
             .height(35px);
           }
@@ -72,6 +82,11 @@
         age: ''
       }
     },
+    computed: {
+      signinDefault: function() {
+          return this.$store.state.signinDefault;
+      }
+    },
     methods: {
       addUser() {
         var name = this.userName;
@@ -86,8 +101,9 @@
       makeActive(){
           return this.show = !this.show
       },
-
-
+      sign_close(){
+        this.$store.dispatch('sign_out');
+      },
     }
   }
 </script>

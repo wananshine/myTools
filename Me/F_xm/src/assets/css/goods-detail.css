@@ -157,14 +157,40 @@
 }
 .goods-row .goods-property .goods-sibling .goods-sell-type {
   line-height: 1.5;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 6px;
 }
 .goods-row .goods-property .goods-sibling .goods-note {
-  float: left;
-  padding-left: 10px;
-  width: 65px;
+  display: block;
+  padding: 0px 12px 0px 10px;
+  width: 52px;
   font-size: 12px;
   line-height: 34px;
   color: #666666;
+  text-align: justify;
+  text-align-last: justify;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.goods-row .goods-property .goods-sibling .goods-note:after {
+  content: ":";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.goods-row .goods-property .goods-sibling .goods-type {
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 .goods-row .goods-property .goods-sibling .goods-type .prop {
   overflow: hidden;
@@ -187,4 +213,25 @@
 }
 .goods-row .goods-property .goods-sibling .goods-type .selected {
   border-color: #00c3f5;
+}
+.goods-row .goods-property .btn-default .now-buy {
+  padding-left: 0;
+  padding-right: 0;
+  width: 128px;
+  margin-right: 20px!important;
+  padding: 10px 30px;
+  line-height: 1.33333;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #f66567;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
 }

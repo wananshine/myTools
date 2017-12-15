@@ -29,7 +29,7 @@
         <div class="topbar-info">
           <a class="t-info-a">登录</a>
           <span class="sep">|</span>
-          <a class="t-info-a" id="sign_up" @click="hideDialog()">注册</a>
+          <a class="t-info-a" id="sign_up" @click="signin()">注册</a>
           <span class="sep">|</span>
           <a class="t-info-a">消息通知</a>
         </div>
@@ -105,11 +105,6 @@
   //import { hideDialog } from '../../vuex/actions'
   export default{
     name: "",
-    // vuex: {
-    //   actions: {
-    //     //hideDialog
-    //   }
-    // },
     data(){
       return{
         navbars: [
@@ -131,12 +126,14 @@
     },
     mounted: function () {
       this.$nextTick(function () {
-        $("#sign_up").click(function(){
-            $(".sign_up").show();
-        })
+        // $("#sign_up").click(function(){
+        //     $(".sign_up").show();
+        // })
       })
     },
     methods: {
+      
+
 //      makeActive(){
 ////        return this.show = true
 //      }

@@ -1,38 +1,25 @@
-import * as types from 'mutations_types';
+import * as types from './mutations_types';
 
-
-/*var actions = {};
-var mts = Object.keys(types);
-for (var i = 0; i < mts.length; i++) {
-    var fun_name = mts[i].toLocaleLowerCase(),
-        cmt_name = mts[i];
-
-    // console.log(fun_name, cmt_name);
-
-    actions[fun_name] = (function() {
-        return function({
-            commit
-        }, arg) {
-            console.log(types[cmt_name]);
-            commit(types[cmt_name], arg);
-            commit(types.UPDATE_LOCAL);
-        }
-    })();
-}
-console.log(actions);
-module.exports = actions;*/
-
-
-module.exports = {
+const act = {
     clear_local: ({
         commit
-    }) => {
-        commit(types.ADD_DB);
+    }, param ) => {
+        commit(types.ADD_DB, {id: param});
     },
-    update_local: ({
+    clear_cart: ({
         commit
     }) => {
-        commit(types.UPDATE_LOCAL);
+        commit(types.CLEAR_CART);
+    },
+    sign_in: ({
+        commit
+    }) => {
+        commit(types.SINGN_IN);
+    },
+    sign_out: ({
+        commit
+    }) => {
+        commit(types.SINGN_OUT);
     },
     update_cur_shop_status: ({
         commit
@@ -70,4 +57,6 @@ module.exports = {
     }, obj) => {
         commit(types.CHECK_DB, obj);
     }
-};
+}
+
+export default act;

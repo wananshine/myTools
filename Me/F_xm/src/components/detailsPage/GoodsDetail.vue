@@ -43,7 +43,7 @@
             </li>
           </ul>
         </figure>
-        <div class="goods-property">
+        <aside class="goods-property">
           <div class="goods-hd">
             <h1>创达视讯 显示设备</h1>
             <p class="goods-mod-info">购32G版赠缤纷保护壳+高透膜 支持百城速达</p>
@@ -54,47 +54,74 @@
               <dd class="goods-price"> ¥ 799.00 </dd>
             </dl>
           </div>
-          <div class="goods-sibling">
-            <dl class="goods-sell-type">
-              <dt class="goods-note">价&nbsp;&nbsp;格:</dt>
-              <dd class="goods-type clearfix">
-                <a class="prop selected">MX6</a>
-                <a class="prop">PRO 6 Plus</a>
-              </dd>
-            </dl>
-          </div>
-          <div class="goods-sibling">
-            <dl class="goods-sell-type">
-              <dt class="goods-note">网络类型:</dt>
-              <dd class="goods-type clearfix">
-                <a class="prop selected">MX6</a>
-                <a class="prop">PRO 6 Plus</a>
-              </dd>
-            </dl>
-          </div>
-          <div class="goods-sibling">
-            <dl class="goods-sell-type">
-              <dt class="goods-note">型号分类:</dt>
-              <dd class="goods-type clearfix">
-                <a class="prop selected">MX6</a>
-                <a class="prop">PRO 6 Plus</a>
-              </dd>
-            </dl>
-          </div>
-          <div class="goods-sibling">
-            <dl class="goods-sell-type">
-              <dt class="goods-note">内存容量:</dt>
-              <dd class="goods-type clearfix">
-                <a class="prop selected">MX6</a>
-                <a class="prop">PRO 6 Plus</a>
-              </dd>
-            </dl>
+          <div class="goods-attribute">
+            <div class="goods-sibling">
+              <dl class="goods-sell-type" v-for="(model ,index) in modelNo">
+                <dt class="goods-note">{{ model.attr_name }}</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop" :class="{ selected: modelIndex===index }" v-for="(type ,index) in model.attr_type" @click="modelCustomer(type, index, $event)">{{ type }}</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="goods-sibling">
+              <dl class="goods-sell-type" v-for="(netw ,index) in netWork">
+                <dt class="goods-note">{{ netw.attr_name }}</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop" :class="{ selected: netIndex===index }" v-for="(type ,index) in netw.attr_type" @click="netCustomer(type, index, $event)">{{ type }}</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="goods-sibling">
+              <dl class="goods-sell-type" v-for="(color ,index) in colors">
+                <dt class="goods-note">{{ color.attr_name }}</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop" :class="{ selected: coloIndex===index }" v-for="(type ,index) in color.attr_type" @click="colorCustomer(type, index, $event)">{{ type }}</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="goods-sibling">
+              <dl class="goods-sell-type" v-for="(cap ,index) in capacity">
+                <dt class="goods-note">{{ cap.attr_name }}</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop" :class="{ selected: capIndex===index }" v-for="(type ,index) in cap.attr_type" @click="capCustomer(type, index, $event)">{{ type }}</a>
+                </dd>
+              </dl>
+            </div>
+      <!--       <div class="goods-sibling">
+              <dl class="goods-sell-type">
+                <dt class="goods-note">网络类型</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop selected">MX6</a>
+                  <a class="prop">PRO 6 Plus</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="goods-sibling">
+              <dl class="goods-sell-type">
+                <dt class="goods-note">型号分类</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop selected">MX6</a>
+                  <a class="prop">PRO 6 Plus</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="goods-sibling">
+              <dl class="goods-sell-type">
+                <dt class="goods-note">内存容量</dt>
+                <dd class="goods-type clearfix">
+                  <a class="prop selected">MX6</a>
+                  <a class="prop">PRO 6 Plus</a>
+                </dd>
+              </dl>
+            </div> -->
           </div>
           <div class="btn-default">
             <button class="now-buy" @click="getParam()">立即购买</button>
-            <button class="join-cart">加入购物车</button>
+            <button class="join-cart" @click="clear_db()">加入购物车{{ getDone }}</button>
+            <button class="clear-cart" @click="clear_cart()">清空购物车</button>
           </div>
-        </div>
+          <div>{{ cartList }}</div>
+        </aside>
       </section>
     </div>
   </div>
@@ -109,9 +136,49 @@
       component:{},
       name: "",
       data(){
-          return{}
+          return{
+
+            modelIndex: 0,   
+            modelNo: [
+              { attr_name: "型号"    , attr_type: [ "MX6", "PRO 6 Plus", "PRO 6" ]  }
+            ],
+
+            netIndex: 0, 
+            netWork:[
+              { attr_name: "网络类型", attr_type: [ "MX6", "PRO 6 Plus" ]  }
+            ],
+
+            coloIndex: 0, 
+            colors: [
+              { attr_name: "颜色分类", attr_type: [ "月光银", "静谧黑", "倚霞金", "曜影黑" ] }
+            ],
+
+            capIndex: 0, 
+            capacity: [ 
+              { attr_name: "内存容量",  attr_type: [ "MX6", "PRO 6 Plus" ]  }
+            ]
+        }
+      },
+      computed: {
+        getDone(){ 
+          return this.$store.getters.getNum; 
+        },
       },
       methods:{
+
+        modelCustomer(type, index, e){
+          this.modelIndex = index;
+        },
+        netCustomer(type, index, e){
+          this.netIndex = index;
+        },
+        colorCustomer(type, index, e){
+          this.coloIndex = index;
+        },
+        capCustomer(type, index, e){
+          this.capIndex = index;
+        },
+
         fetchData(id){
           var _this=this;
           _this.$http.get('/api/notes',{
@@ -128,9 +195,29 @@
           })
         },
 
+        //登录窗口
+        signin(){
+          //this.$store.dispatch('clear_cart');
+          this.$store.dispatch('sign_in');
+          console.log(this.$store)
+        },
+
         //接收路由带过来的参数
         getParam() {
-            console.log(this.$route.params.id);
+          this.signin();
+          console.log(this.$route.params.id);
+        },
+        moveToDone(id){ 
+          //移至已完成 
+          //this.$store.dispatch('eventdone', id); 
+        },
+        clear_db() {
+          this.$store.dispatch('clear_local');
+          console.log(this.$store);
+        },
+        clear_cart() {
+          //this.$store.dispatch('clear_cart');
+          console.log(this.$store);
         }
     }
   }

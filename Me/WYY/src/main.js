@@ -4,10 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import $ from 'jquery'
+//import axios from 'axios'
 import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 
-
+//Vue.prototype.$http= axios
 Vue.use(VueResource)
 Vue.use(Vuex)
 

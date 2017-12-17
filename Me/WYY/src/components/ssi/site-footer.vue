@@ -1,10 +1,10 @@
 <template>
 	<div class="foot-wrap">
 		<nav class="foot-nav">
-			<a class="nav-cell">搜索</a>
-			<a class="nav-cell">分类</a>
-			<a class="nav-cell">购物车</a>
-			<a class="nav-cell">我的</a>
+			<router-link class="nav-cell" to="">搜索</router-link>
+			<router-link class="nav-cell" to="/indexList">分类</router-link>
+			<router-link class="nav-cell" to="">购物车</router-link>
+			<router-link class="nav-cell" to="">我的</router-link>
 		</nav>
 	</div>
 </template>

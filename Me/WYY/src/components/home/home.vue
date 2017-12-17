@@ -10,6 +10,7 @@
 			<!-- floors -->  
 			<site-floor></site-floor>
 		</section>
+		<sitefooter></sitefooter>
 	</div>
 </template>
 <style lang="less" scoped="scoped">
@@ -17,21 +18,29 @@
 	.home-wrap{
 		.all;
 		.por;
-		overflow-y: scroll;
-		.flexitem;
-		flex: 1;
+		.flexbox;
+		height: @full;
+		flex-direction: column;
+		.home-layout{
+			width: @full;
+			overflow-y: scroll;
+			.flexitem;
+			flex: 1;
+		}
 	}
 </style>
 <script type="text/javascript">
 
 	import siteBanner from '../ssi/site-banner'
-	import sitePoint from '../ssi/site-point'
-	import siteFloor from '../ssi/site-floor'
+	import sitePoint  from '../ssi/site-point'
+	import siteFloor  from '../ssi/site-floor'
+	import sitefooter from '../ssi/site-footer'
 	export default{
 		components: {
 	      siteBanner,
 	      sitePoint,
-	      siteFloor
+	      siteFloor,
+	      sitefooter
 	    },
 		name: "",
 		data(){

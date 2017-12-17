@@ -38,7 +38,31 @@ mongoose.connection.on("disconnected", function(){
 
 
 router.get("/", function(req, res, next){
-	res.send('hello');
+	let page = parseInt(req.param("page"));
+	let pageSize = parseInt(req.param("pageSize"));
+	let sort = req.param("sort");
+	let skip = (page-1)*pageSize;
+	let param = {};
+	let goodsModel = Goods.find(param).skip(skip).limit(pageSize);
+	goodsModel.sort({ 'salePrie': sort });
+	goodsModel.exec({}, function(err, doc){
+		if(err){
+			res.json({
+				status: '1',
+				msg: err.message
+			})
+		}else{
+			res.json({
+				status: '0',
+				msg: '',
+				result: {
+					count: doc.length,
+					list: doc,
+				}
+			})
+		}
+	})
+	//res.send('hello');
 })
 
 

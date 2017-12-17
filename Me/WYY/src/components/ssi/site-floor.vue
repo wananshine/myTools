@@ -80,14 +80,24 @@
 		created(){
 			this.$nextTick(function(){
 				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/floors').then(response=>{
-					// success callback
-					this.floorsData = response.body.data;
-					console.log(this.floorsData.items)
-			    },  response => {
-				    // error callback
-				    console.log('error')
-				});
+				// this.$http.get('/api/floors').then(response=>{
+				// 	// success callback
+				// 	this.floorsData = response.body.data;
+				// 	console.log(this.floorsData.items)
+			 //    },  response => {
+				//     // error callback
+				//     console.log('error')
+				// });
+
+				//
+				this.$http.get('/api/goods').then(response=>{
+					//console.log('api2/goods',response)
+				})
+				.catch(err=>{
+					//console.log('err',err)
+				})
+
+
 			});
 		},
 		beforeMount(){},

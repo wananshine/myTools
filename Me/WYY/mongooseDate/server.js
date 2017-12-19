@@ -83,6 +83,9 @@ var apiDate = require('./users.json');
 var goodsList = apiDate.goodsList;
 var banners = apiDate.banners;
 var floors = apiDate.floors;
+var albums = apiDate.albums;
+var albumProduct = apiDate.albumProduct;
+var getsHot = apiDate.getsHot;
 var apiRoutes = express.Router();
 
 
@@ -102,6 +105,24 @@ apiRoutes.get('/floors',function(req, res){
 	})
 })
 
+
+//最后一个floors列表(音乐专辑)
+apiRoutes.get('/albums',function(req, res){
+  res.json({
+      errno:0,
+      data:albums
+  })
+})
+
+//最后一个floors列表(音乐专辑)其他的product
+apiRoutes.get('/albumProduct',function(req, res){
+  res.json({
+      errno:0,
+      data:albumProduct
+  })
+})
+
+
 //商品列表
 apiRoutes.get('/goodslist',function(req, res){
 	res.json({
@@ -109,6 +130,16 @@ apiRoutes.get('/goodslist',function(req, res){
     	data:goodsList
 	})
 })
+
+
+//热门商品
+apiRoutes.get('/getshot',function(req, res){
+  res.json({
+    errno:0,
+      data:getsHot
+  })
+})
+
 
 
 //商品详情

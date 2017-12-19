@@ -17,6 +17,7 @@
 		.px2rem(padding-right, 30);
 	};
 	.my-point{
+		background-color: @fff;
 		.g-point{
 			.point-title{
 				&:extend(.padd30);

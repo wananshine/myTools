@@ -83,6 +83,28 @@ body{
   flex: 1;
 }
 
+.bottomline{
+  &:after{
+    content: '';
+    display: block;
+    .hid;
+    .poa;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    //width: @full;
+    //.height(1px);
+    z-index: 3;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    transform: scale(0.5);
+    transform-origin: top left;
+  }
+}
+
 
 //清除浮动
 .clearfix{
@@ -122,12 +144,14 @@ body{
 @000: #000;
 @333: #333;
 @666: #666;
+@888: #888;
 @999: #999;
 @fff: #fff;
 
 @ff67: #ff6700;
 @00c3: #00c3f5;
 @ff00: #ff0036;
+@d33a: #d33a31;
 
 @url:"../images/";
 
@@ -155,6 +179,13 @@ body{
     background-image: -ms-linear-gradient(bottom, #000000 0%, rgba(255,255,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='rgba(255,255,255,0)', GradientType=0);
 }
+
+
+
+
+
+
+
 
 /* ***********************分割线************************************************** */
 

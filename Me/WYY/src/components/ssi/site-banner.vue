@@ -10,6 +10,7 @@
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
 	.banner-slider{
+		background-color: @fff;
 		.banner-list{
 			.flexbox;
 			.hid;

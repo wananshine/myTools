@@ -1,6 +1,6 @@
 <template>
 	<div class="home-wrap">
-		<section class="home-layout">
+		<section class="home-layout" id="homeLayout">
 			<!-- banner -->
 			<site-banner></site-banner> 
 

@@ -11,6 +11,11 @@ import home from '@/components/home/home'
 import indexList from '@/components/listPage/indexList'
 import goodsList from '@/components/listPage/goodsList'
 
+//商品详情
+// import indexDetail from '@/components/detailPage/indexDetail'
+// import goodsDetail from '@/components/detailPage/goodsDetail'
+const indexDetail = resolve => require(['@/components/detailPage/indexDetail'], resolve);
+const goodsDetail = resolve => require(['@/components/detailPage/goodsDetail'], resolve);
 
 
 
@@ -55,6 +60,23 @@ const routes = [
         path: 'goodsList',
         name: 'goodsList',
         component: goodsList
+      }
+    ]
+  },
+  {
+    path: '/indexDetail/:goodsId',
+    name: 'indexDetail',
+    component: indexDetail,
+    children: [
+      {
+        path: '/',
+        name: 'goodsDetail',
+        component: goodsDetail
+      },
+      {
+        path: 'goodsDetail',
+        name: 'goodsDetail',
+        component: goodsDetail
       }
     ]
   }

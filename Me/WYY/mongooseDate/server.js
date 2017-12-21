@@ -141,6 +141,24 @@ apiRoutes.get('/getshot',function(req, res){
 })
 
 
+//拿到指定热门商品id的商品信息
+apiRoutes.get('/getshot/:goodsId',function(req, res){
+  var goodsId = req.params.goodsId;
+  var hotPt = getsHot.data.hotProduct;
+  function selectedGood(goodsId){
+    for (var i = 0; i < hotPt.length; i++) {
+      if(hotPt[i].products.id == goodsId){
+        return hotPt[i];
+      };
+    }
+  }
+  var Pt = selectedGood(goodsId);
+  res.json({
+    errno:0,
+      data:Pt
+  })
+})
+
 
 //商品详情
 apiRoutes.get('/:goods_id', function (req, res) {

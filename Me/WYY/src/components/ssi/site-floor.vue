@@ -12,11 +12,17 @@
 				<div class="cell-product-bd">
 					<ul class="product-list">
 						<li class="product-cell" v-for="product in floor.products">
-							<a href="javascript:;" class="product-a">
+							<!-- <a href="javascript:;" class="product-a" >
 								<p class="pt-img"><img :src="product.coverUrl"></p>
 								<div class="pt-name">{{ product.name }}</div>
 								<div class="pt-price">¥{{ product.maxPrice }}</div>
-							</a>
+							</a> -->
+							<!-- :to="{ path: '/indexDetail', query: { goodsId: product.id } }" -->
+							<router-link :to="{ path: '/indexDetail/'+product.id }" href="javascript:;" class="product-a" >
+								<p class="pt-img"><img :src="product.coverUrl"></p>
+								<div class="pt-name">{{ product.name }}</div>
+								<div class="pt-price">¥{{ product.maxPrice }}</div>
+							</router-link>
 						</li>
 					</ul>
 				</div>		
@@ -57,7 +63,7 @@
 					top: 0;
 					left: 0;
 					right: 0;
-					z-index: -1;
+					z-index: 0;
 					img{
 						max-width: @full;
 					}
@@ -65,6 +71,7 @@
 				.cell-title{
 					text-align: center;
 					.px2rem(margin-top, 150);
+					.por;
 					.title-big{
 						.px2rem(font-size, 45);
 						color: @333;
@@ -239,7 +246,11 @@
 		mounted(){},
 		beforeUpdate(){},
 		updated(){},
-		methods: {}
+		methods: {
+			toCustomer(products){
+				console.log(products)
+			},
+		}
 	}
 </script>
 

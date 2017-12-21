@@ -2,7 +2,7 @@
 	<article class="hot-view" id="hotView">
 		<div class="hot-title">热门商品</div>
 		<div class="hot-list">
-			<a class="hot-cell" v-for="hot in hotsData.hotProduct">
+			<a class="hot-cell" v-for="(hot, index) in hotsData.hotProduct" @click="toCustomer(hot, index, $event)">
 				<dl class="hot-dl">
 					<dt class="hot-dt"><img :src="hot.products.coverUrl"></dt>
 					<dd class="hot-dd">
@@ -12,7 +12,7 @@
 				</dl>
 			</a>
 		</div>
-		<div class="btn-loading">
+		<div class="btn-loading" id="btnLoading">
 			<a class="btn-loadmore" id="btnLoadmore" @click="next()" ></a>
 			<a v-show="false" class="btn-loadmore" @click="next()" >已经到底了...</a>
 			<div class="loaders">
@@ -103,29 +103,39 @@
 	
 	/* Lines*/
 	@-webkit-keyframes line-scale {
-  0% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); }
+	  	0% {
+		  	transform: scaley(1);
+		    -webkit-transform: scaley(1);
+        }
 
-  50% {
-    -webkit-transform: scaley(0.4);
-            transform: scaley(0.4); }
+	  	50% {
+		  	transform: scaley(0.4); 
+		    -webkit-transform: scaley(0.4);
+	    }
 
-  100% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); } }
+  		100% {
+		  	transform: scaley(1);
+		    -webkit-transform: scaley(1);   
+        }
+    }
+
 	@keyframes line-scale {
-  0% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); }
+		0% {
+			transform: scaley(1); 
+			-webkit-transform: scaley(1);
+		        
+		}
 
-  50% {
-    -webkit-transform: scaley(0.4);
-            transform: scaley(0.4); }
+		50% {
+			transform: scaley(0.4);
+			-webkit-transform: scaley(0.4);
+		}
 
-  100% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); } }
+		100% {
+			transform: scaley(1);
+			-webkit-transform: scaley(1); 
+		} 
+	}
     .loaders{
 		width: 100%;
 		box-sizing: border-box;
@@ -205,7 +215,7 @@
 	                // console.log(newVal.length)
 	            },
 	            deep: true
-	        },
+	        }
 		},
 		beforeCreate(){},
 		created(){
@@ -216,7 +226,7 @@
 				this.$http.get('/api/getshot').then(response=>{
 					// success callback
 					this.hotsData = response.body.data.data;
-					console.log("response3",response.body.data.data)
+					console.log("response3",response)
 					console.log(this.hotsData)
 			    },  response => {
 				    // error callback
@@ -241,7 +251,7 @@
 			});
 
 			this.$nextTick(function(){
-				//this.scrollLoad();
+				this.scrollLoad();
 				// window.onload=function(){
 				// 	this.scrollLoad();
 				// 	window.addEventListener("scroll", function(){
@@ -256,6 +266,8 @@
 			next(){
 				console.log("buchuxian")
 			},
+
+			//底部加载数据
 			scrollLoad(){
 				console.log(123)
 				let homeLayout = document.getElementById("homeLayout");
@@ -268,22 +280,23 @@
 	            // 此处使用node做了代理 
 	            let lastScrollTop = null;
 	            $(".home-layout").scroll(function(){
-	            	var btnLoadmore_Top = document.getElementById("btnLoadmore").offsetTop;
+	            	var btnLoading_Top = document.getElementById("btnLoading").offsetTop;
 	            	//console.log(document.documentElement.clientHeight+'-----------'+window.innerHeight); // 可视区域高度
 					//console.log('滚动高度1',document.body.scrollTop, document.documentElement.scrollTop); // 滚动高度  
 	                //console.log('文档高度2',document.body.offsetHeight); // 文档高度
 	                //console.log('文档滚动高度3',homeLayout.scrollTop); // homeLayout滚动高度 
 	                console.log('文档高度4',hotView.offsetTop); // hotView位置
-	                console.log('btnLoadmore_Top',btnLoadmore_Top); // btnLoadmore_Top位置
-	                console.log("homeLayout.scrollTop + window.innerHeight:",homeLayout.scrollTop + window.innerHeight, "btnLoadmore_Top", btnLoadmore_Top);   
+	                console.log('btnLoading_Top',btnLoading_Top); // btnLoading_Top位置
+	                console.log("homeLayout.scrollTop + window.innerHeight:",homeLayout.scrollTop + window.innerHeight, "btnLoading_Top", btnLoading_Top);   
 	                // 判断是否滚动到底部  document.body.scrollTop + window.innerHeight >= document.body.offsetHeight
-	                if(homeLayout.scrollTop + window.innerHeight >= btnLoadmore_Top){
+	                if(homeLayout.scrollTop + window.innerHeight >= btnLoading_Top){
 	                	// console.log(sw);  
 	                    // 如果开关打开则加载数据  
 	                    if(sw==true){
 	                    	// 将开关关闭  
 	                        sw = false;
-	                        _this.$http.get('/api/getshot').then(response=>{
+	                       setTimeout(function(){
+	                       	_this.$http.get('/api/getshot').then(response=>{
 								// success callback
 								var newProductData = response.body.data.data.hotProduct;
 								newProductData.forEach(function(item, i){
@@ -295,13 +308,24 @@
 								console.log("_this.hotsData",_this.hotsData)
 								// 数据更新完毕，将开关打开  
 	                            sw = true;  
-						    },  response => {
-							    // error callback
-							    console.log('error')
-							});
+							    },  response => {
+								    // error callback
+								    console.log('error')
+								});
+	                       }, 2000)
 	                    }
 	                }
 	            }); 
+			},
+
+
+			//跳到商品详情
+			toCustomer(hot, index, e){
+				//console.log('hot:',hot,'hotid=',hot.products.id)
+				this.$router.push({ 
+					path: '/indexDetail/'+hot.products.id, 
+					params: { goodsId: hot.products.id }
+				});
 			},
 		}
 	}

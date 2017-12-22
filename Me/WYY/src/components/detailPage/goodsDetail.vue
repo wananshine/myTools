@@ -3,7 +3,7 @@
 		<div class="goods-inner w-inner">
 			<section>
 				<goodsBanner :banners-list="picUrls"></goodsBanner>
-				<goodsInfo 	 :product-info="product"></goodsInfo>
+				<goodsInfo 	 :product-info="product" v-if="product"></goodsInfo>
 				<goodsBigbanner :banners-list="picUrls"></goodsBigbanner>
 			</section>
 			<div class="btn-default">

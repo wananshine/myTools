@@ -7398,7 +7398,7 @@
                     "skus": null,
                     "discount": null,
                     "pickUp": false,
-                    "tags": [],
+                    "tags": ["限量发售"],
                     "display": 0,
                     "useVipPrice": false,
                     "coverUrl": "http://p4.music.126.net/7q0knLsX5tr3iTcfavpf_A==/18498183627738283.jpg",

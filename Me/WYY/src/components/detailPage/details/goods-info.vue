@@ -3,6 +3,7 @@
 		<div class="pt-basic">
 			<div class="pt-name">
 				<span class="tag" v-for="tag in productInfo.products.tags">{{tag}}</span>
+				<!-- <span class="tag">{{productInfo.products.coverIdStr}}</span> -->
 				{{ productInfo.name }}
 			</div>
 			<div></div>
@@ -45,6 +46,7 @@
 		beforeMount(){},
 		mounted(){
 			this.$nextTick(function(){
+				//this.
 			})
 		},
 		beforeUpdate(){},

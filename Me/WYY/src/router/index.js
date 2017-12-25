@@ -82,7 +82,56 @@ const routes = [
   }
 ]
 
+// 后退到原来位置  && 新页面scrollTop为零
+// const scrollBehavior: function (to, from, savedPosition) {
+//   return savedPosition || { x: 0, y: 0 }
+// }
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition
+  } else {
+    const position = {}
+    if (to.hash) {
+      position.selector = to.hash
+    }
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      position.x = 0
+      position.y = 0
+    }
+    return position
+  }
+}
+
+
 export default new Router({
   mode: "history",
-  routes
+  routes,
+  // 后退到原来位置  && 新页面scrollTop为零
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      console.log(savedPosition);
+      setTimeout(() => {
+           document.getElementById("hotView").scrollTo(savedPosition.x, savedPosition.y)
+      }, 3)
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
+  //   scrollBehavior(to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     // savedPosition is only available for popstate navigations.
+  //     return savedPosition
+  //   } else {
+  //     // new navigation.
+  //     // scroll to anchor
+  //     if (to.hash) {
+  //         return { anchor: true }
+  //     }
+  //     // explicitly control scroll position
+  //     // check if any matched route config has meta that requires scrolling to top
+  //     if (to.matched.some(m => m.meta.scrollToTop)) {
+  //       return { x: 0, y: 0 }
+  //     }
+  //   }
+  // }
 })

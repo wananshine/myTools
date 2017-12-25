@@ -52,7 +52,7 @@
             //设置viewport,进行缩放，达到高清效果
             document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
             var deviceWidth = document.documentElement.clientWidth;
-            if(deviceWidth > 750)  deviceWidth = 750;
+            // if(deviceWidth > 750)  deviceWidth = 750;
             document.documentElement.style.fontSize =  deviceWidth / 10 + 'px';
         }
         var _t = null;

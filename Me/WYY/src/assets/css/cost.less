@@ -83,6 +83,29 @@ body{
   flex: 1;
 }
 
+@borderline: bottom;
+.@{borderline}-line {
+    &:after{
+    content: '';
+    display: block;
+    .hid;
+    .poa;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    //width: @full;
+    //.height(1px);
+    z-index: 3;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: none;
+    border-@{borderline}: 1px solid rgba(0, 0, 0, 0.3);
+    transform: scale(0.5);
+    transform-origin: top left;
+  }
+}
+
 .bottomline{
   &:after{
     content: '';

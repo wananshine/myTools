@@ -65,7 +65,7 @@
 					right: 0;
 					z-index: 0;
 					img{
-						max-width: @full;
+						width: @full;
 					}
 				}
 				.cell-title{

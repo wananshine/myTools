@@ -28,7 +28,11 @@
 		name: "",
 		data(){
 			return{
-				product:{},
+				product:{
+					products:{
+						tags: []
+					}
+				},
 				picUrls: [], //把 banner从product中取出来
 			}
 		},

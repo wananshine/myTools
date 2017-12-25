@@ -23,7 +23,7 @@
 			    flex-basis: 100%;
 			    flex-shrink: 0;
 			    img{
-			    	max-width: 100%;
+			    	width: 100%;
 			    }
 			}
 		}

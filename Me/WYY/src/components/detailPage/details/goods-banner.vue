@@ -19,7 +19,7 @@
 			}
 			.banner-cell{
 				.flexitem;
-				flex-basis: auto;
+				flex-basis: 100%;
 				flex-shrink: 0;
 				img{
 					.block;

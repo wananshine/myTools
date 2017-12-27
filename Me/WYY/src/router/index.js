@@ -18,6 +18,13 @@ const indexDetail = resolve => require(['@/components/detailPage/indexDetail'], 
 const goodsDetail = resolve => require(['@/components/detailPage/goodsDetail'], resolve);
 
 
+//分类
+ import indexType from '@/components/typePage/indexType'
+ import goodsType from '@/components/typePage/goodsType'
+//const indexType = resolve => require(['@/components/typePage/indexType'], resolve);
+//const goodsType = resolve => require(['@/components/typePage/goodsType'], resolve);
+
+
 
 Vue.use(Router)
 
@@ -77,6 +84,23 @@ const routes = [
         path: 'goodsDetail',
         name: 'goodsDetail',
         component: goodsDetail
+      }
+    ]
+  },
+  {
+    path: '/indexType',
+    name: 'indexType',
+    component: indexType,
+    children: [
+      {
+        path: '/',
+        name: 'goodsType',
+        component: goodsType
+      },
+      {
+        path: 'goodsType',
+        name: 'goodsType',
+        component: goodsType
       }
     ]
   }

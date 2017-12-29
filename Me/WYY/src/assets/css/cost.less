@@ -23,6 +23,11 @@ body{
     @{name}: @px / @base3FontSize * 1rem;
 }
 
+/* 解决vue解析闪烁 */
+[v-cloak] {
+  display: none;
+}
+
 .w-inner{
   width: @width;
   margin:  0 auto;

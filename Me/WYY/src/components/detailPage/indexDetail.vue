@@ -5,6 +5,9 @@
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
+  .goodsdetail{
+    height: @full;
+  }
 	.search-product{
 		height: @full;
 	}

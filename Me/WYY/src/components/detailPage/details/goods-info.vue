@@ -26,9 +26,10 @@
 					<span>商家认证</span>
 				</dt>
 			</dl>
-			<div class="cnt-show" v-if="serverShow">
+			<div class="cnt-show" v-if="serverShow" v-cloak>
+				<div class="server-bg" @click="serverCustomer()"></div>
 				<div class="server-list">
-					<div class="serv-title">服务</div>
+					<div class="serv-title">服务<span class="btn-close" @click="serverCustomer()" >&#10005;</span></div>
 					<dl class="serv-dl" v-for="serv in moreServer">
 						<dt class="serv-dt">{{ serv.s_title }}</dt>
 						<dd class="serv-dd">{{ serv.s_txt   }}</dd>
@@ -40,7 +41,28 @@
 		<div class="pt-introduce">
 			<h5 class="pt-intr-title">商品介绍</h5>
 			<div class="pt-intr-img">
-				
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
 			</div>
 		</div>
 	</div>
@@ -169,8 +191,16 @@
 				height: @full;
 				background-color: rgba(0, 0, 0, 0.5);
 				z-index: 4;
+				.server-bg{
+					.poa;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					height: @full;
+				}
 				.server-list{
-					.pof;
+					.poa;
 					bottom: 0;
 					left: 0;
 					right: 0;
@@ -182,6 +212,10 @@
 					.px2rem(padding-top, 28);
 					.px2rem(padding-bottom, 28);
 					text-align: center;
+					.btn-close{
+						float: right;
+						.px2rem(margin-right, 28);
+					}
 				}
 				.serv-dl{
 					.px2rem(padding-left, 21);
@@ -190,11 +224,25 @@
 					.px2rem(margin-bottom, 26);
 					box-sizing: border-box;
 					.serv-dt{
+						.por;
+						.hid;
 						.px2rem(font-size, 30);
 						.px2rem(line-height, 48);
 						color: @333;
+						.padbox;
+						&:before{
+							content: "";
+							display: block;
+							.poa;
+							left: 0%;
+							top: 38%;
+							.px2rem(width, 7);
+							.px2rem(height, 7);
+							background-color: red;
+						}
 					}
 					.serv-dd{
+						.padbox;
 						.px2rem(font-size, 26);
 						.px2rem(line-height, 42);
 						color: @888;
@@ -225,7 +273,7 @@
 		name: "",
 		data(){
 			return{
-				serverShow: true,  //更多服务弹出框
+				serverShow: false,  //更多服务弹出框
 				moreServer: [
 					{ "s_title": "7天无理由退货", "s_txt": "该商品支持7天无理由退货，买家在商品签收日起7天内可在线发起退货申请" 	},
 					{ "s_title": "15天无忧换货" , "s_txt": "该商品支持15天无忧换货，买家在商品签收之日起15天内可在线发起换货申请" 	},
@@ -235,7 +283,12 @@
 				],//更多服务Data
 			}
 		},
-		props: ["productInfo"],
+
+		props: {
+			productInfo: {
+				type: Object
+			},
+		},
 		computed: {},
     	watch: {
 	        //监听路由
@@ -260,7 +313,7 @@
 		methods: {
 			serverCustomer(){
 				console.log(123)
-				this.serverShow = true;
+				this.serverShow = !this.serverShow;
 			},
 		}
 	}

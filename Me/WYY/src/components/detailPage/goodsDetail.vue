@@ -1,19 +1,52 @@
 <template>
 	<div class="goods-container">
 		<div class="goods-inner w-inner">
-			<section>
+			<section class="goods-content">
 				<goodsBanner :banners-list="picUrls"></goodsBanner>
 				<goodsInfo 	 :product-info="product" v-if="product"></goodsInfo>
 				<goodsBigbanner :banners-list="picUrls"></goodsBigbanner>
 			</section>
 			<div class="btn-default">
-				<button class="btn-nowbuy">立即购买</button>
+				<button class="btn-nowbuy" @click="nowbuyCustomer(product, $event)">立即购买</button>
 			</div>
 		</div>
 	</div>
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
+	.goods-container{
+		height: @full;
+	}
+	.goods-inner{
+		.por;
+		.hid;
+		.flexbox;
+		flex-direction: column;
+		height: @full;
+		.goods-content{
+			.flex1;
+			overflow-y: scroll;
+		}
+		.btn-default{
+			.all;
+			.px2rem(height, 95);
+			background-color: @fff;
+			.btn-nowbuy{
+				.block;
+				.px2rem(width, 600);
+				.px2rem(height, 75);
+				.px2rem(font-size, 35);
+				margin: auto;
+				.px2rem(margin-top, 10);
+				border-radius: 80px;
+				color: @fff;
+				background-color: red;
+				letter-spacing: 6px;
+			}
+		}
+	}
+	
+	
 </style>
 <script type="text/javascript">
 	import goodsBanner from './details/goods-banner'
@@ -78,6 +111,11 @@
 		methods: {
 			fetchGoodsId(){
 				console.log(this.$route.params.goodsId);
+			},
+
+			//立即购买
+			nowbuyCustomer(product, e){
+				console.log(product, e)
 			},
 		}
 	}

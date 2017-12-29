@@ -235,12 +235,12 @@
 				
 
 				//
-				this.$http.get('/api/goods').then(response=>{
-					//console.log('api2/goods',response)
-				})
-				.catch(err=>{
-					//console.log('err',err)
-				})
+				// this.$http.get('/api/goods').then(response=>{
+				// 	//console.log('api2/goods',response)
+				// })
+				// .catch(err=>{
+				// 	//console.log('err',err)
+				// })
 
 
 			});

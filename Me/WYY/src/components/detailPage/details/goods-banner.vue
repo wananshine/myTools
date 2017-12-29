@@ -1,7 +1,7 @@
 <template>
 	<div class="slider-banner">
 		<div class="banner-list">
-			<a class="banner-cell" v-for="banner in bannersList"><img :src="banner"></a>
+			<a class="banner-cell" @click="bigimgCustomer()" v-for="banner in bannersList"><img :src="banner"></a>
 		</div>
 	</div>
 </template>
@@ -60,7 +60,9 @@
 		beforeUpdate(){},
 		updated(){},
 		methods: {
-
+			bigimgCustomer(){
+				
+			},
 		}
 	}
 </script>

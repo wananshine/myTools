@@ -1,12 +1,14 @@
 <template>
 	<div class="info-bd">
+
+		<!-- 商品名称 && 价格 -->
 		<div class="pt-basic">
 			<div class="pt-name">
 				<span class="tag" v-for="tag in productInfo.products.tags">{{tag}}</span>
 				<!-- <span class="tag">{{productInfo.products.coverIdStr}}</span> -->
 				{{ productInfo.name }}
 			</div>
-			<div class="pt-description">
+			<div class="pt-description" v-if="productInfo.products.suggestWord">
 				<p class="sellpoint">{{productInfo.products.suggestWord}}</p>
 			</div>
 			<div class="pt-price">
@@ -14,7 +16,23 @@
 				<del class="old-price">¥{{productInfo.products.originalCost}}</del>
 			</div>
 		</div>
-		<div class="m-coupon"></div>
+		<!-- 商品优惠券 -->
+		<div class="pt-coupon">
+			<div class="coupon-bd">
+				<span class="coupon-side">
+					¥
+					<strong class="value">20</strong>
+					<small class="des">满99使用</small>
+				</span>
+				<div class="coupon-cont">
+					<p class="name">
+						<i class="tag">影音通用</i>新学期满减券
+					</p>
+					<small class="time">2018.02.24 - 2018.03.10</small>
+				</div>
+				<a class="get-coupon" href="">领券</a>
+			</div>
+		</div>
 		<!-- 服务&&条件 -->
 		<div class="m-condition">
 			<dl class="cnt-dl" @click="serverCustomer()">
@@ -24,6 +42,7 @@
 					<span>15天无忧换货</span>
 					<span>商家发货</span>
 					<span>商家认证</span>
+					<span>云音乐自营</span>
 				</dt>
 			</dl>
 			<div class="cnt-show" v-if="serverShow" v-cloak>
@@ -40,29 +59,16 @@
 		<!-- 商品介绍 -->
 		<div class="pt-introduce">
 			<h5 class="pt-intr-title">商品介绍</h5>
+			<div class="pt-intr-danger">正品低价 品质保证。</div>
 			<div class="pt-intr-img">
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
-				<p>1</p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
+				<p><img src="../../../assets/2018030514433059413.png" alt="商品介绍图片" title="商品介绍图片"></p>
 			</div>
 		</div>
 	</div>
@@ -75,10 +81,10 @@
 		.px2rem(padding-right, 16);
 	}
 	.info-bd{
-		
 		.pt-basic{
 			&:extend(.padbox);
 			.px2rem(padding-top, 20);
+			.px2rem(padding-bottom, 20);
 			background-color: @fff;
 			.pt-name{
 				.por;
@@ -125,7 +131,101 @@
 				}
 			}
 		}
-		.m-coupon{}
+		.pt-coupon{
+			.por;
+			&:extend(.padbox);
+			.px2rem(padding-bottom, 20);
+			overflow: hidden;
+			box-sizing: border-box;
+			background-color: @fff;
+			.coupon-bd{
+				.por;
+				.clearfix;
+				.borderArea;
+				.px2rem(height, 186);
+				box-sizing: border-box;
+				border: 1px solid @f3d0;
+				background-color: @fdf5;
+				.coupon-side{
+					.por;
+					.px2rem(padding, 40);
+					.px2rem(font-size, 36);
+					.px2rem(width, 200);
+					height: @full;
+					float: left;
+					box-sizing: border-box;
+					.iconCircle{
+						content: '';
+						display: block;
+						width: 20px;
+						height: 20px;
+						border-radius: 50px;
+						background-color: #fff;
+						.poa; right: -10px;
+					}
+					&:before{
+						.iconCircle;
+						bottom: -10px;					
+					}
+					&:after{
+						.iconCircle;
+						top: -10px;	
+					}
+					.value{
+						.px2rem(font-size, 58);
+					}
+					.des{
+						.block;
+						.px2rem(font-size, 28);
+						color: @999;
+					}
+				}
+				.coupon-cont{
+					.por;
+					.hid;
+					height: @full;
+					.px2rem(padding-top, 40);
+					.px2rem(padding-left, 20);
+					.px2rem(margin-left, 200);
+					color: @333;
+					box-sizing: border-box;
+					&:before{
+						content: '';
+						.poa; left: 0%; top: 50%;
+						.translate(@x: 0%);
+						display: block;
+						height: calc(@full - 35px);
+						width: 1px;
+						background-color: @d33a;
+					}
+					.name{
+						.px2rem(font-size, 26);
+						.px2rem(margin-bottom, 28);
+						.tag{
+							.px2rem(padding-top, 5);
+							.px2rem(padding-bottom, 5);
+							.px2rem(padding-left, 5);
+							.px2rem(padding-right, 5);
+							.px2rem(margin-right, 8);
+							.px2rem(font-size, 22);
+							border: 1px solid @ff00;
+							color: @ff00;
+						}
+					}
+					.time{
+						.block;
+						.px2rem(font-size, 28);
+						color: @999;
+					}
+				}
+				.get-coupon{
+					.poa;
+					bottom: 30px;
+					right: 30px;
+					.px2rem(font-size, 28);
+				}
+			}
+		}
 		.m-condition{
 			.por;
 			.hid;
@@ -208,13 +308,17 @@
 					.px2rem(padding-bottom, 28);
 				}
 				.serv-title{
+					.por;
+					.hid;
 					.px2rem(font-size, 33);
 					.px2rem(padding-top, 28);
 					.px2rem(padding-bottom, 28);
 					text-align: center;
 					.btn-close{
-						float: right;
-						.px2rem(margin-right, 28);
+						.poa; top: 50%; right: 18px;
+						.translate(@x: 0%);
+						// float: right;
+						// .px2rem(margin-right, 28);
 					}
 				}
 				.serv-dl{
@@ -262,6 +366,11 @@
 				.px2rem(margin-bottom, 32);
 				.px2rem(font-size, 32);
 				border-left: 3px solid red;
+			}
+			.pt-intr-danger{
+				color: @ff00;
+				.px2rem(font-size, 28);
+				.px2rem(margin-bottom, 32);
 			}
 			.pt-intr-img{}
 		}
@@ -314,6 +423,12 @@
 			serverCustomer(){
 				console.log(123)
 				this.serverShow = !this.serverShow;
+
+				//e.preventDefault=true; //阻止默认事件（原生方法）
+				//e.preventDefault(); //阻止默认事件（原生方法）
+				//e.stop; //阻止冒泡（原生方法）
+				//e.cancelBubble = true; //阻止冒泡（原生方法）
+				//e.stopPropagation();//阻止冒泡（原生方法）
 			},
 		}
 	}

@@ -18,6 +18,13 @@ const indexDetail = resolve => require(['@/components/detailPage/indexDetail'], 
 const goodsDetail = resolve => require(['@/components/detailPage/goodsDetail'], resolve);
 
 
+//购物车
+// import indexCart from '@/components/cartPage/indexCart'
+// import cartList from '@/components/cartPage/cartList'
+const indexCart = resolve => require(['@/components/cartPage/indexCart'], resolve);
+const cartList = resolve => require(['@/components/cartPage/cartList'], resolve);
+
+
 
 Vue.use(Router)
 
@@ -77,6 +84,23 @@ const routes = [
         path: 'goodsDetail',
         name: 'goodsDetail',
         component: goodsDetail
+      }
+    ]
+  },
+  {
+    path: '/indexCart',
+    name: 'indexCart',
+    component: indexCart,
+    children: [
+      {
+        path: '/',
+        name: 'cartList',
+        component: cartList
+      },
+      {
+        path: 'cartList',
+        name: 'cartList',
+        component: cartList
       }
     ]
   }

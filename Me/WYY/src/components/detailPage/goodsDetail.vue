@@ -115,6 +115,7 @@
 
 			//立即购买
 			nowbuyCustomer(product, e){
+				this.$router.replace({ path: '/indexCart' })
 				console.log(product, e)
 			},
 		}

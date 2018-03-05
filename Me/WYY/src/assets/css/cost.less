@@ -133,6 +133,22 @@ body{
   }
 }
 
+//边框
+.borderArea{
+  &:after{
+    content: "";
+    .poa; top: 0; left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+  }
+}
 
 //清除浮动
 .clearfix{
@@ -176,10 +192,13 @@ body{
 @999: #999;
 @fff: #fff;
 
+@ff00: #ff0000;
 @ff67: #ff6700;
 @00c3: #00c3f5;
-@ff00: #ff0036;
+@ff36: #ff0036;
 @d33a: #d33a31;
+@f3d0: #f3d0ce;
+@fdf5: #fdf5f4;
 
 @url:"../images/";
 

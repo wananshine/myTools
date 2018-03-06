@@ -1,98 +1,225 @@
 <template>
-	<div class="goods-container">
-		<div class="goods-inner w-inner">
-		    <!-- 商品排序 -->
-		    <nav class="goods-filter">
-		    	<a class="filter-bar filter-active">推荐</a>
-		    	<a class="filter-bar">销量</a>
-		    	<a class="filter-bar">新品</a>
-		    	<a class="filter-bar" @click="filter_price()">价格</a>
-		    </nav>
-			<!-- 商品类表 -->
-			<section class="goods-box clearfix">
-				<ul class="goods-list">
-					<li class="goods-cell" v-for="(product, index) in goodsData">
-						<a class="goods-mat" href="javascript:;">
-							<div class="goods-img"><img :src="product.productImage"></div>
-							<div class="goods-info">
-								<div class="goods-name">{{ product.productName }}</div>
-								<div class="goods-price">
-									<em class="goods-price-title" >
-										<b class="goods-price-icon">¥</b>
-										{{ product.salePrice }}
-									</em>
+	<div class="cart-container">
+		<div class="cart-inner w-inner">
+			<div class="cart-title">购物车</div>
+		    <div class="cart-bd">
+				<div class="cart-handle">
+					<span class="handle-selected">已选商品</span>
+					<span class="handle-editor" v-if="layout == 'achieve'" @click="handleeditor($event)">编辑</span>
+					<span class="handle-editor" v-if="layout == 'editor'" @click="handleachieve($event)">完成</span>
+				</div>
+				<ul class="cart-list">
+					<li class="cart-goods">
+						<div class="goods-check">
+							<label class="goods-selected"><input class="goods-checkbox" type="checkbox"></label>
+							<div class="goods-img"><img src="https://gw.alicdn.com/bao/uploaded/i1/1768983454/TB2AkJ3iVcJL1JjSZFOXXcWlXXa_!!1768983454.jpg_200x200q50s150.jpg_.webp" /></div>
+							<div class="goods-info" v-if="layout == 'achieve'" >
+								<div class="goods-row">
+									<span class="goods-name">漫步者（EDIFIER）W280BT 无线蓝牙入耳式运动耳机磁吸耳塞</span>
+									<span class="goods-price">¥119</span>
+								</div>
+								<div class="goods-row">
+									<span class="goods-attr">红色</span>
+									<p class="goods-number">
+										<i class="number-icon number-minus">-</i>
+										<i class="number-icon number-total" ><input class="total-input" type="tel" value='1' min="1" max="10"></i>
+										<i class="number-icon number-plus">+</i>
+									</p>
 								</div>
 							</div>
-							<div v-if="false" class="goods-status">
-								<span class="goods-disc"></span>
-								<span class="goods-attent">关注</span>
-								<span class="goods-addcart">加入购物车</span>
-								<span class="goods-remove" @click="goods_remove()">删除</span>
+							<div class="goods-info goods-editor" v-if="layout == 'editor'">
+								<div class="goods-row goods-change" @click="changeCustomer($event)">
+									已选择：红色
+								</div>
+								<div class="goods-row">
+									<span class="goods-price">¥119</span>
+									<p class="goods-number">
+										<i class="number-icon number-minus">-</i>
+										<i class="number-icon number-total" ><input class="total-input" type="tel" value='1' min="1" max="10"></i>
+										<i class="number-icon number-plus">+</i>
+									</p>
+								</div>
 							</div>
-						</a>
+						</div>
+						<div class="goods-mask">
+							<div class="goods-light">
+
+							</div>
+						</div>
 					</li>
 				</ul>
-			</section>
+			</div>
 		</div>
 		<div></div>
 	</div>
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
-	.goods-container{
-		.goods-inner{
-			.goods-filter{
-				.flexbox;
-				.filter-bar{
-					display: block;
-				    width: 1px;
-				    .px2rem(font-size, 28);
-				    .px2rem(line-height, 85);
-				    color: @333;
-				    text-align: center;
-				    .flex1;
-				}
+	.padd30{
+		.px2rem(padding-left, 30);
+		.px2rem(padding-right, 30);
+		box-sizing: border-box;
+	};
+	.cart-container{
+		.all;
+		.cart-inner{
+			.px2rem(font-size, 28);
+			.cart-title{
+				&:extend(.padd30);
+				.px2rem(font-size, 36);
+				.px2rem(line-height, 90);
+				.px2rem(margin-bottom, 20);
+				text-align: center;
+				background-color: @fff;
 			}
-			.goods-box{
-				.goods-list{
+			.cart-bd{
+				background-color: @fff;
+				.cart-handle{
 					.flexbox;
-					flex-wrap: wrap;
-					.goods-cell{
-						width: 50%;
-						.flexitem;
-						flex-shrink: 0;
-						flex-basis: auto;
-						background-color: #f0f2f5;
-						box-sizing: border-box;
-						padding: 2px 1px 0px 0px;
-						&:nth-child(2n) {
-						    padding: 2px 0px 0px 1px;
+					&:extend(.padd30);
+					.px2rem(line-height, 75);
+					background-color: aqua;
+					span{
+						.flex1;
+					}
+					.handle-selected{
+						
+					}
+					.handle-editor{
+						text-align: right;
+					}
+				}
+				.cart-list{
+					.all;
+					&:extend(.padd30);
+					.cart-goods{
+						.por;
+						.hid;
+						.goods-check{
+							.flexbox;
+							.px2rem(height, 260);
+							.px2rem(padding-top, 20);
+							.px2rem(padding-bottom, 20);
+							box-sizing: border-box;
+						}	
+						.goods-selected{
+							.por;
+							.flexitem;
+							flex-basis: auto;
+							flex-shrink: 0;
+							.px2rem(width, 62);
+							height: @full;
+							box-sizing: border-box;
+							.goods-checkbox{
+								.poa; top: 50%; left: 50%; 
+								.translate();
+								.px2rem(width, 45);
+								.px2rem(height, 45);
+							}
 						}
-						.goods-mat{
-							.block;
-							    padding: 0px 0px 8px 0px;
-    							background-color: @fff;
-							.goods-img{
+						.goods-img{
+							.por;
+							.hid;
+							.flexitem;
+							flex-shrink: 0;
+							flex-basis: auto;
+							.px2rem(width, 200);
+							height: @full;
+							img{
+								width: @full;
+								.poa; left: 50%; top: 50%;
+								.translate();
+								display: block;
+								margin: auto;
+							}
+						}
+						.goods-info{
+							.flex1;
+							.px2rem(padding-left, 20);
+							box-sizing: border-box;
+							height: @full;
+							.goods-row{
 								.por;
 								.hid;
-								width: @full;
-								img{
-									width: @full;
+								.flexbox;
+								.px2rem(margin-top, 10);
+								.px2rem(margin-bottom, 60);
+								.goods-name{
+									.por;
+									.hid;
+									.clamp2;
+									.flex1;
+									.px2rem(height, 80);
+									.px2rem(line-height, 40);
+								}
+								.goods-price{
+									//.ellipsis;
+									// .flexitem;
+									//  flex-basis: auto;
+									.px2rem(min-width, 80);
+									.px2rem(padding-left, 20);
+								}
+								.goods-attr{
+									.px2rem(width, 200);
+								}
+								.goods-number{
+									.por;
+									.hid;
+									.flexbox;
+									.flexitem;
+									.px2rem(min-width, 200);
+									.px2rem(max-width, 200);
+									.px2rem(margin-left, 0);
+									border: 1px solid @999;
+									box-sizing: border-box;
+									.number-icon{
+										.flex1;
+										.px2rem(height, 60);
+										.px2rem(line-height, 60);
+										.px2rem(font-size, 42);
+										text-align: center;
+										.total-input{
+											width: @full;
+											border: none;
+											outline: none;
+											text-align: center;
+											.px2rem(line-height, 60);
+											.px2rem(font-size, 36);
+										}
+									}
+									.number-minus,
+									.number-plus{
+										
+									}
+									.number-total{
+										border: 1px solid @999;
+										border-top: none;
+										border-bottom: none;
+									}
 								}
 							}
-							.goods-info{}
-							.goods-name{
-								.por;
-								.hid;
-								.px2rem(font-size, 28);
-								.px2rem(height, 65);
-								.px2rem(line-height, 32);
-								.clamp2;
-								color: #232326;
+						}
+						.goods-editor{
+							.goods-row{
+								.goods-price{
+									.ellipsis;
+									.flexitem;
+									 flex-basis: auto;
+									.px2rem(width, 160);
+								}
 							}
-							.goods-price{
-								color: #DD2727;
-								.px2rem(font-size, 38);
+						}
+						.goods-mask{
+							width: @full;
+							height: @full;
+							.pof; left: 0; top: 0; bottom: 0; right: 0;
+							background-color: rgba(0, 0, 0, 0.5);
+							.goods-light{
+								.por;
+								top: 50%;
+								left: 0; right: 0;
+								height: 50%;
+								background-color: @fff;
 							}
 						}
 					}
@@ -107,6 +234,7 @@
 		name: "",
 		data(){
 			return{
+				layout: 'achieve',
 				goodsData:[]
 			}
 		},
@@ -147,6 +275,18 @@
 	            //e.stop; //阻止冒泡（原生方法）
 	            //e.cancelBubble = true; //阻止冒泡（原生方法）
 	            e.stopPropagation();//阻止冒泡（原生方法）
+			},
+
+			handleeditor(e){
+				this.layout = 'editor';
+			},
+
+			handleachieve(e){
+				this.layout = 'achieve';
+			},
+
+			changeCustomer(e){
+
 			},
 		}
 	}

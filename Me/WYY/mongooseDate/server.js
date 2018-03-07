@@ -86,6 +86,7 @@ var floors = apiDate.floors;
 var albums = apiDate.albums;
 var albumProduct = apiDate.albumProduct;
 var getsHot = apiDate.getsHot;
+var shopingCart = apiDate.cart;
 var apiRoutes = express.Router();
 
 
@@ -122,6 +123,13 @@ apiRoutes.get('/albumProduct',function(req, res){
   })
 })
 
+//购物车列表
+apiRoutes.get('/shopingCart',function(req, res){
+  res.json({
+    errno:0,
+      data:shopingCart
+  })
+})
 
 //商品列表
 apiRoutes.get('/goodslist',function(req, res){
@@ -139,6 +147,7 @@ apiRoutes.get('/getshot',function(req, res){
       data:getsHot
   })
 })
+
 
 
 //拿到指定热门商品id的商品信息

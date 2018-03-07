@@ -4,7 +4,7 @@
 		<!-- 商品名称 && 价格 -->
 		<div class="pt-basic">
 			<div class="pt-name">
-				<span class="tag" v-for="tag in productInfo.products.tags">{{tag}}</span>
+				<span class="tag" v-for="(tag, index) in productInfo.products.tags" :key="index">{{tag}}</span>
 				<!-- <span class="tag">{{productInfo.products.coverIdStr}}</span> -->
 				{{ productInfo.name }}
 			</div>
@@ -49,7 +49,7 @@
 				<div class="server-bg" @click="serverCustomer()"></div>
 				<div class="server-list">
 					<div class="serv-title">服务<span class="btn-close" @click="serverCustomer()" >&#10005;</span></div>
-					<dl class="serv-dl" v-for="serv in moreServer">
+					<dl class="serv-dl" v-for="(serv, index) in moreServer" :key="index">
 						<dt class="serv-dt">{{ serv.s_title }}</dt>
 						<dd class="serv-dd">{{ serv.s_txt   }}</dd>
 					</dl>

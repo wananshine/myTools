@@ -4,7 +4,7 @@
 			<router-link class="nav-cell" to=""><i class="icon">123</i><p class="nav-cell-txt">首页</p></router-link>
 			<router-link class="nav-cell" to="">分类</router-link>
 			<router-link class="nav-cell" to="/indexList">发现</router-link>
-			<router-link class="nav-cell" to="">购物车</router-link>
+			<router-link class="nav-cell" to="/indexCart">购物车</router-link>
 			<router-link class="nav-cell" to="">我的</router-link>
 		</nav>
 	</div>

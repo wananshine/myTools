@@ -84,6 +84,19 @@ body{
   flex-basis: 1px;
   flex-shrink: 1;
 }
+
+.flexauto{
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 1;
+}
+
+.flex1auto{
+  flex-grow: 1;
+  flex-basis: auto;
+  flex-shrink: 1;
+}
+
 .flex1{
   flex: 1;
 }
@@ -141,6 +154,23 @@ body{
     width: 200%;
     height: 200%;
     pointer-events: none;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+  }
+}
+
+.border1px{
+  &:after{
+    content: "";
+    .poa; top: 0; left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    border: 1px solid @999;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transform: scale(0.5);

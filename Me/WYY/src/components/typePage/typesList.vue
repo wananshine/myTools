@@ -1,14 +1,14 @@
 <template>
-	<div class="goods-container">
-		<div class="goods-inner w-inner">
-		    <!-- 商品排序 -->
-		    <nav class="goods-filter">
+	<div class="type-container">
+		<div v-if="false" class="type-inner w-inner">
+		    <!-- 分类类别 -->
+		    <nav class="type-nav">
 		    	<a class="filter-bar filter-active">推荐</a>
 		    	<a class="filter-bar">销量</a>
 		    	<a class="filter-bar">新品</a>
 		    	<a class="filter-bar" @click="filter_price()">价格</a>
 		    </nav>
-			<!-- 商品类表 -->
+			<!-- 分类楼层 -->
 			<section class="goods-box clearfix">
 				<ul class="goods-list">
 					<li class="goods-cell" v-for="(product, index) in goodsData" :key="index">
@@ -34,13 +34,37 @@
 				</ul>
 			</section>
 		</div>
-		<div></div>
+		<div class="type-inner w-inner">
+			<div class="type-box">
+				<dl class="type-floor">
+					<dt>12312</dt>
+					<dd>
+						<figure>
+							<figcaption><img src="http://p1.music.126.net/7J6I34rJRFU2sgq5oD5uog==/19226060323643991.jpg" /></figcaption>
+							<p>印象印象</p>
+						</figure>
+						<figure>
+							<figcaption><img src="http://p1.music.126.net/7J6I34rJRFU2sgq5oD5uog==/19226060323643991.jpg" /></figcaption>
+							<p>印象印象</p>
+						</figure>
+						<figure>
+							<figcaption><img src="http://p1.music.126.net/7J6I34rJRFU2sgq5oD5uog==/19226060323643991.jpg" /></figcaption>
+							<p>印象印象</p>
+						</figure>
+						<figure>
+							<figcaption><img src="http://p1.music.126.net/7J6I34rJRFU2sgq5oD5uog==/19226060323643991.jpg" /></figcaption>
+							<p>印象印象</p>
+						</figure>
+					</dd>
+				</dl>
+			</div>
+		</div>
 	</div>
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
-	.goods-container{
-		.goods-inner{
+	.type-container{
+		.type-inner{
 			.goods-filter{
 				.flexbox;
 				.filter-bar{

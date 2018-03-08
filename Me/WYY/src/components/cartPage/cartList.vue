@@ -1,55 +1,57 @@
 <template>
 	<div class="cart-container">
 		<div class="cart-inner w-inner">
-			<div class="cart-title">购物车</div>
+			<!-- <div class="cart-title">购物车</div> -->
 		    <div class="cart-bd">
 				<div class="cart-handle">
-					<span class="handle-selected">已选商品</span>
+					<span class="handle-selected">{{allChecked}}已选商品</span>
 					<span class="handle-editor" v-if="layout == 'achieve'" @click="handleeditor($event)">编辑</span>
 					<span class="handle-editor" v-if="layout == 'editor'" @click="handleachieve($event)">完成</span>
 				</div>
 				<ul class="cart-list">
 					<li class="cart-goods" v-for="(product, index) in cartData" :key="index">
 						<div class="goods-check">
-							<label class="goods-selected"><input class="goods-checkbox" type="checkbox"></label>
+							<label class="goods-selected"><input class="goods-checkbox" type="checkbox" :data-money="(product.signleMoney)*(product.num)"  @change="singnleCustomer($event)"></label>
 							<div class="goods-img"><img :src="product.goodSkuData.skuPicUrl" /></div>
 							<div class="goods-info" v-if="layout == 'achieve'" >
 								<div class="goods-row">
 									<span class="goods-name">{{product.productName}}</span>
-									<span class="goods-price">¥{{product.addMoney}}</span>
+									<span class="goods-price">¥{{product.signleMoney}}</span>
 								</div>
 								<div class="goods-row">
 									<span class="goods-attr">
 										<i v-for="(attr, attrNo) in product.goodSkuData.attrs" :key="attrNo">{{attr.attrValue}}</i>
 									</span>
 									<p class="goods-number">
-										<i class="number-icon number-minus" @click="minusCustomer($event)">-</i>
+										<i class="number-icon number-minus" @click="minusCustomer(product,$event)">-</i>
 										<i class="number-icon number-total" >
-											<input class="total-input" type="tel" v-model="numberTotal" min="1" max="10">
+											<input class="total-input" type="tel" v-model="product.num" min="1" max="10">
 										</i>
-										<i class="number-icon number-plus" @click="plusCustomer($event)">+</i>
+										<i class="number-icon number-plus" @click="plusCustomer(product,$event)">+</i>
 									</p>
 								</div>
 							</div>
 
 							<div class="goods-info goods-editor" v-if="layout == 'editor'">
-								<div class="goods-row goods-change" @click="changeCustomer($event)">
-									已选择：<i v-for="(attr, attrNo) in product.goodSkuData.attrs" :key="attrNo">{{attr.attrValue}}</i>
+								<div class="goods-row goods-change" @click="changeCustomer(product,$event)">
+									已选择：
+									<i v-if="product.goodSkuData.attrs != ''" v-for="(attr, attrNo) in product.goodSkuData.attrs" :key="attrNo">{{attr.attrValue}}</i>
+									<i else>默认</i>
 								</div>
 								<div class="goods-row">
-									<span class="goods-price">¥{{product.addMoney}}</span>
+									<span class="goods-price">¥{{product.signleMoney}}</span>
 									<p class="goods-number">
-										<i class="number-icon number-minus" @click="minusCustomer($event)">-</i>
+										<i class="number-icon number-minus" @click="minusCustomer(product,$event)">-</i>
 										<i class="number-icon number-total" >
-											<input class="total-input" type="tel" v-model="numberTotal" min="1" max="10">
+											<input class="total-input" type="tel" v-model="product.num" min="1" max="10">
 										</i>
-										<i class="number-icon number-plus" @click="plusCustomer($event)">+</i>
+										<i class="number-icon number-plus" @click="plusCustomer(product,$event)">+</i>
 									</p>
 								</div>
 							</div>
 						</div>
 
-						<div class="goods-mask" v-if="masklayer" @click="maskCustomer($event)">
+						<div class="goods-mask" v-if="masklayer === product.goodSkuData.skuId" @click="maskCustomer($event)">
 							<div class="goods-light" @click="lightCustomer($event)">
 								<div class="light-top">
 									<span class="top-img"><img :src="product.goodSkuData.picUrl" /></span>
@@ -61,7 +63,7 @@
 								</div>
 								<div class="light-middle">
 									<div class="middle-bd">
-										<dl class="middle-type">
+										<dl v-if="true" class="middle-type">
 											<dt class="type-title">颜色</dt>
 											<dd class="type-options">
 												<span class="options" @click="colorCustomer($event)" color-value='black'>黑色</span>
@@ -84,11 +86,11 @@
 									<dl class="middle-type">
 										<dt class="type-title">数量</dt>
 										<dd class="goods-number">
-											<i class="number-icon number-minus" @click="minusCustomer($event)">-</i>
+											<i class="number-icon number-minus" @click="minusCustomer(product,$event)">-</i>
 											<i class="number-icon number-total" >
-												<input class="total-input" type="tel" v-model="numberTotal" min="1" max="10">
+												<input class="total-input" type="tel" v-model="product.num" min="1" max="10">
 											</i>
-											<i class="number-icon number-plus" @click="plusCustomer($event)">+</i>
+											<i class="number-icon number-plus" @click="plusCustomer(product,$event)">+</i>
 										</dd>
 									</dl>
 								</div>
@@ -114,6 +116,19 @@
 	};
 	.cart-container{
 		.all;
+		overflow-y: auto;
+		.flex1;
+		&::-webkit-scrollbar {
+		width: 0px;  //设置滚动条宽度
+		}
+		&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		border-radius: 10px;
+		}
+		&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+		}
 		.cart-inner{
 			.px2rem(font-size, 28);
 			.cart-title{
@@ -130,7 +145,7 @@
 					.flexbox;
 					&:extend(.padd30);
 					.px2rem(line-height, 75);
-					background-color: aqua;
+					background-color: @fff;
 					span{
 						.flex1;
 					}
@@ -148,11 +163,12 @@
 						.por;
 						.hid;
 						.goods-check{
+							.por;
 							.flexbox;
 							.px2rem(height, 220);
-							.px2rem(padding-top, 20);
-							.px2rem(padding-bottom, 20);
+							
 							box-sizing: border-box;
+							z-index: 2;
 						}	
 						.goods-selected{
 							.por;
@@ -187,13 +203,16 @@
 							}
 						}
 						.goods-info{
+							.por;
 							.flex1;
 							.px2rem(padding-left, 20);
+							.px2rem(padding-top, 20);
+							.px2rem(padding-bottom, 20);
 							box-sizing: border-box;
 							height: @full;
 							.bottomline;
 							&:after{
-								border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+								border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 							}
 							.goods-row{
 								.por;
@@ -226,12 +245,13 @@
 									.flexbox;
 									.flexitem;
 									.border1px;
-									.px2rem(min-width, 180);
-									.px2rem(max-width, 180);
-									.px2rem(height, 50);
-									.px2rem(line-height, 50);
+									.px2rem(min-width, 170);
+									.px2rem(max-width, 170);
+									.px2rem(height, 52);
+									.px2rem(line-height, 52);
 									.px2rem(margin-left, 0);
 									.px2rem(font-size, 38);
+									border-radius: 3px;
 									box-sizing: border-box;
 									text-align: center;
 									color: @999;
@@ -255,8 +275,8 @@
 											border: none;
 											outline: none;
 											text-align: center;
-											.px2rem(line-height, 50);
-											.px2rem(font-size, 30);
+											.px2rem(line-height, 52);
+											.px2rem(font-size, 26);
 										}
 									}
 								}
@@ -285,6 +305,7 @@
 							width: @full;
 							height: @full;
 							.pof; left: 0; top: 0; bottom: 0; right: 0;
+							z-index: 3;
 							background-color: rgba(0, 0, 0, 0.5);
 							.goods-light{
 								.poa; bottom: 0; left: 0; right: 0;
@@ -303,7 +324,9 @@
 									.top-img{
 										.por;
 										.px2rem(width, 200);
+										.px2rem(height, 200);
 										img{
+											.all;
 											.poa; left: 50%; top: 50%;
 											.translate();
 										}
@@ -427,15 +450,17 @@
 	export default{
 		components: {},
 		name: "",
+		props: ["allChecked"],
 		data(){
 			return{
 				layout: 'achieve',
-				masklayer: false,
-				numberTotal: 10,
-				cartData:[]
+				masklayer: '',
+				numberTotal: 10,   //商品数量
+				cartData:[],
 			}
 		},
-		computed: {},
+		computed: {
+		},
     	watch: {
 	        //监听数组
 	        goodsData: {
@@ -443,7 +468,19 @@
 	                // console.log(newVal.length)
 	            },
 	            deep: true
-	        },
+			},
+
+			//全选
+			allChecked: {
+				handler: function (allChecked) {
+					const $goodsCheckbox = document.getElementsByClassName("cart-list")[0].querySelectorAll("input.goods-checkbox");
+					for(var i=0; i<$goodsCheckbox.length; i++){
+							$goodsCheckbox[i].checked = allChecked;
+					}
+	            },
+	            deep: true
+			},
+
 		},
 		beforeCreate(){},
 		created(){
@@ -461,9 +498,12 @@
 			});
 		},
 		beforeMount(){},
-		mounted(){},
+		mounted(){
+		},
 		beforeUpdate(){},
-		updated(){},
+		updated(){
+			//console.log('this.allChecked',this.allChecked)
+		},
 		methods: {
 			toCustomer(){
 				//e.preventDefault=true; //阻止默认事件（原生方法）
@@ -484,13 +524,13 @@
 			},
 
 			//打开商品弹出框
-			changeCustomer(e){
+			changeCustomer(product,e){
 				//e.preventDefault=true; //阻止默认事件（原生方法）
 	            //e.preventDefault(); //阻止默认事件（原生方法）
 	            //e.stop; //阻止冒泡（原生方法）
 	            //e.cancelBubble = true; //阻止冒泡（原生方法）
 	            e.stopPropagation();//阻止冒泡（原生方法）
-				this.masklayer = true;
+				this.masklayer = product.goodSkuData.skuId;
 			},
 
 			//关闭商品弹出框
@@ -500,7 +540,7 @@
 	            //e.stop; //阻止冒泡（原生方法）
 	            //e.cancelBubble = true; //阻止冒泡（原生方法）
 	            e.stopPropagation();//阻止冒泡（原生方法）
-				this.masklayer = false;
+				this.masklayer = '';
 			},
 
 			//阻止关闭弹出框
@@ -519,23 +559,41 @@
 			},
 
 			//减少数量
-			minusCustomer(e){
+			minusCustomer(product,e){
 				const _self = this;
-				if(_self.numberTotal>1){
-					_self.numberTotal--
+				if(product.num>1){
+					product.num--;
+					console.log(product)
 				}else{
 					e.stop;
 				}
 			},
 
 			//增加数量
-			plusCustomer(e){
+			plusCustomer(product,e){
 				const _self = this;
-				if(_self.numberTotal>9){
+				if(product.num>9){
 					e.stop;
 				}else{
-					_self.numberTotal++
+					product.num++
+					console.log(product)
 				}
+			},
+
+			//单选
+			singnleCustomer(e){
+				
+				let totalPrice = 0;
+				const $goodsCheckbox = document.getElementsByClassName("cart-list")[0].querySelectorAll("input.goods-checkbox");
+				console.log($goodsCheckbox);
+				for(var i=0; i<$goodsCheckbox.length; i++){
+					if($goodsCheckbox[i].checked===true){
+						totalPrice = totalPrice + parseInt($goodsCheckbox[i].getAttribute("data-money"));
+					}
+				}
+				// this.totalMoney=totalPrice;
+				this.$emit('oneCustomer', totalPrice, e);
+				//const $isTrue = e.currentTarget.checked;
 			},
 		}
 	}

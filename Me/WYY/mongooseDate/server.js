@@ -87,6 +87,8 @@ var albums = apiDate.albums;
 var albumProduct = apiDate.albumProduct;
 var getsHot = apiDate.getsHot;
 var shopingCart = apiDate.cart;
+var typesList = apiDate.typesList;
+var category_v2 = apiDate.category_v2;
 var apiRoutes = express.Router();
 
 
@@ -120,6 +122,22 @@ apiRoutes.get('/albumProduct',function(req, res){
   res.json({
       errno:0,
       data:albumProduct
+  })
+})
+
+//分类列表（网易云商城数据）
+apiRoutes.get('/typesList',function(req, res){
+  res.json({
+    errno: 0,
+    data:typesList
+  })
+})
+
+//分类列表(小米的数据)
+apiRoutes.get('/category_v2', function(req, res){
+  res.json({
+    errno: 0,
+    data: category_v2
   })
 })
 

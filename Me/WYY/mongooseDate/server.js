@@ -89,6 +89,7 @@ var getsHot = apiDate.getsHot;
 var shopingCart = apiDate.cart;
 var typesList = apiDate.typesList;
 var category_v2 = apiDate.category_v2;
+var toPay = apiDate.toPay;
 var apiRoutes = express.Router();
 
 
@@ -196,6 +197,14 @@ apiRoutes.get('/:goods_id', function (req, res) {
 	})
    res.end( JSON.stringify(user));
 })
+
+//待支付
+apiRoutes.get('/toPay', function(req, res){
+  res.json({
+    errno: 0,
+    data: toPay
+  })
+});
 
 app.use('/api',apiRoutes);
 

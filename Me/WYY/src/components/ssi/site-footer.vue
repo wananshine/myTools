@@ -5,7 +5,7 @@
 			<router-link class="nav-cell" to="/indexTypes">分类</router-link>
 			<router-link class="nav-cell" to="/indexList">发现</router-link>
 			<router-link class="nav-cell" to="/indexCart">购物车</router-link>
-			<router-link class="nav-cell" to="">我的</router-link>
+			<router-link class="nav-cell" to="/indexUser">我的</router-link>
 		</nav>
 	</div>
 </template>

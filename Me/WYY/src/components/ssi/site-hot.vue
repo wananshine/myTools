@@ -2,11 +2,11 @@
 	<article class="hot-view" id="hotView">
 		<div class="hot-title">热门商品</div>
 		<div class="hot-list">
-			<a class="hot-cell" v-for="(hot, index) in hotsData.hotProduct" @click="toCustomer(hot, index, $event)">
+			<a class="hot-cell" v-for="(hot, index) in hotsData.hotProduct" @click="toCustomer(hot, index, $event)" :key="index">
 				<dl class="hot-dl">
 					<dt class="hot-dt"><img :src="hot.products.coverUrl"></dt>
 					<dd class="hot-dd">
-						<div class="hot-name"><i class="specialPrice" v-for="tag in hot.products.tags">{{ tag }}</i>{{ hot.name }}</div>
+						<div class="hot-name"><i class="specialPrice" v-for="(tag, tagNo) in hot.products.tags" :key="tagNo">{{ tag }}</i>{{ hot.name }}</div>
 						<div class="hot-price"><i class="moneysSymbol">¥</i>{{ hot.products.maxPrice }}</div>
 					</dd>
 				</dl>

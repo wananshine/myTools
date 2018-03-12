@@ -1,6 +1,6 @@
 <template>
   <div class="userCenter">
-    <router-view></router-view>
+    <router-view :ordersData="ordersData" :orderDetail="orderDetail" v-on:see-customer = "seeCustomer"></router-view>
   </div>
 </template>
 <style lang="less" scoped="scoped">
@@ -18,7 +18,9 @@
       return {
         totalMoney: 0,
         allChecked: false,
-        msg: ''
+        msg: '',
+        ordersData: [],
+        orderDetail: {},
       }
     },
     computed: {
@@ -27,6 +29,14 @@
     beforeCreate(){},
 		created(){
 			this.$nextTick(function(){
+				//http://music.163.com/store/api/product/ipbanner?type=1
+				this.$http.get('/api/topay').then(response=>{
+					this.ordersData = response.body.data.orders;
+					console.log('api2/toPay',response.body.data.orders)
+				})
+				.catch(err=>{
+					console.log('err',err)
+				})
 			});
 		},
 		beforeMount(){},
@@ -38,6 +48,10 @@
         // this.$on('totalPrice', function(){
 	      //       console.log('totalPrice2',totalPrice)
         // })
+      },
+      seeCustomer(order, e){
+        this.orderDetail = order;
+        console.log(123,order,e);
       },
     }
   }

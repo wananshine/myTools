@@ -179,7 +179,7 @@
 				// this.$
 				//console.log('hot:',hot,'hotid=',hot.products.id)
 				this.$router.push({ 
-					path: '../indexUser/orderList', 
+					path: '../indexUser/indexOrder', 
 					// params: { goodsId: hot.products.id }
 				});
 			},

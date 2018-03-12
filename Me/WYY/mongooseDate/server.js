@@ -163,7 +163,16 @@ apiRoutes.get('/goodslist',function(req, res){
 apiRoutes.get('/getshot',function(req, res){
   res.json({
     errno:0,
-      data:getsHot
+    data:getsHot
+  })
+})
+
+
+//待支付
+apiRoutes.get('/topay', function(req, res){
+  res.json({
+    errno: 0,
+    data: toPay
   })
 })
 
@@ -198,13 +207,7 @@ apiRoutes.get('/:goods_id', function (req, res) {
    res.end( JSON.stringify(user));
 })
 
-//待支付
-apiRoutes.get('/toPay', function(req, res){
-  res.json({
-    errno: 0,
-    data: toPay
-  })
-});
+
 
 app.use('/api',apiRoutes);
 

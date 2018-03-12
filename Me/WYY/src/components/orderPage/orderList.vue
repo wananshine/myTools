@@ -9,32 +9,34 @@
 			</nav>
 			<section class="order-content">
 				<ul class="order-list">
-					<li class="order-item">
+					<li class="order-item" v-for="(order, index) in ordersData" :key="index" @click="seeCustomer(order, $event)">
 						<div class="order-top">
-							<span class="order-time">2018-03-10</span>
+							<span class="order-time">{{order.currentTime}}</span>
 							<span class="order-status">待支付</span>
 						</div>
-						<div class="order-pt">
-							<dl>
-								<dt><img src="http://p3.music.126.net/JJLyyhFTiIBmBJNJEky0bw==/109951162995532089.webp?imageView&thumbnail=132x0&quality=75&tostatic=0&type=webp"/></dt>
-								<dd>
-									<div>
-										<p>漫步者（EDIFIER）W280BT 无线蓝牙入耳式运动耳机磁吸耳塞</p>
-										<small>红色</small>
+						<div class="order-middle">
+							<dl class="pt-cell" v-for="(goods, goodsNO) in order.orderGoodInfos" :key="goodsNO">
+								<dt class="pt-img"><img :src="goods.goodSimpleInfo.coverImgUrl"/></dt>
+								<dd class="pt-info">
+									<div class="pt-left">
+										<p class="pt-name">{{goods.goodSimpleInfo.name}}</p>
+										<small class="pt-attr">
+											<i v-for="(attr ,attrNO) in goods.goodSimpleInfo.attrs" :key="attrNO">{{attr.attrValue}}</i>
+										</small>
 									</div>
-									<div>
-										<p>44564</p>
-										<small>x1</small>
+									<div class="pt-right">
+										<p class="pt-price">¥{{goods.singleAmount}}</p>
+										<small class="pt-num">x{{goods.num}}</small>
 									</div>
 								</dd>
 							</dl>
 						</div>
 						<div class="order-btm">
-							<p>共2件 总计：298</p>
+							<p class="pt-total">共{{order.extJsonInfo.quantity}}件 总计:¥{{order.extJsonInfo.refundRMB}}</p>
 						</div>
 						<div class="order-btn">
-							<button>查看详情</button>
-							<button>立即支付</button>
+							<button class="btn-default" @click="seeCustomer(order, $event)">查看详情</button>
+							<button class="btn-default" @click="gopayCustomer(order, $event)">立即支付</button>
 						</div>
 					</li>
 				</ul>
@@ -77,6 +79,114 @@
 					text-align: center;
 				}
 			}
+			.order-content{
+				.all;
+				.order-list{
+					.all;
+					.order-item{
+						&:extend(.padd30);
+						.px2rem(margin-top, 20);
+						background-color: @fff;
+						.order-top{
+							.por;
+							.flexbox;
+							.bottomline;
+							.px2rem(font-size, 32);
+							.px2rem(line-height, 75);
+							&:after{
+								border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+							}
+							span{
+								.flex1;
+							}
+							.order-time{
+								
+							}
+							.order-status{
+								text-align: right;
+								color: @ff00;
+							}
+						}
+						.order-middle{
+							.por;
+							.bottomline;
+							&:after{
+								border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+							}
+							.pt-cell{
+								.flexbox;
+								.px2rem(padding-top, 20);
+								.px2rem(padding-bottom, 20);
+								.pt-img{
+									.px2rem(width, 142);
+									.px2rem(height, 142);
+									img{
+										.all;
+										display: block;
+										margin: auto;
+									}
+								}
+								.pt-info{
+									.flex1;
+									.flexbox;
+									.pt-left{
+										.pt-name{
+											.por;
+											.hid;
+											.clamp2;
+											.px2rem(font-size, 30);
+											.px2rem(line-height, 36);
+										}
+										.pt-attr{
+											.block;
+											.px2rem(font-size, 24);
+											.px2rem(margin-top, 10);
+											color: @888;
+										}
+									}
+									.pt-right{
+										.px2rem(margin-left, 20);
+										.px2rem(margin-right, 20);
+										.pt-price{
+											.px2rem(font-size, 28);
+										}
+										.pt-num{
+											.block;
+											.px2rem(font-size, 24);
+											.px2rem(margin-top, 10);
+											color: @888;
+											text-align: right;
+										}
+									}
+								}
+							}
+						}
+						.order-btm{
+							.px2rem(font-size, 32);
+							.pt-total{
+								.px2rem(line-height, 85);
+								text-align: right;
+							}
+						}
+						.order-btn{
+							.por;
+							.hid;
+							.px2rem(padding-bottom, 35);
+							text-align: right;
+							.btn-default{
+								.px2rem(width, 150);
+								.px2rem(height, 50);
+								.px2rem(font-size, 26);
+								color: @333;
+								border: 1px solid @999;
+								background-color: transparent;
+								outline: none;
+								border-radius: 5px;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 </style>
@@ -84,13 +194,10 @@
 	export default{
 		components: {},
 		name: "",
-		props: ["allChecked"],
+		props: ["ordersData"],
 		data(){
 			return{
-				layout: 'achieve',
-				masklayer: '',
-				numberTotal: 10,   //商品数量
-				cartData:[],
+				//ordersData: [],  //The data property "ordersData" is already declared as a prop. Use prop default value instead.
 			}
 		},
 		computed: {
@@ -118,18 +225,16 @@
 		},
 		beforeCreate(){},
 		created(){
-			this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/shopingCart').then(response=>{
-					this.cartData = response.body.data.result.itemDatas;
-					console.log('api2/goods',response.body.data.result)
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
-
-
-			});
+			// this.$nextTick(function(){
+			// 	//http://music.163.com/store/api/product/ipbanner?type=1
+			// 	this.$http.get('/api/topay').then(response=>{
+			// 		this.ordersData = response.body.data.orders;
+			// 		console.log('api2/toPay',response.body.data.orders)
+			// 	})
+			// 	.catch(err=>{
+			// 		console.log('err',err)
+			// 	})
+			// });
 		},
 		beforeMount(){},
 		mounted(){
@@ -145,89 +250,19 @@
 	            //e.stop; //阻止冒泡（原生方法）
 	            //e.cancelBubble = true; //阻止冒泡（原生方法）
 	            e.stopPropagation();//阻止冒泡（原生方法）
-			},
+			}, 
 
-			//编辑商品
-			handleeditor(e){
-				this.layout = 'editor';
-			},
-
-			//编辑完成
-			handleachieve(e){
-				this.layout = 'achieve';
-			},
-
-			//打开商品弹出框
-			changeCustomer(product,e){
-				//e.preventDefault=true; //阻止默认事件（原生方法）
-	            //e.preventDefault(); //阻止默认事件（原生方法）
-	            //e.stop; //阻止冒泡（原生方法）
-	            //e.cancelBubble = true; //阻止冒泡（原生方法）
-	            e.stopPropagation();//阻止冒泡（原生方法）
-				this.masklayer = product.goodSkuData.skuId;
-			},
-
-			//关闭商品弹出框
-			maskCustomer(e){
-				//e.preventDefault=true; //阻止默认事件（原生方法）
-	            //e.preventDefault(); //阻止默认事件（原生方法）
-	            //e.stop; //阻止冒泡（原生方法）
-	            //e.cancelBubble = true; //阻止冒泡（原生方法）
-	            e.stopPropagation();//阻止冒泡（原生方法）
-				this.masklayer = '';
-			},
-
-			//阻止关闭弹出框
-			lightCustomer(e){
-				//e.preventDefault=true; //阻止默认事件（原生方法）
-	            //e.preventDefault(); //阻止默认事件（原生方法）
-	            //e.stop; //阻止冒泡（原生方法）
-	            //e.cancelBubble = true; //阻止冒泡（原生方法）
-	            e.stopPropagation();//阻止冒泡（原生方法）
-			},
-
-			//商品颜色选择
-			colorCustomer(e){
-				console.log(123);
-				console.log(e.currentTarget.getAttribute('color-value'))
-			},
-
-			//减少数量
-			minusCustomer(product,e){
-				const _self = this;
-				if(product.num>1){
-					product.num--;
-					console.log(product)
-				}else{
-					e.stop;
-				}
-			},
-
-			//增加数量
-			plusCustomer(product,e){
-				const _self = this;
-				if(product.num>9){
-					e.stop;
-				}else{
-					product.num++
-					console.log(product)
-				}
-			},
-
-			//单选
-			singnleCustomer(e){
-				
-				let totalPrice = 0;
-				const $goodsCheckbox = document.getElementsByClassName("cart-list")[0].querySelectorAll("input.goods-checkbox");
-				console.log($goodsCheckbox);
-				for(var i=0; i<$goodsCheckbox.length; i++){
-					if($goodsCheckbox[i].checked===true){
-						totalPrice = totalPrice + parseInt($goodsCheckbox[i].getAttribute("data-money"));
-					}
-				}
-				// this.totalMoney=totalPrice;
-				this.$emit('oneCustomer', totalPrice, e);
-				//const $isTrue = e.currentTarget.checked;
+			//查看详情
+			seeCustomer(order, e){
+				this.orderDetail = order;
+				this.$emit('see-customer', order, e);
+				e.stopPropagation();//阻止冒泡（原生方法）
+				this.$router.push({
+					name: 'orderDetail',
+					params: { orderID: order.id }
+				});
+				//this.$router.push({name:'B',params:{name:'xy',age:22}});
+            	//this.$router.push({name:'B',query:{name:'xy',age:22}});
 			},
 		}
 	}

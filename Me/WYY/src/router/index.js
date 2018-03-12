@@ -26,10 +26,25 @@ const cartList = resolve => require(['@/components/cartPage/cartList'], resolve)
 
 
 //分类
-// import indexCart from '@/components/cartPage/indexCart'
-// import cartList from '@/components/cartPage/cartList'
+// import indexTypes from '@/components/typePage/indexTypes'
+// import typesList from '@/components/typePage/typesList'
 const indexTypes = resolve => require(['@/components/typePage/indexTypes'], resolve);
 const typesList = resolve => require(['@/components/typePage/typesList'], resolve);
+
+//个人中心
+// import indexUser from '@/components/userPage/indexUser'
+// import userInfo from '@/components/userPage/userInfo'
+const indexUser = resolve => require(['@/components/userPage/indexUser'], resolve);
+const userInfo = resolve => require(['@/components/userPage/userInfo'], resolve);
+
+//订单列表
+// import indexOrder from '@/components/orderPage/indexOrder'
+// import orderList from '@/components/orderPage/orderList'
+// import orderDetail from '@/components/orderPage/orderDetail'
+const indexOrder = resolve => require(['@/components/orderPage/indexOrder'], resolve);
+const orderList = resolve => require(['@/components/orderPage/orderList'], resolve);
+const orderDetail = resolve => require(['@/components/orderPage/orderDetail'], resolve);
+
 
 
 
@@ -127,7 +142,46 @@ const routes = [
         component: typesList
       }
     ]
-  }
+  },
+  {
+    path: '/indexUser',
+    name: 'indexUser',
+    component: indexUser,
+    children: [
+      {
+        path: '/',
+        name: 'userInfo',
+        component: userInfo
+      },
+      {
+        path: 'userInfo',
+        name: 'userInfo',
+        component: userInfo
+      },
+      {
+        path: 'indexOrder',
+        name: 'indexOrder',
+        component: indexOrder,
+        children: [
+          {
+            path: '/',
+            name: 'orderList',
+            component: orderList
+          },
+          {
+            path: 'orderList',
+            name: 'orderList',
+            component: orderList
+          },
+          {
+            path: 'orderDetail/:orderID',
+            name: 'orderDetail',
+            component: orderDetail
+          }
+        ]
+      }
+    ]
+  },
 ]
 
 // 后退到原来位置  && 新页面scrollTop为零

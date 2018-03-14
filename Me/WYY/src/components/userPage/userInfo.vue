@@ -5,20 +5,16 @@
 				<!-- :to="{ path: '/indexDetail', query: { goodsId: product.id } }" -->
 				<!-- :to="{ path: '/indexDetail/'+product.id }" -->
 				<span class="header-cell">我的订单</span>
-				<span class="header-cell header-cell-r" @click="orderCustomer($event)">全部订单></span>
+				<span class="header-cell header-cell-r" @click="allorderCustomer($event)">全部订单></span>
 			</div>
 			<div class="user-order">
-				<figure class="order-cell">
-					<figcaption class="cell-icn"><img /></figcaption>
-					<p class="cell-txt">待支付</p>
-				</figure>
-				<figure class="order-cell">
-					<figcaption class="cell-icn"><img /></figcaption>
-					<p class="cell-txt">待支付</p>
-				</figure>
-				<figure class="order-cell">
-					<figcaption class="cell-icn"><img /></figcaption>
-					<p class="cell-txt">待支付</p>
+				<figure class="order-cell" v-for="(status, index) in statuses" :key="index" @click="orderCustomer(status, index, $event)">
+					<figcaption class="cell-icn">
+						<svg class="icon" aria-hidden="true">
+							<use :xlink:href="status.icon"></use>
+						</svg>
+					</figcaption>
+					<p class="cell-txt">{{status.txt}}</p>
 				</figure>
 			</div>
 			<router-link class="user-handle" to="{ name: '/coupon' }">我的优惠券</router-link>
@@ -29,6 +25,7 @@
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
+	@import url(../../assets/font/iconfont.css);
 	@borderline: top;
 	.padd30{
 		.px2rem(padding-left, 30);
@@ -83,8 +80,12 @@
 					.cell-icn{
 						.px2rem(width, 50);
 						.px2rem(height, 50);
+						.px2rem(font-size, 50);
+						color: @888;
 						margin: auto;
-						background-color: beige;
+						.icon{
+							.icon;
+						}
 					}
 					.cell-txt{
 						.px2rem(line-height, 30);
@@ -108,15 +109,18 @@
 	}
 </style>
 <script type="text/javascript">
+	import Iconfont from  '../../assets/font/iconfont.js';
 	export default{
 		components: {},
 		name: "",
 		props: ["allChecked"],
 		data(){
 			return{
-				layout: 'achieve',
-				masklayer: '',
-				numberTotal: 10,   //商品数量
+				statuses: [ 
+					{ "txt":"待支付", "icon":"#icon-qianbao-" },
+					{ "txt":"待发货", "icon":"#icon-huoche01" },
+					{ "txt":"待收货", "icon":"#icon-liwu" },
+				],
 				cartData:[],
 			}
 		},
@@ -130,6 +134,10 @@
 	            },
 	            deep: true
 			},
+			'$route' (to, from) {
+				console.log(to, from);
+				// react to route changes...
+			},
 
 			//全选
 			allChecked: {
@@ -142,6 +150,12 @@
 	            deep: true
 			},
 
+		},
+
+		beforeRouteUpdate (to, from, next) {
+			console.log(to, from, next)
+			// react to route changes...
+			// don't forget to call next()
 		},
 		beforeCreate(){},
 		created(){
@@ -174,17 +188,23 @@
 	            e.stopPropagation();//阻止冒泡（原生方法）
 			},
 
-			//跳转到订单页面
-			orderCustomer(e){
+			//跳转到订单页面(全部订单列表)
+			allorderCustomer(e){
 				// this.$
 				//console.log('hot:',hot,'hotid=',hot.products.id)
 				this.$router.push({ 
-					path: '../indexUser/indexOrder', 
-					// params: { goodsId: hot.products.id }
+					path: '../indexUser/order', 
+					query: { navid: 3 }
 				});
 			},
 
-		
+			//跳转到订单页面(待支付列表 || 待发货列表 || 待收货列表)
+			orderCustomer(status, index, e){
+				this.$router.push({ 
+					path: '../indexUser/order', 
+					query: { navid: index }
+				});
+			},
 
 		}
 	}

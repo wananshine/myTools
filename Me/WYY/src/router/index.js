@@ -38,12 +38,19 @@ const indexUser = resolve => require(['@/components/userPage/indexUser'], resolv
 const userInfo = resolve => require(['@/components/userPage/userInfo'], resolve);
 
 //订单列表
-// import indexOrder from '@/components/orderPage/indexOrder'
+// import order from '@/components/orderPage/order'
 // import orderList from '@/components/orderPage/orderList'
 // import orderDetail from '@/components/orderPage/orderDetail'
-const indexOrder = resolve => require(['@/components/orderPage/indexOrder'], resolve);
+const order = resolve => require(['@/components/orderPage/order'], resolve);
 const orderList = resolve => require(['@/components/orderPage/orderList'], resolve);
 const orderDetail = resolve => require(['@/components/orderPage/orderDetail'], resolve);
+
+
+//搜索页
+// import search from '@/components/searchPage/search'
+// import searchList from '@/components/searchPage/searchList'
+const search = resolve => require(['@/components/searchPage/search'], resolve);
+const searchList = resolve => require(['@/components/searchPage/searchList'], resolve);
 
 
 
@@ -89,6 +96,23 @@ const routes = [
         path: 'goodsList',
         name: 'goodsList',
         component: goodsList
+      }
+    ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: search,
+    children: [
+      {
+        path: '/',
+        name: 'searchList',
+        component: searchList
+      },
+      {
+        path: 'searchList',
+        name: 'searchList',
+        component: searchList
       }
     ]
   },
@@ -159,9 +183,9 @@ const routes = [
         component: userInfo
       },
       {
-        path: 'indexOrder',
-        name: 'indexOrder',
-        component: indexOrder,
+        path: 'order',
+        name: 'order',
+        component: order,
         children: [
           {
             path: '/',

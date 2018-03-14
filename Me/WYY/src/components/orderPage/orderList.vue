@@ -1,17 +1,15 @@
 <template>
-	<div class="order-container">
+	<div class="order-box">
 		<div class="order-inner w-inner">
 			<nav class="order-nav">
-				<a class="nav-item">待支付</a>
-				<a class="nav-item">待发货</a>
-				<a class="nav-item">待收货</a>
-				<a class="nav-item">全&nbsp;部</a>
+				<a class="nav-item" :class="{'nav-active': navIndex===index}" v-for="(nav, index) in navBar" :key="index" v-text="nav" @click="navCustomer(nav, index, $event)"></a>
 			</nav>
 			<section class="order-content">
 				<ul class="order-list">
 					<li class="order-item" v-for="(order, index) in ordersData" :key="index" @click="seeCustomer(order, $event)">
 						<div class="order-top">
 							<span class="order-time">{{order.currentTime}}</span>
+							<!-- <span class="order-time">{{order.currentTime | startTime}}</span> -->
 							<span class="order-status">待支付</span>
 						</div>
 						<div class="order-middle">
@@ -53,7 +51,7 @@
 		box-sizing: border-box;
 	};
 	/* ------------------*/
-	.order-container{
+	.order-box{
 		.all;
 		overflow-y: auto;
 		.flex1;
@@ -75,8 +73,19 @@
 					.flex1;
 					.px2rem(font-size, 30);
 					.px2rem(line-height, 80);
-					background-color: beige;
+					background-color: @fff;
 					text-align: center;
+				}
+				.nav-active{
+					.por;
+					.hid;
+					.borderArea;
+					color: @ff00;
+					&:after{
+						width: 65%;
+						.translate(@x: 25%);
+						border-bottom: 4px solid @ff00;
+					}
 				}
 			}
 			.order-content{
@@ -191,16 +200,32 @@
 	}
 </style>
 <script type="text/javascript">
+
 	export default{
 		components: {},
 		name: "",
-		props: ["ordersData"],
+		//props: ["ordersData"],
 		data(){
 			return{
-				//ordersData: [],  //The data property "ordersData" is already declared as a prop. Use prop default value instead.
+				navIndex: null,
+				navBar: [ '待支付', '待发货', '待收货', '全 部' ],
+				ordersData: [],  //The data property "ordersData" is already declared as a prop. Use prop default value instead.
 			}
 		},
 		computed: {
+			
+		},
+		filters: {
+			startTime: function (value) {
+				var date =  new Date(parseInt(value) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
+				date = date.toString();
+				// var newDate = new Date();
+				// newDate.setTime(timestamp3 * 1000);	
+				console.log(value)
+				// var pos = date.indexOf(' ');
+				// var date2 = date.substring(0 , pos);
+				return  date;
+			}
 		},
     	watch: {
 	        //监听数组
@@ -225,25 +250,24 @@
 		},
 		beforeCreate(){},
 		created(){
-			// this.$nextTick(function(){
-			// 	//http://music.163.com/store/api/product/ipbanner?type=1
-			// 	this.$http.get('/api/topay').then(response=>{
-			// 		this.ordersData = response.body.data.orders;
-			// 		console.log('api2/toPay',response.body.data.orders)
-			// 	})
-			// 	.catch(err=>{
-			// 		console.log('err',err)
-			// 	})
-			// });
+			this.navIndex = this.$route.query.navid;
+			this.$nextTick(function(){
+				//http://music.163.com/store/api/product/ipbanner?type=1
+				this.getlistData();
+			});
 		},
 		beforeMount(){},
 		mounted(){
+			this.$nextTick(() => {
+					
+			});
 		},
 		beforeUpdate(){},
 		updated(){
 			//console.log('this.allChecked',this.allChecked)
 		},
 		methods: {
+
 			toCustomer(){
 				//e.preventDefault=true; //阻止默认事件（原生方法）
 	            //e.preventDefault(); //阻止默认事件（原生方法）
@@ -251,6 +275,31 @@
 	            //e.cancelBubble = true; //阻止冒泡（原生方法）
 	            e.stopPropagation();//阻止冒泡（原生方法）
 			}, 
+
+			//获取listData
+			getlistData(){
+				const _navid = this.$route.query.navid;
+				console.log(_navid);
+				this.$http.get('/api/topay').then(response=>{
+					this.ordersData = response.body.data.orders;
+					console.log('api2/toPay',response.body.data.orders)
+				})
+				.catch(err=>{
+					console.log('err',err)
+				});
+			},
+
+			//nav
+			navCustomer(nav, index, e){
+				this.navIndex = index;
+				this.$router.push({
+					path: '../indexUser/order', 
+					query: { navid: index }
+				});
+				this.$nextTick(() => {
+					this.getlistData();
+				});
+			},
 
 			//查看详情
 			seeCustomer(order, e){
@@ -261,6 +310,10 @@
 					name: 'orderDetail',
 					params: { orderID: order.id }
 				});
+				// this.$router.push({
+				// 	path: 'order/orderDetail',
+				// 	query: { orderID: order.id }
+				// });
 				//this.$router.push({name:'B',params:{name:'xy',age:22}});
             	//this.$router.push({name:'B',query:{name:'xy',age:22}});
 			},

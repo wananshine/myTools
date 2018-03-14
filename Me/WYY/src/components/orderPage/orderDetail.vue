@@ -1,20 +1,28 @@
 <template>
   <div class="order-container">
 	  	<div class="order-inner">
+			  <!-- 支付状态 -->
 			<h5 class="order-status">
 				<p class="status-txt">待支付</p>
 				<!-- <small class="status-time">剩余付款时间：</small> -->
 			</h5>
+			<!-- address && 联系方式 -->
 			<div class="order-connection">
-				<div class="connection-left">
+				<div class="connection-info">
+					<i class="icon-address">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-dizhi2"></use>
+						</svg>
+					</i>
 					<p class="connection-tel">{{orderDetail.address.username}}{{orderDetail.address.cellphone}}</p>
-					<address class="connection-address">{{orderDetail.address.address}}{{orderDetail.goodId}}</address>
+					<address class="connection-address">{{orderDetail.address.address}}</address>
+					<span class="update-address">更换收货地址</span>
 				</div>
-				<div class="connection-right"></div>
 			</div>
-			<div class="product-list">
+			<!-- goodsData -->
+			<section class="product-list">
 				<dl class="pt-cell" v-for="(goods, goodsNO) in orderDetail.orderGoodInfos" :key="goodsNO">
-					<dt class="pt-img"><img :src="goods.goodSimpleInfo.coverImgUrl"/></dt>
+					<dt class="pt-img"><img :src="goods.goodSimpleInfo.skuPicUrl"/></dt>
 					<dd class="pt-info">
 						<div class="pt-left">
 							<p class="pt-name">{{goods.goodSimpleInfo.name}}</p>
@@ -28,10 +36,23 @@
 						</div>
 					</dd>
 				</dl>
+			</section>
+
+			<div class="product-total">
+				<p>商品合计<span class="price-number">¥{{orderDetail.extJsonInfo.refundRMB}}</span></p>
 			</div>
-			<div>
-				<p>商品合计<span></p>
+			<div class="price-total">
+				<p>总计<span class="price-number">¥{{orderDetail.extJsonInfo.totalAmount}}</span></p>
 			</div>
+			<section class="order-number">
+				<div class="order-no-l">
+					<p class="orderNO">订单编号：<em>{{orderDetail.id}}</em></p>
+					<p class="orderTime">下单时间：<em>{{orderDetail.orderTime}}</em></p>
+				</div>
+				<div class="order-no-r">
+					<button class="order-cancel">取消订单</button>
+				</div>
+			</section>
 		</div>
   </div>
 </template>
@@ -47,6 +68,7 @@
 		.all;
 		overflow-y: auto;
 		.flex1;
+		-webkit-font-smoothing：antialiased
 		&::-webkit-scrollbar {
 		width: 0px;  //设置滚动条宽度
 		}
@@ -83,9 +105,22 @@
 				.px2rem(padding-top, 30);
 				.px2rem(padding-bottom, 30);
 				background-color: @fff;
-				.connection-left{
-					.px2rem(padding-left, 80);
+				.connection-info{
+					.por;
+					.px2rem(padding-left, 60);
+					.px2rem(padding-right, 160);
 					box-sizing: border-box;
+					.icon-address{
+						.por;
+						.poa; left: 0%; top: 50%;
+						.translate(@x:0);
+						.px2rem(width, 50);
+						color: @666;
+						.icon{
+							.icon;
+							width: @full;
+						}
+					}
 					.connection-tel{
 						.px2rem(font-size, 34);
 						color: @333;
@@ -96,10 +131,11 @@
 						.px2rem(font-size, 26);
 						color: @888;
 					}
-				}
-				.connection-right{
-					height: @full;
-					.px2rem(font-size, 26);
+					.update-address{
+						.poa; bottom: 0; right: 0;
+						.px2rem(font-size, 24);
+						color: @00c3;
+					}
 				}
 			}
 			.product-list{
@@ -118,8 +154,9 @@
 						}
 					}
 					.pt-img{
-						.px2rem(width, 142);
-						.px2rem(height, 142);
+						.px2rem(width, 138);
+						.px2rem(height, 138);
+						.px2rem(margin-right, 10);
 						img{
 							.all;
 							display: block;
@@ -161,13 +198,77 @@
 					}
 				}
 			}
+			.product-total{
+				.por;
+				&:extend(.padd30);
+				.px2rem(margin-top, 20);
+				background-color: @fff;
+				.bottomline;
+				p{
+					.px2rem(line-height, 120);
+					.px2rem(font-size, 26);
+					.price-number{
+						float: right;
+					}
+				}
+			}
+			.price-total{
+				&:extend(.padd30);
+				background-color: @fff;
+				.px2rem(font-size, 26);
+				p{
+					.px2rem(line-height, 120);
+					.px2rem(font-size, 26);
+					.price-number{
+						float: right;
+					}
+				}
+			}
+			.order-number{
+				.por;
+				.flexbox;
+				&:extend(.padd30);
+				.px2rem(margin-top, 20);
+				.px2rem(padding-top, 35);
+				.px2rem(padding-bottom, 35);
+				.px2rem(font-size, 26);
+				background-color: @fff;
+				.order-no-l{
+					.orderNO{
+						color: @888;
+					}
+					.orderTime{
+						.px2rem(margin-top, 15);
+						color: @888;
+					}
+					em{
+						color: @333;
+					}
+				}
+				.order-no-r{
+					.por;
+					.order-cancel{
+						.por;
+						.hid;
+						.border1px;
+						.px2rem(width, 150);
+						.px2rem(line-height, 50);
+						.px2rem(font-size, 22);
+						color: @666;
+						background-color: transparent;
+						outline: none;
+						border: none;
+					}
+				}
+			}
 			
 		}
 	}
   	
 </style>
 
-<script>
+<script type="text/javascript">
+ 	import Iconfont from  '../../assets/font/iconfont.js';
     export default {
         components: {},
 		name: "",

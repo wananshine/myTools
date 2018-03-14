@@ -1,11 +1,11 @@
 <template>
-  <div class="userCenter">
+  <div class="order-container">
     <router-view :ordersData="ordersData" :orderDetail="orderDetail" v-on:see-customer = "seeCustomer"></router-view>
   </div>
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
-	.userCenter{
+	.order-container{
     height: @full;
 	}
 </style>
@@ -29,14 +29,14 @@
     beforeCreate(){},
 		created(){
 			this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/topay').then(response=>{
-					this.ordersData = response.body.data.orders;
-					console.log('api2/toPay',response.body.data.orders)
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
+				// //http://music.163.com/store/api/product/ipbanner?type=1
+				// this.$http.get('/api/topay').then(response=>{
+				// 	this.ordersData = response.body.data.orders;
+				// 	console.log('api2/toPay',response.body.data.orders)
+				// })
+				// .catch(err=>{
+				// 	console.log('err',err)
+				// })
 			});
 		},
 		beforeMount(){},

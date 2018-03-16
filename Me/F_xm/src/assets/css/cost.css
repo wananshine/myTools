@@ -59,6 +59,16 @@
   visibility: hidden;
   display: block;
 }
+.box {
+  width: 100px;
+  height: 100px;
+  color: #000;
+  background: url("../img/test.png");
+}
+.box:after {
+  display: block;
+  content: "珠峰培训";
+}
 .lesspublic,
 .lessnav ul {
   width: 100px;

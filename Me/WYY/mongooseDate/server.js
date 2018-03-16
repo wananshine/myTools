@@ -80,14 +80,38 @@ app.get('/deleteUser', function (req, res) {
 
 
 var apiDate = require('./users.json');
+var login1 = apiDate.login1;
+var login2 = apiDate.login2;
 var goodsList = apiDate.goodsList;
 var banners = apiDate.banners;
+var welfareInfo = apiDate.welfareInfo;
 var floors = apiDate.floors;
 var albums = apiDate.albums;
 var albumProduct = apiDate.albumProduct;
 var getsHot = apiDate.getsHot;
+var shopingCart = apiDate.cart;
+var typesList = apiDate.typesList;
+var category_v2 = apiDate.category_v2;
+var toPay = apiDate.toPay;
 var apiRoutes = express.Router();
 
+
+//login1
+apiRoutes.get('/login1',function(req, res){
+	res.json({
+		errno:0,
+    	data:login1
+	})
+})
+
+
+//login2
+apiRoutes.get('/login2',function(req, res){
+	res.json({
+		errno:0,
+    	data:login2
+	})
+})
 
 //banner列表
 apiRoutes.get('/banners',function(req, res){
@@ -122,6 +146,29 @@ apiRoutes.get('/albumProduct',function(req, res){
   })
 })
 
+//分类列表（网易云商城数据）
+apiRoutes.get('/typesList',function(req, res){
+  res.json({
+    errno: 0,
+    data:typesList
+  })
+})
+
+//分类列表(小米的数据)
+apiRoutes.get('/category_v2', function(req, res){
+  res.json({
+    errno: 0,
+    data: category_v2
+  })
+})
+
+//购物车列表
+apiRoutes.get('/shopingCart',function(req, res){
+  res.json({
+    errno:0,
+      data:shopingCart
+  })
+})
 
 //商品列表
 apiRoutes.get('/goodslist',function(req, res){
@@ -136,9 +183,28 @@ apiRoutes.get('/goodslist',function(req, res){
 apiRoutes.get('/getshot',function(req, res){
   res.json({
     errno:0,
-      data:getsHot
+    data:getsHot
   })
 })
+
+//福利社(welfare)
+apiRoutes.get('/welfareinfo', function(req, res){
+  res.json({
+    errno: 0,
+    data: welfareInfo
+  })
+})
+
+
+
+//待支付
+apiRoutes.get('/topay', function(req, res){
+  res.json({
+    errno: 0,
+    data: toPay
+  })
+})
+
 
 
 //拿到指定热门商品id的商品信息
@@ -169,6 +235,8 @@ apiRoutes.get('/:goods_id', function (req, res) {
 	})
    res.end( JSON.stringify(user));
 })
+
+
 
 app.use('/api',apiRoutes);
 

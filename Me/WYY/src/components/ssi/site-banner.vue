@@ -1,7 +1,7 @@
 <template>
 	<div class="banner-slider">
 		<div class="banner-list">
-			<a class="banner-cell" v-for="banner in banners">
+			<a class="banner-cell" v-for="(banner, index) in banners" :key="index">
 				<img :src="banner.picStr" />
 			</a>
 		</div>
@@ -31,6 +31,8 @@
 	
 </style>
 <script>
+	// import Api from "../../api/api";
+	import {banners} from '@/api/api'
 	export default{
 		name: '',
 		data(){
@@ -55,18 +57,36 @@
 		},
 		beforeCreate(){},
 		created(){
+
+			var _self = this;
+			// _self.$axios.get('/api/banners')
+			// 	.then(function (response) {
+			// 		_self.banners= response.data.data;
+			// 		console.log('response2',response);
+			// 	})
+			// 	.catch(function (error) {
+			// 		console.log(error);
+			// 	});
+
+
 			this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/banners').then(response=>{
-					// success callback
-					//http://music.163.com/store/api/product/ipbanner?type=1
-					//console.log(response.body.data.goodsList);
-					this.banners = response.body.data;
-					console.log(response.body.data)
-			    },  response => {
-				    // error callback
-				    console.log('error')
+				// var _self = this;
+				banners().then(res=>{
+					// console.log(res)
+					this.banners= res.data;
+				}, error =>{
+
+				}).catch(error =>{
+
 				});
+
+
+				// 	this.banners = response.body.data;
+			    // },  response => {
+				//     // error callback
+				//     console.log('error')
+				// });
+
 			});
 		},
 		beforeMount(){},

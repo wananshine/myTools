@@ -23,6 +23,11 @@ body{
     @{name}: @px / @base3FontSize * 1rem;
 }
 
+/* 解决vue解析闪烁 */
+[v-cloak] {
+  display: none;
+}
+
 .w-inner{
   width: @width;
   margin:  0 auto;
@@ -79,6 +84,19 @@ body{
   flex-basis: 1px;
   flex-shrink: 1;
 }
+
+.flexauto{
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 1;
+}
+
+.flex1auto{
+  flex-grow: 1;
+  flex-basis: auto;
+  flex-shrink: 1;
+}
+
 .flex1{
   flex: 1;
 }
@@ -128,6 +146,39 @@ body{
   }
 }
 
+//边框
+.borderArea{
+  &:after{
+    content: "";
+    .poa; top: 0; left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+  }
+}
+
+.border1px{
+  &:after{
+    content: "";
+    .poa; top: 0; left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    border: 1px solid @999;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+  }
+}
 
 //清除浮动
 .clearfix{
@@ -171,10 +222,13 @@ body{
 @999: #999;
 @fff: #fff;
 
+@ff00: #ff0000;
 @ff67: #ff6700;
 @00c3: #00c3f5;
-@ff00: #ff0036;
+@ff36: #ff0036;
 @d33a: #d33a31;
+@f3d0: #f3d0ce;
+@fdf5: #fdf5f4;
 
 @url:"../images/";
 
@@ -201,6 +255,14 @@ body{
     background-image: -o-linear-gradient(bottom, #000000 0%, rgba(255,255,255,0) 100%);
     background-image: -ms-linear-gradient(bottom, #000000 0%, rgba(255,255,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='rgba(255,255,255,0)', GradientType=0);
+}
+
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 

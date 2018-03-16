@@ -1,6 +1,11 @@
 <template>
-	<div class="goods-container">
+	<div class="search-box">
 		<div class="goods-inner w-inner">
+			<div class="form">
+				<div>
+					<input type="text" >
+				</div>
+			</div>
 		    <!-- 商品排序 -->
 		    <nav class="goods-filter">
 		    	<a class="filter-bar filter-active">推荐</a>
@@ -39,7 +44,7 @@
 </template>
 <style lang="less" scoped="scoped">
 	@import (reference) url(../../assets/css/cost.less);
-	.goods-container{
+	.search-box{
 		.goods-inner{
 			.goods-filter{
 				.flexbox;

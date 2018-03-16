@@ -6,7 +6,7 @@
 		</div>
 		<div class="slider-wraper">
 			<div class="banner-list">
-				<a class="banner-cell" v-for="(banner, index) in bannersList"><img :src="banner"></a>
+				<a class="banner-cell" v-for="(banner, index) in bannersList" :key="index"><img :src="banner"></a>
 			</div>
 		</div>
 	</div>

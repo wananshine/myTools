@@ -1,9 +1,24 @@
 <template>
 	<div class="my-point">
 		<div class="g-point">
-			<h6 class="point-title">签到领积分</h6>
+			<h6 class="point-title">
+				<span>签到领积分</span>
+				<span class="point-get">
+					缤纷坚果免费领
+					<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-more"></use>
+					</svg>
+				</span>
+			</h6>
 			<div class="point-bd">
-				<p class="point-me">我的积分：</p>
+				<p class="point-me">我的积分：
+					<i class="point-icon">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-jifen"></use>
+						</svg>
+						1314
+					</i>
+				</p>
 				<small class="point-fare">兑换福利 ></small>
 				<a href="javascript:;" class="point-sign">签到</a>
 			</div>
@@ -15,6 +30,7 @@
 	.padd30{
 		.px2rem(padding-left, 30);
 		.px2rem(padding-right, 30);
+		box-sizing: border-box;
 	};
 	.my-point{
 		background-color: @fff;
@@ -28,6 +44,19 @@
 				border-bottom-style: solid;
 				border-bottom-color: rgba(0, 0, 0, 0.1);
 				color: @333;
+				width: @full;
+				display: table;
+				span{
+					display: table-cell;
+				}
+				.point-get{
+					.px2rem(font-size, 26);
+					text-align: right;
+					color: @666;
+					.icon{
+						.icon;
+					}
+				}
 			}
 			.point-bd{
 				&:extend(.padd30);
@@ -38,6 +67,13 @@
 					.px2rem(font-size, 36);
 					margin-top: 26px;
 					color: @333;
+					.point-icon{
+						color: @ff00;
+						.icon{
+							.icon;
+							.px2rem(font-size, 26);
+						}
+					}
 				}
 				.point-fare{
 					.block;
@@ -67,6 +103,7 @@
 	}
 </style>
 <script>
+	import Iconfont from  '../../assets/font/iconfont.js';
 	export default{
 		name: '',
 		data(){

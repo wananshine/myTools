@@ -120,7 +120,7 @@
             <button class="join-cart" @click="clear_db()">加入购物车{{ getDone }}</button>
             <button class="clear-cart" @click="clear_cart()">清空购物车</button>
           </div>
-          <div>{{ cartList }}</div>
+          <!-- <div>{{ cartList }}</div> -->
         </aside>
       </section>
     </div>

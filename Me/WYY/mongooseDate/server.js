@@ -82,6 +82,7 @@ app.get('/deleteUser', function (req, res) {
 var apiDate = require('./users.json');
 var goodsList = apiDate.goodsList;
 var banners = apiDate.banners;
+var welfareInfo = apiDate.welfareInfo;
 var floors = apiDate.floors;
 var albums = apiDate.albums;
 var albumProduct = apiDate.albumProduct;
@@ -166,6 +167,15 @@ apiRoutes.get('/getshot',function(req, res){
     data:getsHot
   })
 })
+
+//福利社(welfare)
+apiRoutes.get('/welfareinfo', function(req, res){
+  res.json({
+    errno: 0,
+    data: welfareInfo
+  })
+})
+
 
 
 //待支付

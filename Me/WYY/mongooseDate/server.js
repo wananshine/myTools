@@ -80,6 +80,8 @@ app.get('/deleteUser', function (req, res) {
 
 
 var apiDate = require('./users.json');
+var login1 = apiDate.login1;
+var login2 = apiDate.login2;
 var goodsList = apiDate.goodsList;
 var banners = apiDate.banners;
 var welfareInfo = apiDate.welfareInfo;
@@ -93,6 +95,23 @@ var category_v2 = apiDate.category_v2;
 var toPay = apiDate.toPay;
 var apiRoutes = express.Router();
 
+
+//login1
+apiRoutes.get('/login1',function(req, res){
+	res.json({
+		errno:0,
+    	data:login1
+	})
+})
+
+
+//login2
+apiRoutes.get('/login2',function(req, res){
+	res.json({
+		errno:0,
+    	data:login2
+	})
+})
 
 //banner列表
 apiRoutes.get('/banners',function(req, res){

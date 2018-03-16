@@ -1,4 +1,14 @@
 {
+  "login1": {
+    "code": 0,
+    "msg": "",
+    "data": 0
+  },
+  "login2": {
+    "code": 1000,
+    "msg": "",
+    "data": 1
+  },
   "goodsList":  [
        {
            "goods_id"       : "888",

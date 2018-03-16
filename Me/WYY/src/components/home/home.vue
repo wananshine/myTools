@@ -7,6 +7,10 @@
 			<!-- 我的积分 -->  
 			<site-point></site-point>
 
+			<!-- 福利社 welfare(福利)-->
+			<site-welfare></site-welfare>
+
+
 			<!-- floors -->  
 			<site-floor></site-floor>
 
@@ -37,15 +41,17 @@
 </style>
 <script type="text/javascript">
 
-	import siteBanner from '../ssi/site-banner'
-	import sitePoint  from '../ssi/site-point'
-	import siteFloor  from '../ssi/site-floor'
-	import siteHot    from '../ssi/site-hot'
-	import sitefooter from '../ssi/site-footer'
+	import siteBanner 	from '../ssi/site-banner'
+	import sitePoint  	from '../ssi/site-point'
+	import siteWelfare  from '../ssi/site-welfare'
+	import siteFloor  	from '../ssi/site-floor'
+	import siteHot    	from '../ssi/site-hot'
+	import sitefooter 	from '../ssi/site-footer'
 	export default{
 		components: {
 	      siteBanner,
-	      sitePoint,
+		  sitePoint,
+		  siteWelfare,
 	      siteFloor,
 	      siteHot,
 	      sitefooter

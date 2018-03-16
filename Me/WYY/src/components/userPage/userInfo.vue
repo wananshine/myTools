@@ -161,15 +161,7 @@
 		created(){
 			this.$nextTick(function(){
 				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/shopingCart').then(response=>{
-					this.cartData = response.body.data.result.itemDatas;
-					console.log('api2/goods',response.body.data.result)
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
-
-
+				
 			});
 		},
 		beforeMount(){},

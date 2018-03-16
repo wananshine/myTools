@@ -200,7 +200,7 @@
 	}
 </style>
 <script type="text/javascript">
-
+	import {topay} from "@/api/api";
 	export default{
 		components: {},
 		name: "",
@@ -280,12 +280,12 @@
 			getlistData(){
 				const _navid = this.$route.query.navid;
 				console.log(_navid);
-				this.$http.get('/api/topay').then(response=>{
-					this.ordersData = response.body.data.orders;
-					console.log('api2/toPay',response.body.data.orders)
-				})
-				.catch(err=>{
-					console.log('err',err)
+				topay().then(res=>{
+					this.ordersData  = res.data.orders;
+				}, error=>{
+
+				}).catch(error=>{
+
 				});
 			},
 

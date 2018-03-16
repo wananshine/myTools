@@ -447,6 +447,7 @@
 	}
 </style>
 <script type="text/javascript">
+	import {shopingCart} from "@/api/api";
 	export default{
 		components: {},
 		name: "",
@@ -485,15 +486,15 @@
 		beforeCreate(){},
 		created(){
 			this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/shopingCart').then(response=>{
-					this.cartData = response.body.data.result.itemDatas;
-					console.log('api2/goods',response.body.data.result)
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
+				
+				shopingCart().then(res=>{
+					console.log(res)
+					this.cartData = res.data.result.itemDatas;
+				}, error=>{
 
+				}).catch(error =>{
+
+				});
 
 			});
 		},

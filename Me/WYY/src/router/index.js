@@ -171,6 +171,9 @@ const routes = [
     path: '/indexUser',
     name: 'indexUser',
     component: indexUser,
+    meta: {
+      requireAuth: true
+    },
     children: [
       {
         path: '/',

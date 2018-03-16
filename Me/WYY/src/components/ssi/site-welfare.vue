@@ -152,6 +152,7 @@
 
 <script type="text/javascript">
     import Iconfont from  '../../assets/font/iconfont.js';
+    import { welfareInfo } from '@/api/api';
     export default {
         components: {},
         name: '',
@@ -178,15 +179,15 @@
 
             // var time = setInterval('showTime()',500)
             this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/welfareInfo').then(response=>{
-                    this.welfareData = response.data.data.data;
-                    console.log('welfareData',response,this.welfareData);
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
+				
+                welfareInfo().then(res=>{
+                    console.log(res)
+                    this.welfareData = res.data.data;
+                }, error=>{
+                    
+                }).catch(error=>{
 
+                });
 
 			});
 		},
@@ -195,7 +196,7 @@
             var _self = this;
             var setStartTime = setInterval(showTime, 500); 
             function showTime(){
-                var startTime = new Date("2018/03/15,17:44:00");                //自定义结束时间  
+                var startTime = new Date("2018/03/16,16:27:00");                //自定义结束时间  
             　　var now = new Date();                                         //获取当前时间
             　　var distanceTime = parseInt(startTime.getTime() - now.getTime())/1000; //得出的为秒数；
             　  if(distanceTime <= 0){

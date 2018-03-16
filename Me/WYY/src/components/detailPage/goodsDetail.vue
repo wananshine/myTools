@@ -49,9 +49,11 @@
 	
 </style>
 <script type="text/javascript">
+	import {getPtDetail} from '@/api/api';
 	import goodsBanner from './details/goods-banner'
 	import goodsBigbanner from './details/goods-bigbanner'
 	import goodsInfo from './details/goods-info'
+	
 	export default{
 		components: {
 			goodsBanner,
@@ -88,15 +90,26 @@
 		beforeCreate(){},
 		created(){
 			this.$nextTick(function(){
+				// var goodsId = this.$route.params.goodsId;
+				// this.$http.get('/api/getshot/'+goodsId).then(response=>{
+				// 	this.product = response.body.data;
+				// 	this.picUrls = response.body.data.products.picUrls;
+				// 	console.log('api/getshot/goodsId',this.product);
+				// })
+				// .catch(err=>{
+				// 	console.log('err',err)
+				// })
 				var goodsId = this.$route.params.goodsId;
-				this.$http.get('/api/getshot/'+goodsId).then(response=>{
-					this.product = response.body.data;
-					this.picUrls = response.body.data.products.picUrls;
-					console.log('api/getshot/goodsId',this.product);
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
+				getPtDetail(goodsId).then(res=>{
+					this.product = res.data;
+					this.picUrls = res.data.products.picUrls;
+					
+				}, error=>{
+
+				}).catch(error=>{
+
+				});
+				
 
 			});
 		},
@@ -110,7 +123,7 @@
 		updated(){},
 		methods: {
 			fetchGoodsId(){
-				console.log(this.$route.params.goodsId);
+				//console.log(this.$route.params.goodsId);
 			},
 
 			//立即购买

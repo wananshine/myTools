@@ -193,6 +193,7 @@
   
 </style>
 <script type="text/javascript">
+	import {getshot} from '@/api/api'
 	export default{
 		components: {},
 		name: "",
@@ -222,26 +223,25 @@
 			this.$nextTick(function(){
 
 				//热门商品
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/getshot').then(response=>{
-					// success callback
-					this.hotsData = response.body.data.data;
-					console.log("response3",response)
-					console.log(this.hotsData)
-			    },  response => {
-				    // error callback
-				    console.log('error')
+				// this.$http.get('/api/getshot').then(response=>{
+				// 	// success callback
+				// 	this.hotsData = response.body.data.data;
+				// 	console.log("response3",response)
+				// 	console.log(this.hotsData)
+			    // },  response => {
+				//     // error callback
+				//     console.log('error')
+				// });
+				getshot().then(res =>{
+					this.hotsData = res.data.data;
+				}, error=>{
+
+				}).catch(error=>{
+
 				});
 				
 
-				//
-				// this.$http.get('/api/goods').then(response=>{
-				// 	//console.log('api2/goods',response)
-				// })
-				// .catch(err=>{
-				// 	//console.log('err',err)
-				// })
-
+				
 
 			});
 		},
@@ -252,12 +252,6 @@
 
 			this.$nextTick(function(){
 				this.scrollLoad();
-				// window.onload=function(){
-				// 	this.scrollLoad();
-				// 	window.addEventListener("scroll", function(){
-						
-				// 	})
-				// }
 			});
 		},
 		beforeUpdate(){},
@@ -269,7 +263,7 @@
 
 			//底部加载数据
 			scrollLoad(){
-				console.log(123)
+				
 				let homeLayout = document.getElementById("homeLayout");
 				let hotView = document.getElementById("hotView");
 
@@ -285,9 +279,9 @@
 					//console.log('滚动高度1',document.body.scrollTop, document.documentElement.scrollTop); // 滚动高度  
 	                //console.log('文档高度2',document.body.offsetHeight); // 文档高度
 	                //console.log('文档滚动高度3',homeLayout.scrollTop); // homeLayout滚动高度 
-	                console.log('文档高度4',hotView.offsetTop); // hotView位置
-	                console.log('btnLoading_Top',btnLoading_Top); // btnLoading_Top位置
-	                console.log("homeLayout.scrollTop + window.innerHeight:",homeLayout.scrollTop + window.innerHeight, "btnLoading_Top", btnLoading_Top);   
+	                // console.log('文档高度4',hotView.offsetTop); // hotView位置
+	                // console.log('btnLoading_Top',btnLoading_Top); // btnLoading_Top位置
+	                // console.log("homeLayout.scrollTop + window.innerHeight:",homeLayout.scrollTop + window.innerHeight, "btnLoading_Top", btnLoading_Top);   
 	                // 判断是否滚动到底部  document.body.scrollTop + window.innerHeight >= document.body.offsetHeight
 	                if(homeLayout.scrollTop + window.innerHeight >= btnLoading_Top){
 	                	// console.log(sw);  
@@ -296,22 +290,24 @@
 	                    	// 将开关关闭  
 	                        sw = false;
 	                       setTimeout(function(){
-	                       	_this.$http.get('/api/getshot').then(response=>{
-								// success callback
-								var newProductData = response.body.data.data.hotProduct;
-								newProductData.forEach(function(item, i){
-									console.log("newProductData",i, item);
-									_this.hotsData.hotProduct.push(item)
-								})
-								
-								//_this.hotsData.hotProduct.push(response.body.data.data.hotProduct);
-								console.log("_this.hotsData",_this.hotsData)
-								// 数据更新完毕，将开关打开  
-	                            sw = true;  
-							    },  response => {
-								    // error callback
-								    console.log('error')
-								});
+							   getshot().then(res =>{
+								   	var newProductData = res.data.data.hotProduct;
+								   	for(var i in newProductData){
+										_this.hotsData.hotProduct.push(newProductData[i]);
+									}
+									//    newProductData.forEach(function(item, i){
+									// 		_this.hotsData.hotProduct.push(item)
+									// 	})
+									
+									// 数据更新完毕，将开关打开
+									sw = true;  
+									
+							   }, error =>{
+								   // error callback
+							   }).catch(error =>{
+								   // error callback
+							   });
+
 	                       }, 2000)
 	                    }
 	                }

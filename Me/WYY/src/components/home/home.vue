@@ -73,16 +73,7 @@
 		beforeCreate(){},
 		created(){
 			this.$nextTick(function(){
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/floors').then(response=>{
-					// success callback
-					console.log(response.body)
-					this.floorsData = response.body;
-			    },  response => {
-				    // error callback
-				    
-				    console.log('error')
-				});
+				
 			});
 		},
 		beforeMount(){},

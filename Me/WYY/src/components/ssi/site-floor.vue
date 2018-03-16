@@ -1,7 +1,7 @@
 <template>
 	<article class="floor-view">
 		<div class="floor-list">
-			<section class="floor-cell" v-for="floor in floorsData.items">
+			<section class="floor-cell" v-for="(floor, floorNO) in floorsData.items" :key="floorNO">
 				<figure class="cell-img">
 					<img :src="floor.backGroudPic">
 				</figure>
@@ -11,7 +11,7 @@
 				</div>
 				<div class="cell-product-bd">
 					<ul class="product-list">
-						<li class="product-cell" v-for="product in floor.products">
+						<li class="product-cell" v-for="(product, productNO) in floor.products" :key="productNO">
 							<!-- <a href="javascript:;" class="product-a" >
 								<p class="pt-img"><img :src="product.coverUrl"></p>
 								<div class="pt-name">{{ product.name }}</div>
@@ -27,7 +27,9 @@
 					</ul>
 				</div>		
 			</section>
-			<section class="floor-cell" v-for="album in floorsAlbumsDate.data">
+
+			<!-- 最后一个楼层 数字专辑-->
+			<section class="floor-cell" v-for="(album, albumNO) in floorsAlbumsDate.data" :key="albumNO">
 				<figure class="cell-img">
 					<img :src="album.backGroudPic">
 				</figure>
@@ -37,7 +39,7 @@
 				</div>
 				<div class="cell-product-bd">
 					<ul class="product-list">
-						<li class="product-cell" v-for="product in album.products">
+						<li class="product-cell" v-for="(product, productNO) in album.products" :key="productNO">
 							<a href="javascript:;" class="product-a">
 								<p class="pt-img pt-bgimg"><img :src="product.coverUrl"></p>
 								<div class="pt-name"><span class="pt-bigName">{{ product.albumName }}</span><small class="pt-smallName">{{ product.artistName }}</small></div>
@@ -170,6 +172,7 @@
 	}
 </style>
 <script type="text/javascript">
+	import {floors,albums, albumProduct} from '@/api/api'
 	export default{
 		components: {},
 		name: "",
@@ -197,49 +200,48 @@
 		},
 		beforeCreate(){},
 		created(){
+			var _self = this;
 			this.$nextTick(function(){
-
+				
 				//楼层
-				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/floors').then(response=>{
-					// success callback
-					this.floorsData = response.body.data;
-					//console.log(this.floorsData.items)
-			    },  response => {
-				    // error callback
-				    console.log('error')
+				floors().then( res =>{
+					_self.floorsData = res.data;
+				}, error =>{
+
+				}).catch(error =>{
+
 				});
 
 				//最后一个楼层-----音乐专辑
-				this.$http.get('/api/albums').then(response=>{
-					// success callback
-					this.floorsAlbumsDate = response.body.data;
-					//console.log('response',this.floorsAlbumsDate.data)
-			    },  response => {
-				    // error callback
-				    console.log('error')
+				albums().then( res =>{
+					_self.floorsAlbumsDate = res.data;
+				}, error =>{
+
+				}).catch(error =>{
+
 				});
 
-				
-
-				//
-				this.$http.get('/api/goods').then(response=>{
-					//console.log('api2/goods',response)
-				})
-				.catch(err=>{
-					//console.log('err',err)
-				})
+			
 			});
+
 			this.$nextTick(function(){
 				//最后一个楼层-----音乐专辑的其它product
-				this.$http.get('/api/albumProduct').then(response=>{
-					// success callback
-					this.floorsAlbumsDate.data[0].products = response.body.data.products.slice(0,8);
-					//console.log('response1',response.body.data.products.slice(0,5))
-			    },  response => {
-				    // error callback
-				    console.log('error')
+				// this.$http.get('/api/albumProduct').then(response=>{
+				// 	// success callback
+				// 	this.floorsAlbumsDate.data[0].products = response.body.data.products.slice(0,8);
+				// 	//console.log('response1',response.body.data.products.slice(0,5))
+			    // },  response => {
+				//     // error callback
+				//     console.log('error')
+				// });
+				albumProduct().then(res=>{
+					this.floorsAlbumsDate.data[0].products =  res.data.products.slice(0,8);
+					console.log(this.floorsAlbumsDate.data);
+					//_self.floorsAlbumsDate = res.data;
+				}, error=>{}).catch(error =>{
+
 				});
+				
 			});
 		},
 		beforeMount(){},

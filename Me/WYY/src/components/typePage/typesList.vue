@@ -106,6 +106,7 @@
 	}
 </style>
 <script type="text/javascript">
+	import {typesList} from '@/api/api';
 	export default{
 		components: {},
 		name: "",
@@ -128,13 +129,21 @@
 		created(){
 			this.$nextTick(function(){
 				//http://music.163.com/store/api/product/ipbanner?type=1
-				this.$http.get('/api/typesList').then(response=>{
-					this.typesData = response.body.data.data;
-					console.log('api2/goods',this.typesData)
-				})
-				.catch(err=>{
-					console.log('err',err)
-				})
+				// this.$http.get('/api/typesList').then(response=>{
+				// 	this.typesData = response.body.data.data;
+				// 	console.log('api2/goods',this.typesData)
+				// })
+				// .catch(err=>{
+				// 	console.log('err',err)
+				// })
+
+				typesList().then( res=>{
+					this.typesData = res.data.data;
+				}, error=>{
+
+				}).catch(error=>{
+
+				});
 
 
 			});

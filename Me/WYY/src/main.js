@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 
+import store from './store';
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
@@ -91,6 +92,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

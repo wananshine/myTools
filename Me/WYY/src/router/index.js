@@ -18,6 +18,7 @@ const indexDetail = resolve => require(['@/components/detailPage/indexDetail'], 
 const goodsDetail = resolve => require(['@/components/detailPage/goodsDetail'], resolve);
 
 
+
 //购物车
 // import indexCart from '@/components/cartPage/indexCart'
 // import cartList from '@/components/cartPage/cartList'
@@ -51,6 +52,7 @@ const orderDetail = resolve => require(['@/components/orderPage/orderDetail'], r
 // import searchList from '@/components/searchPage/searchList'
 const search = resolve => require(['@/components/searchPage/search'], resolve);
 const searchList = resolve => require(['@/components/searchPage/searchList'], resolve);
+
 
 
 

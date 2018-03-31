@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="关于前端与设计、黑客与画家 | Hping，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是Hping的个人博客，与你一起探索新世界。">
+	<meta name="keywords"  content="在路上_Ping, Hux黄玄, Hping, 鬼栈, Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品">
+	<meta name="theme-color" content="#000000">
+
+	<title>Hping || 仿京东</title>
+
+	<!-- Web App Manifest -->
+	<link rel="manifest" href="/pwa/manifest.json">
+
+	<!-- Favicon -->
+	<!-- <link rel="shortcut icon" href="/img/favicon.ico"> -->
+	<link rel="shortcut icon" href="favicon-2.ico">
+
+	<!-- Canonical URL -->
+	<!-- <link rel="canonical" href="https://XXXXXXXX.com/"> -->
+
+	<!-- Bootstrap Core CSS -->
+	<!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
+
+	<!-- Custom CSS -->
+	<!-- <link rel="stylesheet" href="/css/hux-blog.min.css"> -->
+
+	<!-- Pygments Github CSS -->
+	<!-- <link rel="stylesheet" href="/css/syntax.css"> -->
+
+	<!-- Custom Fonts -->
+	<!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+	<!-- Hux change font-awesome CDN to qiniu -->
+	<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+	<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+
+
+		<!-- Demo styles -->
+		<style>
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+</head>
+	<body>
+	<div class="all-container">
+		<!-- 头部广告 -->
+		<header class="header_advert">
+			<div class="ad_h">
+				<a class="img_h"></a>
+				<i class="img_close">X</i>
+			</div>
+		</header>
+
+		<!--头部nav-->
+		<div id="shortcut">
+			<div class="w">
+				<aside class="fl">
+					<div class="dropdown">
+						<div class="show_addr">
+							<i class="iconfont icon-dizhi"></i>
+							北京
+						</div>
+						<div class="other_addr">
+							<div class="o_dropdown">
+								<p class="item"><a class="selected" href="javascript:void(0)">北京</a></p>
+								<p class="item"><a href="javascript:void(0)">上海</a></p>
+								<p class="item"><a href="javascript:void(0)">天津</a></p>
+								<p class="item"><a href="javascript:void(0)">重庆</a></p>
+								<p class="item"><a href="javascript:void(0)">河北</a></p>
+								<p class="item"><a href="javascript:void(0)">山西</a></p>
+								<p class="item"><a href="javascript:void(0)">河南</a></p>
+								<p class="item"><a href="javascript:void(0)">辽宁</a></p>
+								<p class="item"><a href="javascript:void(0)">吉林</a></p>
+								<p class="item"><a href="javascript:void(0)">黑龙江</a></p>
+								<p class="item"><a href="javascript:void(0)">内蒙古</a></p>
+								<p class="item"><a href="javascript:void(0)">江苏</a></p>
+								<p class="item"><a href="javascript:void(0)">山东</a></p>
+								<p class="item"><a href="javascript:void(0)">安徽</a></p>
+								<p class="item"><a href="javascript:void(0)">浙江</a></p>
+								<p class="item"><a href="javascript:void(0)">福建</a></p>
+								<p class="item"><a href="javascript:void(0)">湖北</a></p>
+								<p class="item"><a href="javascript:void(0)">湖南</a></p>
+								<p class="item"><a href="javascript:void(0)">广东</a></p>
+								<p class="item"><a href="javascript:void(0)">广西</a></p>
+								<p class="item"><a href="javascript:void(0)">江西</a></p>
+								<p class="item"><a href="javascript:void(0)">四川</a></p>
+								<p class="item"><a href="javascript:void(0)">海南</a></p>
+								<p class="item"><a href="javascript:void(0)">贵州</a></p>
+								<p class="item"><a href="javascript:void(0)">云南</a></p>
+								<p class="item"><a href="javascript:void(0)">西藏</a></p>
+								<p class="item"><a href="javascript:void(0)">陕西</a></p>
+								<p class="item"><a href="javascript:void(0)">甘肃</a></p>
+								<p class="item"><a href="javascript:void(0)">青海</a></p>
+								<p class="item"><a href="javascript:void(0)">宁夏</a></p>
+								<p class="item"><a href="javascript:void(0)">新疆</a></p>
+								<p class="item"><a href="javascript:void(0)">港澳</a></p>
+								<p class="item"><a href="javascript:void(0)">台湾</a></p>
+								<p class="item"><a href="javascript:void(0)">钓鱼</a>岛</p>
+								<p class="item"><a href="javascript:void(0)">海外</a></p>
+							</div>
+						</div>
+					</div>
+				</aside>
+				<ul class="fr">
+					<li class="fore1 cell">
+						<a href="javascript:login();" class="link-login">你好，请登录&nbsp;</a>
+						<a href="javascript:login();" class="link-regist">免费注册</a>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore2 cell">
+						<a href="javascript:login();" class="link-order">我的订单</a>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore3 cell dropdown">
+						<a href="javascript:login();" class="link-myjd">我的京东</a>
+						<div class="myjd-list dorpdown-layer">
+							<div class="up-list">
+								<span class="con"><a href="">待处理订单</a></span>
+								<span class="con"><a href="">消息</a></span>
+								<span class="con"><a href="">返回退换货</a></span>
+								<span class="con"><a href="">我的问答</a></span>
+								<span class="con"><a href="">降价商品</a></span>
+								<span class="con"><a href="">我的关注</a></span>
+							</div>
+							<div class="down-list">
+								<span class="con"><a href="">我的京豆</a></span>
+								<span class="con"><a href="">我的白条</a></span>
+								<span class="con"><a href="">我的优惠券</a></span>
+								<span class="con"><a href="">我的理财</a></span>
+							</div>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore4 cell">
+						<a href="javascript:login();" class="link-order">京东会员</a>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore5 cell">
+						<a href="javascript:login();" class="link-order">企业采购</a>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore6 cell dropdown">
+						<a href="javascript:login();" class="link-service">客户服务</a>
+						<div class="ser-list dorpdown-layer">
+							<div class="f6-cus">
+								<h5>客户</h5>
+								<div class="f6-list">
+									<span class="f-con"><a href="javascript:void()">帮助中心</a></span>
+									<span class="f-con"><a href="javascript:void()">售后服务</a></span>
+									<span class="f-con"><a href="javascript:void()">在线客服</a></span>
+									<span class="f-con"><a href="javascript:void()">意见建议</a></span>
+									<span class="f-con"><a href="javascript:void()">电话客服</a></span>
+									<span class="f-con"><a href="javascript:void()">客服邮箱</a></span>
+									<span class="f-con"><a href="javascript:void()">金融咨询</a></span>
+								</div>
+							</div>
+							<div class="f6-mer">
+								<h5>商户</h5>
+								<div class="f6-list">
+									<span class="f-con"><a href="javascript:void()">合作招商</a></span>
+									<span class="f-con"><a href="javascript:void()">京东商学院</a></span>
+									<span class="f-con"><a href="javascript:void()">商家后台</a></span>
+									<span class="f-con"><a href="javascript:void()">京麦工作台</a></span>
+									<span class="f-con"><a href="javascript:void()">商家帮助</a></span>
+									<span class="f-con"><a href="javascript:void()">规则平台</a></span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore7 cell">
+						<a href="javascript:login();" class="link-order">网站导航</a>
+					</li>
+					<li class="spacer"></li>
+					<li class="fore7 cell">
+						<a href="javascript:login();" class="link-order">手机京东</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--搜索栏&&导航-->
+		<div id="header">
+			<div class="w">
+				<div class="logo" class="logo">
+					<a class="logoimg"></a>
+				</div>
+				<div class="search">
+					<div class="search-m">
+						<div class="search-form">
+							<input type="text" name="" class="text" placeholder="香水">
+							<button type="button" class="btn_serach"><i>搜索</i></button>
+						</div>
+					</div>
+				</div>
+				<div class="settleup">
+					<div class="cw-icon">
+						<i>che</i>
+						<i class="ci-count">1</i>
+						<a class="mycart">我的购物车</a>
+					</div>
+					<div class="dopdown-player"></div>
+				</div>
+				<div class="hotwords">
+					<a class="style-red">低至五折</a>
+					<a>乐视414</a>
+					<a>园林农机</a>
+					<a>adidas 89元</a>
+					<a>家电秒杀</a>
+					<a>毛衣</a>
+					<a>卫生巾</a>
+					<a>满199减100</a>
+					<a>休闲食品</a>
+				</div>
+				<div class="navitems">
+					<ul class="navitems-groud1">
+						<li class="fore1"><a href="javascript:void(0)">秒杀</a></li>
+						<li class="fore2"><a href="javascript:void(0)">优惠券</a></li>
+						<li class="fore3"><a href="javascript:void(0)">闪购</a></li>
+						<li class="fore4"><a href="javascript:void(0)">拍卖</a></li>
+					</ul>
+					<ul class="navitems-groud2">
+						<li class="fore5"><a href="javascript:void(0)">服装城</a></li>
+						<li class="fore6"><a href="javascript:void(0)">京东超市</a></li>
+						<li class="fore7"><a href="javascript:void(0)">生鲜</a></li>
+						<li class="fore8"><a href="javascript:void(0)">全球购</a></li>
+					</ul>
+					<ul class="navitems-groud3">
+						<li class="fore8"><a href="javascript:void(0)">京东金融</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--jdbanner-->
+		<div class="fs">
+			<article class="grid_c1 fs_inner">
+				<aside class="fs-col1">
+					<ul class="cate-menu">
+						<li class="menu-li">
+							<a href="javascript:void(0)">家用电器</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">手机</a>/
+							<a href="javascript:void(0)">运营商</a>/
+							<a href="javascript:void(0)">数码</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">电脑</a>/
+							<a href="javascript:void(0)">办公</a>/
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">家居</a>/
+							<a href="javascript:void(0)">家具</a>/
+							<a href="javascript:void(0)">家装</a>/
+							<a href="javascript:void(0)">厨具</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">男装</a>/
+							<a href="javascript:void(0)">女装</a>/
+							<a href="javascript:void(0)">童装</a>/
+							<a href="javascript:void(0)">内衣</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">美妆个户</a>/
+							<a href="javascript:void(0)">宠物</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">女鞋</a>/
+							<a href="javascript:void(0)">箱包</a>/
+							<a href="javascript:void(0)">钟表</a>/
+							<a href="javascript:void(0)">珠宝</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">男鞋</a>/
+							<a href="javascript:void(0)">运动</a>/
+							<a href="javascript:void(0)">户外</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">汽车</a>/
+							<a href="javascript:void(0)">汽车用品</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">母婴</a>/
+							<a href="javascript:void(0)">玩具乐器</a>
+						</li>
+						<li class="menu-li">
+							<a href="javascript:void(0)">酒类</a>/
+							<a href="javascript:void(0)">食品</a>/
+							<a href="javascript:void(0)">生鲜</a>/
+							<a href="javascript:void(0)">特产</a>
+						</li>
+						<li class="menu-li">
+
+							<a href="javascript:void(0)">医药保健</a>
+							<a href="javascript:void(0)">计生情趣</a>
+							<li class="menu-li">
+								<a href="javascript:void(0)">图书</a>/
+								<a href="javascript:void(0)">音像</a>/
+								<a href="javascript:void(0)">电子书</a>
+							</li>
+							<li class="menu-li">
+								<a href="javascript:void(0)">机票</a>/
+								<a href="javascript:void(0)">酒店</a>/
+								<a href="javascript:void(0)">旅游</a>/
+								<a href="javascript:void(0)">生活</a>
+							</li>
+							<li class="menu-li">
+								<a href="javascript:void(0)">理财</a>/
+								<a href="javascript:void(0)">众筹</a>/
+								<a href="javascript:void(0)">白条</a>/
+								<a href="javascript:void(0)">保险</a>
+							</li>
+						</ul>
+				</aside>
+				<div class="fs-col2">
+					<div class="slider-content">
+						<div class="slider-up swiper-container">
+							<ul class="slider-main swiper-wrapper">
+								<li class="slider-li swiper-slide"><a href="javascript:void(0)"><img src="images/banner1.jpg"></a></li>
+								<li class="slider-li swiper-slide"><a href="javascript:void(0)"><img src="images/banner2.jpg"></a></li>
+								<li class="slider-li swiper-slide"><a href="javascript:void(0)"><img src="images/banner3.jpg"></a></li>
+								<li class="slider-li swiper-slide"><a href="javascript:void(0)"><img src="images/banner4.jpg"></a></li>
+								<li class="slider-li swiper-slide"><a href="javascript:void(0)"><img src="images/banner5.jpg"></a></li>
+							</ul>
+							<!-- Add Pagination -->
+							<div class="slider-indicator swiper-pagination">
+								<!--<i class="slider-indicator_btn"></i>-->
+								<!--<i class="slider-indicator_btn"></i>-->
+								<!--<i class="slider-indicator_btn"></i>-->
+								<!--<i class="slider-indicator_btn"></i>-->
+								<!--<i class="slider-indicator_btn"></i>-->
+							</div>
+							<!--<a href="" class="control-prev"><</a>-->
+							<!--<a href="" class="control-next">></a>-->
+							<div class="control-prev swiper-button-prev"></div>
+							<div class="control-next swiper-button-next"></div>
+						</div>
+						<div class="slider-extend">
+							<a class="extend extend-l"><img src="images/bannerleft.jpg"></a>
+							<a class="extend extend-r"><img src="images/bannerright.jpg"></a>
+						</div>
+					</div>
+				</div>
+				<div class="fs-col3">
+					<div class="user-loading">
+						<div class="user_info_level">
+							<p class="user-info-show">
+								<a class="no-login">
+									<img src="images/no_login.jpg">
+								</a>
+							</p>
+							<p class="user-info-avatar">
+								<span class="tip">Hi,欢迎来到京东欢迎来到京东</span>
+								<a class="log">登录</a>
+								<a class="reg">注册</a>
+							</p>
+						</div>
+						<div class="user-profit">
+							<a class="user_profit_lk">新人福利</a>
+							<a class="user_profit_lk">PLUS会员</a>
+						</div>
+					</div>
+					<div class="news-loading">
+						<div class="mod-tab">
+							<a href="javascript:void(0);" class="mod-tab-item first-tab-item">促销</a>
+							<a href="javascript:void(0);" class="mod-tab-item last-tab-item">公告</a>
+							<div class="tab-active"></div>
+							<a href="javascript:void(0);" class="mod-tab-more">更多</a>
+						</div>
+						<div class="mod-tab-content">
+							<div class="mod-tab-content-item">
+								<ul class="mod-new-list">
+									<li class="new-cell">1213131313</li>
+									<li class="new-cell">1213131313</li>
+									<li class="new-cell">1213131313</li>
+									<li class="new-cell">1213131313</li>
+								</ul>
+							</div>
+							<div class="mod-tab-content-item"></div>
+						</div>
+					</div>
+					<div class="service-loading">
+						<ul class="service-list">
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-hf"></i>
+									<span class="service-txt">话费</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-jp"></i>
+									<span class="service-txt">机票</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-jd"></i>
+									<span class="service-txt">酒店</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-yx"></i>
+									<span class="service-txt">游戏</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-qyg"></i>
+									<span class="service-txt">企业购</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-jyk"></i>
+									<span class="service-txt">加油卡</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-dyp"></i>
+									<span class="service-txt">电影票</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-hcp"></i>
+									<span class="service-txt">火车票</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-zc"></i>
+									<span class="service-txt">众筹</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-lc"></i>
+									<span class="service-txt">理财</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-lpk"></i>
+									<span class="service-txt">礼品卡</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<a href="jvascript:void(0)" class="service-a">
+									<i class="service-ico service-ico-bt"></i>
+									<span class="service-txt">白条</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</div>
+
+		<!--jd秒杀-->
+		<div class="need-ani seckill-main">
+			<div class="w-inner sk-inner">
+				<div class="sk-head">
+					<div class="sk-head-l">
+						<i class="sk-head-l-col1"></i>
+						<i class="sk-head-l-col2"></i>
+						<h3 class="sk-head-l-col3">京东秒杀</h3>
+						<a href="javascript:void(0)" class="more-subtit">总有你想不到的低价</a>
+					</div>
+					<div class="sk-head-r">
+						<div class="sk-cd">
+							<span class="sk-cd-tip">当前场次</span>
+							<div class="sk-cd-main">
+								<strong class="sk-cd-time">00</strong>
+								<strong class="sk-cd-time no-style">:</strong>
+								<strong class="sk-cd-time">04</strong>
+								<strong class="sk-cd-time no-style">:</strong>
+								<strong class="sk-cd-time">15</strong>
+							</div>
+							<span class="sk-cd-tip">结束抢购</span>
+						</div>
+					</div>
+				</div>
+				<div class="sk-box">
+					<div class="sk-list-r">
+						<ul class="sk-list-wrapper swiper-wrapper">
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">大牌秒</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">推荐</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">求带走</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">轻薄</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">带回家</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">大牌秒</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">超级秒</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">求带走</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">求带走</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">点我</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">翻我牌</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">一起走</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">大牌秒</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">大牌秒</span>
+										<p class="sk-list-pic-lk">
+											<img src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+							<li class="sk-list-cell swiper-slide">
+								<a href="javascript:void(0)" class="sk-list-a">
+									<div class="sk-list-pic">
+										<span class="sk-list-tag sk-tag-style">大牌秒</span>
+										<p class="sk-list-pic-lk">
+											<img class="ak-transy" src="images/a.jpg">
+											<strong class="sk-list-shadow"></strong>
+											<i class="sk-list-pro-txt">H3C 网络通信 交换机 SMB-MS4008-DWLTXH3C 网络通信 交换机 SMB-MS4008-DWLTX</i>
+										</p>
+									</div>
+									<div class="sk-list-price">
+										<b><em>¥</em>123</b>
+										<del>¥123</del>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<div class="control-prev swiper-button-prev"></div>
+						<div class="control-next swiper-button-next"></div>
+					</div>
+					<div class="sk-special-l">
+						<a class="sk-special-img">
+							<img src="images/goods_pic6.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--发现-->
+		<section class="need-ani disc-block">
+			<div class="w-inner grid-inner">
+				<aside class="grid-c grid-c1">
+					<div class="grid-title">
+						<i class="grid-title-arrow"></i>
+						<i class="grid-title-dec"></i>
+						<h3 class="grid-title-txt">发现好货</h3>
+						<a class="grid-title-sub">发现品质生活<small class="grid-sub-icon"></small></a>
+					</div>
+					<ul class="grid-pro-list">
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">
+							</a>
+						</li>
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">
+							</a>
+						</li>
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">
+							</a>
+						</li>
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">							</a>
+						</li>
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">							</a>
+						</li>
+						<li class="grid-pro-cell">
+							<a class="grid-pro-a" href="javascript:void(0)">
+								<p class="grid-pro-txt">格力壁挂式冷暖空调</p>
+								<img class="grid-pro-img" src="images/car01.webp">							</a>
+						</li>
+					</ul>
+				</aside>
+				<aside class="grid-c grid-c2">
+					<div class="grid-title">
+						<i class="grid-title-arrow"></i>
+						<i class="grid-title-dec"></i>
+					    <h3 class="grid-title-txt">优品专辑</h3>
+					    <a class="grid-title-sub">甄选优质好物<small class="grid-sub-icon"></small></a>
+					</div>
+					<div class="grid-sup">
+						<ul class="grid-pro-slider">
+							<li class="grid-pro-item">
+								<a class="grid-item-a">
+									<p class="sup-txt">穿上唯美雪纺长裙，五一海边浪</p>
+									<img class="sup-img" src="images/sup-img01.jpg">
+									<img class="sup-img" src="images/sup-img02.jpg">
+									<img class="sup-img" src="images/sup-img03.jpg">
+								</a>
+								<div class="sup-line"></div>
+								<a class="grid-item-a">
+									<p class="sup-txt">办公出差，推销员必备轻薄本推荐</p>
+									<img class="sup-img" src="images/sup-img04.jpg">
+									<img class="sup-img" src="images/sup-img05.jpg">
+									<img class="sup-img" src="images/sup-img06.jpg">
+								</a>
+							</li>
+							<li></li>
+							<li></li>
+						</ul>
+						<div class="slider-active">
+							<i class="slider-i"></i>
+							<i class=""></i>
+							<i class=""></i>
+						</div>
+						<span class="slider-icon slider-pre"><</span>
+						<span class="slider-icon slider-next">></span>
+					</div>
+				</aside>
+				<aside class="grid-c grid-c3">
+					<div class="grid-title">
+						<i class="grid-title-arrow"></i>
+						<i class="grid-title-dec"></i>
+						<h3 class="grid-title-txt">排行榜</h3>
+						<a class="grid-title-sub">网罗全民挚爱<small class="grid-sub-icon"></small></a>
+					</div>
+					<div class="grid-rank">
+						<div class="tab-nav">
+							<span class="tab-nav-cell">手机通讯</span>
+							<span class="tab-nav-cell">手机保护套</span>
+							<span class="tab-nav-cell">个护健康</span>
+							<span class="tab-nav-cell">休闲鞋</span>
+							<span class="tab-nav-cell">隐形眼镜</span>
+						</div>
+						<div class="tab-container">
+							<ul class="tab-info">
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-1">1</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-2">2</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-3">3</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-4">4</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-5">5</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+								<li class="tab-list">
+									<a class="tab-a">
+										<figure class="tab-goods">
+											<span class="tab-icon tab-icon-6">6</span>
+											<img class="goods-img" src="images/mmm.webp">
+											<figcaption class="goods-txt">强生（Johnson）新美瞳彩色隐形眼镜日抛 30片装 艾珊黑色 375度</figcaption>
+										</figure>
+									</a>
+								</li>
+							</ul>
+							<ul class="tab-info"></ul>
+							<ul class="tab-info"></ul>
+						</div>
+					</div>
+				</aside>
+			</div>
+		</section>
+
+        <!--优惠券-->
+		<div class="need-ani get-coupons">
+			<div class="w-inner coupons-inner">
+				<div class="coupons-l">
+                    <a class="coupon-entry" href="javascript:void(0)">
+                        <h3 class="coupon-entry-tit">领券中心</h3>
+                        <span class="coupon-entry-gap"></span>
+                        <p class="coupon-entry-txt coupon-entry-txt1">没抢到？</p>
+                        <p class="coupon-entry-txt coupon-entry-ti2">可以去看看更多优惠券</p>
+                        <span class="coupon_entry_btn">
+                            前往领券中心
+                            <i class="coupon_entry_btn_ico"></i>
+                        </span>
+                    </a>
+                </div>
+				<div class="coupons-r">
+                    <ul class="coupon-list">
+                        <li class="coupon-cell">
+                            <a class="coupon-a">
+                                <div class="coupon-info">
+                                    <span class="coupon-price"><i>¥</i>80</span>
+                                    <span class="coupon-desc">仅可购买家电类目下指定的个护健康商品</span>
+                                    <span class="coupon-limit">消费满500元可用</span>
+                                    <span class="coupon-more">更多好券</span>
+                                </div>
+                                <img class="coupon-img" src="images/coup.jpg">
+                            </a>
+                        </li>
+						<li class="coupon-cell">
+							<a class="coupon-a">
+								<div class="coupon-info">
+									<span class="coupon-price"><i>¥</i>80</span>
+									<span class="coupon-desc">仅可购买家电类目下指定的个护健康商品</span>
+									<span class="coupon-limit">消费满500元可用</span>
+									<span class="coupon-more">更多好券</span>
+								</div>
+								<img class="coupon-img" src="images/coup.jpg">
+							</a>
+						</li>
+						<li class="coupon-cell">
+							<a class="coupon-a">
+								<div class="coupon-info">
+									<span class="coupon-price"><i>¥</i>80</span>
+									<span class="coupon-desc">仅可购买家电类目下指定的个护健康商品</span>
+									<span class="coupon-limit">消费满500元可用</span>
+									<span class="coupon-more">更多好券</span>
+								</div>
+								<img class="coupon-img" src="images/coup.jpg">
+							</a>
+						</li>
+						<li class="coupon-cell">
+							<a class="coupon-a">
+								<div class="coupon-info">
+									<span class="coupon-price"><i>¥</i>80</span>
+									<span class="coupon-desc">仅可购买家电类目下指定的个护健康商品</span>
+									<span class="coupon-limit">消费满500元可用</span>
+									<span class="coupon-more">更多好券</span>
+								</div>
+								<img class="coupon-img" src="images/coup.jpg">
+							</a>
+						</li>
+						<li class="coupon-cell">
+							<a class="coupon-a">
+								<div class="coupon-info">
+									<span class="coupon-price"><i>¥</i>80</span>
+									<span class="coupon-desc">仅可购买家电类目下指定的个护健康商品</span>
+									<span class="coupon-limit">消费满500元可用</span>
+									<span class="coupon-more">更多好券</span>
+								</div>
+								<img class="coupon-img" src="images/coup.jpg">
+							</a>
+						</li>
+                    </ul>
+                </div>
+			</div>
+		</div>
+
+		<!--广告01-->
+		<section class="need-ani advert-rec rec1">
+			<div class="w-inner advert-inner">
+				<ul class="advert-list">
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad01.jpg">
+						</a>
+					</li>
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad02.jpg">
+						</a>
+					</li>
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad03.jpg">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!--享品质-->
+		<div class="need-ani share-quality">
+			<div class="w-inner share-inner">
+				<div class="share-title"><h3>享品质</h3></div>
+				<div class="share--container">
+					<ul class="share-list">
+						<li class="share-item share-video"></li>
+						<li class="share-item share-cell share-t1">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t2">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t3">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t4">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t5">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t6">
+							<a class="share-a">
+								<div class="share-bg">
+									<div class="share-info">
+										<h4 class="share-info-tit">新品首发</h4>
+										<p class="share-info-desc">小米手机6首发</p>
+									</div>
+								</div>
+								<img class="share-info-img" src="images/share01.jpg">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t7 share-cell">
+							<a class="share-a">
+							</a>
+						</li>
+						<li class="share-item share-cell share-t8 share-cell">
+							<a class="share-a">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--广告02-->
+		<section class="need-ani advert-rec rec2">
+			<div class="w-inner advert-inner">
+				<ul class="advert-list">
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad01.jpg">
+						</a>
+					</li>
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad02.jpg">
+						</a>
+					</li>
+					<li class="advert-item">
+						<a class="advert-a">
+							<img class="advert-img" src="images/ad03.jpg">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="http://www.zeptojs.cn/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript">
+		//banner轮播
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            loop : true,
+            autoplay: 3000,
+        });
+
+        //jd秒杀
+        var sk_list_r = new Swiper('.sk-list-r', {
+            slidesPerView : 5,
+            slidesPerGroup : 5,
+//            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            loop : true,
+//            autoplay: 3000,
+        });
+
+
+//        $(".sk-list-pic").mouseover(function(){
+//            $(this).find(".sk-list-pic-lk>img").addClass("translatey-1").removeClass("translatey-0");
+//		});
+//        $(".sk-list-pic").mouseout(function(){
+//            $(this).find(".sk-list-pic-lk>img").removeClass("translatey-1").addClass("translatey-0");
+//        });
+
+		var myMoudle = {
+			name: "haiping",
+			age: "保密",
+			sayName: function(){
+				alert(this.name);
+			},
+			setName: function(newName){
+				this.name = newName
+			},
+		};
+		myMoudle.setName("Dog");
+		myMoudle.sayName();
+
+
+		
+
+		(function(){
+			var people = {
+				people: [],
+				template: $("#people-tempalte").html(),
+				init: function(){
+					this.cacheDom();
+				},
+				cacheDom: function(){
+					this.$el = $("peopleMoudle");
+					this.$button = this.$el.find("button");
+					this.$input = this.$el.find("input");
+					this.$ul = this.$el.find("ul");
+					this.template = this.$el.find("#people-template").html();
+				},
+				render: function(){
+					Mustache.render("hi {{name}}", {name: 'will'});
+					var data = {
+						people: this.people,
+					}
+				}
+			};
+
+			people.init();
+		})()
+		var template = "dsfsdfsdfg";
+	</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+.lessnav ul {
+  width: 100px;
+  height: 100px;
+}
+/**************************************分割线*********************************************/
+.goods-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.goods-container .goods-inner {
+  position: relative;
+  overflow: hidden;
+}
+.goods-container .goods-inner .goods-header {
+  position: relative;
+  overflow: hidden;
+  height: 63px;
+  line-height: 63px;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+.goods-container .goods-inner .goods-header:after {
+  content: " ";
+  display: table;
+}
+.goods-container .goods-inner .goods-header .goods-title-l {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 60px;
+  color: #212121;
+  float: left;
+}
+.goods-container .goods-inner .goods-header .goods-title-r {
+  color: #616161;
+  float: right;
+}
+.goods-container .goods-inner .goods-header .goods-title-r .r-separator {
+  font-size: 14px;
+}
+.goods-container .goods-inner .goods-header .goods-title-r .r-separator:hover {
+  color: #ff6700;
+}
+.goods-container .goods-inner .goods-header .goods-title-r .sep {
+  color: #e0e0e0;
+  margin: 0 5px;
+}
+.goods-row {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-items: flex-start;
+}
+.goods-row .goods-preview {
+  position: relative;
+  overflow: hidden;
+  width: 495px;
+}
+.goods-row .goods-preview .preview-booth {
+  margin: 25px 50px;
+  width: 395px;
+  height: 395px;
+}
+.goods-row .goods-preview .preview-booth .imgbooth-a {
+  display: block;
+}
+.goods-row .goods-preview .preview-booth .imgbooth-a .imgbooth {
+  width: 375px;
+  height: 375px;
+  border-style: none;
+  vertical-align: top;
+}
+.goods-row .goods-preview .preview-thumb {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+}
+.goods-row .goods-preview .preview-thumb .thumb-con {
+  border: 1px solid transparent;
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+}
+.goods-row .goods-preview .preview-thumb .thumb-con .thumb-a {
+  width: 75px;
+  height: 75px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.goods-row .goods-preview .preview-thumb .thumb-con .thumb-a .thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.goods-row .goods-preview .preview-thumb .current {
+  border-color: #dcdcdc;
+}
+.goods-row .goods-property {
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.goods-row .goods-property .goods-hd {
+  position: relative;
+  overflow: hidden;
+  padding-top: 20px;
+  margin-bottom: 15px;
+}
+.goods-row .goods-property .goods-hd h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #000000;
+}
+.goods-row .goods-property .goods-hd .goods-mod-info {
+  color: #e22841;
+}
+.goods-row .goods-property .goods-sell {
+  background-color: #f5f5f5;
+  margin-bottom: 26px;
+}
+.goods-row .goods-property .goods-sell .goods-sell-price {
+  height: 55px;
+  line-height: 55px;
+  position: relative;
+  overflow: hidden;
+}
+.goods-row .goods-property .goods-sell .goods-sell-price .goods-note {
+  float: left;
+  padding-left: 10px;
+  width: 65px;
+  font-size: 12px;
+  color: #666666;
+}
+.goods-row .goods-property .goods-sell .goods-sell-price .goods-price {
+  color: #e02b41;
+  font-size: 24px;
+}
+.goods-row .goods-property .goods-sibling {
+  position: relative;
+  overflow: hidden;
+}
+.goods-row .goods-property .goods-sibling .goods-sell-type {
+  line-height: 1.5;
+}
+.goods-row .goods-property .goods-sibling .goods-note {
+  float: left;
+  padding-left: 10px;
+  width: 65px;
+  font-size: 12px;
+  line-height: 34px;
+  color: #666666;
+}
+.goods-row .goods-property .goods-sibling .goods-type .prop {
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  float: left;
+  min-width: 50px;
+  padding: 0 8px;
+  margin: 0 6px 10px 0;
+  background-color: #fff;
+  line-height: 32px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  color: #666666;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+}
+.goods-row .goods-property .goods-sibling .goods-type .selected {
+  border-color: #00c3f5;
+}

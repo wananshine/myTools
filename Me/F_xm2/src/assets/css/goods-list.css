@@ -1,0 +1,122 @@
+.lessnav ul {
+  width: 100px;
+  height: 100px;
+}
+/**************************************分割线*********************************************/
+.goods-container .goods-inner {
+  position: relative;
+  overflow: hidden;
+}
+.goods-container .goods-inner .goods-filter {
+  height: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  zoom: 1;
+}
+.goods-container .goods-inner .goods-filter .filter-bar {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 10px;
+  border-left: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #424242;
+}
+.goods-container .goods-inner .goods-filter .filter-bar:nth-of-type(1) {
+  padding-left: 0px;
+  border-left: 0px solid #e0e0e0;
+}
+.goods-container .goods-inner .goods-filter .filter-active {
+  color: #ff6700;
+}
+.goods-container .goods-inner .goods-box {
+  width: 100%;
+}
+.goods-container .goods-inner .goods-box .goods-list {
+  width: calc(1245px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell {
+  flex-grow: 0;
+  flex-basis: 1px;
+  flex-shrink: 1;
+  flex-basis: 230px;
+  width: 230px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 19px 19px 0;
+  background-color: #ffffff;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat {
+  padding: 8px;
+  border: 1px solid #f5f5f5;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-img {
+  width: 100%;
+  height: 210px;
+  display: table;
+  table-layout: fixed;
+  padding: 0;
+  margin: 0 0 5px;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-img img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-price {
+  height: 30px;
+  line-height: 30px;
+  color: #ff0036;
+  letter-spacing: normal;
+  overflow: inherit!important;
+  white-space: nowrap;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-price em {
+  float: left;
+  font-family: arial;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ff0036;
+  font-style: normal;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-price em .goods-price-icon {
+  margin-right: 2px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-name {
+  height: 40px;
+  line-height: 20px;
+  clear: both;
+  margin-bottom: 8px;
+  overflow: hidden;
+  font-size: 12px;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-name:hover {
+  color: #ff0036;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-status {
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.goods-container .goods-inner .goods-box .goods-list .goods-cell .goods-mat .goods-status .goods-disc {
+  color: #ff0036;
+}

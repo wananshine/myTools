@@ -1,0 +1,244 @@
+@import (reference) "cost.less";
+.serverContainer{
+	.serverInner{
+		.slider-wrap{
+			.por;
+			.hid;
+			.slide-list{
+				.flexbox;
+				transition: all .5s ease;
+				li{
+					.flexitem;
+				}
+			}
+			.slide-option{
+				.poa;
+				left: 0;
+				bottom: 10px;
+				width: @full;
+	            text-align: center;
+	            span{
+	            	display: inline-block;
+	            	width: 14px;
+	            	height: 14px;
+	            	border-radius: @full;
+	            	background: #ccc;
+        			margin: 0 10px;
+	            }
+	            .active{
+		            background: #09f;
+		        }
+			}
+			.slide-arrow{
+				div{
+					width: 50px;
+		            height: 100px;
+		            cursor: pointer;
+		            position: absolute;
+		            margin: auto;
+		            top: 0;
+		            bottom: 0;
+		            background: url("http://i1.bvimg.com/1949/4d860a3067fab23b.jpg") no-repeat;
+				}
+				.arrow-right{
+					transform: rotate(180deg);
+					right: 0;
+				}
+				.arrow-left{
+					left: 0;
+				}
+			}
+		}
+
+		.slider-nav{
+			.por;
+			.hid;
+			.nav-list{
+				.flexbox;
+				height: 40px;
+				background-color: rgba(0, 96, 123, 0.78);
+				color: @fff;
+				li{
+					.flexitem;
+					flex-grow: 1;
+					text-align: center;
+					line-height: 40px;
+					cursor: pointer;
+					z-index: 2;
+				}
+				.overActive{
+					color: #000;
+				}
+			}
+			.nav-active{
+				.poa;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				transition: all .5s cubic-bezier(0.4, -0.3, 0.57, 1.38);
+				height: 40px;
+				background-color: #f90;
+			}
+		}
+
+		.oddEven{
+			.flexbox;
+			.oe{
+				.flexitem;
+				flex-grow: 1;
+				text-align: center;
+			}
+		}
+
+		.floor-wrap{
+			.floor-bd{
+				.por;
+				.fb-list{
+					.fb-cell{
+						.height(40px);
+					}
+					.fb-bg(5);
+					.fb-bg(@n, @i: 0) when (@i <= @n) {
+					  .fb-Cellbg-@{i} {
+					    background-color: (@i*#4a4a4a);
+					  }
+					  .fb-bg(@n, (@i + 1));
+					}
+				}
+				.floor-tag{
+					.pof;
+					left: 10px;
+					top: 50%;
+					.translate(0, -50%);
+					.hid;
+					.height(@auto);
+					width: 50px;
+					.flexbox;
+					flex-direction: column;
+					align-items: flex-start;
+					z-index: 3;
+					//display: none;
+					.fb-tag{
+						.hid;
+						.flexitem;
+						width: @full;
+						.height(50px);
+						line-height: 50px;
+						flex-basis: auto;
+						display: block;
+						text-align: center;
+						color: @fff;
+						text-transform: uppercase;
+						margin-bottom: 10px;
+						background-color: skyblue;
+					}
+					.isTag{
+						background-color: tomato;
+					}
+				}
+			}	
+		}
+
+		.form-wrap{
+			.form-horizontal{
+			    .por;
+			    .hid;
+				padding: 45px 45px 15px;
+				.form-group{
+					.clearfix;
+					margin-bottom: 26px;
+					.control-label{
+						width: 12%;
+						float: left;
+						text-align: right;
+						margin-right: 1%;
+						box-sizing: border-box;
+						padding-top: 10px;
+					}
+					.col-sm{
+						.por;
+						zoom: 1;
+						width: calc(@full - 13%);
+						float: left;
+						.control-input{
+							.height(34px);
+							padding: 6px 12px;
+							box-sizing: border-box;
+							border: 1px solid #ccc;
+    						border-radius: 4px;
+    						outline: none;
+						    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+						    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+						    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+						    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+						    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+						}
+						textarea.control-input{
+							.height(100px);
+						}
+						.focus-input{
+							border-color: #40a9ff;
+						}
+						.explain{
+							.height(21px);
+							line-height: 18px;
+							color: @f522;
+							margin-top: 2px;
+							font-size: 14px;
+							display: none;
+						}
+					}
+					.checkbox-wrapper{
+						margin-left: 12.5%;
+						font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    					font-size: 14px;
+    					padding-left: 8px;
+    					padding-right: 8px;
+    					.agree-checkbox{
+    						.por;
+    						vertical-align: middle;
+    					}
+					}
+					.form-btn{
+						.form-btn-control{
+							.btn-primary{
+								height: 32px;
+								color: @fff;
+								font-size: 14px;
+							    background-color: #096dd9;
+							    border-color: #096dd9;
+							    box-sizing: border-box;
+							    padding: 0 15px;
+							    border-radius: 4px;
+							    border: 1px solid transparent;
+							    white-space: nowrap;
+							    outline: none;
+							    cursor: pointer;
+							    user-select: none;
+							    touch-action: manipulation;
+							    margin-left: 13.33333333%;
+							    transition: all 0.5s ease 0.5s;
+							    &:active,
+							    &:hover{
+							    	background-color: #40a9ff;
+    								border-color: #40a9ff;
+							    }
+							}
+						}
+					}
+				}
+				.has-error{
+					margin-bottom: 5px;
+					.col-sm{
+						.control-input{
+							border-color: @f522;
+						}
+						.explain{
+							display: block;
+						}
+					}				
+				}
+			}
+		}
+	}
+}

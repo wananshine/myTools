@@ -1,0 +1,186 @@
+
+
+//以下引用方法引用less文件 "会" 编译到本less文件中
+//@import "cost";
+
+//以下引用方法引用less文件 "不会" 编译到本less文件中
+@import (reference) "cost.less";
+
+
+
+/**************************************分割线*********************************************/
+
+
+.goods-container{
+  .por;
+  .hid;
+  background-color: @fff;
+  .goods-inner{
+    .por;
+    .hid;
+    .goods-header{
+      .por;
+      .hid;
+      .height(63px);
+      line-height: 63px;
+      background-color: @fff;
+      border-top: 1px solid @e0;
+      border-bottom: 1px solid @e0;
+      box-sizing: border-box;
+      &:after{
+        content: " ";
+        display: table;
+      }
+      .goods-title-l{
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 60px;
+        color: @21;
+        float: left;
+      }
+      .goods-title-r{
+        color: @61;
+        float: right;
+        .r-separator{
+          font-size: 14px;
+          &:hover{
+            color: @ff67;
+          }
+        }
+        .sep{
+          color: @e0;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+.goods-row{
+  .por;
+  .hid;
+  .flexbox;
+  align-items: flex-start;
+  .goods-preview{
+    .por;
+    .hid;
+    width: 495px;
+    .preview-booth{
+      margin: 25px 50px;
+      width: 395px;
+      height: 395px;
+      .imgbooth-a{
+        display: block;
+        .imgbooth{
+          width: 375px;
+          .height(375px);
+          border-style: none;
+          vertical-align: top;
+        }
+      }
+    }
+    .preview-thumb{
+      .por;
+      .hid;
+      .flexbox;
+      background-color: @fff;
+      .thumb-con{
+        border: 1px solid transparent;
+        .flexitem;
+        .thumb-a{
+          width: 75px;
+          height: 75px;
+          display: block;
+          .por;
+          .hid;
+          .thumb-img{
+            width: @full;
+            height: @auto;
+            display: block;
+          }
+        }
+      }
+      .current{
+        border-color: @dc;
+      }
+    }
+  }
+  .goods-property{
+    .flexitem;
+    flex-grow: 1;
+    .goods-hd{
+      .por;
+      .hid;
+      padding-top: 20px;
+      margin-bottom: 15px;
+      h1{
+        margin-bottom: 10px;
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 400;
+        color: @000;
+      }
+      .goods-mod-info{
+        color: #e22841;
+      }
+    }
+    .goods-sell{
+      background-color: @f5;
+      margin-bottom: 26px;
+      .goods-sell-price{
+        .height(55px);
+        line-height: 55px;
+        .por;
+        .hid;
+        .goods-note{
+          float: left;
+          padding-left: 10px;
+          width: 65px;
+          font-size: 12px;
+          color: @666;
+        }
+        .goods-price{
+          color: #e02b41;
+          font-size: 24px;
+        }
+      }
+    }
+    .goods-sibling{
+      .por;
+      .hid;
+      .goods-sell-type{
+        line-height: 1.5;
+      }
+      .goods-note{
+        float: left;
+        padding-left: 10px;
+        width: 65px;
+        font-size: 12px;
+        line-height: 34px;
+        color: @666;
+      }
+      .goods-type{
+        .prop{
+          .ellipsis;
+          float: left;
+          min-width: 50px;
+          padding: 0 8px;
+          margin: 0 6px 10px 0;
+          background-color: #fff;
+          line-height: 32px;
+          border: 1px solid #dcdcdc;
+          border-radius: 4px;
+          color: @666;
+          text-align: center;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 400;
+        }
+        .selected{
+          border-color: @00c3;
+        }
+      }
+    }
+  }
+}

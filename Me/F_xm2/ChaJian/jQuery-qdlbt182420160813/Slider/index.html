@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="js/slider.js"></script>
+  <script>
+
+  /**
+    ========= 基于 Jquery 幻灯片 ===========
+    options: slider_num / w / h / sliderDir
+            w: 幻灯片宽
+            h: 幻灯片高
+            slider_num: 幻灯片数量
+            sliderDir(vertical/horizontal/opacity): 幻灯片切换方式
+
+    Methods: autoPlay() : 自动播放
+
+    Events : showBtn/hideBtn : 按钮显示隐藏
+   */
+
+    $(function () {
+
+      var slider1 = new Slider();
+
+      slider1.inital('sliderBox', {
+        slider_num: 4,
+        w: 1200,
+        h: 500,
+        sliderDir: 'vertical'
+      });
+
+      slider1.autoPlay();
+
+      $(slider1).on('showBtn', function () {
+        this.btn_prev.animate({left: '10', opacity: 100}, 'fast');
+        this.btn_next.animate({right: '10', opacity: 100}, 'fast');
+      });
+      $(slider1).on('hideBtn', function () {
+        this.btn_prev.animate({left: '-30', opacity: 0}, 'fast');
+        this.btn_next.animate({right: '-30', opacity: 0}, 'fast');
+      });
+
+
+    });
+
+  </script>
+  
+
+</body>
+</html>

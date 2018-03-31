@@ -182,7 +182,6 @@
 
 			//跳转到订单页面(全部订单列表)
 			allorderCustomer(e){
-				// this.$
 				//console.log('hot:',hot,'hotid=',hot.products.id)
 				this.$router.push({ 
 					path: '../indexUser/order', 

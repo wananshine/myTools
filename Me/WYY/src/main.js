@@ -20,17 +20,17 @@ Vue.prototype.$axios = axios
 
 
 
-// 路由拦截  1
+//路由拦截  1
 // router.beforeEach((to, from, next) =>{
 //   if(to.path == '/login'){
 //     sessionStorage.removeItem('userInfo');
 //   }
 //   let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-//   // if(!userInfo && to.path != '/account/login'){
-//   //   next({ path: '/account/login' });
-//   // }else{
-//   //   next();
-//   // }        //默认可选择暂时不登录
+//   if(!userInfo && to.path != '/login'){
+//     next({ path: '/login' });
+//   }else{
+//     next();
+//   }        //默认可选择暂时不登录
 //   next();
 // })
 
@@ -63,28 +63,39 @@ Vue.prototype.$axios = axios
 //   }
 // })
 
-router.beforeEach( (to, from, next)=> {
-  if(to.meta.requireAuth){  // 判断该路由是否需要登录权限
-    var data;
-    VueResource.get('/api/login1').then((res)=>{
-      if(res.body.data.data === 1){
-        next();
-      }else{
-        next({
-          path: '/login',
-          query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-        });
-      }
-    }, (error)=>{
-      next({
-        path: '/login',
-        query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-      });
-    })
-  }else{
-    next();
-  } 
-})
+// router.beforeEach((to, from, next) => {
+//   if(to.path==='/login'){
+//     next()
+//   }else{
+//     if(to.meta.requiresAuth && !sessionStorage.getItem('accessToken')){
+//       next({
+//         path: '/login'
+//       })
+//     }else{
+//       next()
+//     }
+//   }
+// })
+
+
+
+
+// router.beforeEach( (to, from, next)=> {
+//   if(to.matched.some(record => record.meta.requiresAuth)){  // 判断该路由是否需要登录权限
+//     console.log(123)
+//     // if(store.state.token){
+//     //   next()
+//     // }else{
+//     //   next({
+//     //     path: "/login",
+//     //     query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//     //   })
+//     // }
+//   }else{
+//     console.log(456)
+//     next();
+//   } 
+// })
 
 Vue.config.productionTip = false
 

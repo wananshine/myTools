@@ -6,6 +6,7 @@ import index from '@/components/index'
 
 import home from '@/components/home/home'
 
+import login from '@/components/login'
 
 //商品列表
 import indexList from '@/components/listPage/indexList'
@@ -173,9 +174,6 @@ const routes = [
     path: '/indexUser',
     name: 'indexUser',
     component: indexUser,
-    meta: {
-      requireAuth: true
-    },
     children: [
       {
         path: '/',
@@ -191,6 +189,9 @@ const routes = [
         path: 'order',
         name: 'order',
         component: order,
+        meta: {
+          requireAuth: true
+        },
         children: [
           {
             path: '/',
@@ -211,6 +212,11 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
+  }
 ]
 
 // 后退到原来位置  && 新页面scrollTop为零
@@ -236,6 +242,8 @@ const scrollBehavior = (to, from, savedPosition) => {
 
 export default new Router({
   mode: "history",
+  hashbang: false,
+  history: true,
   routes,
   // 后退到原来位置  && 新页面scrollTop为零
   scrollBehavior(to, from, savedPosition) {
@@ -245,6 +253,9 @@ export default new Router({
            document.getElementById("hotView").scrollTo(savedPosition.x, savedPosition.y)
       }, 3)
     } else {
+      if(to.hash){
+        return {selector: to.hash}
+      }
       return { x: 0, y: 0 }
     }
   }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../src/assets/favicon.ico"/>
     <!-- <link rel="stylesheet" type="text/css" href="src/assets/css/base.css"> -->
     <title>Ping | Music商城</title>
   </head>
@@ -72,5 +73,26 @@
         //if(deviceWidth > 750) deviceWidth = 750;
         //document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
     </script>
+
+<!-- fontSize 设置方法四： -->
+<!-- <script>   
+    (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+    
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script> -->
   </body>
 </html>

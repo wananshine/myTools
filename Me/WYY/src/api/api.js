@@ -1,6 +1,9 @@
 import axios from 'axios'
 let base = '';
 
+//axios 配置
+axios.defaults.timeout = 5000;
+
 export const banners = params => {                //banners 请求
     return axios.get('/api/banners', {params: params}).then(res => {
         return res.data;
@@ -108,6 +111,10 @@ export const topay = params =>{                  // topay  待支付  请求
         reject(error)
     });
 };
+
+
+
+
 
 
 

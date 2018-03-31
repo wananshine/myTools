@@ -382,7 +382,7 @@
 		name: "",
 		data(){
 			return{
-				serverShow: false,  //更多服务弹出框
+				//serverShow: false,  //更多服务弹出框
 				moreServer: [
 					{ "s_title": "7天无理由退货", "s_txt": "该商品支持7天无理由退货，买家在商品签收日起7天内可在线发起退货申请" 	},
 					{ "s_title": "15天无忧换货" , "s_txt": "该商品支持15天无忧换货，买家在商品签收之日起15天内可在线发起换货申请" 	},
@@ -392,13 +392,16 @@
 				],//更多服务Data
 			}
 		},
-
 		props: {
 			productInfo: {
 				type: Object
 			},
 		},
-		computed: {},
+		computed: {
+			serverShow: function() {
+				return this.$store.state.serverShow;
+			}
+		},
     	watch: {
 	        //监听路由
 	        '$route' (to, from) {
@@ -421,9 +424,10 @@
 		updated(){},
 		methods: {
 			serverCustomer(){
-				console.log(123)
-				this.serverShow = !this.serverShow;
-
+				
+				console.log(123,this.$store.dispatch)
+				//this.serverShow = !this.serverShow;
+				this.$store.dispatch('server_show')
 				//e.preventDefault=true; //阻止默认事件（原生方法）
 				//e.preventDefault(); //阻止默认事件（原生方法）
 				//e.stop; //阻止冒泡（原生方法）

@@ -1,3 +1,10 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 .w-inner {
   width: 1226px;
   margin: 0 auto;
@@ -59,16 +66,6 @@
   visibility: hidden;
   display: block;
 }
-.box {
-  width: 100px;
-  height: 100px;
-  color: #000;
-  background: url("../img/test.png");
-}
-.box:after {
-  display: block;
-  content: "珠峰培训";
-}
 .lesspublic,
 .lessnav ul {
   width: 100px;
@@ -127,7 +124,7 @@
   color: orange;
 }
 .lesslist {
-  color: #ff0000;
-  border-color: #0000ff;
-  background-volor: #008000;
+  color: red;
+  border-color: blue;
+  background-volor: green;
 }

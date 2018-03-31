@@ -132,6 +132,11 @@
       })
     },
     methods: {
+
+      signin(){
+        console.log(this.$store.dispatch)
+        this.$store.dispatch('sign_in');
+      }
       
 
 //      makeActive(){

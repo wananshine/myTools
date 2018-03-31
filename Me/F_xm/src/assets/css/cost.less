@@ -2,6 +2,15 @@
 @width: 1226px;
 @auto: auto;
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+
 .w-inner{
   width: @width;
   margin:  0 auto;

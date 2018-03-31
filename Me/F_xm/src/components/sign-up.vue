@@ -70,11 +70,6 @@
 <script>
   export default {
     name: 'hello',
-    vuex: {
-        state: {
-          isHideMask : state => state.isHideMask
-        }
-    },
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
